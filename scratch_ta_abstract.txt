@@ -1,0 +1,365 @@
+=== Page 1 ===
+ 
+ 
+PERANCANGAN MANIPULATOR ARM UNTUK 
+ROBOT PELAYANAN PASIEN  
+DI RUMAH SAKIT 
+ (DESIGN OF A MANIPULATOR ARM FOR A PATIENT 
+SERVICE ROBOT IN A HOSPITAL) 
+ 
+TUGAS AKHIR  
+Disusun sebagai syarat mata kuliah Tugas Akhir 
+ Program Studi S1 Teknik Elektro 
+ 
+Disusun oleh: 
+BAYU AJI TRISASONGKO 
+1102223090 
+ 
+ 
+ 
+ 
+ 
+FAKULTAS TEKNIK ELEKTRO 
+UNIVERSITAS TELKOM 
+BANDUNG 
+2026 
+
+=== Page 2 ===
+ 
+ii 
+ 
+LEMBAR PENGESAHAN 
+TUGAS AKHIR 
+ 
+PERANCANGAN MANIPULATOR ARM UNTUK 
+ROBOT PELAYANAN PASIEN  
+DI RUMAH SAKIT 
+ (DESIGN OF A MANIPULATOR ARM FOR A PATIENT 
+SERVICE ROBOT IN A HOSPITAL) 
+ 
+Telah disetujui dan disahkan sebagai Buku Tugas Akhir 
+Program Studi Teknik Elektro 
+Fakultas Teknik Elektro 
+Universitas Telkom 
+ 
+Disusun oleh: 
+BAYU AJI TRISASONGKO 
+1102223090 
+ 
+ 
+ 
+ 
+Bandung, 14 Juli 2026 
+ 
+Pembimbing I 
+ 
+ 
+ 
+Dr. Eng. Willy Anugrah 
+Cahyadi, S.T., M.T. 
+NIP. 22850009 
+Pembimbing II 
+ 
+ 
+ 
+Ir. Ahmad Tri 
+Hanuranto, M.T. 
+NIP. 93660031 
+Dosen Pengusul 
+ 
+ 
+ 
+Dr. Eng. Willy Anugrah 
+Cahyadi, S.T., M.T. 
+NIP. 22850009 
+
+=== Page 3 ===
+ 
+ 
+iii 
+ 
+ABSTRAK 
+Efisiensi pelayanan logistik di rumah sakit merupakan faktor penting dalam 
+mengurangi beban kerja tenaga kesehatan. Sebagian besar robot pelayanan yang 
+beroperasi saat ini hanya berfungsi sebagai pengantar barang tanpa kemampuan 
+manipulasi objek secara mandiri, sehingga masih memerlukan intervensi manusia 
+untuk memuat dan mengambil barang. Penelitian ini merancang dan 
+mengimplementasikan manipulator arm 5-DOF sebagai komponen pendukung 
+robot pelayanan pasien di rumah sakit, dengan target kapasitas beban 600 gram 
+pada jangkauan kerja 400 mm. 
+Sistem mekanik dirancang menggunakan transmisi Cycloidal Gearbox cetak 
+3D berbahan PLA pada setiap sendi dengan rasio reduksi 1:50 untuk Joint 2 dan 
+1:25 untuk Joint 1, 3, dan 4, guna menghasilkan torsi keluaran yang memadai 
+sekaligus meminimalkan backlash. Seluruh sendi digerakkan oleh motor stepper 
+NEMA17 yang dikendalikan oleh mikrokontroler STM32F411CEU6. Untuk 
+memastikan posisi sendi selalu sesuai target, diterapkan sistem kendali Closed Loop 
+berbasis umpan balik sensor magnetic encoder AS5600 yang membaca posisi 
+aktual sendi melalui multiplekser I2C TCA9548A. Perhitungan Inverse Kinematics 
+dieksekusi langsung di dalam mikrokontroler, memungkinkan sistem menerima 
+perintah koordinat target dan menggerakkan lengan secara otomatis. 
+Hasil pengujian menunjukkan sistem kendali Closed Loop mampu menekan 
+rata-rata error posisi sendi dari 0,51° menjadi 0,10°, setara dengan peningkatan 
+akurasi 79,8% dibandingkan kondisi open loop. Pengujian kapasitas beban 
+membuktikan sistem beroperasi stabil pada rentang 250 gram hingga 1.000 gram, 
+melampaui target spesifikasi 600 gram. Validasi model kinematika menghasilkan 
+rata-rata error posisi ujung lengan sebesar 6,65 mm (2,03%) pada pengujian Inverse 
+Kinematics, berada di bawah batas toleransi 5% yang ditetapkan 
+ 
+Kata Kunci: Manipulator Arm, Robot Pelayanan Rumah Sakit, Cycloidal 
+Gearbox, Closed Loop Control, STM32, Inverse Kinematics, AS5600. 
+ 
+ 
+
+=== Page 4 ===
+ 
+ 
+iv 
+ 
+ABSTRACT 
+The efficiency of logistics services in hospitals is an important factor in 
+reducing the workload of healthcare personnel. Most service robots currently in 
+operation only function as autonomous delivery carriers without the ability to 
+independently manipulate objects, thus still requiring human intervention to load 
+and retrieve items. This research designs and implements a 5-DOF manipulator 
+arm as a supporting component for a patient service robot in a hospital 
+environment, with a target payload capacity of 600 grams at a working reach of 
+400 mm. 
+The mechanical system is designed using 3D-printed PLA Cycloidal Gearbox 
+transmission at each joint, with a reduction ratio of 1:50 for Joint 2 and 1:25 for 
+Joints 1, 3, and 4, to produce adequate output torque while minimizing backlash. 
+All joints are actuated by NEMA17 stepper motors controlled by an 
+STM32F411CEU6 microcontroller. To ensure joint position always corresponds to 
+the target, a Closed Loop control system is implemented based on position feedback 
+from AS5600 magnetic encoder sensors that read the actual joint position through 
+a TCA9548A I2C multiplexer. Inverse Kinematics computation is executed directly 
+within the microcontroller, enabling the system to receive target coordinate 
+commands and move the arm automatically. 
+Test results show that the Closed Loop control system successfully reduced 
+the average joint position error from 0.51° to 0.10°, equivalent to an accuracy 
+improvement of 79.8% compared to open loop conditions. Load capacity testing 
+confirmed that the system operates stably in the range of 250 grams to 1,000 grams, 
+exceeding the 600-gram specification target. Kinematic model validation yielded 
+an average end-effector position error of 6.65 mm (2.03%) in Inverse Kinematics 
+testing, both below the 5% tolerance threshold. 
+Keywords: Manipulator Arm, Hospital Service Robot, Cycloidal Gearbox, Closed 
+Loop Control, STM32, Inverse Kinematics, AS5600. 
+ 
+ 
+ 
+
+=== Page 5 ===
+ 
+ 
+v 
+ 
+KATA PENGANTAR 
+Puji syukur penulis panjatkan ke hadirat Tuhan Yang Maha Esa atas segala rahmat 
+dan karunia-Nya sehingga penulis dapat menyelesaikan tugas akhir yang berjudul 
+"Perancangan Manipulator Arm untuk Robot Pelayanan Pasien di Rumah Sakit" 
+dengan baik. Tugas akhir ini disusun sebagai salah satu syarat untuk memperoleh 
+gelar Sarjana Teknik pada Program Studi Teknik Elektro, Fakultas Teknik Elektro, 
+Universitas Telkom. 
+Penelitian ini berfokus pada perancangan, implementasi, dan validasi manipulator 
+arm dengan konfigurasi 5 Degree of Freedom (DOF) yang dirancang untuk 
+mendukung tugas penunjang pelayanan pasien di lingkungan rumah sakit. Sistem 
+yang dikembangkan menggunakan motor stepper NEMA17 yang torsinya direduksi 
+melalui Cycloidal Gearbox hasil cetak 3D berbahan PLA dengan rasio reduksi 1:25 
+dan 1:50. Untuk memastikan akurasi posisi, sistem menerapkan kendali Closed 
+Loop berbasis umpan balik sensor encoder magnetik yang dieksekusi sepenuhnya 
+oleh mikrokontroler STM32F411CEU6 secara real-time. 
+Dalam penyusunan tugas akhir ini, penulis telah melalui berbagai tahapan mulai 
+dari studi literatur, perancangan perangkat keras dan perangkat lunak, fabrikasi 
+komponen mekanik menggunakan printer 3D, perakitan sistem elektronik, 
+implementasi firmware, hingga pengujian prototipe. Seluruh proses tersebut tidak 
+terlepas dari bantuan, dukungan, serta bimbingan berbagai pihak. Oleh karena itu, 
+penulis menyadari bahwa terselesaikannya tugas akhir ini bukan hanya hasil usaha 
+pribadi, tetapi juga kontribusi dari banyak pihak yang telah membantu secara 
+langsung maupun tidak langsung. 
+Penulis menyadari bahwa tugas akhir ini masih memiliki keterbatasan dan 
+kekurangan. Oleh karena itu, penulis sangat mengharapkan kritik dan saran yang 
+membangun agar penelitian ini dapat dikembangkan lebih baik di masa yang akan 
+datang. Akhir kata, penulis berharap tugas akhir ini dapat memberikan manfaat serta 
+kontribusi dalam pengembangan teknologi robot pelayanan di bidang kesehatan, 
+khususnya sebagai langkah awal menuju sistem robot yang mampu mendukung 
+tugas penunjang perawatan pasien secara lebih mandiri dan efisien. 
+ 
+
+=== Page 6 ===
+ 
+ 
+vi 
+ 
+UCAPAN TERIMA KASIH 
+Penulis menyampaikan rasa terima kasih yang sebesar-besarnya kepada semua 
+pihak yang telah memberikan doa, dukungan, bimbingan, serta bantuan selama 
+proses penyusunan tugas akhir ini hingga dapat terselesaikan dengan baik. Dengan 
+penuh rasa hormat, penulis mengucapkan terima kasih kepada: 
+1. Allah SWT atas segala rahmat, karunia, dan kemudahan yang diberikan 
+sehingga penulis dapat menyelesaikan tugas akhir ini dengan baik. 
+2. Orang tua dan keluarga yang selalu memberikan doa, dukungan, semangat, 
+serta motivasi kepada penulis selama proses perkuliahan hingga penyusunan 
+tugas akhir ini. 
+3. Bapak Dr. Eng. Willy Anugrah Cahyadi, S.T., M.T. selaku Pembimbing I yang 
+telah memberikan arahan, bimbingan, masukan, ilmu, serta motivasi yang 
+sangat berarti dalam proses penyusunan tugas akhir ini. 
+4. Bapak Ir. Ahmad Tri Hanuranto, M.T. selaku Pembimbing II yang telah 
+memberikan saran, bimbingan, dan dukungan selama pelaksanaan penelitian. 
+5. Bang Kiki serta seluruh teman-teman tim TIFA yang telah bekerja sama, 
+memberikan bimbingan, dukungan, dan semangat selama proses perancangan 
+dan pengujian sistem secara keseluruhan. 
+6. Teman-teman Laboratorium ABIE dan teman-teman Teknik Elektro angkatan 
+2022 yang telah memberikan dukungan, bantuan, semangat, serta 
+kebersamaan selama proses penelitian dan penyusunan tugas akhir. 
+7. Para dosen dan civitas akademika Fakultas Teknik Elektro Universitas 
+Telkom yang telah memberikan ilmu, pengalaman, serta wawasan selama 
+masa perkuliahan. 
+Semoga segala bantuan, dukungan, dan kebaikan yang telah diberikan oleh semua 
+pihak mendapatkan balasan yang berlimpah dari Tuhan Yang Maha Esa. 
+ 
+ 
+ 
+
+=== Page 7 ===
+ 
+ 
+vii 
+ 
+DAFTAR ISI 
+LEMBAR PENGESAHAN .................................................................................. ii 
+ABSTRAK ............................................................................................................ iii 
+KATA PENGANTAR ........................................................................................... v 
+UCAPAN TERIMA KASIH ............................................................................... vi 
+DAFTAR ISI ........................................................................................................ vii 
+DAFTAR GAMBAR ............................................................................................. x 
+DAFTAR TABEL ............................................................................................... xii 
+BAB I PENDAHULUAN ...................................................................................... 1 
+1.1 
+Latar Belakang ....................................................................................... 1 
+1.2 
+Rumusan Masalah .................................................................................. 3 
+1.3 
+Tujuan Penelitian ................................................................................... 3 
+1.4 
+Potensi dan Segmentasi .......................................................................... 4 
+1.5 
+Batasan Masalah dan Batasan Penelitian ............................................ 5 
+1.6 
+Metode Penelitian ................................................................................... 5 
+BAB II TINJAUAN PUSTAKA ........................................................................... 7 
+2.1 
+Robot Pelayanan di Rumah Sakit ......................................................... 7 
+2.2 
+Manipulator Arm ................................................................................... 7 
+2.2.1 
+Konfigurasi Derajat Kebebasan ........................................................ 8 
+2.2.2 
+Ruang Kerja Manipulator Arm ......................................................... 9 
+2.3 
+Kinematika Manipulator ....................................................................... 9 
+2.3.1 
+Konvensi Denavit–Hartenberg ........................................................ 10 
+2.3.2 
+Forward Kinematics ........................................................................ 10 
+2.3.3 
+Inverse Kinematics .......................................................................... 11 
+2.4 
+Aktuator Motor Stepper ...................................................................... 13 
+2.4.1 
+Prinsip Kerja Karakteristik Motor Stepper ..................................... 13 
+
+=== Page 8 ===
+ 
+ 
+viii 
+ 
+2.4.2 
+Kehilangan Langkah (Step Loss) .................................................... 14 
+2.5 
+Sistem Mekanik dan Material ............................................................. 15 
+2.5.1 
+Gearbox ........................................................................................... 15 
+2.5.2 
+Backlash .......................................................................................... 17 
+2.5.3 
+Material dan Proses Cetak 3D ......................................................... 17 
+2.5.4 
+Perhitungan Torsi dan Kapasitas Beban ......................................... 18 
+2.6 
+Sistem Elektronik dan Kendali ........................................................... 19 
+2.6.1 
+Sensor Posisi dan Komunikasi ........................................................ 19 
+2.6.2 
+Kendali Posisi Berbasis Umpan Balik ............................................ 20 
+2.6.3 
+Profil Gerak S-Curve ....................................................................... 21 
+2.7 
+Penelitian Terdahulu ............................................................................ 24 
+BAB III PERANCANGAN SISTEM ................................................................ 27 
+3.1. 
+Desain Sistem ........................................................................................ 27 
+3.1.1. 
+Diagram Blok .................................................................................. 27 
+3.1.2. 
+Fungsi dan Fitur .............................................................................. 28 
+3.2. 
+Desain Perangkat Keras dan Pemodelan ........................................... 30 
+3.2.1 
+Spesifikasi Komponen .................................................................... 30 
+3.2.2 
+Dasar Pemilihan Komponen ........................................................... 38 
+3.2.3 
+Perancangan Mekanik ..................................................................... 40 
+3.2.4 
+Pemodelan Kinematika ................................................................... 46 
+3.2.5 
+Perancangan Elektronik .................................................................. 53 
+3.3. 
+Desain Perangkat Lunak ..................................................................... 56 
+3.3.1 
+Arsitektur Perangkat Lunak ............................................................ 56 
+3.3.2 
+Spesifikasi Sub Sistem .................................................................... 58 
+BAB IV HASIL DAN ANALISIS ...................................................................... 63 
+4.1. 
+Gambaran Umum Pengujian .............................................................. 63 
+
+=== Page 9 ===
+ 
+ 
+ix 
+ 
+4.2. 
+Pengujian Akurasi Joint ...................................................................... 64 
+4.2.1 
+Hasil Pengujian Tanpa Koreksi (Open Loop) ................................. 65 
+4.2.2 
+Hasil Pengujian Dengan Koreksi (Closed Loop) ............................ 66 
+4.2.3 
+Analisis Pengujian Akurasi ............................................................. 67 
+4.3. 
+Pengujian Beban ................................................................................... 69 
+4.3.1 
+Hasil Pengujian Beban .................................................................... 70 
+4.3.2 
+Hasil Pengujian Beban Open Loop ................................................. 71 
+4.3.3 
+Analisis Pengujian Beban ............................................................... 72 
+4.4. 
+Pengujian Kinematics .......................................................................... 74 
+4.4.1 
+Hasil Pengujian Inverse Kinematics ............................................... 75 
+4.4.2 
+Analisis Pengujian Kinematics ....................................................... 77 
+4.5. 
+Analisis Keseluruhan Sistem ............................................................... 77 
+BAB V SIMPULAN DAN SARAN .................................................................... 80 
+5.1. 
+Kesimpulan ........................................................................................... 80 
+5.2. 
+Saran ...................................................................................................... 81 
+DAFTAR PUSTAKA .......................................................................................... 82 
+LAMPIRAN ......................................................................................................... 86 
+  
+ 
+ 
+

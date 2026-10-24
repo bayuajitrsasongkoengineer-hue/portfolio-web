@@ -1,0 +1,725 @@
+=== Page 41 ===
+29 
+ 
+29 
+ 
+Untuk memastikan kedua fungsi tersebut berjalan secara akurat dan aman di 
+lingkungan rumah sakit, sistem mengintegrasikan tiga fitur teknis utama: 
+1. 
+Mekanisme Transmisi Cycloidal 
+Manipulator arm menerapkan sistem transmisi Cycloidal Gearbox berbahan 
+cetak 3D PLA pada setiap sendinya. Fitur ini didesain untuk memberikan rasio 
+reduksi yang tinggi dan meminimalisir celah mekanik (backlash), sehingga mampu 
+melipatgandakan torsi motor stepper sekaligus menjaga posisi struktur saat lengan 
+menahan beban. 
+2. 
+Koreksi Posisi Otomatis  
+Sistem ini mengimplementasikan algoritma Closed Loop yang memanfaatkan 
+data umpan balik dari sensor magnetic encoder pada tiap sendi. Fitur ini 
+memungkinkan mikrokontroler untuk mendeteksi dan mengoreksi posisi sudut 
+secara otomatis. 
+3. 
+Profil Gerak Halus 
+ Transisi pergerakan sudut aktuator diatur menggunakan profil kecepatan S-
+Curve, yaitu kurva akselerasi dan deselerasi yang mulus pada awal dan akhir setiap 
+gerakan. Fitur ini secara efektif meredam sentakan mekanis (jerk) saat motor mulai 
+maupun berhenti berputar, yang berisiko merusak struktur mekanik. 
+Tabel 3. 1 Spesifikasi Sistem Manipulator Arm 
+Parameter 
+Spesifikasi 
+Konfigurasi 
+Manipulator arm 5-DOF 
+Panjang jangkauan lengan ±400 mm 
+Rentang gerak tiap joint 
+−90° s.d. +90° 
+Kapasitas beban target 
+600 gram 
+Transmisi 
+Cycloidal Gearbox (rasio 1:25 dan 1:50)  
+Metode kendali 
+Closed Loop 
+ 
+
+=== Page 42 ===
+30 
+ 
+30 
+ 
+3.2. Desain Perangkat Keras dan Pemodelan 
+Perancangan perangkat keras mencakup seluruh komponen fisik yang 
+membangun sistem manipulator arm, mulai dari aktuator dan transmisi mekanik, 
+sensor umpan balik, hingga sistem elektronik pengendali. Proses perancangan 
+diawali dengan penetapan spesifikasi dan dasar pemilihan setiap komponen utama, 
+kemudian dilanjutkan dengan perancangan mekanik yang mencakup analisis torsi 
+dan dimensi transmisi, serta pemodelan kinematika yang menghubungkan geometri 
+fisik lengan dengan model matematis gerakannya. Seluruh keputusan perancangan 
+mengacu pada spesifikasi sistem yang telah ditetapkan pada Subbab 3.1.2, sehingga 
+konsistensi antara target kapasitas beban, jangkauan kerja, dan akurasi kendali 
+dapat dijamin sejak tahap perancangan hingga pengujian. 
+3.2.1  Spesifikasi Komponen 
+Manipulator arm ini dibangun dari komponen utama yang masing-masing 
+menjalankan peran spesifik dalam sistem. Pemilihan setiap komponen 
+mempertimbangkan tiga kriteria utama yaitu, kemampuan torsi yang memadai 
+untuk beban target kurang lebih 600 gram, resolusi posisi yang cukup untuk kendali 
+Closed Loop, dan kompatibilitas antar subsistem. Spesifikasi teknis lengkap setiap 
+komponen diuraikan berikut ini: 
+1. 
+Mikrokontroler STM32 
+Mikrokontroler STM32F411CEU6 berfungsi sebagai pusat kendali gerak 
+utama sistem manipulator arm. Mikrokontroler ini menerima perintah koordinat 
+Gambar 3. 2 Mikrokontroler STM32 
+
+=== Page 43 ===
+31 
+ 
+31 
+ 
+target melalui komunikasi serial, mengeksekusi perhitungan Inverse Kinematics, 
+dan menghasilkan sinyal kendali step dan direction untuk lima motor driver secara 
+bersamaan. Selain itu, STM32F411CEU6 membaca data posisi aktual dari sensor 
+encoder melalui antarmuka I2C dan menjalankan algoritma koreksi Closed Loop 
+secara real-time. 
+Tabel 3. 2 Spesifikasi Mikrokontroler STM32 
+Parameter 
+Spesifikasi 
+Model 
+STM32F411CEU6 
+Inti Prosesor 
+ARM Cortex-M4 
+Frekuensi clock 
+100 MHz 
+Memori Flash 
+512 KB 
+SRAM 
+128 KB 
+Tegangan Operasi 
+1,7–3,6 V 
+Antarmuka 
+UART, I2C, SPI, GPIO 
+ 
+2. 
+Motor Stepper NEMA17 
+Motor stepper NEMA17 merupakan aktuator penggerak pada setiap sendi 
+manipulator arm untuk menghasilkan gerakan yang presisi, terkontrol, dan berulang 
+secara konsisten. Motor ini mampu menyediakan torsi yang stabil sehingga sesuai 
+untuk tugas pelayanan pasien yang membutuhkan ketelitian tinggi dan pergerakan 
+Gambar 3. 3 Motor Stepper NEMA17 
+
+=== Page 44 ===
+32 
+ 
+32 
+ 
+halus. Setiap motor dikendalikan secara independen oleh satu unit driver TB6600 
+dan torsinya direduksi melalui Cycloidal Gearbox sebelum menggerakkan sendi. 
+Tabel 3. 3 Spesifikasi Motor Stepper NEMA17 
+Parameter 
+Spesifikasi 
+Model 
+17HS4401 
+Jenis Motor 
+Stepper bipolar 2 fasa 
+Sudut langkah 
+1,8° (200 langkah/putaran) 
+Arus 
+1,7 A per fasa 
+Holding torque 
+0,4 Nm 
+Diameter poros output 
+5 mm 
+Dimensi 
+42 mm × 42 mm 
+suhu operasi 
+80°C kenaikan di atas suhu ambien 
+ 
+3. 
+Motor Driver TB6600 
+Motor driver berfungsi menguatkan sinyal kendali bertegangan rendah dari 
+mikrokontroler menjadi arus tinggi yang dibutuhkan untuk memutar motor stepper 
+NEMA17. Mikrokontroler STM32 hanya mampu menghasilkan sinyal logika 3,3 
+V, sementara motor stepper membutuhkan tegangan dan arus jauh lebih besar agar 
+Gambar 3. 4 Motor Driver TB6600 
+
+=== Page 45 ===
+33 
+ 
+33 
+ 
+mampu menghasilkan torsi yang cukup untuk menggerakkan sendi lengan beserta 
+bebannya. Driver ini menerima sinyal step dan direction dari mikrokontroler, lalu 
+menerjemahkannya menjadi arus penggerak motor yang dapat diatur hingga 4 A 
+per fase. Selain itu, TB6600 mendukung pengaturan resolusi microstep yang 
+memungkinkan motor bergerak dalam langkah-langkah yang lebih kecil dari sudut 
+langkah dasarnya (1,8°), sehingga menghasilkan gerakan yang lebih halus dan 
+mengurangi getaran mekanik pada struktur lengan. 
+Tabel 3. 4 Spesifikasi Motor Driver TB6600 
+Parameter 
+Spesifikasi 
+Model 
+TB6600 
+Tegangan input 
+9-42 V DC 
+Arus 
+0,5-4,0 A (dapat diatur) 
+Resolusi mikrostep 
+Full, 1/2, 1/4, 1/8, 1/16, 1/32 
+Antarmuka 
+PUL (step), DIR (direction), EN (enable) 
+ 
+ 
+4. 
+Magnetic Encoder AS5600 
+Gambar 3. 5 Magnetic Encoder AS5600 
+Magnetic encoder berfungsi sebagai sensor umpan balik posisi sudut pada 
+sendi J1 hingga J4. Sensor ini mendeteksi posisi magnet yang terpasang pada poros 
+sendi, kemudian mengonversi posisi tersebut menjadi data sudut 12-bit yang 
+dikirimkan ke mikrokontroler melalui protokol I2C. Resolusi 12-bit berarti sensor 
+mampu membedakan 4.096 posisi dalam satu putaran penuh, setara dengan resolusi 
+
+=== Page 46 ===
+34 
+ 
+34 
+ 
+sudut sekitar 0,088° per langkah, yang cukup presisi untuk mendukung toleransi 
+koreksi sistem. Data posisi aktual inilah yang menjadi referensi bagi mikrokontroler 
+dalam menjalankan algoritma koreksi Closed Loop membandingkan posisi target 
+dengan posisi aktual, lalu memerintahkan motor melakukan koreksi apabila selisih 
+keduanya melebihi batas toleransi. 
+Tabel 3. 5 Spesifikasi Magnetic Encoder 
+Parameter 
+Spesifikasi 
+Model  
+AS5600 
+Resolusi 
+12-bit  
+Tegangan 
+3,3 atau 5 V 
+Antarmuka 
+I2C, PWM, Analog 
+Alamat I2C 
+0x36 
+Rentang pengukuran 
+0°–360° 
+Suhu operasi 
+−40°C hingga +125°C 
+ 
+5. 
+Multiplexer I2C TCA9548A 
+TCA9548A berfungsi sebagai komponen pemilih jalur I2C yang 
+memungkinkan mikrokontroler membaca data dari keempat sensor AS5600 secara 
+bergantian. Protokol I2C mengidentifikasi setiap perangkat melalui alamat unik, 
+namun AS5600 memiliki alamat I2C yang tetap dan identik (0x36) pada semua 
+Gambar 3. 6 Multiplexer TCA9548A 
+
+=== Page 47 ===
+35 
+ 
+35 
+ 
+unitnya sehingga tidak dapat dibedakan apabila disambungkan langsung ke satu 
+jalur bus yang sama. TCA9548A mengatasi masalah ini dengan menyediakan 
+delapan kanal I2C yang dapat diaktifkan satu per satu melalui perintah dari 
+mikrokontroler. Dengan cara ini, satu mikrokontroler dapat mengelola keempat 
+encoder sekaligus menggunakan hanya dua jalur komunikasi (SDA dan SCL). 
+Tabel 3. 6 Spesifikasi Multiplexer TCA9548A 
+Parameter 
+Spesifikasi 
+Model 
+TCA9548A 
+Jumlah kanal 
+8 kanal I2C 
+Tegangan suplai 
+1,65–5,5 V 
+Rentang alamat 
+0x70–0x77 
+Antarmuka 
+I2C 
+ 
+6. 
+ST-Link Mini Debugger 
+ST-Link Mini Debugger V2.1 WeActStudio berfungsi sebagai antarmuka 
+pemrograman dan debugging yang menghubungkan komputer pengembang dengan 
+mikrokontroler 
+STM32F411CEU6. 
+Perangkat 
+ini 
+memungkinkan 
+proses 
+pengunggahan (flashing) program  ke dalam memori flash STM32 melalui protokol 
+SWD (Serial Wire Debug) menggunakan hanya dua jalur sinyal. Selain 
+pemrograman, perangkat ini juga mendukung debugging secara real-time, sehingga 
+Gambar 3. 7 ST-Link Mini Debugger 
+
+=== Page 48 ===
+36 
+ 
+36 
+ 
+pengembang dapat memantau nilai variabel dan alur eksekusi program langsung 
+saat mikrokontroler beroperasi.  
+Tabel 3. 7 Spesifikasi ST-Link Mini Debugger 
+Parameter 
+Spesifikasi 
+Model 
+ST-Link Mini V2.1 WeActStudio 
+Antarmuka ke PC 
+USB 
+Antarmuka ke target 
+SWD (Serial Wire Debug) dan SWO 
+Tegangan target 
+3,3 V dan 5 V 
+ 
+7. 
+Power Supply 24 V DC 
+Power supply berfungsi menyediakan tegangan dan arus yang dibutuhkan 
+oleh seluruh komponen sistem. Komponen yang paling banyak mengonsumsi daya 
+adalah lima unit motor stepper NEMA17 yang dikendalikan melalui driver TB6600, 
+masing-masing motor dapat menarik arus hingga 1,7 A per fasa sehingga total 
+kebutuhan arus sistem cukup besar. Tegangan 24 V DC dipilih karena tegangan 
+yang lebih tinggi memungkinkan motor berakselerasi lebih cepat dan menghasilkan 
+torsi yang lebih stabil pada kecepatan operasi, dibandingkan apabila menggunakan 
+tegangan lebih rendah seperti 12 V. 
+Tabel 3. 8 Spesifikasi Power Supply 
+Parameter 
+Spesifikasi 
+Tegangan 
+24 V 
+Arus 
+5 A 
+Daya maksimum 
+120 W 
+Gambar 3. 8 Power Supply 24 V 
+
+=== Page 49 ===
+37 
+ 
+37 
+ 
+8. 
+Cycloidal Gearbox Cetak 3D PLA 
+Cycloidal Gearbox berfungsi sebagai transmisi mekanik pada setiap sendi 
+untuk mereduksi kecepatan putaran sekaligus melipatgandakan torsi keluaran 
+motor stepper. Mekanisme cycloidal bekerja melalui kontak menggelinding antara 
+cakram eksentrik dan cincin pin. Komponen ini dirancang khusus dan dicetak 
+menggunakan filamen PLA, memungkinkan rasio reduksi tinggi diwujudkan dalam 
+ukuran yang kompak tanpa memerlukan proses permesinan. Rasio reduksi yang 
+berbeda diterapkan pada setiap sendi guna mengakomodasi perbedaan kebutuhan 
+torsi sesuai posisinya terhadap titik beban. 
+Tabel 3. 9 Spesifikasi Gearbox 
+Parameter 
+Spesifikasi 
+Material 
+PLA (3D Cetak) 
+Tipe transmisi 
+Cycloidal 
+Rasio Reduksi 
+1:25 dan 1:50 
+ 
+ 
+Gambar 3. 9 Cycloidal Gearbox Cetak 3D 
+
+=== Page 50 ===
+38 
+ 
+38 
+ 
+3.2.2  Dasar Pemilihan Komponen 
+Pemilihan komponen didasarkan pada perbandingan antara kebutuhan sistem 
+dengan opsi yang tersedia. Berikut adalah analisis pemilihan komponen utama: 
+Tabel 3. 10 Dasar Pemilihan Komponen 
+Jenis 
+Komponen 
+Alasan Pemilihan 
+Pilihan 
+Utama 
+Alternatif 
+Pilihan 
+Mikrokontroler Sistem memerlukan komputasi real-
+time untuk Inverse Kinematics yang 
+melibatkan operasi trigonometri setiap 
+kali 
+ada 
+perintah 
+posisi 
+baru. 
+STM32F411CEU6 
+dipilih 
+karena 
+dilengkapi FPU yang memproses 
+operasi tersebut secara hardware, 
+dengan clock 100 MHz dan 512 KB 
+Flash yang mencukupi firmware 
+kendali 5 motor dan 4 encoder. 
+STM32 
+(Blackpill) 
+ 
+STM32 
+(Bluepill) 
+Motor Stepper 
+Sistem membutuhkan aktuator presisi 
+yang mampu mempertahankan posisi 
+sendi saat menahan beban statis. 
+NEMA17 17HS4401 dipilih karena 
+memiliki holding torque 40 N·cm yang 
+memadai sebagai masukan gearbox, 
+sudut langkah 1,8° untuk resolusi 
+posisi yang baik, serta dimensi 42 × 42 
+mm yang sesuai struktur lengan. 
+Nema17 
+Nema23 
+Motor Driver 
+Sistem membutuhkan driver yang 
+mampu 
+menyalurkan 
+arus 
+tinggi 
+secara stabil agar motor menghasilkan 
+torsi penuh saat beroperasi. TB6600 
+dipilih karena mampu mengeluarkan 
+TB6600 
+DRV8825 
+
+=== Page 51 ===
+39 
+ 
+39 
+ 
+arus hingga 4 A dengan margin di atas 
+kebutuhan nominal motor 1,7 A, serta 
+mendukung 
+microstep 
+1/8 
+untuk 
+gerakan yang lebih halus. 
+Sensor Posisi 
+Sistem membutuhkan sensor posisi 
+tanpa kontak mekanis agar tahan 
+keausan untuk operasi jangka panjang. 
+AS5600 dipilih karena menggunakan 
+prinsip contactless berbasis efek Hall 
+dengan 
+resolusi 
+12-bit 
+(0,088°/langkah) 
+yang 
+melampaui 
+toleransi koreksi sistem 0,2°. 
+AS5600 
+AS5048A 
+Multiplexer 
+Keempat sensor AS5600 memiliki 
+alamat I2C identik (0x36) yang tidak 
+dapat diubah sehingga diperlukan 
+komponen pemisah jalur komunikasi. 
+TCA9548A 
+dipilih 
+karena 
+menyediakan 8 kanal I2C yang dapat 
+diaktifkan 
+bergantian, 
+mengatasi 
+konflik 
+tersebut 
+sekaligus 
+menyediakan kapasitas ekspansi. 
+TCA9548A PCA9548A 
+Modul 
+Debugger 
+Pengembangan 
+firmware 
+butuh 
+kemampuan 
+flashing 
+sekaligus 
+debugging real-time saat sistem aktif. 
+ST-Link Mini V2.1 WeAct Studio 
+dipilih karena mendukung keduanya 
+via SWD dengan ukuran kompak dan 
+harga terjangkau. 
+ST-Link 
+Mini 
+Debugger 
+V2.1 
+ST-Link 
+V2 
+
+=== Page 52 ===
+40 
+ 
+40 
+ 
+Gambar 3. 10 Desain 3D Manipulator Arm 
+Power Supply 
+Sistem membutuhkan tegangan di atas 
+12 V agar torsi motor tetap tersedia 
+pada kecepatan operasi. Power supply 
+24 V 5 A dipilih karena menyediakan 
+tegangan dan arus yang mencukupi 
+seluruh komponen secara kontinu 
+tanpa siklus pengisian ulang. 
+Power 
+Supply 24 
+V DC 
+Baterai Li-
+Po 22,2 V 
+(6S) 
+Transmisi 
+Sistem 
+membutuhkan 
+transmisi 
+berrasio reduksi tinggi (1:25 dan 1:50) 
+dengan 
+backlash 
+minimal 
+dalam 
+dimensi kompak. Cycloidal Gearbox 
+cetak 
+3D 
+PLA 
+dipilih 
+karena 
+memenuhi 
+kebutuhan 
+tersebut 
+sekaligus dapat diproduksi mandiri 
+dengan 
+printer 
+3D 
+tanpa 
+biaya 
+permesinan konvensional. 
+Cycloidal 
+Planetary 
+ 
+3.2.3 Perancangan Mekanik 
+ 
+Perancangan mekanik mencakup tiga aspek utama yaitu konfigurasi fisik dan 
+dimensi struktur lengan, desain transmisi Cycloidal Gearbox, serta analisis torsi 
+statis untuk menentukan kapasitas beban teoretis sistem. Hasil analisis ini menjadi 
+
+=== Page 53 ===
+41 
+ 
+41 
+ 
+acuan batas operasional dan metrik verifikasi yang akan direferensikan pada 
+pengujian di Bab IV. 
+1. 
+Konfigurasi dan Dimensi Struktur Lengan 
+Manipulator arm 5-DOF ini tersusun dari lima sendi putar yang 
+disambungkan secara serial membentuk rantai kinematik terbuka. Joint 1 (J1) 
+merupakan sendi basis yang memutar seluruh lengan terhadap sumbu vertikal. Joint 
+2 (J2) hingga Joint 4 (J4) membentuk rantai planar pada bidang vertikal yang 
+menentukan posisi ujung lengan di ruang tiga dimensi, sedangkan Joint 5 (J5) 
+berfungsi sebagai sumbu rotasi gripper. Seluruh sendi digerakkan oleh motor 
+stepper NEMA17 yang torsinya direduksi dan diperbesar melalui Cycloidal 
+Gearbox cetak 3D PLA pada masing-masing persendian. 
+Dimensi fisik lengan ditentukan berdasarkan jangkauan kerja yang 
+ditargetkan sebesar 400 mm dari poros J2 ke ujung lengan. Nilai-nilai parameter 
+dimensi yang digunakan dalam pemodelan kinematika dan analisis mekanik 
+dirangkum pada Tabel 3.11. Parameter ini ditetapkan dari geometri desain mekanik 
+dan dikonfirmasi dari parameter kinematika pada firmware sistem. 
+Gambar 3. 11 Dimensi Struktur Lengan Manipulator 
+
+=== Page 54 ===
+42 
+ 
+42 
+ 
+Tabel 3. 11 Dimensi Struktur Lengan 
+Simbol Dimensi (mm) 
+Keterangan 
+𝑑1 
+188,78  
+Jarak base ke poros J2 
+𝑎2 
+150 
+Jarak poros J2 ke poros J3 
+𝑎3 
+150 
+Jarak poros J3 ke poros J4 
+𝑑5 
+100 
+Jarak poros J4 ke ujung J5 
+L 
+400 
+Total jangkauan kerja dari poros J2 
+ 
+2. 
+Perancangan Cycloidal Gearbox 
+Cycloidal Gearbox dirancang dan diproduksi secara mandiri menggunakan 
+filamen PLA dengan printer 3D. Pada desain ini, inner pins dikonfigurasikan secara 
+statis sebagai penahan/tumpuan (stator). Akibatnya, cakram berlobus (cycloidal 
+disc) yang digerakkan oleh poros eksentrik motor tidak dapat berputar secara bebas 
+pada porosnya, melainkan hanya bergerak translasi secara melingkar. Gerakan 
+osilasi dari lobus cakram ini kemudian mendorong cincin pasak bagian luar (outer 
+ring pins) untuk berputar bertindak sebagai komponen output transmisi. 
+Rasio reduksi (𝑅) transmisi ini ekuivalen dengan jumlah outer ring pins 
+(𝑁𝑝𝑖𝑛) dengan rumus 𝑅= 𝑁𝑝𝑖𝑛. Berdasarkan rumus tersebut, gearbox pada sistem 
+Gambar 3. 12 Struktur Internal Cycloidal Gearbox 
+
+=== Page 55 ===
+43 
+ 
+43 
+ 
+ini dirancang dengan dua nilai rasio yang berbeda sesuai kebutuhan torsi masing-
+masing sendi. Sendi J2 yang menanggung momen gravitasi terbesar dirancang 
+dengan rasio 1:50, sedangkan sendi J1, J3, dan J4 menggunakan rasio 1:25. 
+Tabel 3. 12 Rasio Reduksi Tiap Joint 
+Sendi 
+Rasio reduksi 
+Alasan Pemilihan 
+J1 
+1:25 
+Kebutuhan torsi dorong/putar yang lebih rendah. 
+J2 
+1:50 
+Menanggung momen gravitasi statis terbesar 
+J3 
+1:25 
+Kebutuhan torsi dorong/putar yang lebih rendah. 
+J4 
+1:25 
+Kebutuhan torsi dorong/putar yang lebih rendah. 
+ 
+3. 
+Perhitungan Torsi dan Kapasitas Beban Teoretis 
+Perhitungan ini bertujuan untuk menentukan kapasitas beban teoritis 
+maksimum yang dapat diangkat oleh manipulator arm, dengan J2 sebagai sendi 
+utama yang menanggung momen gravitasi seluruh lengan. Perhitungan dilakukan 
+pada kondisi terburuk (worst case) dimana lengan sepenuhnya direntangkan dalam 
+keadaan horizontal, yang menghasilkan momen gravitasi maksimum.  
+Analisis dilakukan dalam lima langkah berurutan. Pertama, perhitungan torsi 
+output setelah melewati gearbox. Kedua, menentukan titik berat lengan di atas J2 
+dimana titik ini adalah posisi ekivalen di mana seluruh berat lengan dianggap 
+terpusat. Ketiga, menentukan seberapa besar momen gravitasi dihitung dari posisi 
+dan massa setiap komponen lengan. Keempat, setelah momen gravitasi lengan 
+dihitung, momen gravitasi lengan dikurangkan dari torsi keluaran J2 untuk 
+memperoleh sisa torsi yang tersedia bagi beban. Kelima, sisa torsi dibagi dengan 
+perkalian percepatan gravitasi dan jangkauan lengan untuk memperoleh kapasitas 
+beban teoritis. 
+
+=== Page 56 ===
+44 
+ 
+44 
+ 
+Tabel 3. 13 Parameter Perhitungan Torsi dan Kapasitas Beban 
+Parameter 
+Simbol 
+Nilai 
+Sumber 
+Torsi motor 
+𝜏𝑚𝑜𝑡𝑜𝑟 
+0,40 N·m 
+Datasheet NEMA17 
+Rasio reduksi 
+J2 
+𝑅2 
+50 
+Rasio Cycloidal Gearbox J2 
+Efisiensi 
+Gearbox PLA 
+η 
+50% 
+Asumsi konservatif gesekan mekanik 
+pada PLA cetak 3D. 
+Total beban di 
+J2 
+𝑚𝑙𝑒𝑛𝑔𝑎𝑛 
+1,70 kg 
+Hasil penimbangan lengan dari poros 
+J2 ke atas (tidak termasuk Motor J2) 
+ 
+Massa Motor 
+NEMA17 
+𝑚𝑚𝑜𝑡𝑜𝑟 
+0,280 kg 
+Datasheet NEMA17 
+Massa Struktur 𝑚𝑠𝑡𝑟𝑢𝑘𝑡𝑢𝑟 
+0,860 kg 
+Selisih kalkulasi  𝑚𝑙𝑒𝑛𝑔𝑎𝑛−
+3(𝑚𝑚𝑜𝑡𝑜𝑟).  
+Konstanta 
+Gravitasi 
+g 
+9,81 m/s² 
+Percepatan gravitasi 
+ 
+Nilai efisiensi 50% pada Tabel 3.13 dipilih sebagai estimasi konservatif 
+mengacu pada karakteristik gearbox cetak 3D berbahan PLA [23][24], mengingat 
+belum tersedia data empiris yang secara spesifik mengukur efisiensi cycloidal 
+berbahan PLA cetak 3D dalam literatur yang ditinjau. 
+Torsi yang disalurkan oleh poros keluaran J2 setelah melewati Cycloidal 
+Gearbox: 
+𝜏𝑜𝑢𝑡= 𝜏𝑚𝑜𝑡𝑜𝑟× 𝑅2 × 𝜂 
+𝜏𝑜𝑢𝑡= 0,40 × 50 × 0,50 = 10,00 Nm 
+(3. 1) 
+Titik Berat (Center of Gravity) lengan keseluruhan disimbolkan dengan 
+𝐿{𝑐𝑚} dihitung sebagai rata-rata tertimbang posisi setiap komponen di sepanjang 
+sumbu horizontal terhadap poros J2. 
+
+=== Page 57 ===
+45 
+ 
+45 
+ 
+Tabel 3. 14 Perhitungan Titik Berat (CoG) Lengan terhadap Poros J2 
+Komponen 
+Massa (gr) Jarak (mm) Momen Massa 
+Motor J3 
+280  
+150 
+42.000 
+Motor J4 
+280 
+300 
+84.000 
+Motor J5 
+280 
+380 
+106.400 
+Struktur PLA (J2-J3) 286,7 
+75 
+21.502,5 
+Struktur PLA (J3-J4) 286,7 
+225 
+64.507,5 
+Struktur PLA (J4-J5) 286,7 
+347,6 
+99.656,9 
+Total 
+1700 
+ 
+418.066,9 
+ 
+Berdasarkan Tabel 3.14, titik berat (CoG) total lengan berada di: 
+𝐿𝑐𝑚=
+∑(𝑚𝑖×𝑥𝑖)
+𝑚𝑡𝑜𝑡𝑎𝑙=
+418.066,9
+1.700
+= 𝟐𝟒𝟔 mm dari poros J2 
+(3. 2) 
+Sehingga momen gravitasi total lengan adalah: 
+𝜏𝑙𝑒𝑛𝑔𝑎𝑛= 𝑚𝑡𝑜𝑡𝑎𝑙× 𝑔× 𝐿𝑐𝑚 
+𝜏𝑙𝑒𝑛𝑔𝑎𝑛= 1,70 kg × 9,81 m/s2 × 0,246 m = 𝟒, 𝟏𝟎𝟐 Nm 
+(3.3) 
+Kapasitas torsi yang tersedia untuk mengangkat objek diperoleh dengan 
+mengurangkan torsi total keluaran gearbox terhadap momen gravitasi struktur 
+lengan pada titik beratnya 𝐿𝑐𝑚. Sisa torsi tersebut dihitung sebagai berikut: 
+𝜏𝑝𝑎𝑦𝑙𝑜𝑎𝑑= 𝜏𝑜𝑢𝑡−𝜏𝑙𝑒𝑛𝑔𝑎𝑛= 10,00 −4,102 = 𝟓, 𝟖𝟗𝟖 Nm 
+(3.4) 
+Dengan ketersediaan sisa torsi sebesar 5,898 Nm, kapasitas beban maksimum 
+𝑚𝑏𝑒𝑏𝑎𝑛 pada ujung jangkauan kerja maksimal 𝐿= 0,40 m diturunkan melalui 
+persamaan: 
+𝑚𝑏𝑒𝑏𝑎𝑛= 𝜏𝑝𝑎𝑦𝑙𝑜𝑎𝑑
+𝑔× 𝐿 
+𝑚𝑏𝑒𝑏𝑎𝑛=
+5,898
+9,81 × 0,40 = 5,898
+3,924 = 𝟏, 𝟓𝟎 kg 
+(3.5) 
+

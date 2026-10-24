@@ -1,0 +1,243 @@
+=== Page 67 ===
+55 
+ 
+55 
+ 
+1. 
+Jalur Daya 
+Power supply 24 V 5 A menyuplai kelima driver TB6600 secara paralel 
+melalui terminal VCC dan GND masing-masing driver. Mikrokontroler 
+STM32F411CEU6 beserta sensor AS5600 dan multiplexer TCA9548A beroperasi 
+pada tegangan logika 3,3 V yang bersumber dari port USB komputer melalui modul 
+ST-Link, jalur 3,3 V dari ST-Link menyuplai STM32, kemudian diteruskan ke 
+sensor dan multiplexer sehingga jalur daya logika sepenuhnya terpisah dari jalur 
+daya motor agar lonjakan beban aktuator tidak mengganggu kestabilan sistem 
+kendali. 
+2. 
+Jalur Sinyal Kendali 
+Setiap driver TB6600 menerima tiga sinyal kendali dari GPIO mikrokontroler 
+yaitu PUL (pulsa langkah), DIR (arah putaran), dan EN (enable), sehingga total 
+lima belas jalur GPIO digunakan untuk mengendalikan lima motor. Sinyal EN 
+dimanfaatkan firmware untuk mengaktifkan penahanan posisi saat sendi harus diam 
+menahan beban, dan menonaktifkan arus motor saat tidak diperlukan. Koneksi 
+sinyal menggunakan konfigurasi common anode dimana seluruh terminal positif 
+(PUL+, DIR+, EN+) dihubungkan ke jalur 3,3 V, sementara GPIO mikrokontroler 
+mengendalikan 
+terminal 
+negatifnya. 
+Perintah 
+koordinat 
+target 
+diterima 
+mikrokontroler dari komputer melalui komunikasi serial UART dengan kecepatan 
+115200 bps, dan antarmuka SWD tersedia untuk pemrograman melalui ST-Link. 
+3. 
+Jalur Umpan Balik 
+Keempat sensor AS5600 pada sendi J1 hingga J4 terhubung ke 
+mikrokontroler melalui multiplexer TCA9548A pada satu bus I2C (jalur SDA 
+dan SCL). Multiplexer beralamat 0x70 dengan sensor J1 hingga J4 masing-
+masing terhubung pada kanal 0 hingga 3. Mikrokontroler mengaktifkan kanal 
+satu per satu untuk membaca posisi setiap sendi secara bergantian, kemudian 
+data posisi aktual tersebut digunakan oleh algoritma koreksi Closed Loop 
+sebagaimana dijelaskan pada Subbab 3.3. 
+
+=== Page 68 ===
+56 
+ 
+56 
+ 
+ 
+3.3. Desain Perangkat Lunak 
+Perancangan perangkat lunak bertujuan mengatur seluruh proses kendali yang 
+membuat manipulator arm dapat bergerak menuju posisi yang diminta secara 
+presisi. Perangkat lunak bertanggung jawab menerima perintah koordinat dari 
+komputer, menghitung sudut setiap sendi, menggerakkan motor secara halus, dan 
+mengoreksi posisi berdasarkan pembacaan sensor sampai sesuai target. Seluruh 
+proses ini berjalan di dalam mikrokontroler STM32F411CEU6 sebagai pusat 
+kendali sistem.  
+3.3.1 Arsitektur Perangkat Lunak 
+Perangkat lunak sistem ditulis menggunakan bahasa pemrograman C dengan 
+bantuan pustaka HAL (Hardware Abstraction Layer) dari STMicroelectronics. 
+Pustaka HAL berfungsi menyederhanakan pengaksesan perangkat keras 
+mikrokontroler, seperti pin GPIO, komunikasi I2C, dan komunikasi serial, sehingga 
+program tidak perlu mengatur register perangkat keras secara langsung. Program 
+yang telah selesai ditulis kemudian dikompilasi dan diunggah ke mikrokontroler 
+melalui perangkat ST-Link. 
+Program disusun berdasarkan pembagian tugas agar mudah dikembangkan 
+dan diperbaiki. Bagian kendali utama menangani penerimaan perintah dan 
+pengaturan alur kerja sistem, bagian kinematika menangani perhitungan Forward 
+dan Inverse Kinematics, bagian sensor menangani pembacaan encoder, dan bagian 
+komunikasi menangani pertukaran data dengan komputer melalui jalur serial.  
+Gambar 3. 17 Desain PCB Carrier Sistem Elektronik 
+
+=== Page 69 ===
+57 
+ 
+57 
+ 
+Sebelum memasuki alur kerja utama, program menginisialisasi seluruh perangkat 
+keras yang digunakan terlebih dahulu, yaitu pin GPIO, komunikasi UART, 
+komunikasi I2C, dan Timer. Setelah itu, sistem membaca posisi awal setiap sendi 
+dari encoder sebagai referensi sebelum menerima perintah apa pun. 
+Setelah inisialisasi selesai, alur kerja utama berjalan secara berulang. Sistem 
+menunggu perintah koordinat target dari komputer melalui komunikasi serial. 
+Perintah yang masuk diuraikan untuk memperoleh nilai koordinat posisi (x, y, z) 
+dan sudut orientasi. Sistem kemudian menjalankan perhitungan kinematika untuk 
+memperoleh posisi yang harus dicapai setiap sendi. Apabila posisi target berada di 
+luar jangkauan kerja lengan, sistem mengirim pesan bahwa posisi tidak dapat 
+dijangkau ke komputer, lalu kembali menunggu perintah berikutnya. Apabila posisi 
+target dapat dijangkau, sistem mengirim sudut hasil perhitungan ke komputer 
+sebagai konfirmasi, kemudian menggerakkan motor menuju sudut target 
+menggunakan profil gerak halus untuk menghindari sentakan mekanik. Setelah 
+gerakan selesai, sistem menjalankan proses koreksi untuk memastikan posisi aktual 
+sesuai dengan posisi target. 
+
+=== Page 70 ===
+58 
+ 
+58 
+ 
+ 
+ 
+3.3.2  Spesifikasi Sub Sistem 
+Perangkat lunak sistem dibagi menjadi tiga subsistem berdasarkan fungsinya, 
+yaitu subsistem masukan, subsistem pemrosesan sinyal, dan subsistem keluaran. 
+Pembagian ini memudahkan penjelasan alur data mulai dari perintah yang masuk, 
+pengolahan di dalam mikrokontroler, hingga sinyal yang dikeluarkan untuk 
+menggerakkan motor. 
+Gambar 3. 18 Diagram Alir Sistem 
+
+=== Page 71 ===
+59 
+ 
+59 
+ 
+1. 
+Subsistem Masukan 
+Subsistem ini bertanggung jawab menerima dan menguraikan perintah 
+koordinat target yang dikirim dari komputer. Komunikasi dilakukan melalui 
+antarmuka serial UART dengan kecepatan 115.200 bit per detik. Perintah dikirim 
+dalam format teks ”POS x,y,z,pitch”, dengan x, y, z adalah koordinat posisi ujung 
+lengan yang dituju, dalam satuan milimeter dan pitch adalah sudut kemiringan 
+ujung lengan terhadap bidang horizontal, dalam satuan derajat. 
+Mikrokontroler menerima perintah tersebut satu karakter demi satu karakter 
+hingga seluruh baris perintah lengkap. Setelah lengkap, program menguraikan baris 
+teks tersebut untuk memisahkan keempat nilai dan mengubahnya dari bentuk teks 
+menjadi bilangan yang dapat dihitung. Setelah nilai koordinat berhasil diuraikan, 
+sistem menjalankan perhitungan Inverse Kinematics dan memberikan respons balik 
+ke komputer. Terdapat dua kemungkinan respons: 
+• Apabila posisi target dapat dijangkau, sistem mengirim respons IK OK yang 
+disertai nilai sudut hasil perhitungan untuk keempat sendi, misalnya IK OK 
+M1:0.0 M2:18.0 M3:-84.0 M4:-24.0. 
+• Apabila posisi target berada di luar jangkauan kerja lengan, sistem mengirim 
+respons IK tidak dapat dijangkau dan tidak menjalankan gerakan apa pun. 
+ 
+2. 
+Subsistem Pemrosesan Sinyal 
+Subsistem pemrosesan sinyal merupakan inti kendali sistem. Bagian ini 
+mencakup lima proses, yaitu kalibrasi encoder, perhitungan Inverse Kinematics, 
+pembentukan profil gerak halus, algoritma koreksi posisi, dan penentuan batas 
+toleransi koreksi. 
+• Kalibrasi Encoder  
+Encoder AS5600 membaca sudut magnet relatif terhadap posisi pemasangan chip 
+pada poros. Ketika lengan dirakit, posisi 0° mekanik setiap sendi tidak selalu 
+bertepatan dengan 0° pada pembacaan mentah encoder. Oleh karena itu, setiap sendi 
+memerlukan kalibrasi awal untuk menyamakan referensi sudut antara sistem 
+mekanik dan sistem pengukuran. 
+
+=== Page 72 ===
+60 
+ 
+60 
+ 
+Prosedur kalibrasi dilakukan dengan menempatkan lengan pada posisi home, yaitu 
+seluruh sendi berada pada sudut 0° secara mekanik menggunakan busur derajat 
+sebagai acuan, kemudian mencatat nilai mentah encoder saat itu sebagai nilai offset. 
+Selain offset, arah putaran sensor juga dikalibrasi agar pembacaan sudut bertambah 
+sesuai konvensi positif sistem. Rumus konversi yang diterapkan pada setiap 
+pembacaan encoder adalah: 
+𝜃real = (𝜃raw −𝜃offset) × 𝑑enc 
+(3.22) 
+• Perhitungan Inverse Kinematics 
+Perhitungan Inverse Kinematics mengubah koordinat target (x, y, z, pitch) 
+menjadi sudut yang harus dicapai setiap sendi. Metode dan persamaan yang 
+digunakan telah diuraikan secara lengkap pada Subbab 3.2.4. Hasil perhitungan 
+berupa sudut motor untuk sendi J1 hingga J4 yang selanjutnya menjadi target 
+gerakan. 
+• Profil Gerak Halus (S-Curve) 
+Apabila motor langsung digerakkan dari keadaan diam ke kecepatan penuh, 
+akan timbul sentakan mendadak yang dapat menggetarkan dan merusak struktur 
+lengan yang terbuat dari PLA. Untuk mencegah hal ini, perangkat lunak 
+menerapkan profil kecepatan bertahap yang disebut S-Curve. Dengan profil ini, 
+motor memulai gerakan secara perlahan, mempercepat di bagian tengah, lalu 
+melambat kembali menjelang berhenti. Fungsi ini dipilih karena kecepatannya 
+berubah sangat mulus di kedua ujungnya. Pada titik awal dan titik akhir, laju 
+perubahan kecepatan bernilai nol, sehingga tidak terjadi lonjakan percepatan yang 
+menyebabkan sentakan. Profil S-Curve diterapkan pada 35% bagian awal gerakan 
+sebagai tahap percepatan dan 35% bagian akhir sebagai tahap perlambatan, 
+sedangkan 30% bagian tengah dijalankan pada kecepatan penuh. 
+• Algoritma Koreksi Posisi  
+Setelah motor menyelesaikan gerakan menuju sudut target, posisi yang 
+dicapai belum tentu tepat karena adanya faktor mekanik seperti kelenturan bahan 
+dan celah pada gearbox (backlash). Untuk mengatasi hal ini, sistem menerapkan 
+
+=== Page 73 ===
+61 
+ 
+61 
+ 
+koreksi Closed Loop, yaitu proses membandingkan posisi aktual dengan posisi 
+target lalu memperbaikinya secara berulang hingga selisihnya cukup kecil. 
+Proses koreksi berjalan sebagai berikut. Mikrokontroler membaca posisi 
+aktual sendi dari encoder, kemudian menghitung selisih (error) antara posisi target 
+dan posisi aktual. Apabila selisih tersebut lebih besar dari batas toleransi 0,2°, 
+sistem mengirim sejumlah pulsa koreksi ke motor untuk mendekatkan posisi aktual 
+ke target. Pembacaan dan koreksi ini diulang terus-menerus. Sistem menganggap 
+sendi telah stabil dan menghentikan koreksi apabila hasil pembacaan menunjukkan 
+selisih di bawah 0,2°. Selain itu, sistem menjalankan fungsi penahan posisi 
+(holding). Fungsi ini menjaga agar sendi tetap berada pada posisinya ketika lengan 
+harus diam menahan beban. 
+• Batas Toleransi 0,2° 
+Batas toleransi koreksi sebesar 0,2° ditentukan berdasarkan resolusi sensor 
+encoder AS5600 yang digunakan. Encoder ini memiliki resolusi 12-bit, yang berarti 
+satu putaran penuh (360°) dibagi menjadi 4.096 langkah pembacaan. Dengan 
+demikian, satu langkah pembacaan terkecil setara dengan: 
+Δ𝜃𝑒𝑛𝑐𝑜𝑑𝑒𝑟= 360°
+4096 = 0,088° 
+(3.23) 
+Nilai toleransi 0,2° setara dengan sekitar 2,3 kali resolusi terkecil encoder 
+tersebut. Pemilihan nilai ini mempertimbangkan dua hal. Pertama, nilai toleransi 
+tidak boleh terlalu kecil hingga mendekati resolusi encoder, sebab pembacaan 
+sensor selalu mengandung sedikit gangguan (noise) yang dapat membuat motor 
+terus-menerus berkoreksi tanpa henti di sekitar titik target. Kedua, nilai toleransi 
+tetap cukup kecil untuk menjaga ketelitian posisi sendi sesuai kebutuhan sistem. 
+Dengan demikian, nilai 0,2° merupakan keseimbangan antara ketelitian dan 
+kestabilan koreksi. 
+3. 
+Subsistem Keluaran 
+Subsistem keluaran menghasilkan sinyal kendali yang dikirim ke lima driver 
+TB6600 untuk menggerakkan motor pada setiap sendi. Setiap driver menerima tiga 
+jenis sinyal dari pin GPIO mikrokontroler, yaitu: 
+
+=== Page 74 ===
+62 
+ 
+62 
+ 
+• PUL (pulse), yaitu pulsa yang menghasilkan satu langkah putaran motor pada 
+setiap tepi naik sinyal. 
+• DIR (direction), yaitu sinyal yang menentukan arah putaran motor. 
+• EN (enable), yaitu sinyal yang mengaktifkan atau menonaktifkan arus motor. 
+Koneksi ketiga sinyal ini menggunakan konfigurasi common anode, yaitu 
+seluruh terminal positif sinyal (PUL+, DIR+, EN+) dihubungkan bersama ke 
+tegangan 3,3 V, sementara pin GPIO mikrokontroler mengendalikan terminal 
+negatifnya. Pada konfigurasi ini, motor menerima perintah ketika pin GPIO 
+memberikan logika rendah, sehingga disebut aktif rendah (active low). 
+Sinyal EN dimanfaatkan perangkat lunak untuk dua keperluan. Ketika sendi 
+harus diam menahan beban, sinyal EN diaktifkan agar motor tetap memiliki daya 
+penahan (holding). Sebaliknya, ketika sistem sedang tidak melakukan gerakan 
+(idle), arus motor dapat dinonaktifkan untuk mengurangi konsumsi daya dan 
+mencegah motor menjadi panas. 
+ 
+ 
+

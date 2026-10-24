@@ -1,0 +1,47 @@
+68 
+ 
+68 
+ 
+Gambar 4. 3 Perbandingan Rata-rata Error Pengujian Akurasi 
+Tabel 4. 4 Perbandingan Akurasi Tanpa dan Dengan Koreksi 
+Joint 
+Error Tanpa 
+Koreksi 
+(derajat) 
+Error Dengan Koreksi 
+(derajat) 
+Peningkatan (%) 
+J1 
+0,39 
+0,11 
+71,8% 
+J2 
+0,21 
+0,06 
+71,4% 
+J3 
+0,54 
+0,09 
+83,3% 
+J4 
+0,89 
+0,15 
+83,1% 
+Rata-rata 
+0,51 
+0,10 
+79,8% 
+ 
+Berdasarkan Tabel 4.4, seluruh joint mengalami perbaikan akurasi yang 
+sangat signifikan setelah sistem koreksi diaktifkan. Peningkatan akurasi tertinggi 
+dicapai oleh Joint 3 sebesar 83,3%, yang sebelumnya memiliki error cukup besar, 
+disusul oleh Joint 4 dengan peningkatan sebesar 83,1%. Secara rata-rata 
+keseluruhan, sistem Closed Loop berhasil menekan error dari 0,51° menjadi hanya 
+0,10°, atau setara dengan lonjakan performa akurasi sebesar 79,8% dihitung dari 
+perbandingan rata-rata keseluruhan error Open Loop dan error Closed Loop 
+sebelum pembulatan. 
+ 
+Gambar 4.3 memperlihatkan secara visual jarak penyimpangan yang terjadi 
+sebelum dan sesudah adanya sistem koreksi. Penurunan drastis pada grafik batang 
+hijau (dengan koreksi) membuktikan bahwa algoritma kendali umpan balik berbasis 
+sensor AS5600 terbukti tangguh dalam mengatasi ketidakakuratan mekanis. Sistem 

@@ -1,0 +1,20 @@
+69 
+ 
+69 
+ 
+Gambar 4. 5 Variasi Beban 250-1250 gram  
+Gambar 4. 4 Ilustrasi Posisi Beban 
+ini mampu mengkompensasi sisa kelonggaran pada pergerakan gearbox maupun 
+potensi slip yang umum terjadi pada motor stepper tanpa encoder. 
+4.3. 
+Pengujian Beban 
+Skenario pengujian beban dilakukan khusus pada Joint 2, karena sendi ini 
+bertindak sebagai penopang utama yang menanggung momen gaya terbesar dari 
+keseluruhan struktur lengan dan objek yang diangkat. Pengujian ini menggunakan 
+sistem koreksi posisi (Closed Loop) aktif, dengan tujuan untuk mengevaluasi 
+stabilitas akurasi dan mengetahui batas beban aman maksimum yang dapat 
+ditangani oleh robot. Pengujian dilakukan menggunakan 5 variasi beban uji, yaitu 
+250 gram, 500 gram, 750 gram, 1.000 gram, dan 1.250 gram. Setiap beban diuji 
+melintasi 7 titik sudut dengan 5 repetisi, menghasilkan total 175 data pengukuran. 
+ 
+ 

@@ -1,0 +1,40 @@
+29 
+ 
+29 
+ 
+Untuk memastikan kedua fungsi tersebut berjalan secara akurat dan aman di 
+lingkungan rumah sakit, sistem mengintegrasikan tiga fitur teknis utama: 
+1. 
+Mekanisme Transmisi Cycloidal 
+Manipulator arm menerapkan sistem transmisi Cycloidal Gearbox berbahan 
+cetak 3D PLA pada setiap sendinya. Fitur ini didesain untuk memberikan rasio 
+reduksi yang tinggi dan meminimalisir celah mekanik (backlash), sehingga mampu 
+melipatgandakan torsi motor stepper sekaligus menjaga posisi struktur saat lengan 
+menahan beban. 
+2. 
+Koreksi Posisi Otomatis  
+Sistem ini mengimplementasikan algoritma Closed Loop yang memanfaatkan 
+data umpan balik dari sensor magnetic encoder pada tiap sendi. Fitur ini 
+memungkinkan mikrokontroler untuk mendeteksi dan mengoreksi posisi sudut 
+secara otomatis. 
+3. 
+Profil Gerak Halus 
+ Transisi pergerakan sudut aktuator diatur menggunakan profil kecepatan S-
+Curve, yaitu kurva akselerasi dan deselerasi yang mulus pada awal dan akhir setiap 
+gerakan. Fitur ini secara efektif meredam sentakan mekanis (jerk) saat motor mulai 
+maupun berhenti berputar, yang berisiko merusak struktur mekanik. 
+Tabel 3. 1 Spesifikasi Sistem Manipulator Arm 
+Parameter 
+Spesifikasi 
+Konfigurasi 
+Manipulator arm 5-DOF 
+Panjang jangkauan lengan ±400 mm 
+Rentang gerak tiap joint 
+−90° s.d. +90° 
+Kapasitas beban target 
+600 gram 
+Transmisi 
+Cycloidal Gearbox (rasio 1:25 dan 1:50)  
+Metode kendali 
+Closed Loop 
+ 

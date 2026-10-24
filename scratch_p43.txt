@@ -1,0 +1,34 @@
+31 
+ 
+31 
+ 
+target melalui komunikasi serial, mengeksekusi perhitungan Inverse Kinematics, 
+dan menghasilkan sinyal kendali step dan direction untuk lima motor driver secara 
+bersamaan. Selain itu, STM32F411CEU6 membaca data posisi aktual dari sensor 
+encoder melalui antarmuka I2C dan menjalankan algoritma koreksi Closed Loop 
+secara real-time. 
+Tabel 3. 2 Spesifikasi Mikrokontroler STM32 
+Parameter 
+Spesifikasi 
+Model 
+STM32F411CEU6 
+Inti Prosesor 
+ARM Cortex-M4 
+Frekuensi clock 
+100 MHz 
+Memori Flash 
+512 KB 
+SRAM 
+128 KB 
+Tegangan Operasi 
+1,7–3,6 V 
+Antarmuka 
+UART, I2C, SPI, GPIO 
+ 
+2. 
+Motor Stepper NEMA17 
+Motor stepper NEMA17 merupakan aktuator penggerak pada setiap sendi 
+manipulator arm untuk menghasilkan gerakan yang presisi, terkontrol, dan berulang 
+secara konsisten. Motor ini mampu menyediakan torsi yang stabil sehingga sesuai 
+untuk tugas pelayanan pasien yang membutuhkan ketelitian tinggi dan pergerakan 
+Gambar 3. 3 Motor Stepper NEMA17 

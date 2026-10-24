@@ -1,0 +1,27 @@
+30 
+ 
+30 
+ 
+3.2. Desain Perangkat Keras dan Pemodelan 
+Perancangan perangkat keras mencakup seluruh komponen fisik yang 
+membangun sistem manipulator arm, mulai dari aktuator dan transmisi mekanik, 
+sensor umpan balik, hingga sistem elektronik pengendali. Proses perancangan 
+diawali dengan penetapan spesifikasi dan dasar pemilihan setiap komponen utama, 
+kemudian dilanjutkan dengan perancangan mekanik yang mencakup analisis torsi 
+dan dimensi transmisi, serta pemodelan kinematika yang menghubungkan geometri 
+fisik lengan dengan model matematis gerakannya. Seluruh keputusan perancangan 
+mengacu pada spesifikasi sistem yang telah ditetapkan pada Subbab 3.1.2, sehingga 
+konsistensi antara target kapasitas beban, jangkauan kerja, dan akurasi kendali 
+dapat dijamin sejak tahap perancangan hingga pengujian. 
+3.2.1  Spesifikasi Komponen 
+Manipulator arm ini dibangun dari komponen utama yang masing-masing 
+menjalankan peran spesifik dalam sistem. Pemilihan setiap komponen 
+mempertimbangkan tiga kriteria utama yaitu, kemampuan torsi yang memadai 
+untuk beban target kurang lebih 600 gram, resolusi posisi yang cukup untuk kendali 
+Closed Loop, dan kompatibilitas antar subsistem. Spesifikasi teknis lengkap setiap 
+komponen diuraikan berikut ini: 
+1. 
+Mikrokontroler STM32 
+Mikrokontroler STM32F411CEU6 berfungsi sebagai pusat kendali gerak 
+utama sistem manipulator arm. Mikrokontroler ini menerima perintah koordinat 
+Gambar 3. 2 Mikrokontroler STM32 

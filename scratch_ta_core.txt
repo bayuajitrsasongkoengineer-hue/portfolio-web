@@ -1,0 +1,381 @@
+=== BAB 1 ===
+--- Page 13 ---
+ 
+ 
+1 
+ 
+BAB I 
+PENDAHULUAN 
+1.1 Latar Belakang 
+Perkembangan teknologi dalam dunia kesehatan menuntut peningkatan 
+efektivitas dan efisiensi pelayanan di rumah sakit[1]. Namun, tenaga kesehatan 
+masih sering dibebani tugas-tugas rutin seperti mengambil dan memberikan obat 
+atau makanan serta memindahkan barang kebutuhan pasien[2]. Studi menunjukkan 
+bahwa pengelolaan inventaris dan alur distribusi barang yang kurang efektif turut 
+menambah beban tersebut, sekitar 20–25% waktu staf rumah sakit dihabiskan untuk 
+kegiatan manajemen inventaris, sementara perawat dapat berjalan rata-rata hingga 
+2,96 km per shift hanya di dalam unit perawatan [3][4]. Kondisi ini menurunkan 
+efisiensi pelayanan, memperlambat waktu respons, dan mengurangi fokus perawat 
+terhadap tugas-tugas yang lebih penting, sehingga diperlukan dukungan teknologi 
+untuk membantu mengurangi beban tugas yang bersifat rutin agar tenaga kesehatan 
+dapat lebih memprioritaskan pelayanan pasien [2].  
+Saat ini, berbagai sistem robotik telah dikembangkan untuk mendukung 
+aktivitas operasional di rumah sakit. Namun, banyak robot pelayanan yang ada 
+hanya berfungsi sebagai pengantar barang yang bergerak secara otonom tanpa 
+kemampuan untuk mengambil dan meletakkan barang [5]. Robot jenis ini 
+umumnya digunakan untuk mengantar obat-obatan dan peralatan medis ke titik 
+tujuan, tetapi tetap memerlukan bantuan perawat untuk memuat dan mengambil 
+barang karena tidak dilengkapi dengan manipulator arm. Keterbatasan ini membuat 
+pemanfaatan robot belum optimal untuk tugas yang membutuhkan kemampuan 
+mengambil, memegang, dan memindahkan barang di sekitar pasien .  
+Di lingkungan rumah sakit, banyak aktivitas pengambilan, pemindahan, dan 
+penyerahan barang, misalnya mengambil obat dari rak, memberikan barang 
+kebutuhan pasien seperti minuman kemasan dengan berat rata-rata hingga 600 
+gram. Tugas-tugas ini memerlukan kemampuan menjangkau dan menggenggam 
+barang dalam radius kerja tertentu, yang tidak dapat dilakukan oleh robot tanpa 
+manipulator arm  [5][6]. Penerapan manipulator arm pada robot pelayanan 
+
+--- Page 14 ---
+2 
+ 
+2 
+ 
+berpotensi mengambil alih sebagian tugas tersebut, sehingga tenaga kesehatan 
+dapat lebih memfokuskan waktu dan tenaga pada pelayanan pasien yang lebih 
+prioritas [5] [7]. 
+Meskipun teknologi robot pelayanan telah berkembang, penelitian mengenai 
+manipulator arm yang dirancang khusus untuk mendukung aktivitas di lingkungan 
+rumah sakit masih sangat terbatas[5][7]. Beberapa penelitian di Indonesia telah 
+mengembangkan robot bergerak untuk membantu pengiriman logistik kepada 
+pasien di rumah sakit, namun robot-robot ini belum dilengkapi kemampuan 
+pengambilan dan peletakan barang secara mandiri [8]. Sementara itu, penelitian 
+yang mengeksplorasi manipulator arm di lingkungan kesehatan masih berada pada 
+tahap awal [9].Sistem robotik komersial yang telah dilengkapi manipulator arm 
+umumnya ditujukan untuk sektor industri dengan lingkungan kerja yang lebih 
+terstruktur [10]. Selain itu, belum terdapat solusi yang memadukan robot pelayanan 
+dengan manipulator arm untuk menangani tugas penunjang di rumah sakit, seperti 
+pengambilan dan pemindahan barang bagi pasien maupun perawat, sehingga 
+terdapat celah penelitian yang perlu diisi melalui perancangan manipulator arm 
+yang lebih selaras dengan kebutuhan aktivitas penunjang di lingkungan rumah sakit 
+[7][11]. 
+Sebagai upaya untuk menjawab kebutuhan dan celah penelitian tersebut, 
+penelitian ini merancang sebuah manipulator arm untuk mendukung tugas-tugas 
+penunjang pada robot pelayanan pasien di rumah sakit. Manipulator arm ini 
+dirancang dengan menggunakan 5 derajat kebebasan atau Degree of Freedom 
+(DOF) agar memiliki fleksibilitas gerak yang cukup mampu untuk mengambil, 
+memindahkan, dan menyerahkan barang seperti obat atau botol minuman kemasan 
+yang diletakkan dalam area kerja robot. Penelitian ini tidak mencakup 
+pengembangan sistem penggerak roda, navigasi otonom, mekanisme pengisian 
+daya, maupun subsistem pemroses citra, sehingga fokus diarahkan pada desain, 
+implementasi, dan validasi manipulator arm sebagai salah satu komponen utama 
+dalam pengembangan robot pelayanan pasien. 
+
+--- Page 15 ---
+3 
+ 
+3 
+ 
+1.2 Rumusan Masalah 
+Berdasarkan latar belakang yang telah diuraikan, agar penelitian ini lebih 
+terarah, maka rumusan masalah dalam tugas akhir ini adalah: 
+1. Bagaimana merancang manipulator arm 5-DOF dengan sistem transmisi 
+mekanik yang mampu memenuhi kebutuhan kapasitas beban dan jangkauan 
+kerja untuk mendukung tugas penunjang pelayanan pasien di rumah sakit? 
+2. Bagaimana merancang sistem kendali berbasis umpan balik posisi sehingga 
+manipulator arm dapat bergerak menuju posisi yang diperintahkan secara 
+akurat? 
+3. Bagaimana mengimplementasikan dan memvalidasi model kinematika pada 
+manipulator arm sehingga sistem dapat memetakan antara sudut sendi dan 
+koordinat posisi ujung lengan di ruang kerja? 
+1.3 Tujuan Penelitian 
+Berdasarkan rumusan masalah yang telah diuraikan, tujuan dalam tugas akhir 
+ini adalah sebagai berikut: 
+1. Merancang manipulator arm 5-DOF dengan sistem transmisi mekanik yang 
+mampu bergerak ke titik target dalam jangkauan kerja minimal 40 cm dengan 
+kapasitas beban target 600 gram untuk mendukung tugas penunjang pelayanan 
+pasien. 
+2. Merancang sistem kendali berbasis umpan balik posisi agar manipulator arm 
+dapat mencapai posisi target yang diperintahkan dengan error posisi sendi di 
+bawah 1° melalui mekanisme koreksi otomatis. 
+3. Mengimplementasikan dan memvalidasi model kinematika pada manipulator 
+arm sehingga sistem dapat memetakan antara sudut sendi dan koordinat posisi 
+ujung lengan dengan persentase error di bawah 5%. 
+
+--- Page 16 ---
+4 
+ 
+4 
+ 
+1.4 Potensi dan Segmentasi 
+Penelitian ini memiliki potensi yang besar karena menjawab masalah nyata, 
+yaitu beban kerja perawat yang berat serta kondisi robot rumah sakit saat ini yang 
+kebanyakan hanya bisa mengantar barang. Sebagai solusinya, penelitian ini 
+merancang manipulator arm dengan 5 derajat kebebasan (DOF), jangkauan 40 cm, 
+dan kekuatan angkat 600 gram, agar robot bisa mengambil dan meletakkan barang 
+sendiri. Keunggulan utama dari sistem ini adalah menjadikan robot lebih berguna 
+karena tidak hanya sekadar berjalan, tetapi juga bisa membantu pekerjaan fisik. Hal 
+ini akan meringankan tugas rutin perawat, sehingga mereka memiliki lebih banyak 
+waktu untuk fokus merawat pasien. 
+Target pengguna utama sistem ini adalah tenaga kesehatan, khususnya perawat 
+yang bertugas di ruang rawat inap rumah sakit umum maupun swasta. Secara 
+geografis, sistem ini relevan untuk diterapkan di lingkungan indoor yang terstruktur 
+seperti bangsal perawatan, ruang isolasi, atau lorong unit perawatan. Dalam 
+skenario penggunaan, sistem ini memungkinkan perawat menyerahkan tugas fisik 
+berulang seperti mengambil dan meletakkan obat, peralatan medis ringan, atau 
+kebutuhan pasien kepada robot, sehingga mengurangi risiko kontak fisik langsung 
+di lingkungan dengan potensi infeksi tinggi. Profil institusi yang menjadi sasaran 
+mencakup layanan kesehatan yang berorientasi pada efisiensi operasional dan 
+pemanfaatan teknologi robotika dalam alur kerja harian. Berdasarkan data Badan 
+Pusat Statistik yang bersumber dari Kementerian Kesehatan, jumlah rumah sakit 
+umum dan rumah sakit khusus di Indonesia pada tahun 2025 tercatat sebanyak 
+3.284 unit yang tersebar di seluruh provinsi [12]. Besarnya jumlah fasilitas 
+kesehatan ini menunjukkan skala potensi penerapan sistem robot pelayanan 
+berbasis manipulator arm di lingkungan rumah sakit dalam negeri. Dalam jangka 
+panjang, sistem ini dirancang untuk diintegrasikan dengan platform robot beroda 
+dan subsistem pemroses citra sebagai bagian dari pengembangan robot pelayanan 
+pasien yang lebih mandiri dan komprehensif. 
+Estimasi biaya pengerjaan prototipe sistem manipulator arm ini secara 
+keseluruhan mencapai sekitar Rp3.026.000, mencakup komponen elektronik, 
+aktuator, sensor, material cetak 3D, serta komponen mekanik pendukung. Biaya ini 
+
+--- Page 17 ---
+5 
+ 
+5 
+ 
+merupakan perkiraan yang dibutuhkan untuk membangun satu unit prototipe pada 
+tahap penelitian. Pengembangan lebih lanjut menuju produk yang siap digunakan 
+di lingkungan klinis akan memerlukan peningkatan material dan komponen yang 
+berdampak pada penyesuaian biaya produksi. 
+1.5 Batasan Masalah dan Batasan Penelitian 
+Penelitian ini memiliki beberapa batasan yang perlu dipahami agar ruang 
+lingkup penelitian tetap terfokus dan sesuai dengan tujuan yang ingin dicapai. 
+Adapun batasan masalah yang diterapkan dalam penelitian ini adalah sebagai 
+berikut: 
+1. Penelitian ini difokuskan secara spesifik pada perancangan, implementasi, dan 
+validasi manipulator arm dengan konfigurasi 5 DOF. Subsistem lain seperti 
+sistem penggerak, navigasi otonom, serta pendeteksian dan klasifikasi objek 
+merupakan bagian dari rencana pengembangan lanjutan yang tidak termasuk 
+dalam cakupan penelitian ini. 
+2. Perancangan mekanisme gripper tidak termasuk dalam ruang lingkup 
+penelitian ini. Joint 5 dirancang sebagai sumbu rotasi gripper, namun desain 
+dan implementasi 
+gripper 
+merupakan kajian lanjutan yang dapat 
+dikembangkan pada penelitian berikutnya. 
+3. Sistem manipulator arm diuji dalam kondisi terpasang pada meja dengan 
+platform yang diam. Integrasi ke dalam platform robot pelayanan pasien yang 
+lebih komprehensif merupakan rencana pengembangan lanjutan di luar ruang 
+lingkup penelitian ini. 
+4. Pengujian kinematika dilakukan pada kuadran pertama ruang kerja dengan 
+koordinat X, Y, dan Z bernilai positif, menggunakan rentang sudut operasional 
+setiap sendi sebesar -90° hingga +90° 
+1.6 Metode Penelitian 
+Metode penelitian yang digunakan dalam penyelesaian Tugas Akhir ini 
+meliputi beberapa tahapan sistematis. Adapun langkah-langkah yang dilakukan 
+pada setiap pendekatannya adalah sebagai berikut: 
+
+--- Page 18 ---
+6 
+ 
+6 
+ 
+1. Studi Literatur 
+Tahap ini dilakukan dengan mempelajari referensi dari buku, jurnal ilmiah, 
+dan datasheet komponen yang berkaitan dengan kinematika manipulator robot, 
+sistem transmisi mekanik, kendali posisi berbasis umpan balik, serta penelitian 
+terdahulu mengenai manipulator arm untuk aplikasi robot pelayanan. 
+2. Perancangan Sistem  
+Tahap ini mencakup perancangan perangkat keras dan perangkat lunak 
+sistem. Perancangan perangkat keras meliputi desain konfigurasi mekanik, 
+sistem transmisi, pemodelan kinematika, serta rangkaian elektronik 
+pengendali. Perancangan perangkat lunak meliputi algoritma kendali posisi dan 
+komunikasi antara komputer dan mikrokontroler. 
+3. Implementasi dan Fabrikasi 
+Tahap ini adalah realisasi fisik dari rancangan yang telah dibuat, meliputi 
+produksi komponen mekanik, perakitan elektronik, dan pengunggahan 
+perangkat lunak ke dalam mikrokontroler. 
+4. Pengujian 
+Tahap ini adalah pengujian langsung terhadap prototipe yang telah dirakit, 
+meliputi pengujian akurasi posisi sendi, pengujian kapasitas beban, serta 
+verifikasi model kinematika terhadap posisi fisik aktual ujung lengan. 
+ 
+ 
+
+=== BAB 5 (KESIMPULAN & SARAN) ===
+--- Page 90 ---
+78 
+ 
+78 
+ 
+Rata-rata error posisi sendi pada kondisi Closed Loop sebesar 0,10° dan error 
+posisi ujung lengan sebesar 6,65–8,11 mm merupakan dua ukuran yang mengukur 
+hal berbeda sehingga tidak dapat dijumlahkan secara langsung. Error sendi 0,10° 
+mengukur seberapa tepat motor mencapai sudut yang diperintahkan. Apabila 
+kontribusi error ini diperhitungkan terhadap posisi ujung lengan menggunakan 
+persamaan 𝛿𝑖= 𝐿𝑖⋅sin(Δ𝜃𝑖), dengan 𝐿𝑖adalah panjang lengan efektif dari sendi 
+ke-𝑖 hingga ujung lengan dan Δ𝜃𝑖adalah MAE Closed Loop per sendi dari Tabel 
+4.3, diperoleh: 
+𝛿𝐽1 = 400 × sin(0, 11∘) = 0,77 mm
+𝛿𝐽2 = 400 × sin(0, 06∘) = 0,42 mm
+𝛿𝐽3 = 250 × sin(0, 09∘) = 0,39 mm
+𝛿𝐽4 = 100 × sin(0, 15∘) = 0,26 mm
+ 
+Akumulasi dari keempat sendi menggunakan metode root sum of squares: 
+𝛿kendali = √0, 772 + 0, 422 + 0, 392 + 0, 262 = 0,99 mm 
+Nilai ini menunjukkan bahwa error kendali sendi hanya berkontribusi 0,99 
+mm atau sekitar 13% dari total error end-effector. Sumber dominan berasal dari 
+faktor-faktor fisik mekanik berikut ini. 
+2. Toleransi Hasil Cetak Mekanik 
+Keterbatasan kepresisian dari mesin cetak 3D printer tetap menyisakan 
+sedikit celah toleransi gesekan di dalam gearbox seperti profil cakram sikloidal dan 
+pin memiliki sisa celah mekanis agar perputaran roda gigi tidak macet. Ketika 
+lengan memanjang secara penuh, sisa celah dari keempat sendi ini akan saling 
+merambat dan terakumulasi, yang secara fisik menyumbang penyimpangan pada 
+ujung dari. 
+3. Pergeseran Perakitan dan Pengukuran 
+Ketidakpresisian pada proses perakitan komponen secara manual turut 
+menyumbang selisih jarak, seperti kemiringan posisi pemasangan brushnut/insert 
+nut saat proses pemanasan menggunakan solder, penempatan bracket motor, hingga 
+toleransi pada lubang baut serta pengukuran titik koordinat yang dilakukan secara 
+
+--- Page 91 ---
+79 
+ 
+79 
+ 
+manual menggunakan penggaris, di mana faktor penglihatan mata manusia rentan 
+menyumbang bias pada data akhir. 
+4. Kelonggaran Aksial Poros Motor J5 
+Pengukuran langsung pada poros motor J5 menunjukkan bahwa poros dapat 
+bergeser secara aksial sepanjang 3,4 mm  dari posisi masuk penuh 11,7 mm hingga 
+posisi keluar penuh 15,1 mm  sehingga axial play terukur sebesar ±1,7 mm. 
+Pergeseran ini mengubah panjang efektif 𝑑5secara dinamis setiap kali lengan 
+bergerak ke konfigurasi yang berbeda, tergantung arah dan besar gaya yang bekerja 
+pada poros. Berdasarkan verifikasi menggunakan perhitungan, pergeseran poros 
+sebesar ±1,7 mm menghasilkan pergeseran posisi ujung lengan sebesar 3,40 mm 
+yang konsisten pada seluruh konfigurasi P1–P5. Kontribusi ini merupakan sumber 
+terbesar kedua dari total error end-effector yang terukur. 
+ 
+
+--- Page 92 ---
+ 
+ 
+80 
+ 
+BAB V 
+SIMPULAN DAN SARAN 
+5.1. 
+Kesimpulan 
+Berdasarkan hasil perancangan, implementasi, dan pengujian yang telah 
+dilakukan, diperoleh simpulan sebagai berikut: 
+1. 
+Manipulator arm 5-DOF dengan sistem transmisi Cycloidal Gearbox cetak 
+3D PLA berhasil dirancang dan diimplementasikan. Analisis torsi 
+menunjukkan kapasitas beban teoretis sebesar 1,50 kg pada jangkauan kerja 
+400 mm, melampaui target spesifikasi awal sebesar 600 gram. Hasil 
+pengujian beban membuktikan sistem mampu beroperasi secara stabil pada 
+rentang beban 250 gram hingga 1.000 gram dengan rata-rata error posisi sendi 
+sebesar 0,08°, sehingga target kapasitas beban 600 gram terpenuhi dengan 
+margin yang memadai. Efisiensi transmisi aktual gearbox PLA diperoleh 
+sebesar 40,1% berdasarkan perhitungan balik dari hasil pengujian beban, 
+lebih rendah dari asumsi perancangan sebesar 50%. 
+2. 
+Sistem kendali berbasis umpan balik posisi berhasil dirancang dan 
+diimplementasikan pada manipulator arm. Pengujian akurasi posisi sendi 
+menunjukkan bahwa sistem Closed Loop mampu menekan rata-rata error 
+absolut dari 0,51° pada kondisi Open Loop menjadi 0,10° dengan error 
+maksimum sebesar 0,20° pada seluruh sendi, setara dengan peningkatan 
+akurasi sebesar 79,8%. Nilai error maksimum 0,20° berada jauh di bawah 
+target akurasi 1° yang ditetapkan, sehingga tujuan penelitian kedua 
+dinyatakan tercapai.  
+3. 
+Model kinematika berhasil diimplementasikan dan divalidasi pada 
+manipulator arm. Hasil pengujian Inverse Kinematics menghasilkan rata-rata 
+error posisi sebesar 6,65 mm dengan persentase error 2,03%. Kedua nilai 
+persentase error tersebut berada di bawah target 5% yang ditetapkan, sehingga 
+model kinematika yang dibangun terbukti konsisten dengan perilaku gerak 
+fisik lengan. 
+ 
+
+--- Page 93 ---
+81 
+ 
+81 
+ 
+5.2. 
+Saran 
+Berdasarkan hasil penelitian yang telah dilakukan, beberapa pengembangan 
+yang dapat dilakukan pada penelitian selanjutnya adalah sebagai berikut: 
+1. 
+Merancang dan mengimplementasikan mekanisme gripper sebagai end-
+effector pada Joint 5 sehingga manipulator arm dapat melaksanakan tugas 
+pick and place secara fisik secara penuh. Perancangan gripper dapat 
+dikembangkan sebagai topik penelitian tersendiri yang mencakup pemilihan 
+jenis aktuator, desain mekanik, dan sistem kendali genggaman sesuai 
+karakteristik objek yang ditangani.  
+2. 
+Menambahkan sistem pendingin pada area dudukan motor, misalnya berupa 
+lubang ventilasi yang lebih luas atau penambahan heat sink, guna mencegah 
+akumulasi panas yang dapat menyebabkan deformasi komponen struktural 
+berbahan PLA selama operasi dengan beban tinggi secara berkelanjutan.  
+3. 
+Mengganti material komponen struktural dan Cycloidal Gearbox dari PLA 
+cetak 3D menjadi material yang lebih kuat dan tahan panas, seperti aluminium 
+hasil permesinan CNC, guna meningkatkan kekakuan struktur, kapasitas 
+beban operasional, dan ketahanan terhadap deformasi termal.  
+4. 
+Mengintegrasikan manipulator arm ke dalam platform robot mobile sebagai 
+bagian dari sistem robot pelayanan pasien yang lebih komprehensif, sehingga 
+sistem dapat bergerak secara otonom menuju pasien dan melaksanakan tugas 
+penunjang pelayanan secara mandiri.  
+5. 
+Mengintegrasikan subsistem pemroses citra untuk mendeteksi dan 
+menentukan koordinat posisi objek secara otomatis, sehingga manipulator 
+arm tidak lagi bergantung pada koordinat yang dimasukkan secara manual 
+melalui komunikasi serial. 
+
+--- Page 94 ---
+ 
+ 
+82 
+ 
+DAFTAR PUSTAKA 
+[1] 
+MISEL, “Robot Medis di Dunia Kesehatan: Tujuan Hingga Etika dalam 
+Penggunaannya.” 2025. 
+[2] 
+M. Tietze and S. Mcbride, “ROBOTICS AND THE IMPACT ON 
+NURSING PRACTICE Case Study and Pilot Site Analyses,” 2020. 
+[3] 
+Tushar Dasgupta, “Supply chain automation in healthcare: Transforming 
+logistics for enhanced patient care,” World Journal of Advanced Research 
+and Reviews, vol. 26, no. 1, pp. 1493–1500, Apr. 2025, doi: 
+10.30574/wjarr.2025.26.1.1223. 
+[4] 
+B. Obeidat, M. B. Younis, and E. Al-Shlool, “Investigations into the impact 
+of nursing unit layout on critical care nurses,” Heliyon, vol. 8, no. 2, Feb. 
+2022, doi: 10.1016/j.heliyon.2022.e08929. 
+[5] 
+C. Ohneberg et al., “Assistive robotic systems in nursing care: a scoping 
+review,” BMC Nurs., vol. 22, no. 1, Dec. 2023, doi: 10.1186/s12912-023-
+01230-y. 
+[6] 
+J. Miseikis et al., “Lio-A Personal Robot Assistant for Human-Robot 
+Interaction and Care Applications,” IEEE Robot. Autom. Lett., vol. 5, no. 
+4, pp. 5339–5346, Oct. 2020, doi: 10.1109/LRA.2020.3007462. 
+[7] 
+B. Wang, S. Chen, and G. Xiao, “Advancing healthcare through mobile 
+collaboration: a survey of intelligent nursing robots research,” 2024, 
+Frontiers Media SA. doi: 10.3389/fpubh.2024.1368805. 
+[8] 
+A. Yuniawan, M. Rois, I. A. Sulistijono, A. R. Barakbah, and Z. Arief, 
+“Sistem Navigasi dari Holonomic Mobile Robot untuk Membantu Tenaga 
+Kesehatan dalam Pengiriman Logistik kepada Pasien,” vol. 6, no. 2, p. 
+2021, [Online]. Available: https://ourworldindata.org/covid-deaths. 
+[9] 
+H. Afrisal, A. Didik Setiyadi, A. Riyadi, R. Ismail, O. Toirov, and I. 
+Setiawan, “Performance Analysis of 4-DOF RPRR Robot Manipulator 
+Actuation Strategy for Pick and Place Application in Healthcare 
+Environment,” vol. 12, no. 6, 2022. 
+

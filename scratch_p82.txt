@@ -1,0 +1,51 @@
+70 
+ 
+70 
+ 
+Gambar 4. 6 Grafik Error dan Batas Pengujian Beban 
+4.3.1 Hasil Pengujian Beban 
+Untuk mengetahui sejauh mana pengaruh penambahan massa objek terhadap 
+performa lengan robot, data hasil pengujian akurasi Joint 2 pada berbagai variasi 
+beban direkapitulasi secara rinci pada Tabel 4.5 berikut. 
+Tabel 4. 5 Hasil Pengujian Dengan Variasi Beban 
+Beban (g) 
+N 
+Rata-rata Error 
+(derajat) 
+Error Maksimum 
+(derajat) 
+% Error 
+250 
+35 
+0,09 
+0,20 
+0,19% 
+500 
+35 
+0,08 
+0,20 
+0,18% 
+750 
+35 
+0,07 
+0,30 
+0,16% 
+1000 
+35 
+0,07 
+0,30 
+0,15% 
+Rata-rata 
+- 
+0,08 
+0,25 
+0,17% 
+ 
+Berdasarkan data pada Tabel 4.5, akurasi pergerakan Joint 2 terbukti sangat 
+stabil pada rentang beban 250 gram hingga 1.000 gram. Rata-rata error absolut pada 
+seluruh variasi beban tersebut berada pada kisaran 0,07° hingga 0,09°, dengan error 
+maksimum secara umum tidak melampaui 0,30°. Namun, saat beban ditingkatkan 
+menjadi 1.250 gram, lengan robot mengalami kegagalan mekanis berupa jatuhnya 
+struktur karena aktuator tidak lagi mampu menahan momen gaya dari beban. Tren 
+kestabilan dan titik kegagalan ini dapat diamati lebih jelas melalui visualisasi grafik 
+pada Gambar 4.6.  
