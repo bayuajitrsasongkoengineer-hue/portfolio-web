@@ -282,8 +282,8 @@ export default function LineFollowerCaseStudy() {
         <a href="/projects/krai-2025" className="cs-nav-btn secondary">
           <ArrowLeft size={16} /> Previous: KRAI Robot Basketball
         </a>
-        <a href="/#projects" className="cs-nav-btn">
-          Back to All Projects <ArrowRight size={16} />
+        <a href="/projects/sumo-robot" className="cs-nav-btn">
+          Next: Bluetooth Sumo Robot <ArrowRight size={16} />
         </a>
       </div>
 

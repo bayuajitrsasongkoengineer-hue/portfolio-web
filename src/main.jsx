@@ -14,6 +14,7 @@ import ManipulatorCaseStudy from './ManipulatorCaseStudy';
 import SolarCoolingCaseStudy from './SolarCoolingCaseStudy';
 import KRAICaseStudy from './KRAICaseStudy';
 import LineFollowerCaseStudy from './LineFollowerCaseStudy';
+import SumoRobotCaseStudy from './SumoRobotCaseStudy';
 
 // ══ SPATIAL EFFECTS ══════════════════════════════════════════════════════════
 
@@ -999,6 +1000,15 @@ function App() {
       <>
         <FigmaHeader />
         <LineFollowerCaseStudy />
+        <Footer />
+      </>
+    );
+  }
+  if (slug === 'sumo-robot') {
+    return (
+      <>
+        <FigmaHeader />
+        <SumoRobotCaseStudy />
         <Footer />
       </>
     );
