@@ -12,6 +12,7 @@ import './figma.css';
 import './casestudy.css';
 import ManipulatorCaseStudy from './ManipulatorCaseStudy';
 import SolarCoolingCaseStudy from './SolarCoolingCaseStudy';
+import KRAICaseStudy from './KRAICaseStudy';
 
 // ══ SPATIAL EFFECTS ══════════════════════════════════════════════════════════
 
@@ -185,9 +186,10 @@ const projects = [
     prototype: 'Fabricated chassis and linkage structures in the EIRRG lab at Telkom University, conducting rigorous field testing on regulation-size competition courts.',
     test: 'Team ROOBICS successfully qualified through regional preliminaries and advanced to the National KRAI 2025 stage at ITB Jatinangor.',
     metrics: [
-      ['NATIONAL', 'Advanced to National KRAI Stage (ITB Jatinangor)'],
-      ['DRIBBLE & SHOOT', 'Core mechanical design & fabrication responsibility'],
-      ['TEAM ROOBICS', 'EIRRG Telkom University robotics team']
+      ['6–7 METERS', 'High-speed basketball shooting range'],
+      ['5–6 BAR', 'Pneumatic dribble & feeder pressure'],
+      ['3× RS775', 'Tri-roller pulley-coupled shooter motors'],
+      ['NATIONAL', 'Advanced to National Stage at ITB Jatinangor']
     ],
     note: 'Verified from official KRAI 2025 Certificate of Participation & Team ROOBICS documentation.'
   },
@@ -978,6 +980,15 @@ function App() {
       <>
         <FigmaHeader />
         <SolarCoolingCaseStudy />
+        <Footer />
+      </>
+    );
+  }
+  if (slug === 'krai-2025') {
+    return (
+      <>
+        <FigmaHeader />
+        <KRAICaseStudy />
         <Footer />
       </>
     );
