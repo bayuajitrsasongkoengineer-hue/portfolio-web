@@ -204,7 +204,7 @@ export default function SolarCoolingCaseStudy() {
                   <td>30.1°C (±0.2)</td>
                   <td>9.0 minutes</td>
                   <td>25.2°C</td>
-                  <td><strong style={{ color: '#16A34A' }}>100% Autonomous</strong></td>
+                  <td><strong style={{ color: '#16A34A' }}>Verified Autonomous</strong></td>
                 </tr>
                 <tr>
                   <td><strong>Trial 2</strong></td>
@@ -212,7 +212,7 @@ export default function SolarCoolingCaseStudy() {
                   <td>30.3°C</td>
                   <td>10.0 minutes</td>
                   <td>25.1°C</td>
-                  <td><strong style={{ color: '#16A34A' }}>100% Autonomous</strong></td>
+                  <td><strong style={{ color: '#16A34A' }}>Verified Autonomous</strong></td>
                 </tr>
                 <tr>
                   <td><strong>Trial 3</strong></td>
@@ -220,7 +220,7 @@ export default function SolarCoolingCaseStudy() {
                   <td>30.2°C</td>
                   <td>9.5 minutes</td>
                   <td>25.0°C</td>
-                  <td><strong style={{ color: '#16A34A' }}>100% Autonomous</strong></td>
+                  <td><strong style={{ color: '#16A34A' }}>Verified Autonomous</strong></td>
                 </tr>
                 <tr className="cs-table-highlight">
                   <td><strong>AVERAGE</strong></td>
@@ -228,7 +228,7 @@ export default function SolarCoolingCaseStudy() {
                   <td><strong>30.2°C (±0.3°C dev)</strong></td>
                   <td><strong>9.5 minutes (~1.7°C/min drop)</strong></td>
                   <td><strong>25.1°C</strong></td>
-                  <td><strong>100% Cycle Accuracy</strong></td>
+                  <td><strong>Repeatable Cycle Response</strong></td>
                 </tr>
               </tbody>
             </table>
@@ -241,7 +241,7 @@ export default function SolarCoolingCaseStudy() {
             </div>
             <div className="cs-info-box">
               <h4><Activity size={16} color="#F05A22" /> Trigger Consistency</h4>
-              <p>The sensor-relay control loop maintained exceptional repeatability with activation trigger deviation kept within <strong>±0.3°C</strong> across all outdoor trials, confirming prompt thermal mitigation before deep heat soak occurs.</p>
+              <p>The sensor-relay control loop maintained consistent repeatability with activation trigger deviation kept within <strong>±0.3°C</strong> across all outdoor trials, confirming prompt thermal mitigation before deep heat soak occurs.</p>
             </div>
           </div>
         </div>

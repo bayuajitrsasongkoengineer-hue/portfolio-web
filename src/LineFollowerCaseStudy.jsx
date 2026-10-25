@@ -150,10 +150,10 @@ export default function LineFollowerCaseStudy() {
             <div>
               <h4 style={{ color: '#0F172A', marginBottom: '10px' }}><Cpu size={18} color="#F05A22" /> TB6612FNG Power &amp; Drive Subsystem</h4>
               <p style={{ lineHeight: 1.65, fontSize: '13.5px', color: '#334155' }}>
-                Motor driving is handled by a <strong>TB6612FNG</strong> dual MOSFET H-bridge driver rather than older BJT-based chips (like L298N). The low internal on-resistance of MOSFETs eliminates thermal heatsinking requirements and drastically reduces voltage drops, delivering maximum battery power to the N20 gear motors.
+                Motor driving is handled by a <strong>TB6612FNG</strong> dual MOSFET H-bridge driver rather than older BJT-based chips (like L298N). The low internal on-resistance of MOSFETs eliminates bulky heatsink requirements and substantially reduces internal conduction losses compared to bipolar drivers (such as L298N), delivering higher effective voltage to the N20 gear motors.
               </p>
               <p style={{ lineHeight: 1.65, fontSize: '13.5px', color: '#334155', marginTop: '10px' }}>
-                The motors are housed inside custom 3D-printed mounting brackets that provide rigid alignment for high-traction silicone-rubber wheel rims, ensuring zero backlash and high grip against competition tile surfaces.
+                The motors are housed inside custom 3D-printed mounting brackets that provide rigid alignment for high-traction silicone-rubber wheel rims, ensuring rigid motor mounting and stable surface grip on test track surfaces.
               </p>
             </div>
           </div>

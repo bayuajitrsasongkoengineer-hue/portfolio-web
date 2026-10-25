@@ -173,7 +173,7 @@ export default function KRAICaseStudy() {
                 Under competition regulations, robots cannot permanently trap or travel with the ball clamped; it must be continuously bounced. We deployed a fast-acting dual-acting pneumatic cylinder regulated at <strong>5–6 bar (72–87 psi)</strong> through high-flow solenoid valves.
               </p>
               <p style={{ lineHeight: 1.65, fontSize: '13.5px', color: '#334155', marginTop: '10px' }}>
-                <strong>Sensory interlocks</strong> ensure foolproof sequencing: an analog <strong>Infrared (IR) proximity sensor</strong> detects the ball entering the basket cup, immediately arming the pneumatic cycle. Mechanical <strong>limit switches</strong> at the cylinder stroke extremes detect full extension and retraction, preventing valve overlap and ensuring continuous dribble rhythms while the robot strafes.
+                <strong>Sensory interlocks</strong> provide deterministic sensor-actuator sequencing: an analog <strong>Infrared (IR) proximity sensor</strong> detects the ball entering the basket cup, immediately arming the pneumatic cycle. Mechanical <strong>limit switches</strong> at the cylinder stroke extremes detect full extension and retraction, preventing valve overlap and ensuring continuous dribble rhythms while the robot strafes.
               </p>
             </div>
           </div>

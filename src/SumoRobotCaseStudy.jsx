@@ -170,13 +170,13 @@ export default function SumoRobotCaseStudy() {
           <div>
             <h4 style={{ fontSize: '14px', color: '#0F172A', marginBottom: '8px' }}>Wedge Physics &amp; Normal Force Transfer</h4>
             <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.6' }}>
-              The acute inclined front wedge is engineered to slip beneath the opposing robot's skirt. When the opponent rides up onto the incline, its weight (m &middot; g) transfers directly onto our front drive wheels, dramatically increasing our effective normal force (N) and maximum pushing friction (F_friction = &mu; &middot; N) while breaking the opponent's traction with the dohyo surface.
+              The acute inclined front wedge is engineered to slip beneath the opposing robot's skirt. When the opponent rides up onto the incline, its weight (m &middot; g) transfers directly onto our front drive wheels, effectively transferring opposing mass to increase our normal force (N) and maximum pushing friction (F_friction = &mu; &middot; N) while breaking the opponent's traction with the dohyo surface.
             </p>
           </div>
           <div>
             <h4 style={{ fontSize: '14px', color: '#0F172A', marginBottom: '8px' }}>Planetary Gearbox Advantage (PG24)</h4>
             <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.6' }}>
-              Unlike spur gearboxes that can strip teeth under sudden reverse-shock loads during head-on collisions, PG24 planetary gear sets distribute torsional load across multiple planet gears simultaneously. This ensures reliable shock-proof torque transfer and eliminates gear failure during extreme pushing stalls.
+              Unlike spur gearboxes that can strip teeth under sudden reverse-shock loads during head-on collisions, PG24 planetary gear sets distribute torsional load across multiple planet gears simultaneously. This provides robust torque transfer and significantly reduces gear tooth shearing risk during heavy pushing stalls.
             </p>
           </div>
         </div>
@@ -208,7 +208,7 @@ export default function SumoRobotCaseStudy() {
               <Radio size={16} color="#F05A22" /> Wireless Telemetry (HC-05)
             </h4>
             <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.6', margin: 0 }}>
-              Operating at 9600/38400 baud over 2.4 GHz RF (Bluetooth SPP profile). Communicates with an Android smartphone controller with ultra-low transmission latency (&lt;25 ms) for responsive steering.
+              Operating at 9600/38400 baud over 2.4 GHz RF (Bluetooth SPP profile). Communicates with an Android smartphone controller with low command transmission latency (~15–25 ms) for responsive steering.
             </p>
           </div>
 
@@ -280,7 +280,7 @@ export default function SumoRobotCaseStudy() {
           <div className="cs-takeaway-card">
             <h4>Key Engineering Takeaways</h4>
             <p>
-              • <strong>Traction-to-Weight Optimization:</strong> Validated that 4-wheel independent planetary drive vastly outperforms 2-wheel configurations by eliminating slip and wheel-lift on high-friction dohyo rings.<br />
+              • <strong>Traction-to-Weight Optimization:</strong> Validated that 4-wheel independent planetary drive maintains superior traction and ground contact stability over 2-wheel configurations on high-friction dohyo rings.<br />
               • <strong>Wedge Ground Contact:</strong> Identified that ground clearance at the tip of the scoop blade must remain strictly &lt;0.5 mm to prevent opposing blades from getting underneath.<br />
               • <strong>Driver Thermal Headroom:</strong> Recognized the necessity of MOSFET-based drivers (such as BTS7960) for future builds to eliminate the 1.5–2.0V bipolar junction voltage drop inherent to older L298N ICs.
             </p>

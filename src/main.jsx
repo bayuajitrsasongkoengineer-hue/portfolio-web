@@ -296,7 +296,7 @@ const engineeringDisciplines = [
       'Real-time closed-loop control using AS5600 12-bit magnetic encoders (0.088° resolution)',
       'I2C bus multiplexing with TCA9548A 8-channel switch for multi-sensor integration',
       'Analytical Inverse Kinematics (IK) modeling & joint space trajectory execution',
-      'S-curve motion profile implementation in C/C++ to eliminate inertial jerk & vibration',
+      'S-curve motion profile implementation in C/C++ to minimize inertial jerk and smooth acceleration transitions',
       'Microcontroller flashing and on-chip debugging via ST-Link V2.1 (SWD protocol)',
     ],
     tools: [
