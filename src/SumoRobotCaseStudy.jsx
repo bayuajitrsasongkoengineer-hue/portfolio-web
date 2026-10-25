@@ -170,7 +170,7 @@ export default function SumoRobotCaseStudy() {
           <div>
             <h4 style={{ fontSize: '14px', color: '#0F172A', marginBottom: '8px' }}>Wedge Physics &amp; Normal Force Transfer</h4>
             <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.6' }}>
-              The acute inclined front wedge is engineered to slip beneath the opposing robot's skirt. When the opponent rides up onto the incline, its weight ($m_{opp} \cdot g$) transfers directly onto our front drive wheels, dramatically increasing our effective normal force ($N$) and maximum pushing friction ($F_{friction} = \mu \cdot N$) while breaking the opponent's traction with the dohyo surface.
+              The acute inclined front wedge is engineered to slip beneath the opposing robot's skirt. When the opponent rides up onto the incline, its weight (m &middot; g) transfers directly onto our front drive wheels, dramatically increasing our effective normal force (N) and maximum pushing friction (F_friction = &mu; &middot; N) while breaking the opponent's traction with the dohyo surface.
             </p>
           </div>
           <div>
