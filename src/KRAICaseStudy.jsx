@@ -25,7 +25,7 @@ export default function KRAICaseStudy() {
       {/* ── Header ── */}
       <header className="cs-header">
         <h1 className="cs-title-single-line">
-          Competition Basketball Robot: Dribble &amp; 3-Roller Pneumatic Shooter Mechanisms
+          Competition Basketball Robot: Dribble &amp; Shooter Mechanisms
         </h1>
 
         <div style={{ display: 'flex', gap: '36px', flexWrap: 'wrap', margin: '14px 0 24px', fontSize: '13px', color: '#475569' }}>
@@ -80,10 +80,10 @@ export default function KRAICaseStudy() {
 
           <div className="cs-hero-split-right" style={{ alignSelf: 'center' }}>
             <img 
-              src="/images/krai_robot_assembly_real.jpeg" 
+              src="/images/krai_robot_hero.png" 
               alt="Team ROOBICS Competition Basketball Robot Full Assembly"
               className="cs-hero-clean-photo"
-              onClick={() => openZoom('/images/krai_robot_assembly_real.jpeg', 'Team ROOBICS Competition Robot Full Assembly', 'Complete mechanical assembly displaying aluminum extruded framework, tri-roller shooter tower, pneumatic reservoir & lines, and 3-omni base')}
+              onClick={() => openZoom('/images/krai_robot_hero.png', 'Team ROOBICS Competition Basketball Robot', 'Physical competition robot with regulation FIBA basketball in possession, displaying dribbler assembly, pneumatic cylinders, air reservoirs, and circular 3-omni chassis')}
               title="Click to zoom in"
             />
           </div>
