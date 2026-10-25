@@ -234,8 +234,8 @@ const projects = [
     test: 'Validated pushing traction under load, confirming physical push performance up to 4 kg (4× robot deadweight).',
     metrics: [
       ['1 KG / 20×20 CM', 'Chassis mass and dimension limit compliance'],
-      ['UP TO 4 KG', 'Tested push load capacity (4× robot mass)'],
-      ['4 MOTORS', 'Independent high-torque drive wheels'],
+      ['4× PG24 MOTORS', 'Independent planetary high-torque drive axles'],
+      ['3S LIPO / L298N', '11.1V high-current motor power delivery'],
       ['BLUETOOTH', 'Wireless smartphone real-time remote control']
     ],
     note: 'Confirmed from Curriculum Vitae and independent engineering build records.'

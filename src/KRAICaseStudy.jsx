@@ -47,7 +47,7 @@ export default function KRAICaseStudy() {
         <div className="cs-hero-split-50" style={{ alignItems: 'flex-start' }}>
           <div className="cs-hero-split-left">
             <p className="cs-hero-desc-text" style={{ marginBottom: '16px' }}>
-              Mechanical engineering and physical prototyping of an autonomous &amp; semi-autonomous mobile basketball robot for the national ABU Robocon Indonesia (KRAI 2025). Features high-pressure pneumatic bounce dribbling (5–6 bar), a multi-motor tri-roller flywheel shooter achieving 6–7 m launch distance, and a holonomic 3-wheel omni-directional drive base.
+              Mechanical engineering and physical prototyping of a semi-autonomous competition mobile basketball robot with automated sensor-pneumatic interlocks for the national ABU Robocon Indonesia (KRAI 2025). Features high-pressure pneumatic bounce dribbling (5–6 bar), a multi-motor tri-roller flywheel shooter achieving 6–7 m launch distance, and a holonomic 3-wheel omni-directional drive base.
             </p>
 
             <div className="cs-metrics-grid-2x2">

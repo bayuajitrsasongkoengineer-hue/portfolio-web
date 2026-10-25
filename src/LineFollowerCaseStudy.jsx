@@ -138,10 +138,10 @@ export default function LineFollowerCaseStudy() {
                 Each photodiode is directly connected to the Arduino Nano analog inputs, converting reflected optical intensity into 10-bit digital values (0–1023). This enables proportional weighted average position calculations:
               </p>
               <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', padding: '10px 14px', borderRadius: '4px', fontFamily: 'DM Mono', fontSize: '11px', color: '#0F172A', margin: '10px 0' }}>
-                Position = Σ (Sensor[i] × Weight[i]) / Σ Sensor[i]
+                Position Error (e) = Σ (Sensor[i] × Weight[i]) / Σ Sensor[i]
               </div>
               <p style={{ lineHeight: 1.65, fontSize: '13px', color: '#64748B' }}>
-                Sensor weights are normalized from −3500 (far left) to +3500 (far right) with center aligned at 0.
+                Sensor weights are symmetrically indexed from left (−) to right (+) with center set to 0.
               </p>
             </div>
           </div>
@@ -223,7 +223,7 @@ export default function LineFollowerCaseStudy() {
           <div className="cs-info-box">
             <h4><Sliders size={18} color="#F05A22" /> PID Controller Tuning</h4>
             <p style={{ lineHeight: 1.65, fontSize: '13.5px', color: '#334155' }}>
-              The robot executes a discrete PID feedback loop updating every 5 milliseconds:
+              The robot executes a periodic discrete PID feedback loop (updating every ~5–10 ms):
             </p>
             <ul className="cs-constraint-list" style={{ marginTop: '10px' }}>
               <li><strong>Proportional Term (Kp):</strong> Generates corrective differential torque directly proportional to the current distance of the line from center.</li>

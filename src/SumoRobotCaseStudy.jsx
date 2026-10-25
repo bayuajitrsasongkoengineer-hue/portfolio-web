@@ -82,7 +82,7 @@ export default function SumoRobotCaseStudy() {
       {/* ── Section 01: Engineering Challenge & Competition Constraints ── */}
       <section className="cs-section">
         <div className="cs-section-header">
-          <span className="cs-section-num">01</span>
+          <span className="cs-section-num">01 / CHALLENGE &amp; CONSTRAINTS</span>
           <h2>The Engineering Challenge: Traction, Low Center of Gravity, &amp; Torque</h2>
         </div>
         <p>
@@ -103,14 +103,14 @@ export default function SumoRobotCaseStudy() {
               <tr>
                 <td><strong>Chassis Dimensions</strong></td>
                 <td>Max 200 mm × 200 mm</td>
-                <td><strong>192 mm (L) × 188 mm (W) × 95 mm (H)</strong></td>
-                <td>Provides 4–6 mm clearance margin while maximizing wheel track width for roll stability.</td>
+                <td><strong>&lt;200 mm × 200 mm Boundary Limit</strong></td>
+                <td>Designed within standard 1 kg RC sumo boundaries while maximizing wheel track width for roll stability.</td>
               </tr>
               <tr>
                 <td><strong>Combat Mass</strong></td>
                 <td>Maximum 1,000 g (1 kg)</td>
-                <td><strong>960 – 980 g (ready-to-fight)</strong></td>
-                <td>Mass concentrated as low as possible over the 4 drive axles to prevent tipping during head-on impact.</td>
+                <td><strong>Target &le;1,000 g Ready-to-Fight</strong></td>
+                <td>Mass centered low across the 4 planetary drive axles to maintain maximum tire traction during push contests.</td>
               </tr>
               <tr>
                 <td><strong>Drivetrain Layout</strong></td>
@@ -132,7 +132,7 @@ export default function SumoRobotCaseStudy() {
       {/* ── Section 02: CAD Design, Mechanical Architecture & Underside Drivetrain ── */}
       <section className="cs-section">
         <div className="cs-section-header">
-          <span className="cs-section-num">02</span>
+          <span className="cs-section-num">02 / CAD DESIGN &amp; MECHANICAL STRUCTURE</span>
           <h2>Mechanical CAD Design &amp; 4WD Underside Geometry</h2>
         </div>
         <p>
@@ -185,7 +185,7 @@ export default function SumoRobotCaseStudy() {
       {/* ── Section 03: Electrical & Embedded Control Architecture ── */}
       <section className="cs-section">
         <div className="cs-section-header">
-          <span className="cs-section-num">03</span>
+          <span className="cs-section-num">03 / ELECTRICAL &amp; CONTROL SYSTEM</span>
           <h2>Electrical Power Distribution &amp; Embedded Telemetry System</h2>
         </div>
         <p>
@@ -272,7 +272,7 @@ export default function SumoRobotCaseStudy() {
       {/* ── Section 04: Retrospective & Future Iterations ── */}
       <section className="cs-section">
         <div className="cs-section-header">
-          <span className="cs-section-num">04</span>
+          <span className="cs-section-num">04 / RETROSPECTIVE &amp; ITERATIONS</span>
           <h2>Retrospective Engineering &amp; Future Iterations</h2>
         </div>
 

@@ -237,7 +237,7 @@ export default function SolarCoolingCaseStudy() {
           <div className="cs-two-col" style={{ marginTop: '16px' }}>
             <div className="cs-info-box">
               <h4><Award size={16} color="#F05A22" /> Thermal Regulation Finding</h4>
-              <p>The cooling mechanism reduced panel surface temperature by over <strong>16°C</strong> (from ~41.3°C down to 25.1°C) within an average duration of 9.5 minutes. Operating the panel within this optimal 25–30°C thermal envelope recovers an estimated <strong>6% to 8% in lost electrical power output</strong> compared to uncooled stagnation states.</p>
+              <p>The cooling mechanism reduced panel surface temperature by over <strong>16°C</strong> (from ~41.3°C down to 25.1°C) within an average duration of 9.5 minutes. Operating the panel within this optimal 25–30°C thermal envelope yields an estimated <strong>theoretical recovery of 6% to 8% in electrical power output</strong> based on standard silicon thermal coefficients (−0.4%/°C) compared to uncooled stagnation states.</p>
             </div>
             <div className="cs-info-box">
               <h4><Activity size={16} color="#F05A22" /> Trigger Consistency</h4>
