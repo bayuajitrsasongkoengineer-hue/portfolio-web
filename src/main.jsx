@@ -13,6 +13,7 @@ import './casestudy.css';
 import ManipulatorCaseStudy from './ManipulatorCaseStudy';
 import SolarCoolingCaseStudy from './SolarCoolingCaseStudy';
 import KRAICaseStudy from './KRAICaseStudy';
+import LineFollowerCaseStudy from './LineFollowerCaseStudy';
 
 // ══ SPATIAL EFFECTS ══════════════════════════════════════════════════════════
 
@@ -989,6 +990,15 @@ function App() {
       <>
         <FigmaHeader />
         <KRAICaseStudy />
+        <Footer />
+      </>
+    );
+  }
+  if (slug === 'line-follower') {
+    return (
+      <>
+        <FigmaHeader />
+        <LineFollowerCaseStudy />
         <Footer />
       </>
     );

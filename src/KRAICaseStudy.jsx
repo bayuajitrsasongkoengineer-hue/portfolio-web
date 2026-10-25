@@ -384,8 +384,8 @@ export default function KRAICaseStudy() {
         <a href="/projects/solar-cooling" className="cs-nav-btn secondary">
           <ArrowLeft size={16} /> Previous: Solar Panel Cooling
         </a>
-        <a href="/#projects" className="cs-nav-btn">
-          Back to All Projects <ArrowRight size={16} />
+        <a href="/projects/line-follower" className="cs-nav-btn">
+          Next: Line Follower Robot <ArrowRight size={16} />
         </a>
       </div>
 
