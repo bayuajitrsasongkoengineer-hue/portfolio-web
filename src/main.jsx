@@ -163,7 +163,7 @@ const projects = [
     problem: 'High ambient and surface temperatures cause substantial drops in photovoltaic conversion efficiency, accelerating cell degradation over extended operation.',
     design: 'Engineered an automated closed-loop surface cooling subsystem utilizing waterproof digital temperature probes, relay actuation, and mist/spray nozzle distribution.',
     prototype: 'Built physical outdoor test rig with solar panel instrumentation, threshold calibration logic, and automated pump management circuit.',
-    test: 'Subsystem verified with temperature sensor precision within ±0.3°C across trials. Automated cooling duty cycle reduced surface temperature by >16°C back to 25°C.',
+    test: 'Subsystem verified with temperature sensor accuracy within ±0.6°C against calibrated reference thermometer. Automated cooling duty cycle reduced surface temperature by >16°C back to 25°C.',
     metrics: [
       ['>30°C / ON', 'Automated pump activation threshold'],
       ['<25°C / OFF', 'Automated pump deactivation threshold'],
@@ -331,14 +331,43 @@ const engineeringDisciplines = [
 
 function DocumentModal({ doc, onClose }) {
   if (!doc) return null;
-  const isPdf = doc.type === 'pdf';
+  const isCv = doc.isCv === true;
+  const isPdf = isCv ? true : doc.type === 'pdf';
+  
+  // CV Language & Format Switcher state
+  const [cvLang, setCvLang] = useState('en'); // 'en' | 'id'
+  const [cvFormat, setCvFormat] = useState('pdf'); // 'pdf' | 'docx'
+
+  const cvFiles = {
+    en: {
+      pdf: '/CV_Bayu_Aji_Trisasongko_EN.pdf',
+      docx: '/CV_Bayu_Aji_Trisasongko_EN.docx',
+      downloadPdf: 'CV_Bayu_Aji_Trisasongko_EN.pdf',
+      downloadDocx: 'CV_Bayu_Aji_Trisasongko_EN.docx',
+    },
+    id: {
+      pdf: '/CV_Bayu_Aji_Trisasongko_ID.pdf',
+      docx: '/CV_Bayu_Aji_Trisasongko_ID.docx',
+      downloadPdf: 'CV_Bayu_Aji_Trisasongko_ID.pdf',
+      downloadDocx: 'CV_Bayu_Aji_Trisasongko_ID.docx',
+    }
+  };
+
+  const activePdfUrl = isCv ? cvFiles[cvLang].pdf : doc.file;
+  const activeDownloadUrl = isCv 
+    ? (cvFormat === 'docx' ? cvFiles[cvLang].docx : cvFiles[cvLang].pdf) 
+    : doc.downloadUrl;
+  const activeDownloadName = isCv 
+    ? (cvFormat === 'docx' ? cvFiles[cvLang].downloadDocx : cvFiles[cvLang].downloadPdf) 
+    : (doc.downloadName || true);
+
   const [zoom, setZoom] = useState(1);
 
   const handleZoomIn = () => setZoom(prev => Math.min(prev + 0.25, 2.5));
   const handleZoomOut = () => setZoom(prev => Math.max(prev - 0.25, 0.75));
   const handleResetZoom = () => setZoom(1);
 
-  // Lock scroll: overflow hidden on html+body — no layout shift, no fixed-child bug
+  // Lock scroll: overflow hidden on html+body
   useEffect(() => {
     const html = document.documentElement;
     html.style.overflow  = 'hidden';
@@ -363,10 +392,53 @@ function DocumentModal({ doc, onClose }) {
           <button className="fh-button fh-modal-back" onClick={onClose}>
             <ArrowLeft size={16} /> Close
           </button>
+          
           <div className="fh-modal-title">
             <strong>{doc.title}</strong>
             <small>{doc.subtitle}</small>
           </div>
+
+          {/* CV Language Switcher in Header */}
+          {isCv && (
+            <div style={{ display: 'inline-flex', background: '#F1F5F9', padding: '3px', borderRadius: '6px', border: '1px solid #E2E8F0', gap: '3px' }}>
+              <button 
+                type="button"
+                onClick={() => setCvLang('en')} 
+                style={{ 
+                  padding: '5px 12px', 
+                  fontSize: '11px', 
+                  fontFamily: 'DM Mono, monospace', 
+                  fontWeight: 600, 
+                  border: 'none', 
+                  borderRadius: '4px', 
+                  cursor: 'pointer',
+                  background: cvLang === 'en' ? '#F05A22' : 'transparent',
+                  color: cvLang === 'en' ? '#FFFFFF' : '#475569',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                EN (English ATS)
+              </button>
+              <button 
+                type="button"
+                onClick={() => setCvLang('id')} 
+                style={{ 
+                  padding: '5px 12px', 
+                  fontSize: '11px', 
+                  fontFamily: 'DM Mono, monospace', 
+                  fontWeight: 600, 
+                  border: 'none', 
+                  borderRadius: '4px', 
+                  cursor: 'pointer',
+                  background: cvLang === 'id' ? '#F05A22' : 'transparent',
+                  color: cvLang === 'id' ? '#FFFFFF' : '#475569',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                ID (Bahasa Indonesia)
+              </button>
+            </div>
+          )}
           
           <div className="fh-modal-header-actions">
             {!isPdf && (
@@ -410,7 +482,8 @@ function DocumentModal({ doc, onClose }) {
         <div className="fh-modal-body">
           {isPdf ? (
             <iframe 
-              src={`${doc.file}#view=FitH`} 
+              key={activePdfUrl}
+              src={`${activePdfUrl}#view=FitH`} 
               title={doc.title} 
               className="fh-modal-iframe" 
             />
@@ -432,24 +505,82 @@ function DocumentModal({ doc, onClose }) {
 
         <div className="fh-modal-footer">
           <span className="fh-mono">{doc.institution} · {doc.period}</span>
-          <div className="fh-modal-actions">
-            {doc.downloadUrl && (
-              <a 
-                className="fh-button fh-primary" 
-                href={doc.downloadUrl} 
-                download={doc.downloadName || true}
-              >
-                <Download size={14} /> Download Document
-              </a>
+          <div className="fh-modal-actions" style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            {isCv ? (
+              <>
+                <div style={{ display: 'inline-flex', background: '#F1F5F9', padding: '2px', borderRadius: '4px', border: '1px solid #E2E8F0', gap: '2px', marginRight: '6px' }}>
+                  <button 
+                    type="button"
+                    onClick={() => setCvFormat('pdf')} 
+                    style={{ 
+                      padding: '4px 8px', 
+                      fontSize: '10.5px', 
+                      fontFamily: 'DM Mono, monospace', 
+                      fontWeight: 600, 
+                      border: 'none', 
+                      borderRadius: '3px', 
+                      cursor: 'pointer',
+                      background: cvFormat === 'pdf' ? '#0F172A' : 'transparent',
+                      color: cvFormat === 'pdf' ? '#FFFFFF' : '#475569'
+                    }}
+                  >
+                    PDF
+                  </button>
+                  <button 
+                    type="button"
+                    onClick={() => setCvFormat('docx')} 
+                    style={{ 
+                      padding: '4px 8px', 
+                      fontSize: '10.5px', 
+                      fontFamily: 'DM Mono, monospace', 
+                      fontWeight: 600, 
+                      border: 'none', 
+                      borderRadius: '3px', 
+                      cursor: 'pointer',
+                      background: cvFormat === 'docx' ? '#0F172A' : 'transparent',
+                      color: cvFormat === 'docx' ? '#FFFFFF' : '#475569'
+                    }}
+                  >
+                    DOCX (Word)
+                  </button>
+                </div>
+                <a 
+                  className="fh-button fh-primary" 
+                  href={activeDownloadUrl} 
+                  download={activeDownloadName}
+                >
+                  <Download size={14} /> Download CV ({cvLang.toUpperCase()} · {cvFormat.toUpperCase()})
+                </a>
+                <a 
+                  className="fh-button" 
+                  href={activePdfUrl} 
+                  target="_blank" 
+                  rel="noreferrer"
+                >
+                  Open in New Tab <ExternalLink size={14} />
+                </a>
+              </>
+            ) : (
+              <>
+                {doc.downloadUrl && (
+                  <a 
+                    className="fh-button fh-primary" 
+                    href={doc.downloadUrl} 
+                    download={doc.downloadName || true}
+                  >
+                    <Download size={14} /> Download Document
+                  </a>
+                )}
+                <a 
+                  className="fh-button" 
+                  href={isPdf ? doc.file : doc.image} 
+                  target="_blank" 
+                  rel="noreferrer"
+                >
+                  Open in New Tab <ExternalLink size={14} />
+                </a>
+              </>
             )}
-            <a 
-              className="fh-button" 
-              href={isPdf ? doc.file : doc.image} 
-              target="_blank" 
-              rel="noreferrer"
-            >
-              Open in New Tab <ExternalLink size={14} />
-            </a>
           </div>
         </div>
       </div>
@@ -584,14 +715,12 @@ function FigmaHome() {
                 <button 
                   className="fh-button" 
                   onClick={() => setActiveDoc({
+                    isCv: true,
                     type: 'pdf',
-                    file: '/CV_BAYU%20AJI%20TRISASONGKO.pdf',
                     title: 'Curriculum Vitae · Bayu Aji Trisasongko',
-                    subtitle: 'Electrical Engineering & Robotics / Mechatronics',
+                    subtitle: 'Electrical Engineering Graduate · Telkom University 2026',
                     institution: 'Telkom University & Formulatrix Alum',
-                    period: 'Portfolio 2026',
-                    downloadUrl: '/CV_BAYU%20AJI%20TRISASONGKO.pdf',
-                    downloadName: 'CV_BAYU_AJI_TRISASONGKO.pdf'
+                    period: 'Updated October 2026'
                   })}
                 >
                   <span>Curriculum Vitae</span>
@@ -748,6 +877,63 @@ function FigmaHome() {
                     <li>Supported fabrication, finishing and assembly work.</li>
                   </ul>
                 </article>
+              </div>
+            </div>
+            {/* ORGANIZATIONAL & LEADERSHIP EXPERIENCE */}
+            <div style={{ marginTop: '56px', borderTop: '1px solid #E5E7EB', paddingTop: '40px' }}>
+              <div className="fh-section-heading reveal" style={{ marginBottom: '28px' }}>
+                <div>
+                  <div className="fh-eyebrow"><span>02.1 /</span> LEADERSHIP &amp; ORGANIZATIONS</div>
+                  <h3 style={{ fontSize: '22px', fontWeight: 700, margin: '4px 0 0', color: '#111827' }}>Engineering Teams &amp; Student Leadership</h3>
+                </div>
+                <p>Collaborative leadership, technical team preparation, and academic mentorship across university organizations.</p>
+              </div>
+
+              <div className="fh-org-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+                {/* ORG 1: ROOBICS KRAI */}
+                <div className="fh-stack-card" style={{ padding: '22px 20px', borderRadius: '6px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                    <div>
+                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>ROBOTICS RESEARCH GROUP</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>Electronics and Intelligence Robotic Research Group (EIRRG)</h4>
+                    </div>
+                    <span className="fh-role-date">2024 - 2025</span>
+                  </div>
+                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>Mechanical Division · Team ROOBICS (Telkom University)</div>
+                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                    Core mechanical team member designing and fabricating robotic systems for Kontes Robot ABU Indonesia (KRAI 2025), contributing directly to tournament staging and qualifying for the National Finals at ITB Jatinangor.
+                  </p>
+                </div>
+
+                {/* ORG 2: PKKMB DMT */}
+                <div className="fh-stack-card" style={{ padding: '22px 20px', borderRadius: '6px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                    <div>
+                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>STUDENT ORIENTATION COMMITTEE</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>Panitia PKKMB Universitas Telkom</h4>
+                    </div>
+                    <span className="fh-role-date">2024</span>
+                  </div>
+                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>Discipline and Motivation Team (DMT) · Telkom University</div>
+                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                    Responsible for freshmen orientation protocol execution, participant discipline, crowd management, security enforcement, and smooth operational mobilization throughout campus orientation programs.
+                  </p>
+                </div>
+
+                {/* ORG 3: KMTE Mentor */}
+                <div className="fh-stack-card" style={{ padding: '22px 20px', borderRadius: '6px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                    <div>
+                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>DEPARTMENT STUDENT GUILD</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>Keluarga Mahasiswa Teknik Elektro (KMTE)</h4>
+                    </div>
+                    <span className="fh-role-date">2023 - 2026</span>
+                  </div>
+                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>Mentor Division · QUOTE 2023 (Telkom University)</div>
+                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                    Served as academic and departmental mentor in the student cadre formation program, guiding incoming Electrical Engineering freshmen through curriculum orientation, soft-skills development, and university adaptation.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -913,14 +1099,12 @@ function FigmaHome() {
               <button 
                 className="fh-button" 
                 onClick={() => setActiveDoc({
+                  isCv: true,
                   type: 'pdf',
-                  file: '/CV_BAYU%20AJI%20TRISASONGKO.pdf',
                   title: 'Curriculum Vitae · Bayu Aji Trisasongko',
-                  subtitle: 'Electrical Engineering & Robotics / Mechatronics',
+                  subtitle: 'Electrical Engineering Graduate · Telkom University 2026',
                   institution: 'Telkom University & Formulatrix Alum',
-                  period: 'Portfolio 2026',
-                  downloadUrl: '/CV_BAYU%20AJI%20TRISASONGKO.pdf',
-                  downloadName: 'CV_BAYU_AJI_TRISASONGKO.pdf'
+                  period: 'Updated October 2026'
                 })}
               >
                 <span>Curriculum Vitae</span>

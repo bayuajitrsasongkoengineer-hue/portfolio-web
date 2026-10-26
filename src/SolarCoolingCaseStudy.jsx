@@ -241,7 +241,7 @@ export default function SolarCoolingCaseStudy() {
             </div>
             <div className="cs-info-box">
               <h4><Activity size={16} color="#F05A22" /> Trigger Consistency</h4>
-              <p>The sensor-relay control loop maintained consistent repeatability with activation trigger deviation kept within <strong>±0.3°C</strong> across all outdoor trials, confirming prompt thermal mitigation before deep heat soak occurs.</p>
+              <p>The sensor-relay control loop maintained consistent repeatability with activation trigger deviation kept within <strong>±0.3°C</strong> across trials. Subsystem calibration verified temperature probe measurement accuracy within <strong>±0.6°C</strong> against a reference calibrated thermometer.</p>
             </div>
           </div>
         </div>
