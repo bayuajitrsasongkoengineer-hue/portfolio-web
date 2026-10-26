@@ -731,7 +731,7 @@ function FigmaHome() {
                   <span>Email</span><Mail size={15} />
                 </a>
 
-                <a className="fh-button fh-small" href="https://linkedin.com/in/bayuajitrasasongko" target="_blank" rel="noreferrer">
+                <a className="fh-button fh-small" href="https://linkedin.com/in/bayuajitrisasongko" target="_blank" rel="noreferrer">
                   <span>LinkedIn</span><Linkedin size={15} />
                 </a>
 
@@ -1094,8 +1094,8 @@ function FigmaHome() {
           <div className="fh-width fh-contact-grid reveal">
             <div>
               <div className="fh-eyebrow"><span>05 /</span> GET IN TOUCH</div>
-              <h2>Let's build<br />what comes next.</h2>
-              <p>Have an engineering role in mind? Let's talk about robotics, mechatronics and building useful systems.</p>
+              <h2>Eager to learn,<br />ready to contribute.</h2>
+              <p>As a fresh electrical engineering graduate, I bring solid hands-on fundamentals in mechatronics and prototyping—along with an eager mindset to learn, adapt, and be mentored by experienced teams. Actively seeking entry-level engineering roles in robotics, manufacturing, or hardware development.</p>
               <button 
                 className="fh-button" 
                 onClick={() => setActiveDoc({
@@ -1117,9 +1117,9 @@ function FigmaHome() {
                 <strong>bayuajitrisasongko26@gmail.com</strong>
                 <ArrowUpRight />
               </a>
-              <a href="https://linkedin.com/in/bayuajitrasasongko" target="_blank" rel="noreferrer">
+              <a href="https://linkedin.com/in/bayuajitrisasongko" target="_blank" rel="noreferrer">
                 <small>LINKEDIN</small>
-                <strong>linkedin.com/in/bayuajitrasasongko</strong>
+                <strong>linkedin.com/in/bayuajitrisasongko</strong>
                 <ArrowUpRight />
               </a>
               <a href="https://wa.me/6282223769735" target="_blank" rel="noreferrer">
