@@ -6,7 +6,8 @@
 */
 
 :root {
-  color-scheme: light only;
+  color-scheme: light !important;
+  supported-color-schemes: light;
   --fx-orange: #F05A22;
   --fx-orange-hover: #D9460D;
   --fx-orange-light: #FFF5F0;
