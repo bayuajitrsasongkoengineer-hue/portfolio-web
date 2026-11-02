@@ -122,7 +122,7 @@
   box-shadow: 0 6px 16px rgba(240, 90, 34, 0.35);
 }
 .fh-button.fh-small { min-width: 110px; }
-.fh-profile { width: 300px; height: 350px; margin: 3px auto 0; object-fit: contain; }
+.fh-profile { width: 280px; height: 280px; margin: auto; object-fit: cover; border-radius: 50%; border: 3px solid #E5E7EB; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); display: block; }
 
 /* DISCIPLINES BAR - 1 UNIFIED STATIC CONTAINER (NO POP/LIFT ON HOVER) */
 .fh-disciplines-wrapper { max-width: 1440px; margin: auto; padding: 0 72px 30px; }
@@ -681,7 +681,7 @@
   .fh-copy h1 { font-size: 64px; }
   .fh-bio-link h2 { font-size: 29px; }
   .fh-bio-link p { font-size: 14px; }
-  .fh-profile { width: 270px; }
+  .fh-profile { width: 240px; height: 240px; }
   .fh-disciplines { padding-inline: 40px; gap: 16px; }
   .fh-discipline-link { gap: 10px; }
   .fh-project-heading { grid-template-columns: 1fr 330px; }
@@ -717,7 +717,7 @@
   .fh-bio-link h2 { margin: 0 0 6px; font-size: 18px; }
   .fh-subtitle { font-size: 11px; }
   .fh-bio-link p { margin: 10px 0 0; font-size: 12px; line-height: 1.55; }
-  .fh-profile { order: -1; width: 120px; height: 120px; margin: 0 auto 10px; border-radius: 50%; }
+  .fh-profile { order: -1; width: 130px; height: 130px; margin: 0 auto 12px; border-radius: 50%; object-fit: cover; border: 2px solid #E5E7EB; }
   .fh-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .fh-button { min-height: 40px; padding: 0 12px; font-size: 11px; }
   .fh-disciplines-wrapper { padding-inline: 20px; }

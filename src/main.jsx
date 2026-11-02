@@ -257,8 +257,8 @@ const engineeringDisciplines = [
       'Production-oriented component design for LV Tip Automation (Formulatrix)',
     ],
     tools: [
-      { name: 'onshape', logo: '/images/onshape-official.png' },
-      { name: 'Fusion', logo: '/images/fusion360-official.png' },
+      { name: 'Onshape', logo: '/images/onshape-official.png' },
+      { name: 'Fusion 360', logo: '/images/fusion360-official.png' },
       { name: 'Inventor', logo: '/images/inventor-official.png' },
       { name: 'Bambu Lab', logo: '/images/bambulab.svg' },
       { name: 'Ultimaker Cura', logo: '/images/ultimakercura.svg' },
@@ -696,14 +696,14 @@ function FigmaHome() {
         <section className="fh-intro">
           <div className="fh-hero">
             <div className="fh-copy">
-              <h1>PORTOFOLIO</h1>
+              <h1>PORTFOLIO</h1>
 
-              {/* BIO / INTRODUCTION TEXT LINKED TO EDUCATION */}
-              <a href="#education" className="fh-bio-link">
+              {/* BIO / INTRODUCTION TEXT */}
+              <div className="fh-bio-link" style={{ cursor: 'default' }}>
                 <h2>BAYU AJI TRISASONGKO</h2>
-                <div className="fh-subtitle">Electrical Engineering Graduate | Robotics &amp; Mechatronics</div>
+                <div className="fh-subtitle">Electrical Engineering Graduate | Mechanical Design, Electronics, Mechatronics &amp; Robotics</div>
                 <p>Bringing mechanical design, electronics and control together to turn engineering ideas into tangible prototypes. An electrical engineering fresh graduate with hands-on expertise in mechatronics, system and component fabrication. Currently eager to contribute to innovative teams in developing advanced robotics and complex systems.</p>
-              </a>
+              </div>
 
               {/* ACTION BUTTONS (DEFAULT WHITE, HOVER BECOMES COLOR) */}
               <div className="fh-actions">
@@ -786,7 +786,7 @@ function FigmaHome() {
                   {project.tags.map(tag => <span key={tag}>{tag}</span>)}
                 </div>
                 <small className="fh-card-foot">
-                  {['Telkom University · Jan - Aug 2026', 'Mechanical team · ROOBICS', 'Telkom University · Capstone Design', 'Independent project - 2024', 'Independent project - 2023'][Number(project.number) - 1]}
+                  {['Telkom University · Jan - Aug 2026', 'Telkom University · Capstone Design', 'Mechanical Team · ROOBICS (KRAI 2025)', 'Independent Project · 2024', 'Independent Project · 2023'][Number(project.number) - 1]}
                 </small>
               </a>
             ))}
@@ -927,7 +927,7 @@ function FigmaHome() {
                       <span className="fh-stack-label" style={{ color: '#F05A22' }}>DEPARTMENT STUDENT GUILD</span>
                       <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>Keluarga Mahasiswa Teknik Elektro (KMTE)</h4>
                     </div>
-                    <span className="fh-role-date">2023 - 2026</span>
+                    <span className="fh-role-date">2023 - 2024</span>
                   </div>
                   <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>Mentor Division · QUOTE 2023 (Telkom University)</div>
                   <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
@@ -1085,6 +1085,118 @@ function FigmaHome() {
                   </div>
                 </div>
               </article>
+            </div>
+
+            {/* SECTION 04.1: PROFESSIONAL CERTIFICATIONS & CREDENTIALS */}
+            <div style={{ marginTop: '56px', borderTop: '1px solid #E5E7EB', paddingTop: '40px' }}>
+              <div className="fh-section-heading reveal" style={{ marginBottom: '28px' }}>
+                <div>
+                  <div className="fh-eyebrow"><span>04.1 /</span> CERTIFICATIONS &amp; CREDENTIALS</div>
+                  <h3 style={{ fontSize: '22px', fontWeight: 700, margin: '4px 0 0', color: '#111827' }}>Verified Industry Qualifications</h3>
+                </div>
+                <p>Officially certified technical competencies and professional qualifications.</p>
+              </div>
+
+              <div className="fh-org-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+                {/* CERT 1: TÜV RHEINLAND & FESTO */}
+                <article 
+                  className="fh-stack-card fh-clickable-card" {...tilt(4)}
+                  onClick={() => setActiveDoc({
+                    title: 'Pneumatic System Maintenance Technician',
+                    subtitle: 'TÜV Rheinland Group & FESTO Didactic',
+                    image: '/images/cert_festo.png',
+                    institution: 'TÜV Rheinland Group',
+                    period: 'November 2021 · Unlimited Validity',
+                    downloadUrl: '/Sertifikat_FESTO_TUV_Rheinland.pdf',
+                    downloadName: 'Sertifikat_FESTO_TUV_Rheinland.pdf'
+                  })}
+                  style={{ padding: '22px 20px', borderRadius: '6px', cursor: 'pointer' }}
+                  title="Click to view TÜV Rheinland & FESTO Certificate"
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                    <div>
+                      <span className="fh-stack-label" style={{ color: '#0284C7' }}>TÜV RHEINLAND &amp; FESTO</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>Pneumatic System Maintenance Technician</h4>
+                    </div>
+                    <span className="fh-role-date">Nov 2021</span>
+                  </div>
+                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>
+                    Credential ID: 62372/21/1185 · Unlimited Validity
+                  </div>
+                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                    Certified qualification by TÜV Rheinland Indonesia and FESTO verifying technical competency in pneumatic system maintenance, valve circuits, and electro-pneumatic automation.
+                  </p>
+                  <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#0284C7' }}>
+                    <Eye size={13} /> Click to view official certificate
+                  </div>
+                </article>
+
+                {/* CERT 2: KRAI 2025 ROBOCON */}
+                <article 
+                  className="fh-stack-card fh-clickable-card" {...tilt(4)}
+                  onClick={() => setActiveDoc({
+                    title: 'Certificate of Participation - KRAI 2025',
+                    subtitle: 'Belmawa Kemdiktisaintek & Institut Teknologi Bandung (ITB)',
+                    image: '/images/krai-cert-real.png',
+                    institution: 'Belmawa Kemdiktisaintek & ITB',
+                    period: 'June 2025',
+                    downloadUrl: '/Sertifikat_KRAI_2025_Bayu_Aji.pdf',
+                    downloadName: 'Sertifikat_KRAI_2025_Bayu_Aji.pdf'
+                  })}
+                  style={{ padding: '22px 20px', borderRadius: '6px', cursor: 'pointer' }}
+                  title="Click to view KRAI 2025 Certificate"
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                    <div>
+                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>NATIONAL ROBOTICS COMPETITION</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>Contestant - ABU Robocon Indonesia (KRAI 2025)</h4>
+                    </div>
+                    <span className="fh-role-date">Jul 2025</span>
+                  </div>
+                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>
+                    Belmawa Kemdiktisaintek &amp; ITB · Team ROOBICS
+                  </div>
+                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                    Official contestant certificate representing Telkom University in the National Selection stage of Kontes Robot ABU Indonesia 2025.
+                  </p>
+                  <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#F05A22' }}>
+                    <Eye size={13} /> Click to view official certificate
+                  </div>
+                </article>
+
+                {/* CERT 3: ENGLISH PROFICIENCY TEST */}
+                <article 
+                  className="fh-stack-card fh-clickable-card" {...tilt(4)}
+                  onClick={() => setActiveDoc({
+                    title: 'English Proficiency Test (EPrT) - Score 450',
+                    subtitle: 'Telkom University Language Center',
+                    image: '/images/eprt-cert.png',
+                    institution: 'Telkom University Language Center',
+                    period: 'June 2026 · Valid until June 2028',
+                    downloadUrl: '/EPRT_Telkom_University.pdf',
+                    downloadName: 'EPRT_Telkom_University_Bayu_Aji.pdf'
+                  })}
+                  style={{ padding: '22px 20px', borderRadius: '6px', cursor: 'pointer' }}
+                  title="Click to view EPrT Certificate"
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                    <div>
+                      <span className="fh-stack-label" style={{ color: '#10B981' }}>LANGUAGE PROFICIENCY</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>English Proficiency Test (EPrT)</h4>
+                    </div>
+                    <span className="fh-role-date">Jun 2026</span>
+                  </div>
+                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>
+                    Total Score: 450 (Listening: 47, Grammar: 41, Reading: 47)
+                  </div>
+                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                    Official proficiency certificate issued by Telkom University Language Center validating working English comprehension for technical and professional environments.
+                  </p>
+                  <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#10B981' }}>
+                    <Eye size={13} /> Click to view official certificate
+                  </div>
+                </article>
+              </div>
             </div>
           </div>
         </section>
