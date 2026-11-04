@@ -66,7 +66,7 @@ export const translations = {
         number: '03',
         label: 'KONTES ROBOT ABU INDONESIA (KRAI)',
         title: 'Kompetisi Robot Basket',
-        summary: 'Mobile basketball robot built for Kontes Robot ABU Indonesia (KRAI 2025). Contributed to the ROOBICS mechanical team designing the dual-action pneumatic shooting mechanisms and RS775 DC motor drivetrain up to the National Selection stage at ITB.',
+        summary: 'Mobile basketball robot for Kontes Robot ABU Indonesia (KRAI). Served as a core mechanical team member designing the shooter, dribbler, and drive wheel configuration, advancing to the National Stage at ITB Jatinangor.',
         tags: ['6-Bar Pneumatics', '24V Solenoid', 'RS775 DC Motor', 'Omniwheel Drive', 'Limit Switch & IR', 'Air Regulator'],
         metrics: [
           ['Pneumatic', 'Shooting Mechanism'],
@@ -80,7 +80,7 @@ export const translations = {
         number: '04',
         label: 'PROYEK MANDIRI',
         title: 'Robot Line Follower',
-        summary: 'Autonomous line-tracking robot with differential drive steering and analog speed stability. Integrates an 8-channel photodiode sensor array, Arduino Nano microcontroller, high-efficiency TB6612FNG motor driver, and dual micro N20 metal gear motors.',
+        summary: 'Autonomous line-tracking robot featuring differential drive steering. Equipped with an 8-sensor bar built from LED and photodiode pairs, an Arduino Nano microcontroller, a TB6612FNG driver, and micro N20 metal gear motors.',
         tags: ['Photodiode Array', 'Arduino Nano', 'TB6612 Driver', 'N20 Gear Motor', '0.96" I2C OLED', '2S Li-ion Battery'],
         metrics: [
           ['8-Channel', 'Photodiode Sensor Bar'],
@@ -94,7 +94,7 @@ export const translations = {
         number: '05',
         label: 'PROYEK MANDIRI',
         title: 'Robot Sumo',
-        summary: '1 kg competition-class sumo robot (20 × 20 cm) built on a rigid acrylic wedge chassis delivering 4 kg push force. Driven by 4 independent PG24 planetary gear motors and steered wirelessly via smartphone Bluetooth serial communication.',
+        summary: '1 kg competition-class sumo robot (20 × 20 cm) built on an acrylic chassis with a front aluminum scoop. Delivers 4 kg push force via 4 PG24 planetary gear motors, steered wirelessly from a smartphone via Bluetooth connection.',
         tags: ['Arduino Uno', '4× PG24 Motors', 'L298N Driver', 'HC-05 Bluetooth', '3S LiPo Battery', 'Acrylic Chassis'],
         metrics: [
           ['1 kg / 20×20 cm', 'Competition Class Limit'],
@@ -357,7 +357,7 @@ export const translations = {
         number: '03',
         label: 'KONTES ROBOT ABU INDONESIA (KRAI)',
         title: 'Kompetisi Robot Basket',
-        summary: 'Robot beroda pemindah bola basket untuk Kontes Robot ABU Indonesia (KRAI 2025). Berperan sebagai anggota tim mekanik ROOBICS Universitas Telkom merancang mekanisme pelontar pneumatik dan penggerak motor DC RS775 hingga Babak Seleksi Nasional ITB.',
+        summary: 'Robot basket beroda untuk Kontes Robot ABU Indonesia (KRAI). Berperan sebagai anggota tim inti mekanik dalam merancang mekanisme shooter, dribbler, dan konfigurasi roda penggerak hingga lolos ke tingkat nasional di ITB Jatinangor.',
         tags: ['Pneumatik 6-Bar', 'Solenoid 24V', 'Motor DC RS775', 'Roda Omniwheel', 'Limit Switch & IR', 'Regulator Udara'],
         metrics: [
           ['Pneumatik', 'Sistem Pelontar Bola'],
@@ -371,7 +371,7 @@ export const translations = {
         number: '04',
         label: 'PROYEK MANDIRI',
         title: 'Robot Line Follower',
-        summary: 'Robot pelacak garis otomatis dengan kemudi differential drive berkecepatan stabil. Menggunakan modul array 8 sensor fotodioda pembaca lintasan, mikrokontroler Arduino Nano, IC driver TB6612FNG, dan motor DC mikro N20 metal gear.',
+        summary: 'Robot pelacak garis otomatis dengan sistem kemudi differential drive. Menggunakan bar 8 sensor dari pasangan LED dan fotodioda, mikrokontroler Arduino Nano, motor driver TB6612FNG, serta motor DC mikro N20 metal gear.',
         tags: ['Array Fotodioda', 'Arduino Nano', 'Driver TB6612', 'Motor DC N20', 'OLED 0.96" I2C', 'Baterai 2S Li-ion'],
         metrics: [
           ['8 Sensor', 'Array Fotodioda'],
@@ -385,7 +385,7 @@ export const translations = {
         number: '05',
         label: 'PROYEK MANDIRI',
         title: 'Robot Sumo',
-        summary: 'Robot sumo kelas 1 kg (dimensi 20×20 cm) dengan chassis akrilik kokoh berdaya dorong 4 kg. Digerakkan 4 motor DC planetary PG24 dan dikendalikan secara nirkabel melalui aplikasi ponsel pintar via modul Bluetooth HC-05.',
+        summary: 'Robot sumo kelas 1 kg (dimensi 20×20 cm) dengan chassis akrilik dan pelat aluminium depan. Mampu menghasilkan daya dorong 4 kg menggunakan 4 motor DC planetary PG24, serta dikendalikan nirkabel dari HP melalui koneksi Bluetooth.',
         tags: ['Arduino Uno', '4× Motor PG24', 'Driver L298N', 'Bluetooth HC-05', 'Baterai 3S LiPo', 'Chassis Akrilik'],
         metrics: [
           ['1 kg / 20×20 cm', 'Ukuran Kelas Kompetisi'],
