@@ -850,6 +850,10 @@ function FigmaHome() {
                   <div className="fh-tags">
                     {tp.tags.map(tag => <span key={tag}>{tag}</span>)}
                   </div>
+                  <div className="fh-card-detail-cta">
+                    <Eye size={13} />
+                    <span>{lang === 'id' ? 'Klik untuk melihat detail' : 'Click to view details'}</span>
+                  </div>
                 </a>
               );
             })}
