@@ -206,10 +206,10 @@ export const translations = {
       },
       cert2: {
         label: 'NATIONAL ROBOTICS TOURNAMENT',
-        title: 'Contestant - ABU Robocon Indonesia (KRAI 2025)',
+        title: 'National Finalist - ABU Robocon Indonesia (KRAI 2025)',
         issuer: 'Belmawa Kemdiktisaintek & ITB · Team ROOBICS',
-        period: 'Jul 2025',
-        desc: 'Official contestant certificate representing Telkom University in the National Selection stage of Kontes Robot ABU Indonesia 2025.',
+        period: '7–8 Jul 2025',
+        desc: 'Official certificate of National Finalist representing Telkom University (Team ROOBICS) in the Kontes Robot ABU Indonesia (KRAI) National Stage at ITB Jatinangor. Certificate No: 5468HK/IT1.B04.4/KM/2025.',
         cta: 'Click to view certificate',
       },
       cert3: {
@@ -502,10 +502,10 @@ export const translations = {
       },
       cert2: {
         label: 'KOMPETISI ROBOTIKA NASIONAL',
-        title: 'Peserta - ABU Robocon Indonesia (KRAI 2025)',
+        title: 'Finalis Tingkat Nasional - KRAI 2025',
         issuer: 'Belmawa Kemdiktisaintek & ITB · Tim ROOBICS',
-        period: 'Jul 2025',
-        desc: 'Sertifikat peserta resmi mewakili Universitas Telkom (Tim ROOBICS) pada Babak Seleksi Nasional Kontes Robot ABU Indonesia 2025.',
+        period: '7–8 Jul 2025',
+        desc: 'Sertifikat resmi sebagai Finalis Kontes Robot Indonesia 2025 divisi Kontes Robot ABU Indonesia (KRAI) Tingkat Nasional di ITB Jatinangor. Nomor: 5468HK/IT1.B04.4/KM/2025.',
         cta: 'Klik untuk melihat sertifikat resmi',
       },
       cert3: {

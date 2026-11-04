@@ -180,8 +180,8 @@ const projects = [
     title: 'Robot Basketball Mechanisms',
     summary: "Designed the precision dribble and pneumatic shooting mechanisms for Team ROOBICS (EIRRG Telkom University), qualifying and advancing to the National KRAI Stage at ITB Jatinangor.",
     tags: ['Mechanism Design', 'Pneumatics', 'Robotics Competition'],
-    image: 'krai-cert-real.png',
-    detailBanner: 'krai-cert-real.png',
+    image: 'krai_robot_hero.png',
+    detailBanner: 'krai_robot_hero.png',
     subtitle: 'Team ROOBICS — Mechanical contribution to ABU Robocon Indonesia (KRAI 2025).',
     label: 'NATIONAL COMPETITION · ROBOT BASKETBALL MECHANISMS',
     problem: 'Develop a high-speed, repeatable robotic mechanism capable of picking, dribbling, and accurately shooting basketballs within tight competition match timing.',
@@ -194,7 +194,7 @@ const projects = [
       ['3× RS775', 'Tri-roller pulley-coupled shooter motors'],
       ['NATIONAL', 'Advanced to National Stage at ITB Jatinangor']
     ],
-    note: 'Verified from official KRAI 2025 Certificate of Participation & Team ROOBICS documentation.'
+    note: 'Verified from official KRAI 2025 National Finalist Certificate & Team ROOBICS documentation.'
   },
   {
     number: '04',
@@ -1047,16 +1047,16 @@ function FigmaHome() {
               <article 
                 className="fh-stack-card fh-clickable-card" {...tilt(4)}
                 onClick={() => setActiveDoc({
-                  title: 'Certificate of Participation - KRAI 2025',
-                  subtitle: 'Belmawa Kemdiktisaintek & Institut Teknologi Bandung (ITB)',
-                  image: '/images/krai-cert-real.png',
+                  title: lang === 'id' ? 'Sertifikat Finalis Tingkat Nasional - KRAI 2025' : 'National Finalist Certificate - KRAI 2025',
+                  subtitle: 'Belmawa Kemdiktisaintek & ITB · No: 5468HK/IT1.B04.4/KM/2025',
+                  image: '/images/krai_cert_finalis_nasional.png',
                   institution: 'Belmawa Kemdiktisaintek & ITB',
                   period: t.certsSection.cert2.period,
                   downloadUrl: '/Sertifikat_KRAI_2025_Bayu_Aji.pdf',
-                  downloadName: 'Sertifikat_KRAI_2025_Bayu_Aji.pdf'
+                  downloadName: 'Sertifikat_KRAI_2025_Finalis_Nasional_Bayu_Aji.pdf'
                 })}
                 style={{ padding: '24px 22px', borderRadius: '6px', cursor: 'pointer' }}
-                title={lang === 'id' ? 'Klik untuk melihat Sertifikat KRAI 2025' : 'Click to view KRAI 2025 Certificate'}
+                title={lang === 'id' ? 'Klik untuk melihat Sertifikat Finalis KRAI 2025' : 'Click to view KRAI 2025 Finalist Certificate'}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
                   <div>
