@@ -251,10 +251,10 @@ const engineeringDisciplines = [
     title: 'CAD Modeling & Fabrication',
     color: '#F05A22',
     skills: [
-      '3D CAD Modeling, Assembly & Technical Drawings',
-      'Custom Transmission & Cycloidal Gearbox Design',
-      'Rapid Prototyping & FDM 3D Printing',
-      'Workshop Fabrication, Hand Tools & Power Tools',
+      '3D parametric CAD modeling, assemblies & engineering drawings',
+      'Mechanical transmission & custom Cycloidal Gearbox design',
+      'Rapid mechanical prototyping & FDM 3D printing workflows',
+      'Workshop bench fabrication, manual hand tools & power tools',
     ],
     tools: [
       { name: 'Onshape', logo: '/images/onshape-official.png' },
@@ -272,10 +272,10 @@ const engineeringDisciplines = [
     title: 'PCB Design & Wiring',
     color: '#F05A22',
     skills: [
-      'Schematic Capture & PCB Layout',
-      'Circuit Simulation & Virtual Instrumentation',
-      'Wiring Harness, Cabling & Sensor Integration',
-      'SMT Line Workflow (Stencil, Pick-and-Place, Reflow & Inspection)',
+      'Schematic capture design & multilayer PCB routing layout',
+      'Electronic circuit simulation & virtual instrument testing',
+      'Wiring harness layout, sensor cabling & pinout integration',
+      'SMT line workflows (solder stencil, pick-and-place & reflow)',
     ],
     tools: [
       { name: 'EasyEDA', logo: '/images/easyeda.svg' },
@@ -290,10 +290,10 @@ const engineeringDisciplines = [
     title: 'Firmware & Control',
     color: '#F05A22',
     skills: [
-      'Microcontroller Programming (STM32, ESP32, Arduino)',
-      'Closed-Loop Control & Sensor Feedback Systems',
-      'Serial Communication & I2C Bus Multiplexing',
-      'Kinematics Algorithms & Trajectory Planning',
+      'Microcontroller firmware programming (STM32, ESP32, Arduino)',
+      'Real-time closed-loop control systems & sensor feedback',
+      'Serial communication protocols & I2C bus multiplexing',
+      'Analytical kinematics modeling & motion trajectory planning',
     ],
     tools: [
       { name: 'STM32', logo: '/images/stm32-official.png' },
@@ -309,10 +309,10 @@ const engineeringDisciplines = [
     title: 'Collaboration & Documentation',
     color: '#F05A22',
     skills: [
-      'Technical Documentation & Engineering Reports',
-      'Test Data Analysis & Sensor Calculations',
-      'System Flow Modeling (Flowcharts & Block Diagrams)',
-      'Production Standardization (SOP & Work Instructions)',
+      'Technical documentation authoring, test reports & thesis book',
+      'Engineering data analysis, calculation sheets & sensor test logs',
+      'System workflow modeling (flowcharts & engineering blocks)',
+      'Standardized production documents (SOP & Work Instructions)',
     ],
     tools: [
       { name: 'Google Docs', logo: '/images/googledocs.svg' },
