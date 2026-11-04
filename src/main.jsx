@@ -850,10 +850,6 @@ function FigmaHome() {
                   <div className="fh-tags">
                     {tp.tags.map(tag => <span key={tag}>{tag}</span>)}
                   </div>
-                  <div className="fh-card-cta">
-                    <span>{lang === 'id' ? 'Klik untuk melihat detail projek' : 'Click to view project details'}</span>
-                    <ArrowUpRight size={13} />
-                  </div>
                 </a>
               );
             })}

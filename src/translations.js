@@ -38,7 +38,7 @@ export const translations = {
         number: '01',
         label: 'FINAL PROJECT',
         title: 'Robot Manipulator 5-DOF',
-        summary: '5-DOF articulated robotic arm prototype powered by STM32F411 MCU and 3D-printed cycloidal gearboxes. Integrates AS5600 magnetic encoders in a closed loop to reduce backlash, achieving 79.8% accuracy under 250–1,000 g loads.',
+        summary: '5-DOF articulated robotic arm prototype powered by an STM32F411 microcontroller and 3D-printed cycloidal gearboxes. Integrates AS5600 magnetic encoders in a closed loop to reduce backlash, achieving 79.8% accuracy across 250–1,000 g loads.',
         tags: ['STM32F411 MCU', 'NEMA 17 Stepper', 'TB6600 Driver', 'AS5600 Sensor', 'TCA9548A Mux', 'Cycloidal Gearbox'],
         metrics: [
           ['79.8%', 'Joint Accuracy Improvement'],
@@ -52,7 +52,7 @@ export const translations = {
         number: '02',
         label: 'CAPSTONE DESIGN',
         title: 'Pendingin Panel Surya Otomatis',
-        summary: 'Automated solar panel water cooling spray system powered by Arduino Uno. Relay control triggers the submersible pump when surface temp exceeds >30°C and turns off below <25°C to preserve efficiency.',
+        summary: 'Automated water spray cooling system to lower solar panel surface temperature driven by Arduino Uno. Uses temperature sensing and relay control to trigger a submersible pump above >30°C and shut down below <25°C to restore efficiency.',
         tags: ['Arduino Uno R3', 'RTD Temp Sensor', '5V Relay Module', '12V Water Pump', '16x2 I2C LCD', '12V Battery Pack'],
         metrics: [
           ['>30°C / <25°C', 'Pump Trigger Threshold'],
@@ -66,7 +66,7 @@ export const translations = {
         number: '03',
         label: 'KONTES ROBOT ABU INDONESIA (KRAI)',
         title: 'Kompetisi Robot Basket',
-        summary: 'Mobile basketball robot for Kontes Robot ABU Indonesia (KRAI). Core mechanical team member designing the pneumatic shooter, dribbler, and drive wheel base, advancing to National Stage at ITB Jatinangor.',
+        summary: 'Mobile basketball robot for Kontes Robot ABU Indonesia (KRAI). Served as a core mechanical team member designing the shooter, dribbler, and drive wheel configuration, advancing to the National Stage at ITB Jatinangor.',
         tags: ['6-Bar Pneumatics', '24V Solenoid', 'RS775 DC Motor', 'Omniwheel Drive', 'Limit Switch & IR', 'Air Regulator'],
         metrics: [
           ['Pneumatic', 'Shooting Mechanism'],
@@ -80,7 +80,7 @@ export const translations = {
         number: '04',
         label: 'PROYEK MANDIRI',
         title: 'Robot Line Follower',
-        summary: 'Autonomous line-tracking robot featuring differential drive steering. Equipped with an 8-sensor photodiode bar, Arduino Nano microcontroller, TB6612FNG dual driver, and micro N20 metal gear motors.',
+        summary: 'Autonomous line-tracking robot featuring differential drive steering. Equipped with an 8-sensor bar built from LED and photodiode pairs, an Arduino Nano microcontroller, a TB6612FNG driver, and micro N20 metal gear motors.',
         tags: ['Photodiode Array', 'Arduino Nano', 'TB6612 Driver', 'N20 Gear Motor', '0.96" I2C OLED', '2S Li-ion Battery'],
         metrics: [
           ['8-Channel', 'Photodiode Sensor Bar'],
@@ -94,7 +94,7 @@ export const translations = {
         number: '05',
         label: 'PROYEK MANDIRI',
         title: 'Robot Sumo',
-        summary: '1 kg competition sumo robot (20 × 20 cm) on an acrylic chassis with aluminum front scoop. Delivers 4 kg push force via 4 PG24 planetary gear motors, steered wirelessly from smartphone via Bluetooth.',
+        summary: '1 kg competition-class sumo robot (20 × 20 cm) built on an acrylic chassis with a front aluminum scoop. Delivers 4 kg push force via 4 PG24 planetary gear motors, steered wirelessly from a smartphone via Bluetooth connection.',
         tags: ['Arduino Uno', '4× PG24 Motors', 'L298N Driver', 'HC-05 Bluetooth', '3S LiPo Battery', 'Acrylic Chassis'],
         metrics: [
           ['1 kg / 20×20 cm', 'Competition Class Limit'],
@@ -329,7 +329,7 @@ export const translations = {
         number: '01',
         label: 'TUGAS AKHIR',
         title: 'Robot Manipulator 5-DOF',
-        summary: 'Prototipe lengan robot 5-DOF dengan mikrokontroler STM32F411 dan Cycloidal Gearbox 3D PLA. Menggunakan sensor closed-loop AS5600 untuk mereduksi backlash sendi, dengan akurasi 79,8% pada beban 250–1.000 gram.',
+        summary: 'Prototipe lengan robot manipulator 5-DOF berbasis mikrokontroler STM32F411 dan Cycloidal Gearbox 3D PLA. Menggunakan sensor magnetik AS5600 closed-loop untuk mereduksi backlash sendi, dengan akurasi posisi mencapai 79,8% pada rentang beban 250–1.000 gram.',
         tags: ['STM32F411', 'NEMA 17 Stepper', 'Driver TB6600', 'Sensor AS5600', 'Mux TCA9548A', 'Gearbox 3D PLA'],
         metrics: [
           ['79.8%', 'Peningkatan Akurasi Sendi'],
@@ -343,7 +343,7 @@ export const translations = {
         number: '02',
         label: 'CAPSTONE DESIGN',
         title: 'Pendingin Panel Surya Otomatis',
-        summary: 'Sistem penyemprot air otomatis penurun suhu panel surya berbasis Arduino Uno. Kontrol relay menyalakan pompa saat suhu panel >30°C dan mati saat kembali <25°C untuk menjaga kestabilan daya listrik.',
+        summary: 'Sistem penyemprot air otomatis untuk menurunkan suhu permukaan panel surya berbasis Arduino Uno. Menggunakan sensor suhu dan kontrol relay yang menyalakan pompa celup saat suhu panel mencapai >30°C dan mati saat kembali ke <25°C.',
         tags: ['Arduino Uno R3', 'Sensor Suhu RTD', 'Modul Relay 5V', 'Pompa Celup 12V', 'LCD 16x2 I2C', 'Baterai Aki 12V'],
         metrics: [
           ['>30°C / <25°C', 'Batas Kerja Pompa'],
@@ -357,7 +357,7 @@ export const translations = {
         number: '03',
         label: 'KONTES ROBOT ABU INDONESIA (KRAI)',
         title: 'Kompetisi Robot Basket',
-        summary: 'Mobile basketball robot untuk Kontes Robot ABU Indonesia (KRAI). Anggota tim inti mekanik yang merancang mekanisme shooter, dribbler, dan konfigurasi roda penggerak hingga lolos nasional di ITB Jatinangor.',
+        summary: 'Robot basket beroda untuk Kontes Robot ABU Indonesia (KRAI). Berperan sebagai anggota tim inti mekanik dalam merancang mekanisme shooter, dribbler, dan konfigurasi roda penggerak hingga lolos ke tingkat nasional di ITB Jatinangor.',
         tags: ['Pneumatik 6-Bar', 'Solenoid 24V', 'Motor DC RS775', 'Roda Omniwheel', 'Limit Switch & IR', 'Regulator Udara'],
         metrics: [
           ['Pneumatik', 'Sistem Pelontar Bola'],
@@ -371,7 +371,7 @@ export const translations = {
         number: '04',
         label: 'PROYEK MANDIRI',
         title: 'Robot Line Follower',
-        summary: 'Robot pelacak garis otomatis dengan kemudi differential drive. Menggunakan sensor bar 8 pasang LED dan fotodioda, mikrokontroler Arduino Nano, motor driver TB6612FNG, serta motor DC mikro N20 metal gear.',
+        summary: 'Robot pelacak garis otomatis dengan sistem kemudi differential drive. Menggunakan bar 8 sensor dari pasangan LED dan fotodioda, mikrokontroler Arduino Nano, motor driver TB6612FNG, serta motor DC mikro N20 metal gear.',
         tags: ['Array Fotodioda', 'Arduino Nano', 'Driver TB6612', 'Motor DC N20', 'OLED 0.96" I2C', 'Baterai 2S Li-ion'],
         metrics: [
           ['8 Sensor', 'Array Fotodioda'],
@@ -385,7 +385,7 @@ export const translations = {
         number: '05',
         label: 'PROYEK MANDIRI',
         title: 'Robot Sumo',
-        summary: 'Robot sumo kelas 1 kg (dimensi 20×20 cm) dengan chassis akrilik dan pelat aluminium depan. Mampu mendorong beban 4 kg via 4 motor DC PG24, serta dikendalikan nirkabel dari HP melalui koneksi Bluetooth.',
+        summary: 'Robot sumo kelas 1 kg (dimensi 20×20 cm) dengan chassis akrilik dan pelat aluminium depan. Mampu menghasilkan daya dorong 4 kg menggunakan 4 motor DC planetary PG24, serta dikendalikan nirkabel dari HP melalui koneksi Bluetooth.',
         tags: ['Arduino Uno', '4× Motor PG24', 'Driver L298N', 'Bluetooth HC-05', 'Baterai 3S LiPo', 'Chassis Akrilik'],
         metrics: [
           ['1 kg / 20×20 cm', 'Ukuran Kelas Kompetisi'],
