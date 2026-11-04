@@ -1060,7 +1060,7 @@ function FigmaHome() {
                 title={lang === 'id' ? 'Klik untuk melihat Sertifikat Finalis KRAI 2025' : 'Click to view KRAI 2025 Finalist Certificate'}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <span className="fh-stack-label" style={{ color: '#F05A22', marginBottom: 0 }}>{t.certsSection.cert2.label}</span>
+                  <span className="fh-stack-label" style={{ color: '#D97706', marginBottom: 0 }}>{t.certsSection.cert2.label}</span>
                   <span className="fh-role-date">{t.certsSection.cert2.period}</span>
                 </div>
                 <div className="fh-cert-thumb-box">
@@ -1073,7 +1073,7 @@ function FigmaHome() {
                 <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
                   {t.certsSection.cert2.desc}
                 </p>
-                <div style={{ marginTop: 'auto', paddingTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#F05A22' }}>
+                <div style={{ marginTop: 'auto', paddingTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#D97706' }}>
                   <Eye size={13} /> {t.certsSection.cert2.cta}
                 </div>
               </article>
@@ -1094,7 +1094,7 @@ function FigmaHome() {
                 title={lang === 'id' ? 'Klik untuk melihat Sertifikat EPrT' : 'Click to view EPrT Certificate'}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <span className="fh-stack-label" style={{ color: '#10B981', marginBottom: 0 }}>{t.certsSection.cert3.label}</span>
+                  <span className="fh-stack-label" style={{ color: '#B91C1C', marginBottom: 0 }}>{t.certsSection.cert3.label}</span>
                   <span className="fh-role-date">{t.certsSection.cert3.period}</span>
                 </div>
                 <div className="fh-cert-thumb-box">
@@ -1107,7 +1107,7 @@ function FigmaHome() {
                 <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
                   {t.certsSection.cert3.desc}
                 </p>
-                <div style={{ marginTop: 'auto', paddingTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#10B981' }}>
+                <div style={{ marginTop: 'auto', paddingTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#B91C1C' }}>
                   <Eye size={13} /> {t.certsSection.cert3.cta}
                 </div>
               </article>
