@@ -53,7 +53,7 @@ export const translations = {
         label: 'CAPSTONE DESIGN',
         title: 'Pendingin Panel Surya Otomatis',
         summary: 'Automated water spray cooling system to lower solar panel surface temperature driven by Arduino Uno. Uses temperature sensing and relay control to trigger a submersible pump above >30°C and shut down below <25°C to restore efficiency.',
-        tags: ['Arduino Uno R3', 'RTD Temp Sensor', '5V Relay Module', '12V Submersible Pump', '16x2 I2C LCD', '12V Battery'],
+        tags: ['Arduino Uno R3', 'RTD Temp Sensor', '5V Relay Module', '12V Water Pump', '16x2 I2C LCD', '12V Battery Pack'],
         metrics: [
           ['>30°C / <25°C', 'Pump Trigger Threshold'],
           ['±0.6°C', 'Sensor Measurement Accuracy'],
@@ -67,7 +67,7 @@ export const translations = {
         label: 'KONTES ROBOT ABU INDONESIA (KRAI)',
         title: 'Kompetisi Robot Basket',
         summary: 'Mobile basketball robot built for Kontes Robot ABU Indonesia (KRAI 2025). Contributed to the ROOBICS mechanical team designing the dual-action pneumatic shooting mechanisms and RS775 DC motor drivetrain up to the National Selection stage at ITB.',
-        tags: ['Pneumatic Cylinder', '24V Solenoid Valve', 'RS775 DC Motor', 'Omni / Mecanum Wheels', 'Limit Switch & IR', 'Pressure Regulator'],
+        tags: ['6-Bar Pneumatics', '24V Solenoid', 'RS775 DC Motor', 'Omniwheel Drive', 'Limit Switch & IR', 'Air Regulator'],
         metrics: [
           ['Pneumatic', 'Shooting Mechanism'],
           ['National Stage', 'ITB Jatinangor Selection'],
@@ -81,7 +81,7 @@ export const translations = {
         label: 'PROYEK MANDIRI',
         title: 'Robot Line Follower',
         summary: 'Autonomous line-tracking robot with differential drive steering and analog speed stability. Integrates an 8-channel photodiode sensor array, Arduino Nano microcontroller, high-efficiency TB6612FNG motor driver, and dual micro N20 metal gear motors.',
-        tags: ['8-Photodiode Array', 'Arduino Nano', 'TB6612FNG Driver', 'N20 Metal Gear Motor', '0.96" I2C OLED', '2S Li-ion Battery'],
+        tags: ['Photodiode Array', 'Arduino Nano', 'TB6612 Driver', 'N20 Gear Motor', '0.96" I2C OLED', '2S Li-ion Battery'],
         metrics: [
           ['8-Channel', 'Photodiode Sensor Bar'],
           ['Comparator', 'Line Detection Logic'],
@@ -95,7 +95,7 @@ export const translations = {
         label: 'PROYEK MANDIRI',
         title: 'Robot Sumo',
         summary: '1 kg competition-class sumo robot (20 × 20 cm) built on a rigid acrylic wedge chassis delivering 4 kg push force. Driven by 4 independent PG24 planetary gear motors and steered wirelessly via smartphone Bluetooth serial communication.',
-        tags: ['Arduino Uno', '4× PG24 Motors', 'Dual L298N Driver', 'HC-05 Bluetooth', '3S LiPo Battery', '20×20 cm Chassis'],
+        tags: ['Arduino Uno', '4× PG24 Motors', 'L298N Driver', 'HC-05 Bluetooth', '3S LiPo Battery', 'Acrylic Chassis'],
         metrics: [
           ['1 kg / 20×20 cm', 'Competition Class Limit'],
           ['4WD', 'Independent Geared Motors'],
@@ -344,7 +344,7 @@ export const translations = {
         label: 'CAPSTONE DESIGN',
         title: 'Pendingin Panel Surya Otomatis',
         summary: 'Sistem penyemprot air otomatis untuk menurunkan suhu permukaan panel surya berbasis Arduino Uno. Menggunakan sensor suhu dan kontrol relay yang menyalakan pompa celup saat suhu panel mencapai >30°C dan mati saat kembali ke <25°C.',
-        tags: ['Arduino Uno R3', 'Sensor Suhu RTD', 'Modul Relay 5V', 'Pompa Celup 12V', 'LCD 16x2 I2C', 'Aki / Baterai 12V'],
+        tags: ['Arduino Uno R3', 'Sensor Suhu RTD', 'Modul Relay 5V', 'Pompa Celup 12V', 'LCD 16x2 I2C', 'Baterai Aki 12V'],
         metrics: [
           ['>30°C / <25°C', 'Batas Kerja Pompa'],
           ['±0.6°C', 'Akurasi Pembacaan Sensor'],
@@ -358,7 +358,7 @@ export const translations = {
         label: 'KONTES ROBOT ABU INDONESIA (KRAI)',
         title: 'Kompetisi Robot Basket',
         summary: 'Robot beroda pemindah bola basket untuk Kontes Robot ABU Indonesia (KRAI 2025). Berperan sebagai anggota tim mekanik ROOBICS Universitas Telkom merancang mekanisme pelontar pneumatik dan penggerak motor DC RS775 hingga Babak Seleksi Nasional ITB.',
-        tags: ['Silinder Pneumatik', 'Solenoid Valve 24V', 'Motor DC RS775', 'Roda Omni / Mecanum', 'Limit Switch & IR', 'Regulator Tekanan'],
+        tags: ['Pneumatik 6-Bar', 'Solenoid 24V', 'Motor DC RS775', 'Roda Omniwheel', 'Limit Switch & IR', 'Regulator Udara'],
         metrics: [
           ['Pneumatik', 'Sistem Pelontar Bola'],
           ['Babak Nasional', 'ITB Jatinangor'],
@@ -372,7 +372,7 @@ export const translations = {
         label: 'PROYEK MANDIRI',
         title: 'Robot Line Follower',
         summary: 'Robot pelacak garis otomatis dengan kemudi differential drive berkecepatan stabil. Menggunakan modul array 8 sensor fotodioda pembaca lintasan, mikrokontroler Arduino Nano, IC driver TB6612FNG, dan motor DC mikro N20 metal gear.',
-        tags: ['Array 8 Fotodioda', 'Arduino Nano', 'Driver TB6612FNG', 'Motor DC N20 Metal', 'OLED 0.96" I2C', 'Baterai 2S Li-ion'],
+        tags: ['Array Fotodioda', 'Arduino Nano', 'Driver TB6612', 'Motor DC N20', 'OLED 0.96" I2C', 'Baterai 2S Li-ion'],
         metrics: [
           ['8 Sensor', 'Array Fotodioda'],
           ['Komparator', 'Pembaca Jalur Garis'],
@@ -386,7 +386,7 @@ export const translations = {
         label: 'PROYEK MANDIRI',
         title: 'Robot Sumo',
         summary: 'Robot sumo kelas 1 kg (dimensi 20×20 cm) dengan chassis akrilik kokoh berdaya dorong 4 kg. Digerakkan 4 motor DC planetary PG24 dan dikendalikan secara nirkabel melalui aplikasi ponsel pintar via modul Bluetooth HC-05.',
-        tags: ['Arduino Uno', '4× Motor PG24', 'Driver Dual L298N', 'Bluetooth HC-05', 'Baterai 3S LiPo', 'Chassis Akrilik 20×20'],
+        tags: ['Arduino Uno', '4× Motor PG24', 'Driver L298N', 'Bluetooth HC-05', 'Baterai 3S LiPo', 'Chassis Akrilik'],
         metrics: [
           ['1 kg / 20×20 cm', 'Ukuran Kelas Kompetisi'],
           ['4WD', 'Motor DC Penggerak Roda'],
