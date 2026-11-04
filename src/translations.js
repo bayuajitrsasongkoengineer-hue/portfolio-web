@@ -18,7 +18,7 @@ export const translations = {
         ['organizations', 'Organizations'],
         ['contact', 'Contact'],
       ],
-      available: 'AVAILABLE FOR WORK',
+      available: 'OPEN TO WORK',
     },
     hero: {
       viewProjects: 'View Projects',
