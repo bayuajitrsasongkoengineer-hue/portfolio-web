@@ -220,7 +220,7 @@ export default function SumoRobotCaseStudy() {
               <Zap size={16} color="#F05A22" /> {isId ? 'Distribusi Daya (LiPo 3S & L298N)' : 'Power Delivery (3S LiPo & L298N)'}
             </h4>
             <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.6', margin: 0 }}>
-              {isId ? 'Baterai LiPo 3S menyalurkan tegangan motor langsung hingga 12,6V melalui kabel tembaga berpenampang tebal, menggerakkan dua modul H-bridge L298N dengan heatsink untuk mendisipasi panas saat kondisi motor stall.' : '3S LiPo battery delivers up to 12.6V direct motor rail voltage through heavy-gauge copper wiring, driving dual L298N H-bridge channels with heat sinks to dissipate stall heat dissipation.'}
+              {isId ? 'Baterai LiPo 3S menyalurkan tegangan motor langsung hingga 12,6V melalui kabel tembaga berpenampang tebal, menggerakkan dua modul H-bridge L298N dengan heatsink untuk mendisipasi panas saat kondisi motor stall.' : '3S LiPo battery delivers up to 12.6V direct motor rail voltage through heavy-gauge copper wiring, driving dual L298N H-bridge channels with heat sinks to dissipate heat under motor stall conditions.'}
             </p>
           </div>
         </div>

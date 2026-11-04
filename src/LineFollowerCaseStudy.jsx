@@ -253,7 +253,7 @@ export default function LineFollowerCaseStudy() {
                 </>
               ) : (
                 <>
-                  1. Upon pressing the blue pushbutton, the robot gently pivots across the line for 3 seconds.<br />
+                  1. Upon pressing the tactile pushbutton, the robot gently pivots across the line for 3 seconds.<br />
                   2. Minimum (white surface) and maximum (black line) reflectance values are logged for each of the 8 individual sensor channels.<br />
                   3. Dynamic threshold offsets are computed and saved in runtime memory.<br />
                   4. Successful calibration state and battery cell voltages are verified on the OLED display before commencing autonomous navigation.
