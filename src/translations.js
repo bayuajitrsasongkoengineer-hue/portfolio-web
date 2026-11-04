@@ -141,8 +141,8 @@ export const translations = {
     },
     educationSection: {
       eyebrow: '05 / ACADEMIC BACKGROUND',
-      title: 'Technical high school foundation & electrical engineering degree.',
-      subtitle: 'Combining hands-on workshop training from technical high school with electrical engineering and robotics fundamentals from university.',
+      title: 'Academic Background & Formal Education',
+      subtitle: 'Formal education journey spanning vocational mechatronics engineering to a bachelor degree in electrical engineering.',
       telkom: {
         degree: 'Bachelor of Science in Electrical Engineering · Telkom University',
         period: 'Sep 2022 - Aug 2026 · Bandung, Indonesia',
@@ -432,8 +432,8 @@ export const translations = {
     },
     educationSection: {
       eyebrow: '05 / PENDIDIKAN',
-      title: 'Dasar praktik SMK mekatronika & sarjana teknik elektro.',
-      subtitle: 'Menggabungkan keterampilan praktis perbengkelan dari SMK dengan dasar teori kelistrikan dan kontrol dari universitas.',
+      title: 'Riwayat Pendidikan & Latar Belakang Akademik',
+      subtitle: 'Rekam jejak studi formal dari jenjang kejuruan teknik mekatronika hingga sarjana teknik elektro.',
       telkom: {
         degree: 'Sarjana Teknik Elektro (S.T.) · Universitas Telkom',
         period: 'Sep 2022 - Agu 2026 · Bandung, Indonesia',
