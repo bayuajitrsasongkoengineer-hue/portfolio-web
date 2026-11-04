@@ -193,7 +193,6 @@ export default function SolarCoolingCaseStudy() {
                   <th>{isId ? 'SUHU PEMICU NYALA' : 'ACTIVATION TEMP TRIGGER'}</th>
                   <th>{isId ? 'WAKTU MENUJU 25°C' : 'TIME TO REACH 25°C'}</th>
                   <th>{isId ? 'SUHU PEMICU MATI' : 'DEACTIVATION TEMP'}</th>
-                  <th>{isId ? 'KEANDALAN RESPON' : 'RESPONSE RELIABILITY'}</th>
                 </tr>
               </thead>
               <tbody>
@@ -203,7 +202,6 @@ export default function SolarCoolingCaseStudy() {
                   <td>30.1°C (±0.2)</td>
                   <td>9.0 {isId ? 'menit' : 'minutes'}</td>
                   <td>25.2°C</td>
-                  <td><strong style={{ color: '#16A34A' }}>{isId ? 'Otonom Terverifikasi' : 'Verified Autonomous'}</strong></td>
                 </tr>
                 <tr>
                   <td><strong>{isId ? 'Uji 2' : 'Trial 2'}</strong></td>
@@ -211,7 +209,6 @@ export default function SolarCoolingCaseStudy() {
                   <td>30.3°C</td>
                   <td>10.0 {isId ? 'menit' : 'minutes'}</td>
                   <td>25.1°C</td>
-                  <td><strong style={{ color: '#16A34A' }}>{isId ? 'Otonom Terverifikasi' : 'Verified Autonomous'}</strong></td>
                 </tr>
                 <tr>
                   <td><strong>{isId ? 'Uji 3' : 'Trial 3'}</strong></td>
@@ -219,7 +216,6 @@ export default function SolarCoolingCaseStudy() {
                   <td>30.2°C</td>
                   <td>9.5 {isId ? 'menit' : 'minutes'}</td>
                   <td>25.0°C</td>
-                  <td><strong style={{ color: '#16A34A' }}>{isId ? 'Otonom Terverifikasi' : 'Verified Autonomous'}</strong></td>
                 </tr>
                 <tr className="cs-table-highlight">
                   <td><strong>{isId ? 'RATA-RATA' : 'AVERAGE'}</strong></td>
@@ -227,7 +223,6 @@ export default function SolarCoolingCaseStudy() {
                   <td><strong>30.2°C (±0.3°C dev)</strong></td>
                   <td><strong>9.5 {isId ? 'menit (~turun 1,7°C/mnt)' : 'minutes (~1.7°C/min drop)'}</strong></td>
                   <td><strong>25.1°C</strong></td>
-                  <td><strong>{isId ? 'Siklus Berulang Konsisten' : 'Repeatable Cycle Response'}</strong></td>
                 </tr>
               </tbody>
             </table>
@@ -319,9 +314,9 @@ export default function SolarCoolingCaseStudy() {
 
         {/* ─── BLOCK C: Battery Runtime & System Robustness ─── */}
         <div className="cs-validation-block">
-          <div className="cs-validation-label">{isId ? 'C — Kemandirian Energi & Proteksi Cuaca' : 'C — Energy Autonomy & Environmental Ingress Protection'}</div>
+          <div className="cs-validation-label">{isId ? 'C — Kemandirian Energi & Proteksi Cuaca' : 'C — Energy Autonomy & Environmental Protection'}</div>
           <p className="cs-validation-desc">
-            {isId ? 'Uji pengosongan beban listrik kontinu selama jendela radiasi puncak 11:00–15:00, dipadukan dengan pengujian semprotan multi-arah IPX4 dan verifikasi konektor MC4.' : 'Continuous electrical load discharge testing over the 11:00–15:00 peak solar radiation window, paired with IPX4 multi-directional spray tests and MC4 electrical verification.'}
+            {isId ? 'Pengujian pengosongan beban listrik kontinu selama jendela radiasi puncak 11:00–15:00, dipadukan dengan verifikasi proteksi percikan air kotak kontrol dan ketahanan dudukan rangka luar ruangan.' : 'Continuous electrical load discharge testing over the 11:00–15:00 peak solar radiation window, paired with enclosure splash protection verification and outdoor mounting stability checks.'}
           </p>
 
           <div className="cs-table-wrapper">
@@ -329,41 +324,35 @@ export default function SolarCoolingCaseStudy() {
               <thead>
                 <tr>
                   <th>{isId ? 'KRITERIA VERIFIKASI' : 'VERIFICATION CRITERIA'}</th>
-                  <th>{isId ? 'METRIK TERUKUR' : 'MEASURED METRIC'}</th>
+                  <th>{isId ? 'HASIL PENGUKURAN' : 'MEASURED RESULT'}</th>
                   <th>{isId ? 'PARAMETER PENGUJIAN' : 'TEST PARAMETERS'}</th>
-                  <th>{isId ? 'STATUS LULUS / GAGAL' : 'PASS / FAIL STATUS'}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td><strong>{isId ? 'Ketahanan Operasi Baterai' : 'Battery Operational Endurance'}</strong></td>
                   <td><strong>4 {isId ? 'jam' : 'hours'} 09 {isId ? 'menit' : 'minutes'}</strong></td>
-                  <td>{isId ? 'Baterai 12V 10Ah menyuplai beban >25W (pompa + MCU + sensor)' : '12V 10Ah battery powering >25W load (pump + MCU + sensors)'}</td>
-                  <td><strong style={{ color: '#16A34A' }}>{isId ? 'LULUS — 102 Wh Tersalurkan' : 'PASS — 102 Wh Delivered'}</strong></td>
+                  <td>{isId ? 'Baterai 12V 10Ah menyuplai beban pompa celup, mikrokontroler, dan sensor (>25W)' : '12V 10Ah battery powering pump, MCU, and sensors (>25W load)'}</td>
                 </tr>
                 <tr>
-                  <td><strong>{isId ? 'Cakupan Jendela Surya Puncak' : 'Peak Solar Window Coverage'}</strong></td>
-                  <td><strong>100% {isId ? 'Tanpa Putus' : 'Uninterrupted'}</strong></td>
-                  <td>{isId ? 'Operasi kontinu dari 11:00 hingga 15:00 tanpa listrik PLN' : 'Continuous operation from 11:00 to 15:00 without mains connection'}</td>
-                  <td><strong style={{ color: '#16A34A' }}>{isId ? 'LULUS — Off-Grid Mandiri' : 'PASS — Fully Off-Grid'}</strong></td>
+                  <td><strong>{isId ? 'Cakupan Jam Terik Matahari' : 'Peak Solar Window Coverage'}</strong></td>
+                  <td><strong>100% {isId ? 'Operasi Mandiri' : 'Autonomous Operation'}</strong></td>
+                  <td>{isId ? 'Operasi kontinu dari 11:00 hingga 15:00 tanpa sambungan listrik PLN' : 'Continuous operation from 11:00 to 15:00 without grid power'}</td>
                 </tr>
                 <tr>
-                  <td><strong>{isId ? 'Ketahanan Air Enclosure IPX4' : 'IPX4 Enclosure Waterproofing'}</strong></td>
-                  <td><strong>{isId ? 'Nol Penetrasi / Kering' : 'Zero Ingress / Dry'}</strong></td>
-                  <td>{isId ? 'Uji semprot 5 menit volume tinggi dari 4 arah pada bodi ABS' : '5-min continuous high-volume spray from 4 directions on ABS casing'}</td>
-                  <td><strong style={{ color: '#16A34A' }}>{isId ? 'LULUS — Rangkaian Terlindungi' : 'PASS — No Moisture Ingress'}</strong></td>
+                  <td><strong>{isId ? 'Proteksi Percikan Air Enclosure' : 'Enclosure Splash Protection'}</strong></td>
+                  <td><strong>{isId ? 'Kering / Bebas Rembesan' : 'Dry / Zero Moisture Ingress'}</strong></td>
+                  <td>{isId ? 'Uji paparan semprotan air dari berbagai arah pada bodi ABS berkaret segel' : 'Water spray exposure test across angles on gasket-sealed ABS casing'}</td>
                 </tr>
                 <tr>
-                  <td><strong>{isId ? 'Antarmuka Elektrikal Standar MC4' : 'Universal MC4 Electrical Interface'}</strong></td>
-                  <td><strong>100% {isId ? 'Kontinuitas' : 'Continuity'}</strong></td>
-                  <td>{isId ? 'Diuji pada panel Monokristalin, Polikristalin, dan Fleksibel' : 'Tested on Monocrystalline, Polycrystalline, and Flexible PV arrays'}</td>
-                  <td><strong style={{ color: '#16A34A' }}>{isId ? 'LULUS — Arus Lancar' : 'PASS — Zero Drop'}</strong></td>
+                  <td><strong>{isId ? 'Konektor Elektrikal Panel MC4' : 'MC4 Electrical Interface'}</strong></td>
+                  <td><strong>{isId ? 'Kontinuitas Lancar' : 'Continuous Electrical Contact'}</strong></td>
+                  <td>{isId ? 'Penyaluran kabel daya dengan konektor standar fotovoltaik MC4' : 'Power cabling via standard photovoltaic MC4 connectors'}</td>
                 </tr>
                 <tr>
-                  <td><strong>{isId ? 'Kekokohan Pemasangan Struktur' : 'Structural Mounting Stability'}</strong></td>
-                  <td><strong>{isId ? 'Nol Pergeseran' : 'Zero Displacement'}</strong></td>
-                  <td>{isId ? 'Simulasi terpaan angin blower 60 km/jam pada dudukan beton' : 'Simulated 60 km/h wind shear blower test on concrete/tilt mounts'}</td>
-                  <td><strong style={{ color: '#16A34A' }}>{isId ? 'LULUS — Angker Kokoh' : 'PASS — Rigid Anchor'}</strong></td>
+                  <td><strong>{isId ? 'Kekokohan Rangka Penyangga' : 'Structural Mounting Stability'}</strong></td>
+                  <td><strong>{isId ? 'Stabil & Tidak Bergeser' : 'Stable / Zero Displacement'}</strong></td>
+                  <td>{isId ? 'Ketahanan mekanis dudukan rangka panel terhadap hembusan angin luar ruangan' : 'Mechanical frame resilience under ambient outdoor wind conditions'}</td>
                 </tr>
               </tbody>
             </table>
@@ -375,8 +364,8 @@ export default function SolarCoolingCaseStudy() {
               <p>{isId ? 'Subsistem beroperasi stabil sepanjang 4 jam jendela penyinaran puncak tanpa penurunan tegangan, menarik daya rata-rata ~25,2W dengan konsumsi energi total 102 Wh. Baterai dapat diisi ulang secara mandiri melalui cabang bantu pengontrol muatan surya (SCC).' : 'The subsystem operated stably throughout the entire 4-hour peak irradiance window without voltage collapse, drawing ~25.2W and consuming a total of 102 Wh. The battery can be replenished directly via an auxiliary branch from the solar charge controller (SCC).'}</p>
             </div>
             <div className="cs-info-box">
-              <h4><ShieldCheck size={16} color="#F05A22" /> {isId ? 'Kepatuhan Ketahanan Lingkungan' : 'Environmental Durability Compliance'}</h4>
-              <p>{isId ? 'Pengujian semprotan langsung membuktikan proteksi IPX4 pada kotak enclosure ABS. Seluruh komponen elektronika internal, terminal, dan soket sensor tetap kering bebas kelembapan, menjamin ketahanan terhadap hujan deras tropis.' : 'Direct spray testing confirmed IPX4 ingress protection on the ABS electrical housing. All internal electronics, terminals, and sensor interfaces remained moisture-free, validating field survivability under harsh tropical rain events.'}</p>
+              <h4><ShieldCheck size={16} color="#F05A22" /> {isId ? 'Proteksi Enclosure Luar Ruangan' : 'Weatherproof Enclosure Protection'}</h4>
+              <p>{isId ? 'Pengujian semprotan membuktikan proteksi percikan air pada kotak enclosure ABS. Seluruh komponen elektronika internal, terminal kabel, dan soket sensor tetap kering bebas kelembapan saat pengoperasian di luar ruangan.' : 'Spray testing confirmed splash protection on the ABS electrical housing. All internal electronics, terminals, and sensor interfaces remained moisture-free during outdoor operation.'}</p>
             </div>
           </div>
         </div>

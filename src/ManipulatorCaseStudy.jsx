@@ -554,8 +554,7 @@ export default function ManipulatorCaseStudy() {
                   <th>{isId ? 'BEBAN (PAYLOAD)' : 'PAYLOAD'}</th>
                   <th>{isId ? 'RATA-RATA ERROR (°)' : 'AVG POSITION ERROR (°)'}</th>
                   <th>{isId ? 'ERROR MAKSIMUM (°)' : 'MAX ERROR (°)'}</th>
-                  <th>{isId ? 'STABILITAS' : 'STABILITY'}</th>
-                  <th>STATUS</th>
+                  <th>{isId ? 'KONDISI OPERASI' : 'OPERATIONAL CONDITION'}</th>
                 </tr>
               </thead>
               <tbody>
@@ -563,34 +562,29 @@ export default function ManipulatorCaseStudy() {
                   <td><strong>250 g</strong></td>
                   <td>0.09°</td>
                   <td>0.20°</td>
-                  <td>{isId ? 'Konsisten' : 'Consistent'}</td>
-                  <td><strong style={{ color: '#16A34A' }}>{isId ? 'STABIL' : 'STABLE'}</strong></td>
+                  <td>{isId ? 'Stabil & Konsisten' : 'Stable & Consistent'}</td>
                 </tr>
                 <tr>
                   <td><strong>500 g</strong></td>
                   <td>0.08°</td>
                   <td>0.20°</td>
-                  <td>{isId ? 'Konsisten' : 'Consistent'}</td>
-                  <td><strong style={{ color: '#16A34A' }}>{isId ? 'STABIL' : 'STABLE'}</strong></td>
+                  <td>{isId ? 'Stabil & Konsisten' : 'Stable & Consistent'}</td>
                 </tr>
                 <tr>
                   <td><strong>750 g</strong></td>
                   <td>0.07°</td>
                   <td>0.30°</td>
-                  <td>{isId ? 'Konsisten' : 'Consistent'}</td>
-                  <td><strong style={{ color: '#16A34A' }}>{isId ? 'STABIL' : 'STABLE'}</strong></td>
+                  <td>{isId ? 'Stabil & Konsisten' : 'Stable & Consistent'}</td>
                 </tr>
                 <tr>
                   <td><strong>1,000 g</strong></td>
                   <td>0.07°</td>
                   <td>0.30°</td>
-                  <td>{isId ? 'Konsisten' : 'Consistent'}</td>
-                  <td><strong style={{ color: '#D97706' }}>{isId ? 'STABIL — BATAS AMAN' : 'STABLE — MAX SAFE'}</strong></td>
+                  <td>{isId ? 'Batas Beban Aman Operasi' : 'Maximum Safe Operating Load'}</td>
                 </tr>
                 <tr className="cs-table-highlight">
                   <td><strong>1,250 g</strong></td>
-                  <td colSpan={3}><strong>{isId ? 'Deformasi struktural (pelecehan termal PLA) — Pengujian dihentikan' : 'Structural deformation (PLA thermal softening) — Test aborted'}</strong></td>
-                  <td><strong style={{ color: '#DC2626' }}>{isId ? 'GAGAL' : 'FAILURE'}</strong></td>
+                  <td colSpan={3}><strong>{isId ? 'Defleksi struktural material PLA — Batas beban mekanis terlampaui' : 'Structural deflection of PLA material — Mechanical load limit exceeded'}</strong></td>
                 </tr>
               </tbody>
             </table>

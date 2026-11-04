@@ -144,7 +144,7 @@ const projects = [
     test: 'Validated across 8 target angle configurations and multi-payload trials. Achieved 79.8% average accuracy improvement (error down from 0.51° to 0.10°) with stable payload operation from 250 to 1,000 g (IK mean error 6.65 mm / 2.03%).',
     metrics: [
       ['79.8%', 'Positional accuracy improvement (0.51° → 0.10°)'],
-      ['250–1,000 g', 'Stable validated payload range (exceeded 600 g target)'],
+      ['250–1,000 g', 'Stable validated payload range under closed-loop control'],
       ['6.65 mm', 'Mean absolute Inverse Kinematics position error (2.03%)'],
       ['1:50 & 1:25', 'Custom 3D-printed cycloidal reduction ratios']
     ],

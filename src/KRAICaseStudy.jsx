@@ -293,7 +293,6 @@ export default function KRAICaseStudy() {
                   <td><strong>{row[0]}</strong></td>
                   <td>{row[1]}</td>
                   <td><strong>{row[2]}</strong></td>
-                  <td><strong style={{ color: '#16A34A' }}>{row[3]}</strong></td>
                 </tr>
               ))}
             </tbody>
