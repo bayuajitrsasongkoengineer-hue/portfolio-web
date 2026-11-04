@@ -590,6 +590,31 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
+.fh-org-logo-wrapper {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.fh-stack-card:hover .fh-org-logo-wrapper {
+  transform: translateY(-2px);
+  border-color: #D1D5DB;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.fh-org-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
 
 /* CONTACT (07) */
 .fh-contact { min-height: 505px; background: #fff; border-top: 1px solid #E5E7EB; }
