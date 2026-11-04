@@ -385,8 +385,8 @@ export const translations = {
         number: '05',
         label: 'PROYEK MANDIRI',
         title: 'Robot Sumo',
-        summary: 'Robot sumo kelas 1 kg (dimensi 20×20 cm) dengan sasis baji akrilik kokoh berdaya dorong 4 kg. Digerakkan 4 motor DC planetary PG24 dan dikendalikan secara nirkabel melalui aplikasi ponsel pintar via modul Bluetooth HC-05.',
-        tags: ['Arduino Uno', '4× Motor PG24', 'Driver Dual L298N', 'Bluetooth HC-05', 'Baterai 3S LiPo', 'Sasis Akrilik 20×20'],
+        summary: 'Robot sumo kelas 1 kg (dimensi 20×20 cm) dengan chassis akrilik kokoh berdaya dorong 4 kg. Digerakkan 4 motor DC planetary PG24 dan dikendalikan secara nirkabel melalui aplikasi ponsel pintar via modul Bluetooth HC-05.',
+        tags: ['Arduino Uno', '4× Motor PG24', 'Driver Dual L298N', 'Bluetooth HC-05', 'Baterai 3S LiPo', 'Chassis Akrilik 20×20'],
         metrics: [
           ['1 kg / 20×20 cm', 'Ukuran Kelas Kompetisi'],
           ['4WD', 'Motor DC Penggerak Roda'],
