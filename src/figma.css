@@ -714,9 +714,9 @@
 /* RESPONSIVE: TABLET (max-width: 1000px) */
 @media (max-width: 1000px) {
   .fh-width { width: calc(100% - 80px); }
-  .fh-header { padding-inline: 40px; }
-  .fh-nav { gap: 22px; }
-  .fh-nav > span { margin-left: 5px; }
+  .fh-header { padding-inline: 32px; }
+  .fh-nav { gap: 20px; font-size: 13.5px; }
+  .fh-nav > span { display: none; }
   .fh-hero { padding-inline: 40px; grid-template-columns: minmax(0, 1fr) 270px; gap: 20px; }
   .fh-copy h1 { font-size: 64px; }
   .fh-bio-link h2 { font-size: 29px; }
@@ -737,8 +737,8 @@
   .fh-contact-list > a > strong { font-size: 14px; }
 }
 
-/* RESPONSIVE: MOBILE (max-width: 650px) */
-@media (max-width: 650px) {
+/* RESPONSIVE: MOBILE & COMPACT TABLET (max-width: 720px) */
+@media (max-width: 720px) {
   .fh-width { width: calc(100% - 24px); }
   .fh-header { height: 48px; padding: 0 14px; }
   .fh-brand { gap: 8px; }

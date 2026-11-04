@@ -509,6 +509,12 @@ export function LanguageProvider({ children }) {
     }
   };
 
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = lang;
+    }
+  }, [lang]);
+
   const t = translations[lang] || translations.en;
 
   return React.createElement(LanguageContext.Provider, { value: { lang, setLang, t } }, children);

@@ -255,7 +255,7 @@ const engineeringDisciplines = [
       'Custom Cycloidal Gearbox design (reduction ratio 1:50 & 1:25) for high-torque joints',
       'Additive manufacturing (FDM 3D printing PLA, slicing optimization & post-processing)',
       'CNC toolpath generation & machining preparation (OneCNC CAM)',
-      'Production-oriented component design for LV Tip Automation (Formulatrix)',
+      'Production-oriented component design for laboratory automation equipment (Formulatrix)',
     ],
     tools: [
       { name: 'Onshape', logo: '/images/onshape-official.png' },
@@ -669,6 +669,7 @@ function Detail({ project }) {
 function FigmaHeader({ activeSection = '' }) {
   const [open, setOpen] = useState(false);
   const { lang, setLang, t } = useLang();
+  const isSubpage = typeof window !== 'undefined' && window.location.pathname !== '/' && window.location.pathname !== '';
 
   return (
     <header className="fh-header">
@@ -685,7 +686,7 @@ function FigmaHeader({ activeSection = '' }) {
           {t.nav.links.map(([id, label]) => (
             <a 
               key={id} 
-              href={`#${id}`} 
+              href={isSubpage ? `/#${id}` : `#${id}`} 
               onClick={() => setOpen(false)} 
               className={activeSection === id ? 'is-active' : ''}
             >
