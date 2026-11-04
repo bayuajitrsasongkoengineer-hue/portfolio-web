@@ -82,15 +82,22 @@ export default function ManipulatorCaseStudy() {
             </div>
           </div>
 
-          {/* Right Column: Large Photo */}
-          <div className="cs-hero-split-right" style={{ alignSelf: 'center' }}>
-            <img 
-              src="/images/manipulator_hero_triptych.png" 
-              alt="Physical Manipulator Arm Multi-Angle Operational Test"
-              className="cs-hero-clean-photo"
-              onClick={() => openZoom('/images/manipulator_hero_triptych.png', 'Physical Manipulator Arm — Multi-Angle Payload Testing', 'Assembled 5-DOF manipulator arm undergoing payload range validation trials across multiple arm configurations')}
-              title="Click to zoom in"
-            />
+          {/* Right Column: Video */}
+          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', maxWidth: '380px' }}>
+            <div style={{ borderRadius: '8px', overflow: 'hidden', background: '#000000', boxShadow: '0 8px 24px rgba(0,0,0,0.12)', aspectRatio: '9/16', maxHeight: '420px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <video 
+                src="/videos/manipulator_arm_test.mp4" 
+                controls 
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
           </div>
         </div>
       </header>
