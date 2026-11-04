@@ -868,7 +868,7 @@ function FigmaHome() {
             <div className="fh-section-heading reveal">
               <div>
                 <div className="fh-eyebrow"><span>02 /</span> {lang === 'id' ? 'PENGALAMAN MAGANG' : 'EXPERIENCE'}</div>
-                <h2>{lang === 'id' ? <>Pengalaman langsung dari desain<br />hingga lantai produksi.</> : <>Learning where design<br />meets production.</>}</h2>
+                <h2>Hands-on practice in<br />manufacturing environments.</h2>
               </div>
               <p>{t.experienceSection.subtitle}</p>
             </div>

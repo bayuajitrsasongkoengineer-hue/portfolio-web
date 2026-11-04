@@ -106,7 +106,7 @@ export const translations = {
     ],
     experienceSection: {
       eyebrow: '02 / INTERNSHIP EXPERIENCE',
-      title: 'Practical experience in production environments.',
+      title: 'Hands-on practice in manufacturing environments.',
       subtitle: 'Internship roles at PT Promanufacture Indonesia (Formulatrix), contributing to technical documentation, CAD modeling, and hands-on workshop fabrication.',
       roles: [
         {
@@ -397,7 +397,7 @@ export const translations = {
     ],
     experienceSection: {
       eyebrow: '02 / PENGALAMAN MAGANG',
-      title: 'Pengalaman langsung di lingkungan manufaktur.',
+      title: 'Hands-on practice in manufacturing environments.',
       subtitle: 'Pengalaman magang industri di PT Promanufacture Indonesia (Formulatrix), belajar langsung di lini produksi elektronika dan bengkel manufaktur.',
       roles: [
         {
