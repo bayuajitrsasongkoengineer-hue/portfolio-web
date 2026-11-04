@@ -273,7 +273,7 @@ export const translations = {
         number: '01',
         label: 'TUGAS AKHIR SARJANA · ROBOT MANIPULATOR 5-DOF',
         title: 'Robot Manipulator 5-DOF',
-        summary: 'Prototipe lengan robot 5-DOF menggunakan cycloidal gearbox berbahan 3D-printed PLA dan mikrokontroler STM32F411. Menggunakan sensor magnetik AS5600 (closed-loop) untuk menekan celah gerak (backlash), dengan akurasi posisi mencapai 79,8% pada rentang beban 250–1.000 gram.',
+        summary: 'Prototipe lengan robot 5-DOF menggunakan cycloidal gearbox berbahan 3D-printed PLA dan mikrokontroler STM32F411. Menggunakan sensor magnetik AS5600 (closed-loop) untuk mereduksi backlash sendi, dengan akurasi posisi mencapai 79,8% pada rentang beban 250–1.000 gram.',
         tags: ['Robotika', 'Cycloidal Gearbox', 'Closed-Loop Control', 'STM32', '3D Printing PLA'],
         metrics: [
           ['79.8%', 'Peningkatan Akurasi Sendi'],
