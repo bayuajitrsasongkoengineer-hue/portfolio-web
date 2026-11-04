@@ -766,7 +766,7 @@ function FigmaHome() {
               <div className="fh-bio-link" style={{ cursor: 'default' }}>
                 <h2>BAYU AJI TRISASONGKO</h2>
                 <div className="fh-subtitle">Electrical Engineering Graduate | Mechanical Design, Electronics, Mechatronics &amp; Robotics</div>
-                <p>Bringing mechanical design, electronics and control together to turn engineering ideas into tangible prototypes. An electrical engineering fresh graduate with hands-on expertise in mechatronics, system and component fabrication. Currently eager to contribute to innovative teams in developing advanced robotics and complex systems.</p>
+                <p>Bringing mechanical design, electronics, and control together to turn engineering ideas into tangible prototypes. An electrical engineering graduate with a solid hands-on foundation in mechatronics, component fabrication, and rapid prototyping. Eager to contribute and learn within engineering teams developing robotics, automation, and precision mechanical systems.</p>
               </div>
 
               {/* ACTION BUTTONS (DEFAULT WHITE, HOVER BECOMES COLOR) */}
