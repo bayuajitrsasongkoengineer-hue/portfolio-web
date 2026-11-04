@@ -1194,7 +1194,7 @@ function FigmaHome() {
                   <h3>SMK Negeri 7 Semarang</h3>
                   <strong className="fh-edu-major">{t.educationSection.smk.degree}</strong>
                   <div className="fh-edu-badge-row">
-                    <span className="fh-edu-badge"><Award size={13} /> {lang === 'id' ? 'SMK 4 TAHUN (PRAKERIN 6 BULAN)' : '4-YEAR TECHNICAL PROGRAM'}</span>
+                    <span className="fh-edu-badge"><Award size={13} /> {lang === 'id' ? 'PROGRAM 4 TAHUN' : '4-YEAR PROGRAM'}</span>
                     <span className="fh-edu-date">{t.educationSection.smk.period}</span>
                   </div>
                 </div>
