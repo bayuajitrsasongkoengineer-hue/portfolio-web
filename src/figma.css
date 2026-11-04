@@ -661,6 +661,7 @@
   color: #111827;
   line-height: 1.35;
   min-height: 50px;
+  text-align: center;
 }
 .fh-org-role {
   font-size: 13px;
@@ -668,12 +669,14 @@
   margin-bottom: 10px;
   line-height: 1.4;
   min-height: 20px;
+  text-align: center;
 }
 .fh-org-desc {
   margin: 0;
   font-size: 13.5px;
   color: #4B5563;
   line-height: 1.6;
+  text-align: center;
 }
 
 /* CONTACT (07) */
