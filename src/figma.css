@@ -400,7 +400,6 @@
   list-style: none;
   padding: 0;
   margin: 0 0 14px;
-  flex: 1;
 }
 .fh-stack-skills li {
   position: relative;
@@ -428,7 +427,7 @@
 .fh-stack-tools {
   border-top: 1px solid #F3F4F6;
   padding-top: 12px;
-  margin-top: auto;
+  margin-top: 14px;
 }
 .fh-stack-tools-label {
   display: block;
