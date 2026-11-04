@@ -78,14 +78,21 @@ export default function KRAICaseStudy() {
             </div>
           </div>
 
-          <div className="cs-hero-split-right" style={{ alignSelf: 'center' }}>
-            <img 
-              src="/images/krai_robot_hero.png" 
-              alt="Team ROOBICS Competition Basketball Robot Full Assembly"
-              className="cs-hero-clean-photo"
-              onClick={() => openZoom('/images/krai_robot_hero.png', 'Team ROOBICS Competition Basketball Robot', 'Physical competition robot with regulation FIBA basketball in possession, displaying dribbler assembly, pneumatic cylinders, air reservoirs, and circular 3-omni chassis')}
-              title="Click to zoom in"
-            />
+          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', maxWidth: '380px' }}>
+            <div style={{ borderRadius: '8px', overflow: 'hidden', background: '#000000', boxShadow: '0 8px 24px rgba(0,0,0,0.12)', aspectRatio: '9/16', maxHeight: '420px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <video 
+                src="/videos/krai_robot_hero_video.mp4" 
+                controls 
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              >
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
           </div>
         </div>
       </header>
