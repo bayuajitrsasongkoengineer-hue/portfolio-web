@@ -11,9 +11,11 @@ export const translations = {
     nav: {
       links: [
         ['projects', 'Projects'],
-        ['experience', 'Experience'],
+        ['experience', 'Internships'],
         ['skills', 'Skills'],
+        ['certifications', 'Certifications'],
         ['education', 'Education'],
+        ['organizations', 'Organizations'],
         ['contact', 'Contact'],
       ],
       available: 'AVAILABLE FOR WORK',
@@ -78,7 +80,7 @@ export const translations = {
         number: '04',
         label: 'INDEPENDENT BUILD · EMBEDDED CONTROL',
         title: 'Autonomous Line Follower Robot',
-        summary: 'Autonomous line-tracking mobile robot featuring an 8-photodiode sensor array, discrete comparator threshold circuits, and differential drive steering logic.',
+        summary: 'Autonomous line-tracking mobile robot featuring an 8-photodiode sensor array, discrete op-amp comparator circuits, differential drive steering logic, and potentiometer sensitivity tuning for steady track following.',
         tags: ['Photodiode Array', 'Differential Drive', 'Comparator Circuit', 'Hardware Tuning'],
         metrics: [
           ['8-Channel', 'Photodiode Sensor Bar'],
@@ -92,7 +94,7 @@ export const translations = {
         number: '05',
         label: 'INDEPENDENT BUILD · COMPETITIVE ROBOTICS',
         title: 'Bluetooth Sumo Robot',
-        summary: '1 kg competition-class sumo robot (20 × 20 cm) built on an acrylic chassis with 4 high-torque geared DC motors delivering 4 kg push force, controlled via smartphone Bluetooth.',
+        summary: '1 kg competition-class sumo robot (20 × 20 cm) built on a rigid acrylic chassis with 4 high-torque geared DC motors delivering 4 kg push force, steered wirelessly via smartphone Bluetooth serial communication.',
         tags: ['Acrylic Chassis', '4WD Geared Motors', 'Bluetooth Serial', 'Mobile Control'],
         metrics: [
           ['1 kg / 20×20 cm', 'Competition Class Limit'],
@@ -103,7 +105,7 @@ export const translations = {
       },
     ],
     experienceSection: {
-      eyebrow: '02 / INDUSTRIAL INTERNSHIPS',
+      eyebrow: '02 / INTERNSHIP EXPERIENCE',
       title: 'Practical experience in production environments.',
       subtitle: 'Internship roles at PT Promanufacture Indonesia (Formulatrix), contributing to technical documentation, CAD modeling, and hands-on workshop fabrication.',
       roles: [
@@ -138,7 +140,7 @@ export const translations = {
       ],
     },
     educationSection: {
-      eyebrow: '04 / ACADEMIC BACKGROUND',
+      eyebrow: '05 / ACADEMIC BACKGROUND',
       title: 'Technical high school foundation & electrical engineering degree.',
       subtitle: 'Combining hands-on workshop training from technical high school with electrical engineering and robotics fundamentals from university.',
       telkom: {
@@ -163,6 +165,7 @@ export const translations = {
       },
     },
     orgsSection: {
+      eyebrow: '06 / ORGANIZATIONS',
       title: 'Engineering Teams & Campus Activities',
       subtitle: 'Collaborative team experiences in national robotics competition and student mentoring.',
       org1: {
@@ -188,7 +191,7 @@ export const translations = {
       },
     },
     certsSection: {
-      eyebrow: '04.1 / CERTIFICATIONS & CREDENTIALS',
+      eyebrow: '04 / CERTIFICATIONS & CREDENTIALS',
       title: 'Verified Qualifications & Certificates',
       subtitle: 'Official competency certificates and tournament records.',
       cert1: {
@@ -217,7 +220,7 @@ export const translations = {
       },
     },
     skillsSection: {
-      eyebrow: '03 / CAPABILITIES & TOOLS',
+      eyebrow: '03 / SKILLS',
       title: 'Technical skills & engineering tools.',
       subtitle: 'Software and tools with direct hands-on experience across undergraduate research, Formulatrix internships, and robotics projects.',
       disciplines: [
@@ -273,7 +276,7 @@ export const translations = {
       ],
     },
     contactSection: {
-      eyebrow: '05 / GET IN TOUCH',
+      eyebrow: '07 / GET IN TOUCH',
       title: 'Eager to learn, ready to contribute.',
       desc: 'As a fresh electrical engineering graduate with a practical mechatronics background, I bring hands-on experience in prototyping and fabrication. I am eager to learn, adapt quickly, and be mentored by experienced engineering teams. Open to entry-level and internship engineering roles.',
       cvButton: 'Curriculum Vitae',
@@ -301,7 +304,9 @@ export const translations = {
         ['projects', 'Proyek'],
         ['experience', 'Pengalaman'],
         ['skills', 'Keahlian'],
+        ['certifications', 'Sertifikasi'],
         ['education', 'Pendidikan'],
+        ['organizations', 'Organisasi'],
         ['contact', 'Kontak'],
       ],
       available: 'OPEN TO WORK',
@@ -311,7 +316,7 @@ export const translations = {
       cv: 'Curriculum Vitae',
     },
     projectsSection: {
-      eyebrow: '01 / PROYEK PILIHAN',
+      eyebrow: '01 / PROYEK',
       title: 'Karya rekayasa & praktik langsung.',
       subtitle: 'Koleksi 5 proyek yang saya rancang dan rakit langsung selama masa kuliah dan belajar mandiri.',
       footnote: '',
@@ -366,7 +371,7 @@ export const translations = {
         number: '04',
         label: 'PROYEK MANDIRI · ELEKTRONIKA & KONTROL',
         title: 'Robot Line Follower',
-        summary: 'Robot pelacak garis otomatis dengan 8 sensor fotodioda, rangkaian komparator diskrit pembaca lintasan, dan sistem motor penggerak differential drive.',
+        summary: 'Robot pelacak garis otomatis berbasis 8 sensor fotodioda dan rangkaian komparator analog. Dilengkapi sistem penggerak differential drive serta potensiometer pengatur sensitivitas untuk pembacaan jalur presisi.',
         tags: ['Sensor Fotodioda', 'Differential Drive', 'Rangkaian Komparator', 'Tuning Hardware'],
         metrics: [
           ['8 Sensor', 'Array Fotodioda'],
@@ -380,7 +385,7 @@ export const translations = {
         number: '05',
         label: 'PROYEK MANDIRI · ROBOTIKA KOMPETISI',
         title: 'Robot Sumo Bluetooth',
-        summary: 'Robot sumo kelas 1 kg (ukuran 20×20 cm) dengan rangka akrilik, 4 motor DC torsi tinggi berdaya dorong 4 kg, dan kendali Bluetooth via smartphone.',
+        summary: 'Robot sumo kelas 1 kg (dimensi 20×20 cm) dengan rangka akrilik kokoh dan 4 motor DC penggerak berdaya dorong 4 kg. Dikendalikan secara nirkabel melalui aplikasi ponsel pintar via modul komunikasi Bluetooth serial.',
         tags: ['Rangka Akrilik', '4WD Geared Motor', 'Bluetooth Serial', 'Kendali Smartphone'],
         metrics: [
           ['1 kg / 20×20 cm', 'Ukuran Kelas Kompetisi'],
@@ -426,7 +431,7 @@ export const translations = {
       ],
     },
     educationSection: {
-      eyebrow: '04 / PENDIDIKAN',
+      eyebrow: '05 / PENDIDIKAN',
       title: 'Dasar praktik SMK mekatronika & sarjana teknik elektro.',
       subtitle: 'Menggabungkan keterampilan praktis perbengkelan dari SMK dengan dasar teori kelistrikan dan kontrol dari universitas.',
       telkom: {
@@ -451,6 +456,7 @@ export const translations = {
       },
     },
     orgsSection: {
+      eyebrow: '06 / ORGANISASI',
       title: 'Tim Rekayasa & Kegiatan Kampus',
       subtitle: 'Pengalaman kerja tim dalam kompetisi robotika nasional dan kegiatan orientasi mahasiswa baru.',
       org1: {
@@ -476,7 +482,7 @@ export const translations = {
       },
     },
     certsSection: {
-      eyebrow: '04.1 / SERTIFIKASI & KREDENSIAL',
+      eyebrow: '04 / SERTIFIKASI & KREDENSIAL',
       title: 'Kualifikasi & Sertifikat Resmi',
       subtitle: 'Sertifikat kompetensi resmi dan catatan partisipasi kompetisi.',
       cert1: {
@@ -505,7 +511,7 @@ export const translations = {
       },
     },
     skillsSection: {
-      eyebrow: '03 / KEAHLIAN & ALAT KERJA',
+      eyebrow: '03 / KEAHLIAN',
       title: 'Keahlian teknis & perangkat kerja.',
       subtitle: 'Software dan peralatan yang pernah saya gunakan langsung selama tugas akhir, magang di Formulatrix, dan proyek robotika.',
       disciplines: [
@@ -561,7 +567,7 @@ export const translations = {
       ],
     },
     contactSection: {
-      eyebrow: '05 / KONTAK',
+      eyebrow: '07 / KONTAK',
       title: 'Senang belajar, siap berkontribusi.',
       desc: 'Sebagai lulusan baru Teknik Elektro dengan dasar praktis mekatronika dari SMK, saya memiliki pengalaman merakit langsung berbagai prototipe fisik. Saya siap bekerja keras, cepat belajar hal baru, dan sangat terbuka untuk dibimbing oleh rekan kerja yang lebih berpengalaman.',
       cvButton: 'Curriculum Vitae',

@@ -743,7 +743,7 @@ function FigmaHome() {
   const { lang, t } = useLang();
   useScrollReveal();
   const profileRef = useParallax(16);
-  const activeSection = useScrollSpy(['projects','experience','skills','education','contact']);
+  const activeSection = useScrollSpy(['projects', 'experience', 'skills', 'certifications', 'education', 'organizations', 'contact']);
 
   const disciplines = [
     [Boxes, 'Mechanical', '3D CAD modeling, mechanism design, and fabrication.'],
@@ -828,7 +828,7 @@ function FigmaHome() {
         <section className="fh-projects fh-width" id="projects">
           <div className="fh-project-heading reveal">
             <div>
-              <div className="fh-eyebrow"><span>01 /</span> {lang === 'id' ? 'PROYEK PILIHAN' : 'PROJECTS'}</div>
+              <div className="fh-eyebrow"><span>01 /</span> {lang === 'id' ? 'PROYEK' : 'PROJECTS'}</div>
               <h2>{t.projectsSection.title}</h2>
             </div>
             <p>{t.projectsSection.subtitle}</p>
@@ -948,73 +948,16 @@ function FigmaHome() {
                 </article>
               </div>
             </div>
-            {/* ORGANIZATIONAL & LEADERSHIP EXPERIENCE */}
-            <div style={{ marginTop: '56px', borderTop: '1px solid #E5E7EB', paddingTop: '40px' }}>
-              <div className="fh-section-heading reveal" style={{ marginBottom: '28px' }}>
-                <div>
-                  <div className="fh-eyebrow"><span>02.1 /</span> {lang === 'id' ? 'KEGIATAN & ORGANISASI' : 'TEAMS & ORGANIZATIONS'}</div>
-                  <h3 style={{ fontSize: '22px', fontWeight: 700, margin: '4px 0 0', color: '#111827' }}>{t.orgsSection.title}</h3>
-                </div>
-                <p>{t.orgsSection.subtitle}</p>
-              </div>
-
-              <div className="fh-org-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
-                {/* ORG 1: ROOBICS KRAI */}
-                <div className="fh-stack-card" style={{ padding: '22px 20px', borderRadius: '6px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                    <div>
-                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.orgsSection.org1.label}</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org1.name}</h4>
-                    </div>
-                    <span className="fh-role-date">{t.orgsSection.org1.date}</span>
-                  </div>
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>{t.orgsSection.org1.role}</div>
-                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    {t.orgsSection.org1.desc}
-                  </p>
-                </div>
-
-                {/* ORG 2: PKKMB DMT */}
-                <div className="fh-stack-card" style={{ padding: '22px 20px', borderRadius: '6px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                    <div>
-                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.orgsSection.org2.label}</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org2.name}</h4>
-                    </div>
-                    <span className="fh-role-date">{t.orgsSection.org2.date}</span>
-                  </div>
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>{t.orgsSection.org2.role}</div>
-                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    {t.orgsSection.org2.desc}
-                  </p>
-                </div>
-
-                {/* ORG 3: KMTE Mentor */}
-                <div className="fh-stack-card" style={{ padding: '22px 20px', borderRadius: '6px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                    <div>
-                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.orgsSection.org3.label}</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org3.name}</h4>
-                    </div>
-                    <span className="fh-role-date">{t.orgsSection.org3.date}</span>
-                  </div>
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>{t.orgsSection.org3.role}</div>
-                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    {t.orgsSection.org3.desc}
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* SECTION 03: ENGINEERING STACK & PRODUCTION ECOSYSTEM */}
+        {/* SECTION 03: SKILLS / KEAHLIAN */}
         <section className="fh-skills" id="skills">
           <div className="fh-width fh-section">
 
             <div className="fh-section-heading reveal">
               <div>
-                <div className="fh-eyebrow"><span>03 /</span> {lang === 'id' ? 'KEAHLIAN & ALAT KERJA' : 'CAPABILITIES & TOOLS'}</div>
+                <div className="fh-eyebrow"><span>03 /</span> {lang === 'id' ? 'KEAHLIAN' : 'SKILLS'}</div>
                 <h2>{lang === 'id' ? <>Keahlian teknis &amp;<br />perangkat kerja.</> : <>Technical skills &amp;<br />engineering tools.</>}</h2>
               </div>
               <p>{t.skillsSection.subtitle}</p>
@@ -1060,12 +1003,126 @@ function FigmaHome() {
           </div>
         </section>
 
-        {/* SECTION 04: EDUCATION (CARDS ARE DIRECT BUTTONS) */}
+        {/* SECTION 04: CERTIFICATIONS & CREDENTIALS */}
+        <section className="fh-certifications-section" id="certifications">
+          <div className="fh-width fh-section">
+            <div className="fh-section-heading reveal">
+              <div>
+                <div className="fh-eyebrow"><span>04 /</span> {lang === 'id' ? 'SERTIFIKASI & KREDENSIAL' : 'CERTIFICATIONS & CREDENTIALS'}</div>
+                <h2>{t.certsSection.title}</h2>
+              </div>
+              <p>{t.certsSection.subtitle}</p>
+            </div>
+
+            <div className="fh-cert-grid stagger">
+              {/* CERT 1: TÜV RHEINLAND & FESTO */}
+              <article 
+                className="fh-stack-card fh-clickable-card" {...tilt(4)}
+                onClick={() => setActiveDoc({
+                  title: 'Pneumatic System Maintenance Technician',
+                  subtitle: 'TÜV Rheinland Group & FESTO Didactic',
+                  image: '/images/cert_festo.png',
+                  institution: 'TÜV Rheinland Group',
+                  period: t.certsSection.cert1.period,
+                  downloadUrl: '/Sertifikat_FESTO_TUV_Rheinland.pdf',
+                  downloadName: 'Sertifikat_FESTO_TUV_Rheinland.pdf'
+                })}
+                style={{ padding: '24px 22px', borderRadius: '6px', cursor: 'pointer' }}
+                title={lang === 'id' ? 'Klik untuk melihat Sertifikat TÜV Rheinland & FESTO' : 'Click to view TÜV Rheinland & FESTO Certificate'}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                  <div>
+                    <span className="fh-stack-label" style={{ color: '#0284C7' }}>{t.certsSection.cert1.label}</span>
+                    <h3 style={{ margin: '4px 0 0', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert1.title}</h3>
+                  </div>
+                  <span className="fh-role-date">{t.certsSection.cert1.period.split(' · ')[0]}</span>
+                </div>
+                <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '10px' }}>
+                  Credential ID: 62372/21/1185 · {lang === 'id' ? 'Masa Berlaku Tanpa Batas' : 'Unlimited Validity'}
+                </div>
+                <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                  {t.certsSection.cert1.desc}
+                </p>
+                <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#0284C7' }}>
+                  <Eye size={13} /> {t.certsSection.cert1.cta}
+                </div>
+              </article>
+
+              {/* CERT 2: KRAI 2025 ROBOCON */}
+              <article 
+                className="fh-stack-card fh-clickable-card" {...tilt(4)}
+                onClick={() => setActiveDoc({
+                  title: 'Certificate of Participation - KRAI 2025',
+                  subtitle: 'Belmawa Kemdiktisaintek & Institut Teknologi Bandung (ITB)',
+                  image: '/images/krai-cert-real.png',
+                  institution: 'Belmawa Kemdiktisaintek & ITB',
+                  period: t.certsSection.cert2.period,
+                  downloadUrl: '/Sertifikat_KRAI_2025_Bayu_Aji.pdf',
+                  downloadName: 'Sertifikat_KRAI_2025_Bayu_Aji.pdf'
+                })}
+                style={{ padding: '24px 22px', borderRadius: '6px', cursor: 'pointer' }}
+                title={lang === 'id' ? 'Klik untuk melihat Sertifikat KRAI 2025' : 'Click to view KRAI 2025 Certificate'}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                  <div>
+                    <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.certsSection.cert2.label}</span>
+                    <h3 style={{ margin: '4px 0 0', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert2.title}</h3>
+                  </div>
+                  <span className="fh-role-date">{t.certsSection.cert2.period}</span>
+                </div>
+                <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '10px' }}>
+                  Belmawa Kemdiktisaintek &amp; ITB · Team ROOBICS
+                </div>
+                <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                  {t.certsSection.cert2.desc}
+                </p>
+                <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#F05A22' }}>
+                  <Eye size={13} /> {t.certsSection.cert2.cta}
+                </div>
+              </article>
+
+              {/* CERT 3: ENGLISH PROFICIENCY TEST */}
+              <article 
+                className="fh-stack-card fh-clickable-card" {...tilt(4)}
+                onClick={() => setActiveDoc({
+                  title: 'English Proficiency Test (EPrT) - Score 450',
+                  subtitle: 'Telkom University Language Center',
+                  image: '/images/eprt-cert.png',
+                  institution: 'Telkom University Language Center',
+                  period: 'June 2026 · Valid until June 2028',
+                  downloadUrl: '/EPRT_Telkom_University.pdf',
+                  downloadName: 'EPRT_Telkom_University_Bayu_Aji.pdf'
+                })}
+                style={{ padding: '24px 22px', borderRadius: '6px', cursor: 'pointer' }}
+                title={lang === 'id' ? 'Klik untuk melihat Sertifikat EPrT' : 'Click to view EPrT Certificate'}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                  <div>
+                    <span className="fh-stack-label" style={{ color: '#10B981' }}>{t.certsSection.cert3.label}</span>
+                    <h3 style={{ margin: '4px 0 0', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert3.title}</h3>
+                  </div>
+                  <span className="fh-role-date">{t.certsSection.cert3.period}</span>
+                </div>
+                <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '10px' }}>
+                  {lang === 'id' ? 'Skor Total: 450 (Listening: 47, Grammar: 41, Reading: 47)' : 'Total Score: 450 (Listening: 47, Grammar: 41, Reading: 47)'}
+                </div>
+                <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                  {t.certsSection.cert3.desc}
+                </p>
+                <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#10B981' }}>
+                  <Eye size={13} /> {t.certsSection.cert3.cta}
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 05: EDUCATION (CARDS ARE DIRECT BUTTONS) */}
         <section className="fh-education-section" id="education">
           <div className="fh-width fh-section">
             <div className="fh-section-heading reveal">
               <div>
-                <div className="fh-eyebrow"><span>04 /</span> {lang === 'id' ? 'PENDIDIKAN' : 'EDUCATION'}</div>
+                <div className="fh-eyebrow"><span>05 /</span> {lang === 'id' ? 'PENDIDIKAN' : 'EDUCATION'}</div>
                 <h2>{t.educationSection.title}</h2>
               </div>
               <p>{t.educationSection.subtitle}</p>
@@ -1160,127 +1217,81 @@ function FigmaHome() {
                 </div>
               </article>
             </div>
+          </div>
+        </section>
 
-            {/* SECTION 04.1: PROFESSIONAL CERTIFICATIONS & CREDENTIALS */}
-            <div style={{ marginTop: '56px', borderTop: '1px solid #E5E7EB', paddingTop: '40px' }}>
-              <div className="fh-section-heading reveal" style={{ marginBottom: '28px' }}>
-                <div>
-                  <div className="fh-eyebrow"><span>04.1 /</span> {lang === 'id' ? 'SERTIFIKASI & KREDENSIAL' : 'CERTIFICATIONS & CREDENTIALS'}</div>
-                  <h3 style={{ fontSize: '22px', fontWeight: 700, margin: '4px 0 0', color: '#111827' }}>{t.certsSection.title}</h3>
+        {/* SECTION 06: ORGANIZATIONS */}
+        <section className="fh-organizations-section" id="organizations">
+          <div className="fh-width fh-section">
+            <div className="fh-section-heading reveal">
+              <div>
+                <div className="fh-eyebrow"><span>06 /</span> {lang === 'id' ? 'ORGANISASI' : 'ORGANIZATIONS'}</div>
+                <h2>{t.orgsSection.title}</h2>
+              </div>
+              <p>{t.orgsSection.subtitle}</p>
+            </div>
+
+            <div className="fh-org-grid stagger">
+              {/* ORG 1: ROOBICS KRAI */}
+              <article className="fh-stack-card" {...tilt(4)} style={{ padding: '24px 22px', borderRadius: '6px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                  <div>
+                    <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.orgsSection.org1.label}</span>
+                    <h3 style={{ margin: '4px 0 0', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org1.name}</h3>
+                  </div>
+                  <span className="fh-role-date">{t.orgsSection.org1.date}</span>
                 </div>
-                <p>{t.certsSection.subtitle}</p>
-              </div>
+                <div style={{ fontSize: '13px', fontWeight: 600, color: '#F05A22', marginBottom: '8px' }}>
+                  {t.orgsSection.org1.role}
+                </div>
+                <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                  {t.orgsSection.org1.desc}
+                </p>
+              </article>
 
-              <div className="fh-org-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
-                {/* CERT 1: TÜV RHEINLAND & FESTO */}
-                <article 
-                  className="fh-stack-card fh-clickable-card" {...tilt(4)}
-                  onClick={() => setActiveDoc({
-                    title: 'Pneumatic System Maintenance Technician',
-                    subtitle: 'TÜV Rheinland Group & FESTO Didactic',
-                    image: '/images/cert_festo.png',
-                    institution: 'TÜV Rheinland Group',
-                    period: t.certsSection.cert1.period,
-                    downloadUrl: '/Sertifikat_FESTO_TUV_Rheinland.pdf',
-                    downloadName: 'Sertifikat_FESTO_TUV_Rheinland.pdf'
-                  })}
-                  style={{ padding: '22px 20px', borderRadius: '6px', cursor: 'pointer' }}
-                  title={lang === 'id' ? 'Klik untuk melihat Sertifikat TÜV Rheinland & FESTO' : 'Click to view TÜV Rheinland & FESTO Certificate'}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                    <div>
-                      <span className="fh-stack-label" style={{ color: '#0284C7' }}>{t.certsSection.cert1.label}</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert1.title}</h4>
-                    </div>
-                    <span className="fh-role-date">{t.certsSection.cert1.period.split(' · ')[0]}</span>
+              {/* ORG 2: PKKMB DMT */}
+              <article className="fh-stack-card" {...tilt(4)} style={{ padding: '24px 22px', borderRadius: '6px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                  <div>
+                    <span className="fh-stack-label" style={{ color: '#0284C7' }}>{t.orgsSection.org2.label}</span>
+                    <h3 style={{ margin: '4px 0 0', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org2.name}</h3>
                   </div>
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>
-                    Credential ID: 62372/21/1185 · {lang === 'id' ? 'Masa Berlaku Tanpa Batas' : 'Unlimited Validity'}
-                  </div>
-                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    {t.certsSection.cert1.desc}
-                  </p>
-                  <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#0284C7' }}>
-                    <Eye size={13} /> {t.certsSection.cert1.cta}
-                  </div>
-                </article>
+                  <span className="fh-role-date">{t.orgsSection.org2.date}</span>
+                </div>
+                <div style={{ fontSize: '13px', fontWeight: 600, color: '#0284C7', marginBottom: '8px' }}>
+                  {t.orgsSection.org2.role}
+                </div>
+                <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                  {t.orgsSection.org2.desc}
+                </p>
+              </article>
 
-                {/* CERT 2: KRAI 2025 ROBOCON */}
-                <article 
-                  className="fh-stack-card fh-clickable-card" {...tilt(4)}
-                  onClick={() => setActiveDoc({
-                    title: 'Certificate of Participation - KRAI 2025',
-                    subtitle: 'Belmawa Kemdiktisaintek & Institut Teknologi Bandung (ITB)',
-                    image: '/images/krai-cert-real.png',
-                    institution: 'Belmawa Kemdiktisaintek & ITB',
-                    period: t.certsSection.cert2.period,
-                    downloadUrl: '/Sertifikat_KRAI_2025_Bayu_Aji.pdf',
-                    downloadName: 'Sertifikat_KRAI_2025_Bayu_Aji.pdf'
-                  })}
-                  style={{ padding: '22px 20px', borderRadius: '6px', cursor: 'pointer' }}
-                  title={lang === 'id' ? 'Klik untuk melihat Sertifikat KRAI 2025' : 'Click to view KRAI 2025 Certificate'}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                    <div>
-                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.certsSection.cert2.label}</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert2.title}</h4>
-                    </div>
-                    <span className="fh-role-date">{t.certsSection.cert2.period}</span>
+              {/* ORG 3: KMTE MENTOR */}
+              <article className="fh-stack-card" {...tilt(4)} style={{ padding: '24px 22px', borderRadius: '6px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                  <div>
+                    <span className="fh-stack-label" style={{ color: '#10B981' }}>{t.orgsSection.org3.label}</span>
+                    <h3 style={{ margin: '4px 0 0', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org3.name}</h3>
                   </div>
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>
-                    Belmawa Kemdiktisaintek &amp; ITB · Team ROOBICS
-                  </div>
-                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    {t.certsSection.cert2.desc}
-                  </p>
-                  <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#F05A22' }}>
-                    <Eye size={13} /> {t.certsSection.cert2.cta}
-                  </div>
-                </article>
-
-                {/* CERT 3: ENGLISH PROFICIENCY TEST */}
-                <article 
-                  className="fh-stack-card fh-clickable-card" {...tilt(4)}
-                  onClick={() => setActiveDoc({
-                    title: 'English Proficiency Test (EPrT) - Score 450',
-                    subtitle: 'Telkom University Language Center',
-                    image: '/images/eprt-cert.png',
-                    institution: 'Telkom University Language Center',
-                    period: 'June 2026 · Valid until June 2028',
-                    downloadUrl: '/EPRT_Telkom_University.pdf',
-                    downloadName: 'EPRT_Telkom_University_Bayu_Aji.pdf'
-                  })}
-                  style={{ padding: '22px 20px', borderRadius: '6px', cursor: 'pointer' }}
-                  title={lang === 'id' ? 'Klik untuk melihat Sertifikat EPrT' : 'Click to view EPrT Certificate'}
-                >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                    <div>
-                      <span className="fh-stack-label" style={{ color: '#10B981' }}>{t.certsSection.cert3.label}</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert3.title}</h4>
-                    </div>
-                    <span className="fh-role-date">{t.certsSection.cert3.period}</span>
-                  </div>
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>
-                    {lang === 'id' ? 'Skor Total: 450 (Listening: 47, Grammar: 41, Reading: 47)' : 'Total Score: 450 (Listening: 47, Grammar: 41, Reading: 47)'}
-                  </div>
-                  <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    {t.certsSection.cert3.desc}
-                  </p>
-                  <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#10B981' }}>
-                    <Eye size={13} /> {t.certsSection.cert3.cta}
-                  </div>
-                </article>
-              </div>
+                  <span className="fh-role-date">{t.orgsSection.org3.date}</span>
+                </div>
+                <div style={{ fontSize: '13px', fontWeight: 600, color: '#10B981', marginBottom: '8px' }}>
+                  {t.orgsSection.org3.role}
+                </div>
+                <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                  {t.orgsSection.org3.desc}
+                </p>
+              </article>
             </div>
           </div>
         </section>
 
-        {/* SECTION 05: GET IN TOUCH */}
+        {/* SECTION 07: GET IN TOUCH */}
         <section className="fh-contact" id="contact">
           <div className="fh-width fh-contact-grid reveal">
             <div>
-              <div className="fh-eyebrow"><span>05 /</span> {lang === 'id' ? 'HUBUNGI SAYA' : 'GET IN TOUCH'}</div>
-              <h2>{lang === 'id' ? <>Antusias belajar,<br />siap berkontribusi nyata.</> : <>Eager to learn,<br />ready to contribute.</>}</h2>
+              <div className="fh-eyebrow"><span>07 /</span> {lang === 'id' ? 'KONTAK' : 'GET IN TOUCH'}</div>
+              <h2>{lang === 'id' ? <>Senang belajar,<br />siap berkontribusi.</> : <>Eager to learn,<br />ready to contribute.</>}</h2>
               <p>{t.contactSection.desc}</p>
               <button 
                 className="fh-button" 
