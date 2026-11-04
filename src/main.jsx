@@ -858,7 +858,7 @@ function FigmaHome() {
               );
             })}
           </div>
-          <div className="fh-note">{t.projectsSection.footnote}</div>
+          {t.projectsSection.footnote ? <div className="fh-note">{t.projectsSection.footnote}</div> : null}
         </section>
 
         {/* SECTION 02: INDUSTRY EXPERIENCE (Formulatrix) */}
@@ -867,8 +867,8 @@ function FigmaHome() {
           <div className="fh-width fh-section">
             <div className="fh-section-heading reveal">
               <div>
-                <div className="fh-eyebrow"><span>02 /</span> {lang === 'id' ? 'PENGALAMAN' : 'EXPERIENCE'}</div>
-                <h2>{lang === 'id' ? <>Belajar di mana desain<br />bertemu lini produksi.</> : <>Learning where design<br />meets production.</>}</h2>
+                <div className="fh-eyebrow"><span>02 /</span> {lang === 'id' ? 'PENGALAMAN MAGANG' : 'EXPERIENCE'}</div>
+                <h2>{lang === 'id' ? <>Pengalaman langsung dari desain<br />hingga lantai produksi.</> : <>Learning where design<br />meets production.</>}</h2>
               </div>
               <p>{t.experienceSection.subtitle}</p>
             </div>
@@ -880,17 +880,10 @@ function FigmaHome() {
                 <h3>PT Promanufacture Indonesia</h3>
                 <p>
                   {lang === 'id' 
-                    ? 'Pengalaman desain CAD berorientasi produksi, fabrikasi, dan dokumentasi teknis pada sistem industri nyata.'
-                    : 'Experience with production-oriented CAD, fabrication and technical documentation grounded in real industrial systems.'
+                    ? 'Pemodelan CAD mekanik, proses fabrikasi bengkel, dan dokumentasi teknis perakitan di fasilitas manufaktur.'
+                    : 'Hands-on CAD modeling, workshop fabrication, and assembly technical documentation in a manufacturing environment.'
                   }
                 </p>
-
-                <small>
-                  {lang === 'id'
-                    ? 'Tidak ada materi rahasia perusahaan yang dimuat dalam portofolio ini.'
-                    : 'No confidential company materials are reproduced in this portfolio.'
-                  }
-                </small>
               </div>
 
               <div className="fh-roles stagger">
@@ -959,7 +952,7 @@ function FigmaHome() {
             <div style={{ marginTop: '56px', borderTop: '1px solid #E5E7EB', paddingTop: '40px' }}>
               <div className="fh-section-heading reveal" style={{ marginBottom: '28px' }}>
                 <div>
-                  <div className="fh-eyebrow"><span>02.1 /</span> {lang === 'id' ? 'KEPEMIMPINAN & ORGANISASI' : 'LEADERSHIP & ORGANIZATIONS'}</div>
+                  <div className="fh-eyebrow"><span>02.1 /</span> {lang === 'id' ? 'KEGIATAN & ORGANISASI' : 'TEAMS & ORGANIZATIONS'}</div>
                   <h3 style={{ fontSize: '22px', fontWeight: 700, margin: '4px 0 0', color: '#111827' }}>{t.orgsSection.title}</h3>
                 </div>
                 <p>{t.orgsSection.subtitle}</p>
@@ -1021,43 +1014,48 @@ function FigmaHome() {
 
             <div className="fh-section-heading reveal">
               <div>
-                <div className="fh-eyebrow"><span>03 /</span> {lang === 'id' ? 'KAPABILITAS & TOOLS' : 'CAPABILITIES & TOOLS'}</div>
-                <h2>{lang === 'id' ? <>Stack rekayasa &amp;<br />ekosistem produksi.</> : <>Engineering stack &amp;<br />production ecosystem.</>}</h2>
+                <div className="fh-eyebrow"><span>03 /</span> {lang === 'id' ? 'KEAHLIAN & ALAT KERJA' : 'CAPABILITIES & TOOLS'}</div>
+                <h2>{lang === 'id' ? <>Keahlian teknis &amp;<br />perangkat kerja.</> : <>Technical skills &amp;<br />engineering tools.</>}</h2>
               </div>
               <p>{t.skillsSection.subtitle}</p>
             </div>
 
             {/* DISCIPLINES — 3-column grid */}
             <div className="fh-stack-grid stagger">
-              {engineeringDisciplines.map(disc => (
-                <article key={disc.id} className="fh-stack-card" {...tilt(4)}>
-                  <div className="fh-stack-card-header" style={{ borderLeftColor: disc.color }}>
-                    <span className="fh-stack-label" style={{ color: disc.color }}>{disc.label}</span>
-                    <h3 className="fh-stack-title">{disc.title}</h3>
-                  </div>
-
-                  <ul className="fh-stack-skills">
-                    {disc.skills.map((s, i) => (
-                      <li key={i}>{s}</li>
-                    ))}
-                  </ul>
-
-                  <div className="fh-stack-tools">
-                    <span className="fh-stack-tools-label">SOFTWARE &amp; TOOLS</span>
-                    <div className="fh-stack-tool-chips">
-                      {disc.tools.map(tool => (
-                        <span key={tool.name} className="fh-stack-chip">
-                          {tool.logo
-                            ? <img src={tool.logo} alt={tool.name} className="fh-stack-chip-logo" />
-                            : <span className="fh-stack-chip-wordmark">{tool.name.split('/')[0].trim().slice(0, 3).toUpperCase()}</span>
-                          }
-                          <span className="fh-stack-chip-name">{tool.name}</span>
-                        </span>
-                      ))}
+              {(t.skillsSection.disciplines || engineeringDisciplines).map(disc => {
+                const baseDisc = engineeringDisciplines.find(d => d.id === disc.id) || disc;
+                const tools = baseDisc.tools || [];
+                const color = baseDisc.color || '#F05A22';
+                return (
+                  <article key={disc.id} className="fh-stack-card" {...tilt(4)}>
+                    <div className="fh-stack-card-header" style={{ borderLeftColor: color }}>
+                      <span className="fh-stack-label" style={{ color: color }}>{disc.label}</span>
+                      <h3 className="fh-stack-title">{disc.title}</h3>
                     </div>
-                  </div>
-                </article>
-              ))}
+
+                    <ul className="fh-stack-skills">
+                      {disc.skills.map((s, i) => (
+                        <li key={i}>{s}</li>
+                      ))}
+                    </ul>
+
+                    <div className="fh-stack-tools">
+                      <span className="fh-stack-tools-label">{lang === 'id' ? 'SOFTWARE & ALAT KERJA' : 'SOFTWARE & TOOLS'}</span>
+                      <div className="fh-stack-tool-chips">
+                        {tools.map(tool => (
+                          <span key={tool.name} className="fh-stack-chip">
+                            {tool.logo
+                              ? <img src={tool.logo} alt={tool.name} className="fh-stack-chip-logo" />
+                              : <span className="fh-stack-chip-wordmark">{tool.name.split('/')[0].trim().slice(0, 3).toUpperCase()}</span>
+                            }
+                            <span className="fh-stack-chip-name">{tool.name}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -1130,7 +1128,7 @@ function FigmaHome() {
                   downloadUrl: '/images/ijazah-smk.jpeg',
                   downloadName: 'Ijazah_SMK_7_Semarang_Bayu_Aji.jpeg'
                 })}
-                title={lang === 'id' ? 'Klik untuk melihat Ijazah & SKL SMK' : 'Click to view Vocational Diploma & Graduation Certificate'}
+                title={lang === 'id' ? 'Klik untuk melihat Ijazah & SKL SMK' : 'Click to view High School Diploma & Graduation Certificate'}
               >
                 <div className="fh-edu-center-header">
                   <div className="fh-edu-logo-wrapper">
@@ -1139,7 +1137,7 @@ function FigmaHome() {
                   <h3>SMK Negeri 7 Semarang</h3>
                   <strong className="fh-edu-major">{t.educationSection.smk.degree}</strong>
                   <div className="fh-edu-badge-row">
-                    <span className="fh-edu-badge"><Award size={13} /> {lang === 'id' ? 'PROGRAM VOKASI 4 TAHUN' : '4-YEAR VOCATIONAL'}</span>
+                    <span className="fh-edu-badge"><Award size={13} /> {lang === 'id' ? 'SMK 4 TAHUN (PRAKERIN 6 BULAN)' : '4-YEAR TECHNICAL PROGRAM'}</span>
                     <span className="fh-edu-date">{t.educationSection.smk.period}</span>
                   </div>
                 </div>
@@ -1157,7 +1155,7 @@ function FigmaHome() {
                   </div>
                   <div className="fh-edu-metric-item">
                     <span className="fh-edu-metric-label">{lang === 'id' ? 'JENIS PROGRAM' : 'PROGRAM TYPE'}</span>
-                    <strong className="fh-edu-metric-val">{lang === 'id' ? 'Vokasi STEM 4 Tahun' : 'STEM 4-Year Diploma'}</strong>
+                    <strong className="fh-edu-metric-val">{lang === 'id' ? 'SMK 4 Tahun' : '4-Year Technical Program'}</strong>
                   </div>
                 </div>
               </article>

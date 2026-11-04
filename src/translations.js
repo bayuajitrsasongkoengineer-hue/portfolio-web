@@ -23,10 +23,10 @@ export const translations = {
       cv: 'Curriculum Vitae',
     },
     projectsSection: {
-      eyebrow: '01 / SELECTED WORK',
-      title: 'Tangible prototypes, competition systems & university projects.',
-      subtitle: 'A collection of 5 projects built across my final project, national competition, capstone design, and independent builds.',
-      footnote: 'Engineering documentation backed by official Telkom University thesis (Buku TA), Capstone design, and national robotics competition records.',
+      eyebrow: '01 / PROJECTS',
+      title: 'Engineering work, in practice.',
+      subtitle: 'A collection of 5 projects across undergraduate research, national robotics competition, capstone design, and independent builds.',
+      footnote: '',
       exploreMore: 'Explore more projects',
       viewCaseStudy: 'View Case Study',
     },
@@ -36,7 +36,7 @@ export const translations = {
         number: '01',
         label: 'FINAL PROJECT · 5-DOF ROBOTIC MANIPULATOR',
         title: '5-DOF Robotic Manipulator Arm',
-        summary: '5-DOF arm prototype with custom 3D-printed PLA cycloidal gearboxes (1:50 & 1:25), AS5600 closed-loop magnetic sensing (0.088°), and analytical inverse kinematics on STM32F411.',
+        summary: '5-DOF robotic arm prototype with 3D-printed cycloidal gearboxes and closed-loop AS5600 magnetic sensing. Achieved 79.8% positional accuracy across 250–1,000 g payloads.',
         tags: ['Robotics', 'Cycloidal Gearbox', 'Closed-Loop Control', 'STM32', '3D Printing PLA'],
         metrics: [
           ['79.8%', 'Joint Accuracy Improvement'],
@@ -50,7 +50,7 @@ export const translations = {
         number: '02',
         label: 'CAPSTONE DESIGN · PV THERMAL REGULATION',
         title: 'Automatic Solar Panel Cooling System',
-        summary: 'Automated thermal regulation prototype for solar panels. Features threshold-based pump control activating above 30°C and deactivating below 25°C, with 4.02 L/min spray delivery.',
+        summary: 'Automated water spray cooling prototype for solar panels using temperature sensing and relay control. Triggers pump at >30°C and shuts off below <25°C.',
         tags: ['Thermal Regulation', 'Embedded Electronics', 'Sensor Interfacing', 'Relay Control'],
         metrics: [
           ['>30°C / <25°C', 'Pump Trigger Threshold'],
@@ -64,7 +64,7 @@ export const translations = {
         number: '03',
         label: 'NATIONAL COMPETITION · KRAI 2025',
         title: 'Robot Basketball Mechanisms',
-        summary: 'Designed precision dribble and pneumatic shooting mechanisms as a mechanical team member for Team ROOBICS (EIRRG Telkom University), advancing to the National Stage at ITB Jatinangor.',
+        summary: 'Designed basketball dribbling and pneumatic shooting mechanisms with Telkom University ROOBICS team, advancing to the KRAI 2025 National Stage at ITB Jatinangor.',
         tags: ['Mechanism Design', 'Pneumatics', 'Robotics Competition', 'CAD Modeling'],
         metrics: [
           ['Pneumatic', 'Shooting Mechanism'],
@@ -78,7 +78,7 @@ export const translations = {
         number: '04',
         label: 'INDEPENDENT BUILD · EMBEDDED CONTROL',
         title: 'Autonomous Line Follower Robot',
-        summary: 'Autonomous line-tracking mobile robot featuring an 8-channel photodiode + LED sensor array, real-time threshold comparator circuitry, and differential drive steering logic.',
+        summary: 'Autonomous line-tracking mobile robot featuring an 8-photodiode sensor array, discrete comparator threshold circuits, and differential drive steering logic.',
         tags: ['Photodiode Array', 'Differential Drive', 'Comparator Circuit', 'Hardware Tuning'],
         metrics: [
           ['8-Channel', 'Photodiode Sensor Bar'],
@@ -92,7 +92,7 @@ export const translations = {
         number: '05',
         label: 'INDEPENDENT BUILD · COMPETITIVE ROBOTICS',
         title: 'Bluetooth Sumo Robot',
-        summary: '1 kg competition-class sumo robot (20 × 20 cm) built on an acrylic chassis with 4 high-torque geared DC motors controlled wirelessly via smartphone Bluetooth.',
+        summary: '1 kg competition-class sumo robot (20 × 20 cm) built on an acrylic chassis with 4 high-torque geared DC motors delivering 4 kg push force, controlled via smartphone Bluetooth.',
         tags: ['Acrylic Chassis', '4WD Geared Motors', 'Bluetooth Serial', 'Mobile Control'],
         metrics: [
           ['1 kg / 20×20 cm', 'Competition Class Limit'],
@@ -139,8 +139,8 @@ export const translations = {
     },
     educationSection: {
       eyebrow: '04 / ACADEMIC BACKGROUND',
-      title: 'Vocational mechatronics foundation & electrical engineering degree.',
-      subtitle: 'Combining hands-on workshop training from vocational high school with electrical engineering and robotics fundamentals from university.',
+      title: 'Technical high school foundation & electrical engineering degree.',
+      subtitle: 'Combining hands-on workshop training from technical high school with electrical engineering and robotics fundamentals from university.',
       telkom: {
         degree: 'Bachelor of Science in Electrical Engineering · Telkom University',
         period: 'Sep 2022 - Aug 2026 · Bandung, Indonesia',
@@ -148,22 +148,22 @@ export const translations = {
         gpaLabel: 'CUMULATIVE GPA',
         gpaSub: 'OUT OF 4.00 SCALE',
         courseworkLabel: 'Relevant Engineering Coursework:',
-        verifiedNote: 'Verified from Official Transcript & Certificate of Graduation (SKL)',
+        verifiedNote: 'Verified from Official Certificate of Graduation (SKL)',
         cta: 'View Certificate of Graduation (SKL)',
       },
       smk: {
-        degree: 'Vocational High School in Mechatronics Engineering (4-Year Program) · SMKN 7 Semarang',
+        degree: 'Mechatronics Engineering (4-Year Program) · SMKN 7 Semarang',
         period: 'Jul 2018 - Jul 2022 · Semarang, Indonesia',
         desc: '4-year technical mechatronics program covering industrial pneumatics, electro-pneumatic circuits, basic PLC automation, and mechanical fabrication. Built an electro-pneumatic training kit as final vocational project.',
         metricVal: '4-YEAR',
-        metricLabel: 'VOCATIONAL DIPLOMA',
-        metricSub: 'MECHATRONICS SPECIALIST',
-        curriculumNote: '4-Year Vocational Curriculum including 6 months Industrial Internship (Prakerin/PKL)',
-        cta: 'View Official Diploma (Ijazah)',
+        metricLabel: 'TECHNICAL DIPLOMA',
+        metricSub: 'MECHATRONICS SPECIALIST (STM PEMBANGUNAN)',
+        curriculumNote: '4-Year Technical Curriculum including 6 months Industrial Internship (Prakerin/PKL)',
+        cta: 'View Technical High School Diploma',
       },
     },
     orgsSection: {
-      title: 'Engineering Teams & Student Activities',
+      title: 'Engineering Teams & Campus Activities',
       subtitle: 'Collaborative team experiences in national robotics competition and student mentoring.',
       org1: {
         label: 'ROBOTICS RESEARCH GROUP',
@@ -218,8 +218,59 @@ export const translations = {
     },
     skillsSection: {
       eyebrow: '03 / CAPABILITIES & TOOLS',
-      title: 'Tools & technical disciplines.',
-      subtitle: 'Hands-on tools and software used across thesis research, Formulatrix internships, and personal robotics builds. Only confirmed tools are listed.',
+      title: 'Technical skills & engineering tools.',
+      subtitle: 'Software and tools with direct hands-on experience across undergraduate research, Formulatrix internships, and robotics projects.',
+      disciplines: [
+        {
+          id: 'mechanical',
+          label: '01 / MECHANICAL',
+          title: 'Mechanical Design & Fabrication',
+          skills: [
+            '3D parametric CAD modeling (parts, assemblies, GD&T tolerancing & technical drawings)',
+            'Custom Cycloidal Gearbox design (reduction ratio 1:50 & 1:25) for high-torque joints',
+            'Additive manufacturing (FDM 3D printing PLA, slicing optimization & post-processing)',
+            'CNC toolpath generation & machining preparation (OneCNC CAM)',
+            'Production-oriented component design for laboratory automation equipment (Formulatrix)',
+          ],
+        },
+        {
+          id: 'electronics',
+          label: '02 / ELECTRONICS',
+          title: 'Electronics & PCB Design',
+          skills: [
+            'Schematic capture & 2-layer PCB layout (EasyEDA & Autodesk EAGLE)',
+            'Circuit simulation, SPICE analysis & virtual instrument testing (Proteus)',
+            'PCB solder paste stencil panel design using Easy-PC (SMT line process)',
+            'SMT production line workflows (pick-and-place, reflow soldering & inspection)',
+            'Sensor wiring, harness diagrams & pinout documentation',
+            'Assembly Work Instructions (AWI) & Standard Operating Procedures (SOP)',
+          ],
+        },
+        {
+          id: 'embedded',
+          label: '03 / EMBEDDED',
+          title: 'Embedded Systems & Control',
+          skills: [
+            'ARM Cortex-M microcontroller firmware (STM32F411, HAL library & register configuration)',
+            'Real-time closed-loop control using AS5600 12-bit magnetic encoders (0.088° resolution)',
+            'I2C bus multiplexing with TCA9548A 8-channel switch for multi-sensor integration',
+            'Analytical Inverse Kinematics (IK) modeling & joint space trajectory execution',
+            'S-curve motion profile implementation in C/C++ to minimize inertial jerk and smooth acceleration transitions',
+            'Microcontroller flashing and on-chip debugging via ST-Link V2.1 (SWD protocol)',
+          ],
+        },
+        {
+          id: 'productivity',
+          label: '04 / PRODUCTIVITY & DOCUMENTATION',
+          title: 'Engineering Productivity & Collaboration',
+          skills: [
+            'Technical documentation, test report authoring & academic thesis publishing',
+            'Engineering data analysis, calculation sheets & sensor test data logging',
+            'Collaborative engineering design sprints, system flowcharts & mind-mapping',
+            'Standardized production line work instructions & process verification workflows',
+          ],
+        },
+      ],
     },
     contactSection: {
       eyebrow: '05 / GET IN TOUCH',
@@ -261,9 +312,9 @@ export const translations = {
     },
     projectsSection: {
       eyebrow: '01 / PROYEK PILIHAN',
-      title: 'Prototipe fisik, robotika kompetisi & tugas akhir.',
+      title: 'Karya rekayasa & praktik langsung.',
       subtitle: 'Koleksi 5 proyek yang saya rancang dan rakit langsung selama masa kuliah dan belajar mandiri.',
-      footnote: 'Dokumentasi rekayasa didukung data asli Buku Tugas Akhir Universitas Telkom, laporan Capstone, dan catatan kompetisi robotika nasional.',
+      footnote: '',
       exploreMore: 'Lihat proyek lainnya',
       viewCaseStudy: 'Lihat Studi Kasus',
     },
@@ -273,7 +324,7 @@ export const translations = {
         number: '01',
         label: 'TUGAS AKHIR SARJANA · ROBOT MANIPULATOR 5-DOF',
         title: 'Robot Manipulator 5-DOF',
-        summary: 'Prototipe lengan robot 5-DOF menggunakan cycloidal gearbox berbahan 3D-printed PLA dan mikrokontroler STM32F411. Menggunakan sensor magnetik AS5600 (closed-loop) untuk mereduksi backlash sendi, dengan akurasi posisi mencapai 79,8% pada rentang beban 250–1.000 gram.',
+        summary: 'Prototipe lengan robot 5-DOF dengan cycloidal gearbox cetak 3D dan kendali closed-loop sensor AS5600. Mencapai akurasi posisi 79,8% pada rentang beban 250–1.000 gram.',
         tags: ['Robotika', 'Cycloidal Gearbox', 'Closed-Loop Control', 'STM32', '3D Printing PLA'],
         metrics: [
           ['79.8%', 'Peningkatan Akurasi Sendi'],
@@ -287,7 +338,7 @@ export const translations = {
         number: '02',
         label: 'CAPSTONE DESIGN · TIM 6 IDP',
         title: 'Sistem Pendingin Otomatis Panel Surya',
-        summary: 'Prototipe semprotan air otomatis untuk mendinginkan permukaan panel surya. Menggunakan sensor suhu dan kontrol relay yang menyalakan pompa saat suhu panel mencapai >30°C dan mati saat kembali ke <25°C.',
+        summary: 'Prototipe semprotan air otomatis pendingin panel surya dengan sensor suhu dan kontrol relai. Pompa aktif saat suhu >30°C dan otomatis mati saat kembali <25°C.',
         tags: ['Kendali Termal', 'Elektronika Tertanam', 'Sensor Suhu', 'Kontrol Relay'],
         metrics: [
           ['>30°C / <25°C', 'Batas Kerja Pompa'],
@@ -301,7 +352,7 @@ export const translations = {
         number: '03',
         label: 'KOMPETISI ROBOTIKA NASIONAL · TIM ROOBICS',
         title: 'Mekanisme Robot Basket KRAI 2025',
-        summary: 'Merancang mekanisme penggiring bola (dribble) dan pelontar pneumatik (shooter) sebagai anggota tim mekanik ROOBICS Universitas Telkom, berhasil lolos hingga Babak Seleksi Nasional di ITB Jatinangor.',
+        summary: 'Merancang mekanisme penggiring bola (dribble) dan pelontar pneumatik (shooter) tim ROOBICS Universitas Telkom hingga Babak Nasional KRAI 2025 di ITB Jatinangor.',
         tags: ['Desain Mekanisme', 'Pneumatik', 'Kompetisi Robotika', 'CAD Modeling'],
         metrics: [
           ['Pneumatik', 'Sistem Pelontar Bola'],
@@ -315,7 +366,7 @@ export const translations = {
         number: '04',
         label: 'PROYEK MANDIRI · ELEKTRONIKA & KONTROL',
         title: 'Robot Line Follower',
-        summary: 'Robot pelacak garis otomatis yang menggunakan 8 sensor fotodioda + LED, rangkaian komparator pembaca garis, dan motor penggerak differential drive.',
+        summary: 'Robot pelacak garis otomatis dengan 8 sensor fotodioda, rangkaian komparator diskrit pembaca lintasan, dan sistem motor penggerak differential drive.',
         tags: ['Sensor Fotodioda', 'Differential Drive', 'Rangkaian Komparator', 'Tuning Hardware'],
         metrics: [
           ['8 Sensor', 'Array Fotodioda'],
@@ -329,7 +380,7 @@ export const translations = {
         number: '05',
         label: 'PROYEK MANDIRI · ROBOTIKA KOMPETISI',
         title: 'Robot Sumo Bluetooth',
-        summary: 'Robot sumo kelas 1 kg (ukuran 20×20 cm) dengan rangka akrilik dan 4 motor penggerak torsi tinggi, dikendalikan via smartphone melalui koneksi Bluetooth.',
+        summary: 'Robot sumo kelas 1 kg (ukuran 20×20 cm) dengan rangka akrilik, 4 motor DC torsi tinggi berdaya dorong 4 kg, dan kendali Bluetooth via smartphone.',
         tags: ['Rangka Akrilik', '4WD Geared Motor', 'Bluetooth Serial', 'Kendali Smartphone'],
         metrics: [
           ['1 kg / 20×20 cm', 'Ukuran Kelas Kompetisi'],
@@ -341,7 +392,7 @@ export const translations = {
     ],
     experienceSection: {
       eyebrow: '02 / PENGALAMAN MAGANG',
-      title: 'Pengalaman belajar dan bekerja di pabrik.',
+      title: 'Pengalaman langsung di lingkungan manufaktur.',
       subtitle: 'Pengalaman magang industri di PT Promanufacture Indonesia (Formulatrix), belajar langsung di lini produksi elektronika dan bengkel manufaktur.',
       roles: [
         {
@@ -376,7 +427,7 @@ export const translations = {
     },
     educationSection: {
       eyebrow: '04 / PENDIDIKAN',
-      title: 'Latar belakang vokasi mekatronika & sarjana teknik elektro.',
+      title: 'Dasar praktik SMK mekatronika & sarjana teknik elektro.',
       subtitle: 'Menggabungkan keterampilan praktis perbengkelan dari SMK dengan dasar teori kelistrikan dan kontrol dari universitas.',
       telkom: {
         degree: 'Sarjana Teknik Elektro (S.T.) · Universitas Telkom',
@@ -385,23 +436,23 @@ export const translations = {
         gpaLabel: 'IPK KUMULATIF',
         gpaSub: 'DARI SKALA 4.00',
         courseworkLabel: 'Mata Kuliah Rekayasa Terkait:',
-        verifiedNote: 'Terverifikasi dari Transkrip Nilai Resmi & Surat Keterangan Lulus (SKL)',
+        verifiedNote: 'Terverifikasi dari Surat Keterangan Lulus (SKL) Resmi',
         cta: 'Lihat Surat Keterangan Lulus (SKL)',
       },
       smk: {
-        degree: 'Pendidikan Vokasi Teknik Mekatronika (Program 4 Tahun) · SMKN 7 Semarang',
+        degree: 'SMK Teknik Mekatronika (Program 4 Tahun) · SMKN 7 Semarang',
         period: 'Jul 2018 - Jul 2022 · Semarang, Indonesia',
-        desc: 'Pendidikan vokasi teknik 4 tahun dengan fokus pada pneumatik industri, kontrol elektro-pneumatik, dasar otomasi PLC, dan fabrikasi mekanik. Merakit trainer kit elektro-pneumatik sebagai proyek tugas akhir kelulusan.',
+        desc: 'Pendidikan SMK teknik 4 tahun dengan fokus pada pneumatik industri, kontrol elektro-pneumatik, dasar otomasi PLC, dan perakitan mekanik. Merakit trainer kit elektro-pneumatik sebagai proyek tugas akhir kelulusan.',
         metricVal: '4 TAHUN',
-        metricLabel: 'PROGRAM VOKASI',
-        metricSub: 'SPESIALISASI MEKATRONIKA',
-        curriculumNote: 'Kurikulum Vokasi 4 Tahun termasuk 6 Bulan Praktik Kerja Industri (Prakerin/PKL)',
+        metricLabel: 'PROGRAM SMK 4 TAHUN',
+        metricSub: 'SPESIALISASI MEKATRONIKA (STM PEMBANGUNAN)',
+        curriculumNote: 'Kurikulum SMK 4 Tahun termasuk 6 Bulan Praktik Kerja Industri (Prakerin/PKL)',
         cta: 'Lihat Ijazah Resmi (SMK)',
       },
     },
     orgsSection: {
-      title: 'Tim Rekayasa & Kegiatan Mahasiswa',
-      subtitle: 'Pengalaman kerja tim dalam kompetisi robotika nasional dan pendampingan mahasiswa baru.',
+      title: 'Tim Rekayasa & Kegiatan Kampus',
+      subtitle: 'Pengalaman kerja tim dalam kompetisi robotika nasional dan kegiatan orientasi mahasiswa baru.',
       org1: {
         label: 'ROBOTICS RESEARCH GROUP',
         name: 'Electronics and Intelligence Robotic Research Group (EIRRG)',
@@ -454,9 +505,60 @@ export const translations = {
       },
     },
     skillsSection: {
-      eyebrow: '03 / ALAT & DISIPLIN',
-      title: 'Software & alat kerja teknis.',
-      subtitle: 'Alat dan software yang pernah saya gunakan langsung saat riset tugas akhir, magang di Formulatrix, dan proyek robotika. Hanya alat yang terkonfirmasi yang dicantumkan.',
+      eyebrow: '03 / KEAHLIAN & ALAT KERJA',
+      title: 'Keahlian teknis & perangkat kerja.',
+      subtitle: 'Software dan peralatan yang pernah saya gunakan langsung selama tugas akhir, magang di Formulatrix, dan proyek robotika.',
+      disciplines: [
+        {
+          id: 'mechanical',
+          label: '01 / MEKANIKAL',
+          title: 'Desain Mekanik & Fabrikasi',
+          skills: [
+            'Pemodelan CAD parametrik 3D (part, perakitan/assembly, toleransi & gambar teknik)',
+            'Perancangan kustom Cycloidal Gearbox (rasio reduksi 1:50 & 1:25) untuk sendi torsi tinggi',
+            'Manufaktur aditif (3D printing FDM bahan PLA, optimasi slicing & finishing benda kerja)',
+            'Pembuatan toolpath CNC & persiapan pemesinan (OneCNC CAM)',
+            'Desain komponen mekanik berorientasi produksi untuk perangkat otomasi laboratorium',
+          ],
+        },
+        {
+          id: 'electronics',
+          label: '02 / ELEKTRONIKA',
+          title: 'Elektronika & Desain PCB',
+          skills: [
+            'Pembuatan skematik & perancangan layout PCB 2-layer (EasyEDA & Autodesk EAGLE)',
+            'Simulasi rangkaian elektronik & pengujian instrumen virtual (Proteus)',
+            'Desain panel stensil pasta solder PCB menggunakan Easy-PC untuk proses SMT',
+            'Alur kerja lini produksi SMT (mesin pick-and-place, reflow soldering & inspeksi solder)',
+            'Pengkabelan sensor, diagram wiring harness & dokumentasi pinout kabel',
+            'Penyusunan dokumen instruksi kerja perakitan (Work Instruction / WI) dan SOP',
+          ],
+        },
+        {
+          id: 'embedded',
+          label: '03 / SISTEM TERTANAM',
+          title: 'Sistem Tertanam & Kendali',
+          skills: [
+            'Pemrograman mikrokontroler ARM Cortex-M (STM32F411, HAL library & register)',
+            'Sistem kendali closed-loop real-time menggunakan sensor magnetik AS5600 12-bit (resolusi 0,088°)',
+            'Multipleksing bus komunikasi I2C dengan modul TCA9548A untuk integrasi multi-sensor',
+            'Pemodelan kinematika analitik (Inverse Kinematics) & eksekusi pergerakan lintasan sendi',
+            'Penerapan profil gerak S-curve dalam C/C++ untuk meredam sentakan inersia (jerk) saat akselerasi',
+            'Flashing dan debugging mikrokontroler menggunakan ST-Link V2.1 (protokol SWD)',
+          ],
+        },
+        {
+          id: 'productivity',
+          label: '04 / PRODUKTIVITAS & DOKUMENTASI',
+          title: 'Dokumentasi Rekayasa & Kolaborasi',
+          skills: [
+            'Penyusunan dokumentasi teknis, laporan pengujian data, dan naskah buku Tugas Akhir',
+            'Analisis data rekayasa, lembar kalkulasi perhitungan, dan pencatatan log data sensor',
+            'Kolaborasi perancangan sistem teknik, diagram alir sistem (flowchart), dan pemetaan ide',
+            'Standarisasi dokumen instruksi kerja lini produksi dan verifikasi alur proses manufaktur',
+          ],
+        },
+      ],
     },
     contactSection: {
       eyebrow: '05 / KONTAK',
