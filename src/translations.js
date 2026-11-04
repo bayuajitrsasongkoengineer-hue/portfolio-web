@@ -167,8 +167,8 @@ export const translations = {
     },
     orgsSection: {
       eyebrow: '06 / ORGANIZATIONS',
-      title: 'Engineering Teams & Campus Activities',
-      subtitle: 'Collaborative team experiences in national robotics competition and student mentoring.',
+      title: 'Organizational & Committee Experience',
+      subtitle: 'Active involvement in KRAI robotics research, PKKMB discipline management, and mentorship of cadreization participants at KMTE.',
       org1: {
         label: 'ROBOTICS RESEARCH GROUP',
         name: 'Electronics and Intelligence Robotic Research Group (EIRRG)',
@@ -459,8 +459,8 @@ export const translations = {
     },
     orgsSection: {
       eyebrow: '06 / ORGANISASI',
-      title: 'Tim Rekayasa & Kegiatan Kampus',
-      subtitle: 'Pengalaman kerja tim dalam kompetisi robotika nasional dan kegiatan orientasi mahasiswa baru.',
+      title: 'Pengalaman Organisasi & Kepanitiaan',
+      subtitle: 'Keterlibatan aktif dalam riset robotika kompetisi KRAI, manajemen kedisiplinan PKKMB, serta mentoring peserta kaderisasi di KMTE.',
       org1: {
         label: 'ROBOTICS RESEARCH GROUP',
         name: 'Electronics and Intelligence Robotic Research Group (EIRRG)',
