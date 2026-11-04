@@ -1201,7 +1201,7 @@ function FigmaHome() {
 
                 <p>{t.educationSection.smk.desc}</p>
 
-                <div className="fh-edu-metrics">
+                <div className="fh-edu-metrics fh-edu-metrics-2">
                   <div className="fh-edu-metric-item">
                     <span className="fh-edu-metric-label">{lang === 'id' ? 'NILAI KELULUSAN' : 'GRADUATION SCORE'}</span>
                     <StatNum target={90.00} decimals={2} suffix=" / 100" />
@@ -1209,10 +1209,6 @@ function FigmaHome() {
                   <div className="fh-edu-metric-item">
                     <span className="fh-edu-metric-label">{lang === 'id' ? 'AKREDITASI SEKOLAH' : 'ACCREDITATION'}</span>
                     <strong className="fh-edu-metric-val">{lang === 'id' ? 'Terakreditasi "A" (BAN-S/M)' : 'Accredited "A" (BAN-S/M)'}</strong>
-                  </div>
-                  <div className="fh-edu-metric-item">
-                    <span className="fh-edu-metric-label">{lang === 'id' ? 'JENIS PROGRAM' : 'PROGRAM TYPE'}</span>
-                    <strong className="fh-edu-metric-val">{lang === 'id' ? 'SMK 4 Tahun' : '4-Year Technical Program'}</strong>
                   </div>
                 </div>
               </article>
@@ -1234,11 +1230,11 @@ function FigmaHome() {
             <div className="fh-org-grid stagger">
               {/* ORG 1: ROOBICS KRAI */}
               <article className="fh-stack-card" {...tilt(4)} style={{ padding: '24px 22px', borderRadius: '6px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
                   <div className="fh-org-logo-wrapper">
                     <img src="/images/logo-eirrg.png" alt="EIRRG Logo" className="fh-org-logo" />
                   </div>
-                  <span className="fh-role-date">{t.orgsSection.org1.date}</span>
+                  <span className="fh-role-date" style={{ marginTop: '4px' }}>{t.orgsSection.org1.date}</span>
                 </div>
                 <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.orgsSection.org1.label}</span>
                 <h3 style={{ margin: '4px 0 6px', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org1.name}</h3>
@@ -1252,11 +1248,11 @@ function FigmaHome() {
 
               {/* ORG 2: PKKMB DMT */}
               <article className="fh-stack-card" {...tilt(4)} style={{ padding: '24px 22px', borderRadius: '6px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
                   <div className="fh-org-logo-wrapper">
                     <img src="/images/logo-pkkmb.png" alt="PKKMB Telkom University Logo" className="fh-org-logo" />
                   </div>
-                  <span className="fh-role-date">{t.orgsSection.org2.date}</span>
+                  <span className="fh-role-date" style={{ marginTop: '4px' }}>{t.orgsSection.org2.date}</span>
                 </div>
                 <span className="fh-stack-label" style={{ color: '#0284C7' }}>{t.orgsSection.org2.label}</span>
                 <h3 style={{ margin: '4px 0 6px', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org2.name}</h3>
@@ -1270,11 +1266,11 @@ function FigmaHome() {
 
               {/* ORG 3: KMTE MENTOR */}
               <article className="fh-stack-card" {...tilt(4)} style={{ padding: '24px 22px', borderRadius: '6px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px' }}>
                   <div className="fh-org-logo-wrapper">
                     <img src="/images/logo-kmte.png" alt="KMTE Telkom University Logo" className="fh-org-logo" />
                   </div>
-                  <span className="fh-role-date">{t.orgsSection.org3.date}</span>
+                  <span className="fh-role-date" style={{ marginTop: '4px' }}>{t.orgsSection.org3.date}</span>
                 </div>
                 <span className="fh-stack-label" style={{ color: '#10B981' }}>{t.orgsSection.org3.label}</span>
                 <h3 style={{ margin: '4px 0 6px', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org3.name}</h3>
