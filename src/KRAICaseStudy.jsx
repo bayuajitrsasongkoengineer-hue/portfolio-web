@@ -4,8 +4,14 @@ import {
   Cpu, ZoomIn, Play, Crosshair, Gauge, Disc, ShieldAlert
 } from 'lucide-react';
 import ImageLightboxModal from './ImageLightboxModal';
+import { useLang } from './translations';
+import { caseStudiesTranslations } from './caseStudiesTranslations';
 
 export default function KRAICaseStudy() {
+  const { lang } = useLang();
+  const t = caseStudiesTranslations[lang]?.krai || caseStudiesTranslations.en.krai;
+  const c = caseStudiesTranslations[lang]?.common || caseStudiesTranslations.en.common;
+
   const [modalData, setModalData] = useState(null);
 
   const openZoom = (image, title, subtitle) => {
@@ -17,29 +23,29 @@ export default function KRAICaseStudy() {
       {/* ── Top Bar & Back Link ── */}
       <div className="cs-top-bar">
         <a href="/#projects" className="cs-back-link">
-          <ArrowLeft size={14} /> BACK TO ALL PROJECTS
+          <ArrowLeft size={14} /> {c.backToProjects}
         </a>
-        <span className="cs-status-badge">KONTES ROBOT INDONESIA (KRAI 2025) · NATIONAL STAGE AT ITB JATINANGOR</span>
+        <span className="cs-status-badge">{t.statusBadge}</span>
       </div>
 
       {/* ── Header ── */}
       <header className="cs-header">
         <h1 className="cs-title-single-line">
-          Competition Basketball Robot: Dribble &amp; Shooter Mechanisms
+          {t.title}
         </h1>
 
         <div style={{ display: 'flex', gap: '36px', flexWrap: 'wrap', margin: '14px 0 24px', fontSize: '13px', color: '#475569' }}>
           <div>
-            <strong style={{ display: 'block', color: '#0F172A', fontSize: '14px' }}>Bayu Aji Trisasongko</strong>
-            <span>Lead Mechanical Designer &amp; Fabricator</span>
+            <strong style={{ display: 'block', color: '#0F172A', fontSize: '14px' }}>{t.authorName}</strong>
+            <span>{t.authorRole}</span>
           </div>
           <div>
-            <strong style={{ display: 'block', color: '#0F172A', fontSize: '14px' }}>Team ROOBICS</strong>
-            <span>EIRRG · Telkom University</span>
+            <strong style={{ display: 'block', color: '#0F172A', fontSize: '14px' }}>{t.teamName}</strong>
+            <span>{t.teamRole}</span>
           </div>
           <div>
-            <strong style={{ display: 'block', color: '#0F172A', fontSize: '14px' }}>Competition Milestone</strong>
-            <span>National Finalist (ITB Jatinangor)</span>
+            <strong style={{ display: 'block', color: '#0F172A', fontSize: '14px' }}>{t.milestoneName}</strong>
+            <span>{t.milestoneRole}</span>
           </div>
         </div>
 
@@ -47,34 +53,16 @@ export default function KRAICaseStudy() {
         <div className="cs-hero-split-50" style={{ alignItems: 'flex-start' }}>
           <div className="cs-hero-split-left">
             <p className="cs-hero-desc-text" style={{ marginBottom: '16px' }}>
-              Mechanical engineering and physical prototyping of a semi-autonomous competition mobile basketball robot with automated sensor-pneumatic interlocks for the national ABU Robocon Indonesia (KRAI 2025). Features high-pressure pneumatic bounce dribbling (5–6 bar), a multi-motor tri-roller flywheel shooter achieving 6–7 m launch distance, and a holonomic 3-wheel omni-directional drive base.
+              {t.heroDesc}
             </p>
 
             <div className="cs-metrics-grid-2x2">
-              <div className="cs-metric-card-fit">
-                <span className="cs-metric-num-fit">6–7 Meters</span>
-                <span className="cs-metric-desc-fit">
-                  Validated basketball shooting range to hoop
-                </span>
-              </div>
-              <div className="cs-metric-card-fit">
-                <span className="cs-metric-num-fit">5–6 Bar</span>
-                <span className="cs-metric-desc-fit">
-                  Pneumatic operating pressure for dribble &amp; feed
-                </span>
-              </div>
-              <div className="cs-metric-card-fit">
-                <span className="cs-metric-num-fit">3× RS775</span>
-                <span className="cs-metric-desc-fit">
-                  High-RPM pulley-coupled flywheel roller drive
-                </span>
-              </div>
-              <div className="cs-metric-card-fit">
-                <span className="cs-metric-num-fit">3-Wheel Omni</span>
-                <span className="cs-metric-desc-fit">
-                  Holonomic omnidirectional base agility
-                </span>
-              </div>
+              {t.metrics.map((m, idx) => (
+                <div key={idx} className="cs-metric-card-fit">
+                  <span className="cs-metric-num-fit">{m.num}</span>
+                  <span className="cs-metric-desc-fit">{m.desc}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -83,8 +71,12 @@ export default function KRAICaseStudy() {
               src="/images/krai_robot_hero.png" 
               alt="Team ROOBICS Competition Basketball Robot Full Assembly"
               className="cs-hero-clean-photo"
-              onClick={() => openZoom('/images/krai_robot_hero.png', 'Team ROOBICS Competition Basketball Robot', 'Physical competition robot with regulation FIBA basketball in possession, displaying dribbler assembly, pneumatic cylinders, air reservoirs, and circular 3-omni chassis')}
-              title="Click to zoom in"
+              onClick={() => openZoom(
+                '/images/krai_robot_hero.png', 
+                lang === 'id' ? 'Robot Basket Kompetisi Tim ROOBICS' : 'Team ROOBICS Competition Basketball Robot', 
+                lang === 'id' ? 'Robot kompetisi fisik saat memegang bola basket FIBA, menampilkan rakitan dribbler, silinder pneumatik, tabung udara, dan chassis sirkuler 3-omni' : 'Physical competition robot with regulation FIBA basketball in possession, displaying dribbler assembly, pneumatic cylinders, air reservoirs, and circular 3-omni chassis'
+              )}
+              title={c.clickToZoom}
             />
           </div>
         </div>
@@ -93,28 +85,27 @@ export default function KRAICaseStudy() {
       {/* ── 01. Competition Challenge & Specifications ── */}
       <section className="cs-section">
         <div className="cs-section-header">
-          <span className="cs-section-num">01 / COMPETITION MISSION &amp; SPECIFICATIONS</span>
-          <h2 className="cs-section-title">The ABU Robocon 2025 Basketball Challenge</h2>
+          <span className="cs-section-num">{t.section01.num}</span>
+          <h2 className="cs-section-title">{t.section01.title}</h2>
         </div>
         <div className="cs-two-col">
           <div className="cs-info-box">
-            <h4><Crosshair size={18} color="#F05A22" /> Autonomous Basketball Challenge Context</h4>
+            <h4><Crosshair size={18} color="#F05A22" /> {t.section01.col1Title}</h4>
             <p>
-              Kontes Robot ABU Indonesia (KRAI) 2025 tasked university robotics teams with engineering high-speed robots capable of navigating a regulation-size basketball half-court. The robot must autonomously acquire regulation basketballs, maintain continuous physical control through compliant ball handling and dribbling, rapidly align with the basket rim, and accurately shoot from distances exceeding 6 meters under stringent match timing.
+              {t.section01.col1Text}
             </p>
             <p style={{ marginTop: '12px' }}>
-              As the core mechanical designer for <strong>Team ROOBICS</strong> (EIRRG Telkom University), I took direct ownership of designing, machining, and field-calibrating the two mission-critical subsystems: the pneumatic dribble handler and the high-energy flywheel shooter mechanism.
+              {t.section01.col1Text2}
             </p>
           </div>
           <div className="cs-info-box">
-            <h4><Wrench size={18} color="#F05A22" /> Target Technical Specifications</h4>
+            <h4><Wrench size={18} color="#F05A22" /> {t.section01.col2Title}</h4>
             <ul className="cs-constraint-list">
-              <li><strong>Launch Range Target:</strong> 6.0 m to 7.0 m to clear standard regulation hoop elevations.</li>
-              <li><strong>Shooter Actuation:</strong> 3× RS775 DC motors with timing belt/pulley speed synchronization and absolute encoder speed tracking.</li>
-              <li><strong>Ball Feeder:</strong> Dedicated high-flow pneumatic cylinder pushing balls into the spinning tri-roller pinch nip.</li>
-              <li><strong>Pneumatic Dribble Subsystem:</strong> Dual-action pneumatic cylinder operating at <strong>5–6 bar</strong> for rapid cyclical vertical ball tapping.</li>
-              <li><strong>Sensory Interlocks:</strong> Infrared (IR) reflective sensors detecting ball presence inside the gripper cup + industrial limit switches detecting dribbler carriage stroke limits.</li>
-              <li><strong>Mobility:</strong> 3-wheel equilateral holonomic Omni-wheel drivetrain for omni-directional strafing and instant target orientation.</li>
+              {t.section01.specs.map((spec, idx) => (
+                <li key={idx}>
+                  {spec}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -123,8 +114,8 @@ export default function KRAICaseStudy() {
       {/* ── 02. Subsystems Mechanical CAD & Kinematics ── */}
       <section className="cs-section">
         <div className="cs-section-header">
-          <span className="cs-section-num">02 / MECHANICAL DESIGN &amp; CAD MODELING</span>
-          <h2 className="cs-section-title">Dribbler, Shooter Tower, &amp; Holonomic Drivetrain</h2>
+          <span className="cs-section-num">{t.section02.num}</span>
+          <h2 className="cs-section-title">{t.section02.title}</h2>
         </div>
 
         {/* 3 CAD Images Strip */}
@@ -133,22 +124,34 @@ export default function KRAICaseStudy() {
             src="/images/krai_cad_mechanism_1.jpg" 
             alt="Shooter Tower Mechanical CAD" 
             style={{ height: '200px' }}
-            onClick={() => openZoom('/images/krai_cad_mechanism_1.jpg', '3D CAD: Tri-Roller Flywheel Shooter Assembly', 'Parametric CAD design of the ball acceleration chamber, motor bracket mounts, and custom pulley reduction transmission')}
-            title="Click to zoom"
+            onClick={() => openZoom(
+              '/images/krai_cad_mechanism_1.jpg', 
+              t.section02.cadCaptions[0], 
+              lang === 'id' ? 'Desain parametrik ruang akselerasi bola, dudukan motor, dan transmisi reduksi pulley custom' : 'Parametric CAD design of the ball acceleration chamber, motor bracket mounts, and custom pulley reduction transmission'
+            )}
+            title={c.clickToZoom}
           />
           <img 
             src="/images/krai_cad_mechanism_2.jpg" 
             alt="Dribbler & Feeder Mechanism CAD" 
             style={{ height: '200px' }}
-            onClick={() => openZoom('/images/krai_cad_mechanism_2.jpg', '3D CAD: Compliant Dribble Gripper & Linkage', 'Pneumatic cylinder attachment with guide linear shafts, IR sensor housing, and ball containment geometry')}
-            title="Click to zoom"
+            onClick={() => openZoom(
+              '/images/krai_cad_mechanism_2.jpg', 
+              t.section02.cadCaptions[1], 
+              lang === 'id' ? 'Pemasangan silinder pneumatik dengan poros linier pemandu, housing sensor IR, dan geometri penahan bola' : 'Pneumatic cylinder attachment with guide linear shafts, IR sensor housing, and ball containment geometry'
+            )}
+            title={c.clickToZoom}
           />
           <img 
             src="/images/krai_cad_mechanism_3.jpg" 
             alt="Holonomic 3-Omni Base Chassis CAD" 
             style={{ height: '200px' }}
-            onClick={() => openZoom('/images/krai_cad_mechanism_3.jpg', '3D CAD: 3-Wheel Omni-Directional Base Chassis', '120-degree symmetrically spaced high-traction omni-wheel pods, planetary gear motor mountings, and low-center-of-gravity structural plate')}
-            title="Click to zoom"
+            onClick={() => openZoom(
+              '/images/krai_cad_mechanism_3.jpg', 
+              t.section02.cadCaptions[2], 
+              lang === 'id' ? 'Pod roda omni traksi tinggi 120 derajat simetris, dudukan motor planetary, dan pelat struktural titik berat rendah' : '120-degree symmetrically spaced high-traction omni-wheel pods, planetary gear motor mountings, and low-center-of-gravity structural plate'
+            )}
+            title={c.clickToZoom}
           />
         </div>
 
@@ -156,24 +159,24 @@ export default function KRAICaseStudy() {
         <div className="cs-two-col" style={{ alignItems: 'stretch' }}>
           <div className="cs-info-box" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
-              <h4 style={{ color: '#0F172A', marginBottom: '10px' }}><Disc size={18} color="#F05A22" /> 1. Tri-Roller High-Velocity Shooter</h4>
+              <h4 style={{ color: '#0F172A', marginBottom: '10px' }}><Disc size={18} color="#F05A22" /> {t.section02.card1Title}</h4>
               <p style={{ lineHeight: 1.65, fontSize: '13.5px', color: '#334155' }}>
-                To achieve reliable 6–7 m parabolic trajectories, a <strong>3-roller flywheel configuration</strong> was engineered instead of a traditional dual-roller setup. Driven by <strong>three RS775 motors</strong> synchronized through timing pulleys, the three high-friction urethane rollers wrap around the circumference of the basketball, maximizing contact surface area and tangential kinetic transfer while eliminating ball slip.
+                {t.section02.card1Text}
               </p>
               <p style={{ lineHeight: 1.65, fontSize: '13.5px', color: '#334155', marginTop: '10px' }}>
-                An <strong>absolute encoder</strong> monitors roller surface velocity, feeding data to the PID velocity loop. When nominal launch speed is achieved, a dedicated <strong>pneumatic feeder piston</strong> punches the ball directly into the roller pinch nip with millisecond timing precision.
+                {t.section02.card1Text2}
               </p>
             </div>
           </div>
 
           <div className="cs-info-box" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
-              <h4 style={{ color: '#0F172A', marginBottom: '10px' }}><Gauge size={18} color="#F05A22" /> 2. Pneumatic Dribbler &amp; Ball Handling</h4>
+              <h4 style={{ color: '#0F172A', marginBottom: '10px' }}><Gauge size={18} color="#F05A22" /> {t.section02.card2Title}</h4>
               <p style={{ lineHeight: 1.65, fontSize: '13.5px', color: '#334155' }}>
-                Under competition regulations, robots cannot permanently trap or travel with the ball clamped; it must be continuously bounced. We deployed a fast-acting dual-acting pneumatic cylinder regulated at <strong>5–6 bar (72–87 psi)</strong> through high-flow solenoid valves.
+                {t.section02.card2Text}
               </p>
               <p style={{ lineHeight: 1.65, fontSize: '13.5px', color: '#334155', marginTop: '10px' }}>
-                <strong>Sensory interlocks</strong> provide deterministic sensor-actuator sequencing: an analog <strong>Infrared (IR) proximity sensor</strong> detects the ball entering the basket cup, immediately arming the pneumatic cycle. Mechanical <strong>limit switches</strong> at the cylinder stroke extremes detect full extension and retraction, preventing valve overlap and ensuring continuous dribble rhythms while the robot strafes.
+                {t.section02.card2Text2}
               </p>
             </div>
           </div>
@@ -186,44 +189,48 @@ export default function KRAICaseStudy() {
               src="/images/krai_base_omni_drive.jpeg" 
               alt="Fabricated 3-Wheel Omni Drivetrain" 
               style={{ maxHeight: '320px', objectFit: 'contain' }}
-              onClick={() => openZoom('/images/krai_base_omni_drive.jpeg', 'Fabricated 3-Wheel Holonomic Omni Drivetrain', 'Physical chassis base displaying CNC aluminum plates, 120-degree high-traction omni-wheels, high-torque planetary DC gearmotors, and low-slung battery bay')}
-              title="Click to zoom in"
+              onClick={() => openZoom(
+                '/images/krai_base_omni_drive.jpeg', 
+                lang === 'id' ? 'Drivetrain Fisik Roda Omni 3-Wheel Holonomic' : 'Fabricated 3-Wheel Holonomic Omni Drivetrain', 
+                lang === 'id' ? 'Sasis fisik menampilkan pelat aluminium CNC, roda omni 120 derajat traksi tinggi, motor gear DC planetary torsi tinggi, dan kompartemen baterai rendah' : 'Physical chassis base displaying CNC aluminum plates, 120-degree high-traction omni-wheels, high-torque planetary DC gearmotors, and low-slung battery bay'
+              )}
+              title={c.clickToZoom}
             />
           </div>
-          <div className="cs-media-label" style={{ width: '100%' }}>Physical 3-Wheel Omni-Directional Drivetrain Chassis Base Assembly</div>
+          <div className="cs-media-label" style={{ width: '100%' }}>{t.section02.baseMediaLabel}</div>
         </div>
       </section>
 
       {/* ── 03. Live Video Validations & Field Testing ── */}
       <section className="cs-section">
         <div className="cs-section-header">
-          <span className="cs-section-num">03 / TESTING, FIELD VALIDATION &amp; VIDEO LOGS</span>
-          <h2 className="cs-section-title">Subsystem Prototyping &amp; Real-World Testing</h2>
+          <span className="cs-section-num">{t.section03.num}</span>
+          <h2 className="cs-section-title">{t.section03.title}</h2>
         </div>
         <p style={{ color: '#64748B', fontSize: '13.5px', lineHeight: 1.7, marginBottom: '24px' }}>
-          Real lab bench testing and regulation court shooting trials captured during development at the EIRRG laboratory and official KRAI practice grounds:
+          {t.section03.intro}
         </p>
 
-        {/* 3 Video Grid */}
+        {/* 3 Video Grid - Clean Video Layout Without Black Bars */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '24px' }}>
           {/* Video 1: Dribble Test */}
           <div className="cs-card-container" style={{ padding: '14px', background: '#FFFFFF', display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
               <Play size={16} color="#F05A22" />
-              <strong style={{ fontSize: '13px', color: '#0F172A' }}>Pneumatic Dribble Mechanism Test</strong>
+              <strong style={{ fontSize: '13px', color: '#0F172A' }}>{t.section03.video1Title}</strong>
             </div>
-            <div style={{ borderRadius: '6px', overflow: 'hidden', background: '#000000', aspectRatio: '9/16', maxHeight: '360px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ borderRadius: '6px', overflow: 'hidden', background: '#F8FAFC', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
               <video 
                 src="/videos/krai_dribble_test.mp4" 
                 controls 
                 preload="metadata"
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '380px', display: 'block', borderRadius: '6px' }}
               >
                 Your browser does not support HTML5 video.
               </video>
             </div>
             <p style={{ fontSize: '12px', color: '#64748B', marginTop: '10px', lineHeight: 1.5 }}>
-              Active vertical ball tapping cycle at 5 bar with pneumatic cylinder actuated via high-speed solenoid valve and IR ball-presence trigger.
+              {t.section03.video1Desc}
             </p>
           </div>
 
@@ -231,20 +238,20 @@ export default function KRAICaseStudy() {
           <div className="cs-card-container" style={{ padding: '14px', background: '#FFFFFF', display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
               <Play size={16} color="#F05A22" />
-              <strong style={{ fontSize: '13px', color: '#0F172A' }}>Tri-Roller High-RPM Bench Spinup</strong>
+              <strong style={{ fontSize: '13px', color: '#0F172A' }}>{t.section03.video2Title}</strong>
             </div>
-            <div style={{ borderRadius: '6px', overflow: 'hidden', background: '#000000', aspectRatio: '9/16', maxHeight: '360px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ borderRadius: '6px', overflow: 'hidden', background: '#F8FAFC', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
               <video 
                 src="/videos/krai_shooter_bench_test.mp4" 
                 controls 
                 preload="metadata"
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '380px', display: 'block', borderRadius: '6px' }}
               >
                 Your browser does not support HTML5 video.
               </video>
             </div>
             <p style={{ fontSize: '12px', color: '#64748B', marginTop: '10px', lineHeight: 1.5 }}>
-              3× RS775 motor synchronization test through custom timing pulleys, verifying low vibration at maximum angular velocity and absolute encoder feedback.
+              {t.section03.video2Desc}
             </p>
           </div>
 
@@ -252,20 +259,20 @@ export default function KRAICaseStudy() {
           <div className="cs-card-container" style={{ padding: '14px', background: '#FFFFFF', display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
               <Play size={16} color="#F05A22" />
-              <strong style={{ fontSize: '13px', color: '#0F172A' }}>Full 6–7m Long-Range Shooting Trial</strong>
+              <strong style={{ fontSize: '13px', color: '#0F172A' }}>{t.section03.video3Title}</strong>
             </div>
-            <div style={{ borderRadius: '6px', overflow: 'hidden', background: '#000000', aspectRatio: '9/16', maxHeight: '360px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ borderRadius: '6px', overflow: 'hidden', background: '#F8FAFC', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
               <video 
                 src="/videos/krai_shooting_field_test.mp4" 
                 controls 
                 preload="metadata"
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '380px', display: 'block', borderRadius: '6px' }}
               >
                 Your browser does not support HTML5 video.
               </video>
             </div>
             <p style={{ fontSize: '12px', color: '#64748B', marginTop: '10px', lineHeight: 1.5 }}>
-              Regulation ball launch demonstrating high-energy parabolic trajectory, consistent 6–7 meter clearance, and pneumatic feeder punch actuation.
+              {t.section03.video3Desc}
             </p>
           </div>
         </div>
@@ -275,49 +282,20 @@ export default function KRAICaseStudy() {
           <table className="cs-data-table">
             <thead>
               <tr>
-                <th>SUBSYSTEM PARAMETER</th>
-                <th>DESIGN SPECIFICATION</th>
-                <th>MEASURED BENCH RESULT</th>
-                <th>COMPETITION FIELD STATUS</th>
+                {t.section03.testHeader.map((head, idx) => (
+                  <th key={idx}>{head}</th>
+                ))}
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><strong>Shooting Distance Range</strong></td>
-                <td>6.0 m – 7.0 m</td>
-                <td><strong>6.8 m average trajectory</strong></td>
-                <td><strong style={{ color: '#16A34A' }}>VERIFIED (Scored cleanly in practice)</strong></td>
-              </tr>
-              <tr>
-                <td><strong>Shooter Drive Actuators</strong></td>
-                <td>3× RS775 High-Torque Motors</td>
-                <td>Synchronized via timing belt pulley</td>
-                <td><strong style={{ color: '#16A34A' }}>STABLE (Zero ball stall observed)</strong></td>
-              </tr>
-              <tr>
-                <td><strong>Ball Acceleration Mechanism</strong></td>
-                <td>Tri-roller circumferential wrap</td>
-                <td>3 urethane rollers + 1 pneumatic punch</td>
-                <td><strong style={{ color: '#16A34A' }}>HIGH TRACTION (Eliminated slip)</strong></td>
-              </tr>
-              <tr>
-                <td><strong>Pneumatic Dribble Pressure</strong></td>
-                <td>5.0 – 6.0 Bar</td>
-                <td>Maintained via onboard air reservoir</td>
-                <td><strong style={{ color: '#16A34A' }}>STEADY (Instant stroke reversal)</strong></td>
-              </tr>
-              <tr>
-                <td><strong>Sensory Ball Engagement</strong></td>
-                <td>IR sensor + limit switches</td>
-                <td>100% detection rate inside gripper cup</td>
-                <td><strong style={{ color: '#16A34A' }}>FAILSAFE (Zero premature triggers)</strong></td>
-              </tr>
-              <tr>
-                <td><strong>Drivetrain Kinematics</strong></td>
-                <td>3-Wheel 120° Omni-Directional</td>
-                <td>Full holonomic translation + rotation</td>
-                <td><strong style={{ color: '#16A34A' }}>AGILE (Rapid alignment to basket)</strong></td>
-              </tr>
+              {t.section03.testRows.map((row, idx) => (
+                <tr key={idx}>
+                  <td><strong>{row[0]}</strong></td>
+                  <td>{row[1]}</td>
+                  <td><strong>{row[2]}</strong></td>
+                  <td><strong style={{ color: '#16A34A' }}>{row[3]}</strong></td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -326,8 +304,8 @@ export default function KRAICaseStudy() {
       {/* ── 04. Competition Milestone & Pitstop Documentation ── */}
       <section className="cs-section">
         <div className="cs-section-header">
-          <span className="cs-section-num">04 / COMPETITION EXECUTION &amp; OUTCOMES</span>
-          <h2 className="cs-section-title">National Stage at ITB Jatinangor &amp; Verified Credential</h2>
+          <span className="cs-section-num">{t.section04.num}</span>
+          <h2 className="cs-section-title">{t.section04.title}</h2>
         </div>
 
         <div className="cs-two-col" style={{ alignItems: 'stretch' }}>
@@ -335,45 +313,49 @@ export default function KRAICaseStudy() {
           <div 
             className="cs-card-container cs-preview-media" 
             style={{ height: 'auto', minHeight: '340px', flexDirection: 'column', padding: 0 }}
-            onClick={() => openZoom('/images/krai_pitstop_competition.jpeg', 'Team ROOBICS in KRAI Pitstop Area', 'Field maintenance and pre-match inspection: Tuning pneumatics, battery charging, and sensor calibration in the arena pitstop')}
-            title="Click to zoom in"
+            onClick={() => openZoom(
+              '/images/krai_pitstop_competition.jpeg', 
+              lang === 'id' ? 'Tim ROOBICS di Area Pitstop KRAI' : 'Team ROOBICS in KRAI Pitstop Area', 
+              lang === 'id' ? 'Pemeliharaan lapangan dan inspeksi pra-tanding: Penyetelan pneumatik, pengisian daya baterai, dan kalibrasi sensor di pitstop arena' : 'Field maintenance and pre-match inspection: Tuning pneumatics, battery charging, and sensor calibration in the arena pitstop'
+            )}
+            title={c.clickToZoom}
           >
             <div style={{ flex: 1, width: '100%', padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FFFFFF' }}>
               <img src="/images/krai_pitstop_competition.jpeg" alt="KRAI Competition Pitstop Area" style={{ maxHeight: '280px', objectFit: 'contain' }} />
             </div>
-            <div className="cs-media-label" style={{ width: '100%' }}>KRAI 2025 Arena Pitstop — On-Site Field Calibration</div>
+            <div className="cs-media-label" style={{ width: '100%' }}>{t.section04.pitstopLabel}</div>
           </div>
 
-          {/* Official Certificate */}
+          {/* Official Certificate - Accurate Finalis Tingkat Nasional Certificate */}
           <div 
             className="cs-card-container cs-preview-media" 
             style={{ height: 'auto', minHeight: '340px', flexDirection: 'column', padding: 0 }}
-            onClick={() => openZoom('/images/krai-cert-real.png', 'Official KRAI 2025 National Participant Certificate', 'Official certificate of participation: Bayu Aji Trisasongko — Team ROOBICS, Universitas Telkom')}
-            title="Click to zoom in"
+            onClick={() => openZoom(
+              '/images/krai_cert_finalis_nasional.png', 
+              lang === 'id' ? 'Sertifikat Penghargaan Finalis Tingkat Nasional KRAI 2025' : 'Official KRAI 2025 National Finalist Certificate', 
+              lang === 'id' ? 'Sertifikat resmi peserta finalis nasional: Bayu Aji Trisasongko — Tim ROOBICS, Universitas Telkom' : 'Official certificate of national finalist: Bayu Aji Trisasongko — Team ROOBICS, Universitas Telkom'
+            )}
+            title={c.clickToZoom}
           >
             <div style={{ flex: 1, width: '100%', padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FFFFFF' }}>
-              <img src="/images/krai-cert-real.png" alt="Official KRAI 2025 Certificate" style={{ maxHeight: '280px', objectFit: 'contain' }} />
+              <img src="/images/krai_cert_finalis_nasional.png" alt="Official KRAI 2025 Certificate" style={{ maxHeight: '280px', objectFit: 'contain' }} />
             </div>
-            <div className="cs-media-label" style={{ width: '100%' }}>Official National Certificate of Participation (ITB Jatinangor)</div>
+            <div className="cs-media-label" style={{ width: '100%' }}>{t.section04.certLabel}</div>
           </div>
         </div>
 
         {/* Retrospective Engineering Cards */}
         <div className="cs-takeaways-grid" style={{ marginTop: '24px' }}>
           <div className="cs-takeaway-card">
-            <h4>Bayu's Key Engineering Contributions</h4>
-            <p>
-              • <strong>Shooter Tower Prototyping:</strong> Computed launch velocity requirements, designed custom aluminum brackets, and tuned 3× RS775 motor-pulley ratios for 6–7 m basketball projection.<br />
-              • <strong>Pneumatic Dribble Subsystem:</strong> Engineered the 5–6 bar dual-action cylinder assembly, guide linear rails, and calibrated mechanical limit switches for compliant ball bouncing.<br />
-              • <strong>Chassis Machining &amp; Field Assembly:</strong> Fabricated aluminum structural links and assembled the 3-wheel holonomic omni-wheel base under high-pressure tournament timelines.
+            <h4>{t.section04.col1Title}</h4>
+            <p style={{ whiteSpace: 'pre-line' }}>
+              {t.section04.col1Text}
             </p>
           </div>
           <div className="cs-takeaway-card cs-card-future">
-            <h4>Engineering Takeaways &amp; Future Iterations</h4>
-            <p>
-              • <strong>Dynamic Pressure Regulation:</strong> Adding digital electronic pressure regulators (EPR) to modulate cylinder stroke force on-the-fly based on ball internal pressure variations.<br />
-              • <strong>Dual-Angle Adjustable Pitch:</strong> Designing an automated motorized lead-screw to adjust the shooter launch angle dynamically between 3-point range and close-range layups.<br />
-              • <strong>Computer Vision Integration:</strong> Coupling real-time OpenCV color tracking with the 3-omni drivetrain to perform autonomous basket lock-on within &lt;500 ms.
+            <h4>{t.section04.col2Title}</h4>
+            <p style={{ whiteSpace: 'pre-line' }}>
+              {t.section04.col2Text}
             </p>
           </div>
         </div>
@@ -382,10 +364,10 @@ export default function KRAICaseStudy() {
       {/* ── Bottom Navigation ── */}
       <div className="cs-bottom-nav">
         <a href="/projects/solar-cooling" className="cs-nav-btn secondary">
-          <ArrowLeft size={16} /> Previous: Solar Panel Cooling
+          <ArrowLeft size={16} /> {t.bottomNav.prev}
         </a>
         <a href="/projects/line-follower" className="cs-nav-btn">
-          Next: Line Follower Robot <ArrowRight size={16} />
+          {t.bottomNav.next} <ArrowRight size={16} />
         </a>
       </div>
 
