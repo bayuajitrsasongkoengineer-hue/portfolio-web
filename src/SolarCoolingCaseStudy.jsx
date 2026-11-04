@@ -231,7 +231,7 @@ export default function SolarCoolingCaseStudy() {
           <div className="cs-two-col" style={{ marginTop: '16px' }}>
             <div className="cs-info-box">
               <h4><Award size={16} color="#F05A22" /> {isId ? 'Temuan Regulasi Termal' : 'Thermal Regulation Finding'}</h4>
-              <p>{isId ? 'Mekanisme pendingin menurunkan suhu permukaan panel hingga lebih dari 16°C (dari ~41,3°C menjadi 25,1°C) dalam durasi rata-rata 9,5 menit. Menjaga panel di rentang suhu optimal 25–30°C ini memulihkan estimasi output daya listrik 6% hingga 8% berdasarkan koefisien termal silikon standar (-0,4%/°C).' : 'The cooling mechanism reduced panel surface temperature by over 16°C (from ~41.3°C down to 25.1°C) within an average duration of 9.5 minutes. Operating the panel within this optimal 25–30°C thermal envelope yields an estimated theoretical recovery of 6% to 8% in electrical power output based on standard silicon thermal coefficients (−0.4%/°C) compared to uncooled stagnation states.'}</p>
+              <p>{isId ? 'Mekanisme pendingin menurunkan suhu permukaan panel hingga lebih dari 16°C (dari ~41,3°C menjadi 25,1°C) dalam durasi rata-rata 9,5 menit. Menjaga panel di rentang suhu operasional 25–30°C ini membantu memulihkan estimasi output daya listrik 6% hingga 8% berdasarkan koefisien termal silikon standar (-0,4%/°C).' : 'The cooling mechanism reduced panel surface temperature by over 16°C (from ~41.3°C down to 25.1°C) within an average duration of 9.5 minutes. Operating the panel within this nominal 25–30°C thermal envelope yields an estimated theoretical recovery of 6% to 8% in electrical power output based on standard silicon thermal coefficients (−0.4%/°C) compared to uncooled stagnation states.'}</p>
             </div>
             <div className="cs-info-box">
               <h4><Activity size={16} color="#F05A22" /> {isId ? 'Konsistensi Pemicuan' : 'Trigger Consistency'}</h4>
@@ -300,8 +300,8 @@ export default function SolarCoolingCaseStudy() {
 
           <div className="cs-two-col" style={{ marginTop: '16px' }}>
             <div className="cs-info-box">
-              <h4><Droplets size={16} color="#F05A22" /> {isId ? 'Optimasi Debit Aliran' : 'Flowrate Optimization'}</h4>
-              <p>{isId ? 'Debit aliran 4,02 L/menit sesuai dengan kebutuhan penyerapan panas teoritis untuk bidang panel 150–200 Wp. Air dipompa dalam hembusan singkat 2,5 menit daripada pengaliran nonstop, memberikan pendinginan optimal sekaligus menghemat penggunaan air.' : 'The delivered flowrate of 4.02 L/min matches theoretical heat absorption requirements for 150–200 Wp panel surface areas. Water is pumped in short 2.5-minute bursts rather than continuous flushing, achieving substantial energy gains while minimizing water usage.'}</p>
+              <h4><Droplets size={16} color="#F05A22" /> {isId ? 'Efisiensi Debit Aliran' : 'Flowrate Efficiency'}</h4>
+              <p>{isId ? 'Debit aliran 4,02 L/menit sesuai dengan kebutuhan penyerapan panas teoritis untuk bidang panel 150–200 Wp. Air dipompa dalam hembusan berkala 2,5 menit daripada pengaliran nonstop, memberikan pendinginan yang efektif sekaligus menghemat konsumsi air tangki.' : 'The delivered flowrate of 4.02 L/min matches theoretical heat absorption requirements for 150–200 Wp panel surface areas. Water is pumped in short 2.5-minute bursts rather than continuous flushing, achieving effective cooling while minimizing water usage.'}</p>
             </div>
             <div className="cs-info-box">
               <h4><Layers size={16} color="#F05A22" /> {isId ? 'Kelayakan Sirkulasi Ulang Tertutup' : 'Closed-Loop Recirculation Feasibility'}</h4>
