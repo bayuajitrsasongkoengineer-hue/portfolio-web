@@ -206,37 +206,46 @@
 .fh-project-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; }
 .fh-card {
   min-width: 0;
-  padding: 12px;
-  border: 1px solid transparent;
-  border-bottom: 2px solid var(--fx-gray-border);
+  padding: 18px 16px 16px;
+  border: 1px solid var(--fx-gray-border);
   border-radius: 6px;
   display: flex;
   flex-direction: column;
   height: 100%;
   transition: all 0.25s ease;
   text-decoration: none;
-  background: transparent;
+  background: #ffffff;
+  box-sizing: border-box;
 }
 .fh-card:hover {
-  background: var(--fx-orange-light);
-  border-color: var(--fx-orange-border);
-  border-bottom-color: var(--fx-orange);
+  background: #FFFDFB;
+  border-color: var(--fx-orange);
   transform: translateY(-4px);
   box-shadow: 0 10px 24px rgba(240, 90, 34, 0.12);
 }
+.fh-card-meta {
+  min-height: 32px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  color: #5b6470;
+  font: 600 9.5px/1.4 'DM Mono', monospace;
+  letter-spacing: 0.04em;
+  transition: color 0.2s ease;
+}
+.fh-card:hover .fh-card-meta { color: var(--fx-orange); }
 .fh-card > img { 
   width: 100%; 
   aspect-ratio: 240 / 220; 
-  height: 180px;
+  height: 175px;
   object-fit: contain; 
   background: #FFFFFF;
-  padding: 8px;
+  padding: 6px;
   border-radius: 4px; 
+  margin-bottom: 12px;
   transition: transform 0.25s ease; 
 }
 .fh-card:hover > img { transform: scale(1.02); }
-.fh-card-meta { min-height: 46px; padding-top: 18px; display: flex; flex-wrap: wrap; gap: 0 8px; color: #5b6470; font: 9px/1.55 'DM Mono', monospace; font-weight: 600; letter-spacing: 0.04em; transition: color 0.2s ease; }
-.fh-card:hover .fh-card-meta { color: var(--fx-orange); }
 .fh-card-title { display: flex; align-items: flex-start; gap: 5px; }
 .fh-card-title h3 { min-height: 82px; flex: 1; margin: 6px 0 8px; font-size: 21px; line-height: 1.25; letter-spacing: -0.01em; font-weight: 700; color: #111827; transition: color 0.2s ease; }
 .fh-card:hover .fh-card-title h3 { color: var(--fx-orange); }

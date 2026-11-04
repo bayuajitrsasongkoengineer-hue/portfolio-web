@@ -833,10 +833,10 @@ function FigmaHome() {
               const tp = t.projects[idx] || project;
               return (
                 <a className="fh-card" key={project.slug} href={`/projects/${project.slug}`} {...tilt(6)}>
-                  <img src={`/images/${project.image}`} alt={`${tp.title} illustrative project drawing`} />
                   <div className="fh-card-meta">
                     <span>{project.number} / {tp.label}</span>
                   </div>
+                  <img src={`/images/${project.image}`} alt={`${tp.title} illustrative project drawing`} />
                   <div className="fh-card-title">
                     <h3>{tp.title}</h3>
                     <ArrowUpRight />
