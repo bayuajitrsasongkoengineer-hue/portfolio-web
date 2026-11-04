@@ -1282,3 +1282,135 @@
     font-size: 11.5px;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   HIGH-FIDELITY PRINT & PDF CONVERSION STYLESHEET
+   Enables direct, pixel-perfect "Print to PDF" from Chrome/Edge/Browser without clipping,
+   invisible scroll-reveal blocks, or broken cards across page boundaries.
+   ══════════════════════════════════════════════════════════════════════════════ */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm;
+  }
+
+  /* Force all modern browsers to render colors, backgrounds, borders, and badges faithfully */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  body, .fh-main, .cs-container {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+    font-size: 12px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .fh-width {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Force all scroll-reveal & stagger animation elements to be immediately visible */
+  .reveal,
+  .stagger > *,
+  .is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    visibility: visible !important;
+  }
+
+  /* Header becomes non-sticky static banner at page 1 */
+  .fh-header {
+    position: static !important;
+    top: auto !important;
+    height: auto !important;
+    padding: 10px 0 !important;
+    border-bottom: 2px solid #F05A22 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  /* Hide interactive-only widgets on printed PDF */
+  .fh-nav,
+  .fh-lang-toggle,
+  .fh-menu,
+  .fh-modal-overlay,
+  .cs-back-link,
+  .cs-bottom-nav,
+  .site-footer a {
+    display: none !important;
+  }
+
+  /* Prevent page cuts right through cards and tables */
+  .fh-project-card,
+  .fh-role-card,
+  .fh-stack-card,
+  .fh-edu-card,
+  .fh-org-card,
+  .cs-card-container,
+  .cs-info-box,
+  .cs-table-card,
+  .cs-takeaway-card,
+  .cs-validation-block,
+  .cs-preview-media,
+  article {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    margin-bottom: 14px !important;
+  }
+
+  /* Keep headings attached to the following content */
+  h1, h2, h3, h4,
+  .fh-section-header,
+  .cs-section-header,
+  .fh-stack-label {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  /* Optimize card padding and border for crisp paper print */
+  .fh-project-card,
+  .fh-role-card,
+  .fh-stack-card,
+  .fh-edu-card,
+  .fh-org-card {
+    border: 1px solid #D7DCE0 !important;
+    border-radius: 4px !important;
+    padding: 16px !important;
+    background: #FFFFFF !important;
+  }
+
+  /* Ensure photos and diagrams fit neatly without overflowing */
+  img, svg {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Ensure video frames show cleanly */
+  video {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    border: 1px solid #E5E7EB !important;
+  }
+
+  /* Footer */
+  .site-footer {
+    border-top: 1px solid #E5E7EB !important;
+    padding: 14px 0 !important;
+    margin-top: 20px !important;
+    font-size: 11px !important;
+  }
+}
+

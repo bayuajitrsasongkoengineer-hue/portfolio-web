@@ -609,6 +609,11 @@ const LanguageContext = createContext({
 export function LanguageProvider({ children }) {
   const [lang, setLangState] = useState(() => {
     try {
+      if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlLang = urlParams.get('lang');
+        if (urlLang === 'id' || urlLang === 'en') return urlLang;
+      }
       const saved = localStorage.getItem('portfolio_lang');
       if (saved === 'id' || saved === 'en') return saved;
     } catch (e) {
