@@ -21,6 +21,7 @@ export const translations = {
       available: 'OPEN TO WORK',
     },
     hero: {
+      portfolioTitle: 'PORTFOLIO',
       viewProjects: 'View Projects',
       cv: 'Curriculum Vitae',
     },
@@ -308,6 +309,7 @@ export const translations = {
       available: 'OPEN TO WORK',
     },
     hero: {
+      portfolioTitle: 'PORTOFOLIO',
       viewProjects: 'Lihat Proyek',
       cv: 'Curriculum Vitae',
     },

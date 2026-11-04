@@ -755,7 +755,7 @@ function FigmaHome() {
         <section className="fh-intro">
           <div className="fh-hero">
             <div className="fh-copy">
-              <h1>PORTFOLIO</h1>
+              <h1>{t.hero?.portfolioTitle || (lang === 'id' ? 'PORTOFOLIO' : 'PORTFOLIO')}</h1>
 
               {/* BIO / INTRODUCTION TEXT */}
               <div className="fh-bio-link" style={{ cursor: 'default' }}>
@@ -767,7 +767,7 @@ function FigmaHome() {
               {/* ACTION BUTTONS (DEFAULT WHITE, HOVER BECOMES COLOR) */}
               <div className="fh-actions">
                 <a className="fh-button" href="#projects">
-                  View Projects <ArrowUpRight size={15} />
+                  {t.hero?.viewProjects || (lang === 'id' ? 'Lihat Proyek' : 'View Projects')} <ArrowUpRight size={15} />
                 </a>
 
                 {/* CV BUTTON OPENS POPUP VIEWER WITH DOWNLOAD OPTION */}
