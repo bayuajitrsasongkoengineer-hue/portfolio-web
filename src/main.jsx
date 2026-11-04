@@ -15,6 +15,7 @@ import SolarCoolingCaseStudy from './SolarCoolingCaseStudy';
 import KRAICaseStudy from './KRAICaseStudy';
 import LineFollowerCaseStudy from './LineFollowerCaseStudy';
 import SumoRobotCaseStudy from './SumoRobotCaseStudy';
+import { LanguageProvider, useLang, translations } from './translations';
 
 // ══ SPATIAL EFFECTS ══════════════════════════════════════════════════════════
 
@@ -331,11 +332,12 @@ const engineeringDisciplines = [
 
 function DocumentModal({ doc, onClose }) {
   if (!doc) return null;
+  const { lang, t } = useLang();
   const isCv = doc.isCv === true;
   const isPdf = isCv ? true : doc.type === 'pdf';
   
-  // CV Language & Format Switcher state
-  const [cvLang, setCvLang] = useState('en'); // 'en' | 'id'
+  // CV Language & Format Switcher state - defaults to current portfolio language!
+  const [cvLang, setCvLang] = useState(lang === 'id' ? 'id' : 'en'); // 'en' | 'id'
   const [cvFormat, setCvFormat] = useState('pdf'); // 'pdf' | 'docx'
 
   const cvFiles = {
@@ -390,7 +392,7 @@ function DocumentModal({ doc, onClose }) {
       <div className="fh-modal-content" onClick={e => e.stopPropagation()}>
         <div className="fh-modal-header">
           <button className="fh-button fh-modal-back" onClick={onClose}>
-            <ArrowLeft size={16} /> Close
+            <ArrowLeft size={16} /> {lang === 'id' ? 'Tutup' : 'Close'}
           </button>
           
           <div className="fh-modal-title">
@@ -549,7 +551,7 @@ function DocumentModal({ doc, onClose }) {
                   href={activeDownloadUrl} 
                   download={activeDownloadName}
                 >
-                  <Download size={14} /> Download CV ({cvLang.toUpperCase()} · {cvFormat.toUpperCase()})
+                  <Download size={14} /> {lang === 'id' ? 'Unduh CV' : 'Download CV'} ({cvLang.toUpperCase()} · {cvFormat.toUpperCase()})
                 </a>
                 <a 
                   className="fh-button" 
@@ -557,7 +559,7 @@ function DocumentModal({ doc, onClose }) {
                   target="_blank" 
                   rel="noreferrer"
                 >
-                  Open in New Tab <ExternalLink size={14} />
+                  {lang === 'id' ? 'Buka di Tab Baru' : 'Open in New Tab'} <ExternalLink size={14} />
                 </a>
               </>
             ) : (
@@ -568,7 +570,7 @@ function DocumentModal({ doc, onClose }) {
                     href={doc.downloadUrl} 
                     download={doc.downloadName || true}
                   >
-                    <Download size={14} /> Download Document
+                    <Download size={14} /> {lang === 'id' ? 'Unduh Dokumen' : 'Download Document'}
                   </a>
                 )}
                 <a 
@@ -577,7 +579,7 @@ function DocumentModal({ doc, onClose }) {
                   target="_blank" 
                   rel="noreferrer"
                 >
-                  Open in New Tab <ExternalLink size={14} />
+                  {lang === 'id' ? 'Buka di Tab Baru' : 'Open in New Tab'} <ExternalLink size={14} />
                 </a>
               </>
             )}
@@ -601,7 +603,10 @@ function ProjectCard({ project }) {
   return <a className="project-card" href={`/projects/${project.slug}`}><div className="project-image"><img src={`/images/${project.image}`} alt={`${project.title} illustrative project visual`} loading="lazy" /><span className="image-stamp">ILLUSTRATIVE<br />PROJECT VISUAL</span><span className="card-index">{project.number}</span></div><div className="project-meta">{project.category}</div><div className="project-title-row"><h3>{project.title}</h3><ArrowUpRight size={18} strokeWidth={1.6} /></div><p>{project.summary}</p><div className="tag-list">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></a>;
 }
 
-function Footer() { return <footer className="site-footer"><div className="page-width footer-inner"><a href="/" className="footer-brand">Bayu Aji Trisasongko</a><span className="mono">PERSONAL ENGINEERING PORTFOLIO / 2026</span><a href="#top" onClick={event => { event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>BACK TO TOP ↑</a></div></footer>; }
+function Footer() {
+  const { t } = useLang();
+  return <footer className="site-footer"><div className="page-width footer-inner"><a href="/" className="footer-brand">Bayu Aji Trisasongko</a><span className="mono">{t.footer.label}</span><a href="#top" onClick={event => { event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>{t.footer.backToTop}</a></div></footer>;
+}
 
 function Detail({ project }) {
   const steps = [['A /', 'Problem', project.problem], ['B /', 'Design', project.design], ['C /', 'Prototype', project.prototype], ['D /', 'Test', project.test]];
@@ -663,7 +668,64 @@ function Detail({ project }) {
 
 function FigmaHeader({ activeSection = '' }) {
   const [open, setOpen] = useState(false);
-  return <header className="fh-header"><a href="/" className="fh-brand"><span className="fh-mark">BA.</span><span className="fh-identity"><strong>Bayu Aji Trisasongko</strong><small>SEMARANG, CENTRAL JAVA</small></span></a><button className="fh-menu" aria-label={open ? 'Close navigation' : 'Open navigation'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button><nav className={open ? 'fh-nav is-open' : 'fh-nav'}>{[['projects','Projects'],['experience','Experience'],['skills','Skills'],['education','Education'],['contact','Contact']].map(([id,label])=><a key={id} href={`#${id}`} onClick={()=>setOpen(false)} className={activeSection===id?'is-active':''}>{label}</a>)}<span><i /> AVAILABLE FOR WORK</span></nav></header>;
+  const { lang, setLang, t } = useLang();
+
+  return (
+    <header className="fh-header">
+      <a href="/" className="fh-brand">
+        <span className="fh-mark">BA.</span>
+        <span className="fh-identity">
+          <strong>Bayu Aji Trisasongko</strong>
+          <small>SEMARANG, CENTRAL JAVA</small>
+        </span>
+      </a>
+
+      <div className="fh-header-right">
+        <nav className={open ? 'fh-nav is-open' : 'fh-nav'}>
+          {t.nav.links.map(([id, label]) => (
+            <a 
+              key={id} 
+              href={`#${id}`} 
+              onClick={() => setOpen(false)} 
+              className={activeSection === id ? 'is-active' : ''}
+            >
+              {label}
+            </a>
+          ))}
+          <span><i /> {t.nav.available}</span>
+        </nav>
+
+        <div className="fh-lang-toggle" role="group" aria-label="Language Selector">
+          <button 
+            type="button" 
+            className={`fh-lang-btn ${lang === 'id' ? 'is-active' : ''}`}
+            onClick={() => setLang('id')}
+            aria-label="Bahasa Indonesia"
+            title="Bahasa Indonesia"
+          >
+            ID
+          </button>
+          <button 
+            type="button" 
+            className={`fh-lang-btn ${lang === 'en' ? 'is-active' : ''}`}
+            onClick={() => setLang('en')}
+            aria-label="English"
+            title="English"
+          >
+            EN
+          </button>
+        </div>
+
+        <button 
+          className="fh-menu" 
+          aria-label={open ? 'Close navigation' : 'Open navigation'} 
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X /> : <Menu />}
+        </button>
+      </div>
+    </header>
+  );
 }
 
 
@@ -677,6 +739,7 @@ function StatNum({ target, decimals = 0, suffix = '' }) {
 
 function FigmaHome() {
   const [activeDoc, setActiveDoc] = useState(null);
+  const { lang, t } = useLang();
   useScrollReveal();
   const profileRef = useParallax(16);
   const activeSection = useScrollSpy(['projects','experience','skills','education','contact']);
@@ -764,35 +827,37 @@ function FigmaHome() {
         <section className="fh-projects fh-width" id="projects">
           <div className="fh-project-heading reveal">
             <div>
-              <div className="fh-eyebrow"><span>01 /</span> PROJECTS</div>
-              <h2>Engineering work, in practice.</h2>
+              <div className="fh-eyebrow"><span>01 /</span> {lang === 'id' ? 'PROYEK PILIHAN' : 'PROJECTS'}</div>
+              <h2>{t.projectsSection.title}</h2>
             </div>
-            <p>A collection of 5 projects, covering my final project, national competition, capstone design, and independent builds.</p>
+            <p>{t.projectsSection.subtitle}</p>
           </div>
           <div className="fh-project-grid stagger">
-            {projects.map(project => (
-              <a className="fh-card" key={project.slug} href={`/projects/${project.slug}`} {...tilt(6)}>
-                <img src={`/images/${project.image}`} alt={`${project.title} illustrative project drawing`} />
-                <div className="fh-card-meta">
-                  <span>{project.number} / {project.category.split(' · ')[0]}</span>
-                  <span>{project.category.split(' · ')[1]}</span>
-                </div>
-                <div className="fh-card-title">
-                  <h3>{project.title}</h3>
-                  <ArrowUpRight />
-                </div>
-                <p>{project.summary}</p>
-                <div className="fh-tags">
-                  {project.tags.map(tag => <span key={tag}>{tag}</span>)}
-                </div>
-                <small className="fh-card-foot">
-                  {['Telkom University · Jan - Aug 2026', 'Telkom University · Capstone Design', 'Mechanical Team · ROOBICS (KRAI 2025)', 'Independent Project · 2024', 'Independent Project · 2023'][Number(project.number) - 1]}
-                </small>
-              </a>
-            ))}
+            {projects.map((project, idx) => {
+              const tp = t.projects[idx] || project;
+              return (
+                <a className="fh-card" key={project.slug} href={`/projects/${project.slug}`} {...tilt(6)}>
+                  <img src={`/images/${project.image}`} alt={`${tp.title} illustrative project drawing`} />
+                  <div className="fh-card-meta">
+                    <span>{project.number} / {tp.label.split(' · ')[0]}</span>
+                    <span>{tp.label.split(' · ').slice(1).join(' · ')}</span>
+                  </div>
+                  <div className="fh-card-title">
+                    <h3>{tp.title}</h3>
+                    <ArrowUpRight />
+                  </div>
+                  <p>{tp.summary}</p>
+                  <div className="fh-tags">
+                    {tp.tags.map(tag => <span key={tag}>{tag}</span>)}
+                  </div>
+                  <small className="fh-card-foot">
+                    {tp.foot}
+                  </small>
+                </a>
+              );
+            })}
           </div>
-          <div className="fh-note">Engineering documentation backed by official Telkom University thesis (Buku TA), Capstone design, and national robotics competition records.
-          </div>
+          <div className="fh-note">{t.projectsSection.footnote}</div>
         </section>
 
         {/* SECTION 02: INDUSTRY EXPERIENCE (Formulatrix) */}
@@ -801,10 +866,10 @@ function FigmaHome() {
           <div className="fh-width fh-section">
             <div className="fh-section-heading reveal">
               <div>
-                <div className="fh-eyebrow"><span>02 /</span> EXPERIENCE</div>
-                <h2>Learning where design<br />meets production.</h2>
+                <div className="fh-eyebrow"><span>02 /</span> {lang === 'id' ? 'PENGALAMAN' : 'EXPERIENCE'}</div>
+                <h2>{lang === 'id' ? <>Belajar di mana desain<br />bertemu lini produksi.</> : <>Learning where design<br />meets production.</>}</h2>
               </div>
-              <p>Hands-on internships across mechanical and process engineering at PT Promanufacture Indonesia (Formulatrix).</p>
+              <p>{t.experienceSection.subtitle}</p>
             </div>
             <div className="fh-experience-grid">
               <div className="fh-company reveal">
@@ -812,9 +877,19 @@ function FigmaHome() {
                   <img src="/images/formulatrix-logo-official.png" alt="Formulatrix" className="fh-company-logo" />
                 </div>
                 <h3>PT Promanufacture Indonesia</h3>
-                <p>Experience with production-oriented CAD, fabrication and technical documentation grounded in real industrial systems.</p>
+                <p>
+                  {lang === 'id' 
+                    ? 'Pengalaman desain CAD berorientasi produksi, fabrikasi, dan dokumentasi teknis pada sistem industri nyata.'
+                    : 'Experience with production-oriented CAD, fabrication and technical documentation grounded in real industrial systems.'
+                  }
+                </p>
 
-                <small>No confidential company materials are reproduced in this portfolio.</small>
+                <small>
+                  {lang === 'id'
+                    ? 'Tidak ada materi rahasia perusahaan yang dimuat dalam portofolio ini.'
+                    : 'No confidential company materials are reproduced in this portfolio.'
+                  }
+                </small>
               </div>
 
               <div className="fh-roles stagger">
@@ -822,29 +897,29 @@ function FigmaHome() {
                 <article 
                   className="fh-role-card fh-clickable-card" {...tilt(5)}
                   onClick={() => setActiveDoc({
-                    title: 'Letter of Work Certificate · Process Engineering',
+                    title: lang === 'id' ? 'Surat Keterangan Kerja · Process Engineering' : 'Letter of Work Certificate · Process Engineering',
                     subtitle: 'PT Promanufacture Indonesia (Formulatrix)',
                     image: '/images/letter-work-process-clean.png',
                     institution: 'PT Promanufacture Indonesia',
-                    period: 'July 2025 - September 2025',
+                    period: t.experienceSection.roles[0].date,
                     downloadUrl: '/LETTER_OF_WORK_CERTIFICATE_FORMULATRIX_2025_PROCESS_ENGINEERING.pdf',
                     downloadName: 'LETTER_OF_WORK_CERTIFICATE_FORMULATRIX_2025_PROCESS_ENGINEERING.pdf'
                   })}
-                  title="Click to view Process Engineering certificate"
+                  title={lang === 'id' ? 'Klik untuk melihat sertifikat Process Engineering' : 'Click to view Process Engineering certificate'}
                 >
                   <div className="fh-role-head">
                     <div className="fh-role-meta">
-                      <h3>Process Engineering Intern</h3>
-                      <span className="fh-mono">SALATIGA, JAWA TENGAH</span>
+                      <h3>{t.experienceSection.roles[0].title}</h3>
+                      <span className="fh-mono">{lang === 'id' ? 'SALATIGA, JAWA TENGAH' : 'SALATIGA, CENTRAL JAVA'}</span>
                     </div>
                     <div className="fh-role-right">
-                      <span className="fh-role-date">July 2025 - September 2025</span>
+                      <span className="fh-role-date">{t.experienceSection.roles[0].date}</span>
                     </div>
                   </div>
                   <ul>
-                    <li>Gained familiarity with SMT workflows and prepared assembly / wiring work instructions.</li>
-                    <li>Designed PCB stencil panels in Easy-PC and exported Gerber files.</li>
-                    <li>Designed production brackets in Onshape and produced 3D-printed parts.</li>
+                    {t.experienceSection.roles[0].bullets.map((bullet, i) => (
+                      <li key={i}>{bullet}</li>
+                    ))}
                   </ul>
                 </article>
 
@@ -852,29 +927,29 @@ function FigmaHome() {
                 <article 
                   className="fh-role-card fh-clickable-card" {...tilt(5)}
                   onClick={() => setActiveDoc({
-                    title: 'Letter of Work Certificate · Mechanical Engineering',
+                    title: lang === 'id' ? 'Surat Keterangan Kerja · Mechanical Engineering' : 'Letter of Work Certificate · Mechanical Engineering',
                     subtitle: 'PT Promanufacture Indonesia (Formulatrix)',
                     image: '/images/letter-work-mechanical-clean.png',
                     institution: 'PT Promanufacture Indonesia',
-                    period: 'May 2021 - October 2021',
+                    period: t.experienceSection.roles[1].date,
                     downloadUrl: '/LETTER_OF_WORK_CERTIFICATE_FORMULATRIX_2021_MECHANICAL_ENGINEERING.pdf',
                     downloadName: 'LETTER_OF_WORK_CERTIFICATE_FORMULATRIX_2021_MECHANICAL_ENGINEERING.pdf'
                   })}
-                  title="Click to view Mechanical Engineering certificate"
+                  title={lang === 'id' ? 'Klik untuk melihat sertifikat Mechanical Engineering' : 'Click to view Mechanical Engineering certificate'}
                 >
                   <div className="fh-role-head">
                     <div className="fh-role-meta">
-                      <h3>Mechanical Engineering Intern</h3>
-                      <span className="fh-mono">SEMARANG, JAWA TENGAH</span>
+                      <h3>{t.experienceSection.roles[1].title}</h3>
+                      <span className="fh-mono">{lang === 'id' ? 'SEMARANG, JAWA TENGAH' : 'SEMARANG, CENTRAL JAVA'}</span>
                     </div>
                     <div className="fh-role-right">
-                      <span className="fh-role-date">May 2021 - October 2021</span>
+                      <span className="fh-role-date">{t.experienceSection.roles[1].date}</span>
                     </div>
                   </div>
                   <ul>
-                    <li>Designed Onshape components for LV Tip Automation.</li>
-                    <li>Prepared OneCNC toolpaths for fabrication.</li>
-                    <li>Supported fabrication, finishing and assembly work.</li>
+                    {t.experienceSection.roles[1].bullets.map((bullet, i) => (
+                      <li key={i}>{bullet}</li>
+                    ))}
                   </ul>
                 </article>
               </div>
@@ -883,10 +958,10 @@ function FigmaHome() {
             <div style={{ marginTop: '56px', borderTop: '1px solid #E5E7EB', paddingTop: '40px' }}>
               <div className="fh-section-heading reveal" style={{ marginBottom: '28px' }}>
                 <div>
-                  <div className="fh-eyebrow"><span>02.1 /</span> LEADERSHIP &amp; ORGANIZATIONS</div>
-                  <h3 style={{ fontSize: '22px', fontWeight: 700, margin: '4px 0 0', color: '#111827' }}>Engineering Teams &amp; Student Leadership</h3>
+                  <div className="fh-eyebrow"><span>02.1 /</span> {lang === 'id' ? 'KEPEMIMPINAN & ORGANISASI' : 'LEADERSHIP & ORGANIZATIONS'}</div>
+                  <h3 style={{ fontSize: '22px', fontWeight: 700, margin: '4px 0 0', color: '#111827' }}>{t.orgsSection.title}</h3>
                 </div>
-                <p>Collaborative leadership, technical team preparation, and academic mentorship across university organizations.</p>
+                <p>{t.orgsSection.subtitle}</p>
               </div>
 
               <div className="fh-org-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
@@ -894,14 +969,14 @@ function FigmaHome() {
                 <div className="fh-stack-card" style={{ padding: '22px 20px', borderRadius: '6px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
                     <div>
-                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>ROBOTICS RESEARCH GROUP</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>Electronics and Intelligence Robotic Research Group (EIRRG)</h4>
+                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.orgsSection.org1.label}</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org1.name}</h4>
                     </div>
-                    <span className="fh-role-date">2024 - 2025</span>
+                    <span className="fh-role-date">{t.orgsSection.org1.date}</span>
                   </div>
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>Mechanical Division · Team ROOBICS (Telkom University)</div>
+                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>{t.orgsSection.org1.role}</div>
                   <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    Core mechanical team member designing and fabricating robotic systems for Kontes Robot ABU Indonesia (KRAI 2025), contributing directly to tournament staging and qualifying for the National Finals at ITB Jatinangor.
+                    {t.orgsSection.org1.desc}
                   </p>
                 </div>
 
@@ -909,14 +984,14 @@ function FigmaHome() {
                 <div className="fh-stack-card" style={{ padding: '22px 20px', borderRadius: '6px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
                     <div>
-                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>STUDENT ORIENTATION COMMITTEE</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>Panitia PKKMB Universitas Telkom</h4>
+                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.orgsSection.org2.label}</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org2.name}</h4>
                     </div>
-                    <span className="fh-role-date">2024</span>
+                    <span className="fh-role-date">{t.orgsSection.org2.date}</span>
                   </div>
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>Discipline and Motivation Team (DMT) · Telkom University</div>
+                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>{t.orgsSection.org2.role}</div>
                   <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    Responsible for freshmen orientation protocol execution, participant discipline, crowd management, security enforcement, and smooth operational mobilization throughout campus orientation programs.
+                    {t.orgsSection.org2.desc}
                   </p>
                 </div>
 
@@ -924,14 +999,14 @@ function FigmaHome() {
                 <div className="fh-stack-card" style={{ padding: '22px 20px', borderRadius: '6px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
                     <div>
-                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>DEPARTMENT STUDENT GUILD</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>Keluarga Mahasiswa Teknik Elektro (KMTE)</h4>
+                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.orgsSection.org3.label}</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.orgsSection.org3.name}</h4>
                     </div>
-                    <span className="fh-role-date">2023 - 2024</span>
+                    <span className="fh-role-date">{t.orgsSection.org3.date}</span>
                   </div>
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>Mentor Division · QUOTE 2023 (Telkom University)</div>
+                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>{t.orgsSection.org3.role}</div>
                   <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    Served as academic and departmental mentor in the student cadre formation program, guiding incoming Electrical Engineering freshmen through curriculum orientation, soft-skills development, and university adaptation.
+                    {t.orgsSection.org3.desc}
                   </p>
                 </div>
               </div>
@@ -945,10 +1020,10 @@ function FigmaHome() {
 
             <div className="fh-section-heading reveal">
               <div>
-                <div className="fh-eyebrow"><span>03 /</span> CAPABILITIES &amp; TOOLS</div>
-                <h2>Engineering stack &amp;<br />production ecosystem.</h2>
+                <div className="fh-eyebrow"><span>03 /</span> {lang === 'id' ? 'KAPABILITAS & TOOLS' : 'CAPABILITIES & TOOLS'}</div>
+                <h2>{lang === 'id' ? <>Stack rekayasa &amp;<br />ekosistem produksi.</> : <>Engineering stack &amp;<br />production ecosystem.</>}</h2>
               </div>
-              <p>Tools and disciplines applied across thesis research, Formulatrix internships, and personal robotics projects. Only software confirmed in source documents is listed.</p>
+              <p>{t.skillsSection.subtitle}</p>
             </div>
 
             {/* DISCIPLINES — 3-column grid */}
@@ -986,58 +1061,58 @@ function FigmaHome() {
           </div>
         </section>
 
-                {/* SECTION 04: EDUCATION (CARDS ARE DIRECT BUTTONS) */}
+        {/* SECTION 04: EDUCATION (CARDS ARE DIRECT BUTTONS) */}
         <section className="fh-education-section" id="education">
           <div className="fh-width fh-section">
             <div className="fh-section-heading reveal">
               <div>
-                <div className="fh-eyebrow"><span>04 /</span> EDUCATION</div>
-                <h2>Academic background &amp; qualifications.</h2>
+                <div className="fh-eyebrow"><span>04 /</span> {lang === 'id' ? 'PENDIDIKAN' : 'EDUCATION'}</div>
+                <h2>{t.educationSection.title}</h2>
               </div>
-              <p>Academic history and verified qualifications in electrical engineering, mechatronics, and robotics.</p>
+              <p>{t.educationSection.subtitle}</p>
             </div>
 
             <div className="fh-edu-grid stagger">
-                            {/* TELKOM UNIVERSITY CARD */}
+              {/* TELKOM UNIVERSITY CARD */}
               <article 
                 className="fh-edu-card fh-clickable-card fh-edu-card-centered" {...tilt(4)}
                 onClick={() => setActiveDoc({
-                  title: 'Graduation Certificate (SKL) · Electrical Engineering',
+                  title: lang === 'id' ? 'Surat Keterangan Lulus (SKL) · Teknik Elektro' : 'Graduation Certificate (SKL) · Electrical Engineering',
                   subtitle: 'Telkom University · Bandung, Indonesia',
                   image: '/images/skl-telkom.jpeg',
                   institution: 'Telkom University',
-                  period: 'Sep 2022 - Aug 2026',
+                  period: t.educationSection.telkom.period,
                   downloadUrl: '/images/skl-telkom.jpeg',
                   downloadName: 'SKL_Telkom_University_Bayu_Aji.jpeg'
                 })}
-                title="Click to view Bachelor Graduation Certificate (SKL)"
+                title={lang === 'id' ? 'Klik untuk melihat Surat Keterangan Lulus (SKL)' : 'Click to view Bachelor Graduation Certificate (SKL)'}
               >
                 <div className="fh-edu-center-header">
                   <div className="fh-edu-logo-wrapper">
                     <img src="/images/logo-telkom-shield.png" alt="Telkom University" className="fh-edu-center-logo" />
                   </div>
                   <h3>Telkom University</h3>
-                  <strong className="fh-edu-major">Bachelor of Science in Electrical Engineering (S.T.)</strong>
+                  <strong className="fh-edu-major">{t.educationSection.telkom.degree}</strong>
                   <div className="fh-edu-badge-row">
-                    <span className="fh-edu-badge"><GraduationCap size={13} /> UNDERGRADUATE DEGREE</span>
-                    <span className="fh-edu-date">Sep 2022 - Aug 2026</span>
+                    <span className="fh-edu-badge"><GraduationCap size={13} /> {lang === 'id' ? 'PROGRAM SARJANA (S1)' : 'UNDERGRADUATE DEGREE'}</span>
+                    <span className="fh-edu-date">{t.educationSection.telkom.period}</span>
                   </div>
                 </div>
 
-                <p>Specialization in Robotics, Mechatronics &amp; Embedded Control Systems. Completed Final Capstone Thesis on a <em>5-DOF Robotic Manipulator Arm</em> with PLA 3D-printed cycloidal gearboxes and closed-loop magnetic sensing.</p>
+                <p>{t.educationSection.telkom.desc}</p>
 
                 <div className="fh-edu-metrics">
                   <div className="fh-edu-metric-item">
-                    <span className="fh-edu-metric-label">CUMULATIVE GPA</span>
+                    <span className="fh-edu-metric-label">{t.educationSection.telkom.gpaLabel}</span>
                     <StatNum target={3.32} decimals={2} suffix=" / 4.00" />
                   </div>
                   <div className="fh-edu-metric-item">
-                    <span className="fh-edu-metric-label">ACCREDITATION</span>
+                    <span className="fh-edu-metric-label">{lang === 'id' ? 'AKREDITASI PRODI' : 'ACCREDITATION'}</span>
                     <strong className="fh-edu-metric-val">Unggul (BAN-PT) · IABEE</strong>
                   </div>
                   <div className="fh-edu-metric-item">
-                    <span className="fh-edu-metric-label">TOTAL CREDITS</span>
-                    <strong className="fh-edu-metric-val">154 SKS Passed</strong>
+                    <span className="fh-edu-metric-label">{lang === 'id' ? 'TOTAL SKS' : 'TOTAL CREDITS'}</span>
+                    <strong className="fh-edu-metric-val">{lang === 'id' ? '154 SKS Lulus' : '154 SKS Passed'}</strong>
                   </div>
                 </div>
               </article>
@@ -1046,42 +1121,42 @@ function FigmaHome() {
               <article 
                 className="fh-edu-card fh-clickable-card fh-edu-card-centered" {...tilt(4)}
                 onClick={() => setActiveDoc({
-                  title: 'Official Diploma & Certificate of Graduation (SKL)',
+                  title: lang === 'id' ? 'Ijazah & Surat Keterangan Lulus (SKL) Resmi' : 'Official Diploma & Certificate of Graduation (SKL)',
                   subtitle: 'SMK Negeri 7 Semarang · Mechatronics Engineering',
                   image: '/images/ijazah-smk.jpeg',
                   institution: 'SMK Negeri 7 Semarang',
-                  period: 'Jul 2018 - Jul 2022',
+                  period: t.educationSection.smk.period,
                   downloadUrl: '/images/ijazah-smk.jpeg',
                   downloadName: 'Ijazah_SMK_7_Semarang_Bayu_Aji.jpeg'
                 })}
-                title="Click to view Vocational Diploma & Graduation Certificate"
+                title={lang === 'id' ? 'Klik untuk melihat Ijazah & SKL SMK' : 'Click to view Vocational Diploma & Graduation Certificate'}
               >
                 <div className="fh-edu-center-header">
                   <div className="fh-edu-logo-wrapper">
                     <img src="/images/logo-smkn7-clean.png" alt="SMK Negeri 7 Semarang" className="fh-edu-center-logo fh-edu-center-logo-smk" />
                   </div>
                   <h3>SMK Negeri 7 Semarang</h3>
-                  <strong className="fh-edu-major">Mechatronics Engineering (4-Year Program)</strong>
+                  <strong className="fh-edu-major">{t.educationSection.smk.degree}</strong>
                   <div className="fh-edu-badge-row">
-                    <span className="fh-edu-badge"><Award size={13} /> 4-YEAR VOCATIONAL</span>
-                    <span className="fh-edu-date">Jul 2018 - Jul 2022</span>
+                    <span className="fh-edu-badge"><Award size={13} /> {lang === 'id' ? 'PROGRAM VOKASI 4 TAHUN' : '4-YEAR VOCATIONAL'}</span>
+                    <span className="fh-edu-date">{t.educationSection.smk.period}</span>
                   </div>
                 </div>
 
-                <p>Comprehensive 4-year industrial curriculum covering automation systems, PLC programming, pneumatics &amp; hydraulics, mechanical CAD drafting, assembly, and precision CNC fabrication.</p>
+                <p>{t.educationSection.smk.desc}</p>
 
                 <div className="fh-edu-metrics">
                   <div className="fh-edu-metric-item">
-                    <span className="fh-edu-metric-label">GRADUATION SCORE</span>
+                    <span className="fh-edu-metric-label">{lang === 'id' ? 'NILAI KELULUSAN' : 'GRADUATION SCORE'}</span>
                     <StatNum target={90.00} decimals={2} suffix=" / 100" />
                   </div>
                   <div className="fh-edu-metric-item">
-                    <span className="fh-edu-metric-label">ACCREDITATION</span>
-                    <strong className="fh-edu-metric-val">Accredited "A" (BAN-S/M)</strong>
+                    <span className="fh-edu-metric-label">{lang === 'id' ? 'AKREDITASI SEKOLAH' : 'ACCREDITATION'}</span>
+                    <strong className="fh-edu-metric-val">{lang === 'id' ? 'Terakreditasi "A" (BAN-S/M)' : 'Accredited "A" (BAN-S/M)'}</strong>
                   </div>
                   <div className="fh-edu-metric-item">
-                    <span className="fh-edu-metric-label">PROGRAM TYPE</span>
-                    <strong className="fh-edu-metric-val">STEM 4-Year Diploma</strong>
+                    <span className="fh-edu-metric-label">{lang === 'id' ? 'JENIS PROGRAM' : 'PROGRAM TYPE'}</span>
+                    <strong className="fh-edu-metric-val">{lang === 'id' ? 'Vokasi STEM 4 Tahun' : 'STEM 4-Year Diploma'}</strong>
                   </div>
                 </div>
               </article>
@@ -1091,10 +1166,10 @@ function FigmaHome() {
             <div style={{ marginTop: '56px', borderTop: '1px solid #E5E7EB', paddingTop: '40px' }}>
               <div className="fh-section-heading reveal" style={{ marginBottom: '28px' }}>
                 <div>
-                  <div className="fh-eyebrow"><span>04.1 /</span> CERTIFICATIONS &amp; CREDENTIALS</div>
-                  <h3 style={{ fontSize: '22px', fontWeight: 700, margin: '4px 0 0', color: '#111827' }}>Verified Industry Qualifications</h3>
+                  <div className="fh-eyebrow"><span>04.1 /</span> {lang === 'id' ? 'SERTIFIKASI & KREDENSIAL' : 'CERTIFICATIONS & CREDENTIALS'}</div>
+                  <h3 style={{ fontSize: '22px', fontWeight: 700, margin: '4px 0 0', color: '#111827' }}>{t.certsSection.title}</h3>
                 </div>
-                <p>Officially certified technical competencies and professional qualifications.</p>
+                <p>{t.certsSection.subtitle}</p>
               </div>
 
               <div className="fh-org-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
@@ -1106,28 +1181,28 @@ function FigmaHome() {
                     subtitle: 'TÜV Rheinland Group & FESTO Didactic',
                     image: '/images/cert_festo.png',
                     institution: 'TÜV Rheinland Group',
-                    period: 'November 2021 · Unlimited Validity',
+                    period: t.certsSection.cert1.period,
                     downloadUrl: '/Sertifikat_FESTO_TUV_Rheinland.pdf',
                     downloadName: 'Sertifikat_FESTO_TUV_Rheinland.pdf'
                   })}
                   style={{ padding: '22px 20px', borderRadius: '6px', cursor: 'pointer' }}
-                  title="Click to view TÜV Rheinland & FESTO Certificate"
+                  title={lang === 'id' ? 'Klik untuk melihat Sertifikat TÜV Rheinland & FESTO' : 'Click to view TÜV Rheinland & FESTO Certificate'}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
                     <div>
-                      <span className="fh-stack-label" style={{ color: '#0284C7' }}>TÜV RHEINLAND &amp; FESTO</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>Pneumatic System Maintenance Technician</h4>
+                      <span className="fh-stack-label" style={{ color: '#0284C7' }}>{t.certsSection.cert1.label}</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert1.title}</h4>
                     </div>
-                    <span className="fh-role-date">Nov 2021</span>
+                    <span className="fh-role-date">{t.certsSection.cert1.period.split(' · ')[0]}</span>
                   </div>
                   <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>
-                    Credential ID: 62372/21/1185 · Unlimited Validity
+                    Credential ID: 62372/21/1185 · {lang === 'id' ? 'Masa Berlaku Tanpa Batas' : 'Unlimited Validity'}
                   </div>
                   <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    Certified qualification by TÜV Rheinland Indonesia and FESTO verifying technical competency in pneumatic system maintenance, valve circuits, and electro-pneumatic automation.
+                    {t.certsSection.cert1.desc}
                   </p>
                   <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#0284C7' }}>
-                    <Eye size={13} /> Click to view official certificate
+                    <Eye size={13} /> {t.certsSection.cert1.cta}
                   </div>
                 </article>
 
@@ -1139,28 +1214,28 @@ function FigmaHome() {
                     subtitle: 'Belmawa Kemdiktisaintek & Institut Teknologi Bandung (ITB)',
                     image: '/images/krai-cert-real.png',
                     institution: 'Belmawa Kemdiktisaintek & ITB',
-                    period: 'June 2025',
+                    period: t.certsSection.cert2.period,
                     downloadUrl: '/Sertifikat_KRAI_2025_Bayu_Aji.pdf',
                     downloadName: 'Sertifikat_KRAI_2025_Bayu_Aji.pdf'
                   })}
                   style={{ padding: '22px 20px', borderRadius: '6px', cursor: 'pointer' }}
-                  title="Click to view KRAI 2025 Certificate"
+                  title={lang === 'id' ? 'Klik untuk melihat Sertifikat KRAI 2025' : 'Click to view KRAI 2025 Certificate'}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
                     <div>
-                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>NATIONAL ROBOTICS COMPETITION</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>Contestant - ABU Robocon Indonesia (KRAI 2025)</h4>
+                      <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.certsSection.cert2.label}</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert2.title}</h4>
                     </div>
-                    <span className="fh-role-date">Jul 2025</span>
+                    <span className="fh-role-date">{t.certsSection.cert2.period}</span>
                   </div>
                   <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>
                     Belmawa Kemdiktisaintek &amp; ITB · Team ROOBICS
                   </div>
                   <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    Official contestant certificate representing Telkom University in the National Selection stage of Kontes Robot ABU Indonesia 2025.
+                    {t.certsSection.cert2.desc}
                   </p>
                   <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#F05A22' }}>
-                    <Eye size={13} /> Click to view official certificate
+                    <Eye size={13} /> {t.certsSection.cert2.cta}
                   </div>
                 </article>
 
@@ -1177,23 +1252,23 @@ function FigmaHome() {
                     downloadName: 'EPRT_Telkom_University_Bayu_Aji.pdf'
                   })}
                   style={{ padding: '22px 20px', borderRadius: '6px', cursor: 'pointer' }}
-                  title="Click to view EPrT Certificate"
+                  title={lang === 'id' ? 'Klik untuk melihat Sertifikat EPrT' : 'Click to view EPrT Certificate'}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
                     <div>
-                      <span className="fh-stack-label" style={{ color: '#10B981' }}>LANGUAGE PROFICIENCY</span>
-                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>English Proficiency Test (EPrT)</h4>
+                      <span className="fh-stack-label" style={{ color: '#10B981' }}>{t.certsSection.cert3.label}</span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '16px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert3.title}</h4>
                     </div>
-                    <span className="fh-role-date">Jun 2026</span>
+                    <span className="fh-role-date">{t.certsSection.cert3.period}</span>
                   </div>
                   <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '8px' }}>
-                    Total Score: 450 (Listening: 47, Grammar: 41, Reading: 47)
+                    {lang === 'id' ? 'Skor Total: 450 (Listening: 47, Grammar: 41, Reading: 47)' : 'Total Score: 450 (Listening: 47, Grammar: 41, Reading: 47)'}
                   </div>
                   <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
-                    Official proficiency certificate issued by Telkom University Language Center validating working English comprehension for technical and professional environments.
+                    {t.certsSection.cert3.desc}
                   </p>
                   <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#10B981' }}>
-                    <Eye size={13} /> Click to view official certificate
+                    <Eye size={13} /> {t.certsSection.cert3.cta}
                   </div>
                 </article>
               </div>
@@ -1205,9 +1280,9 @@ function FigmaHome() {
         <section className="fh-contact" id="contact">
           <div className="fh-width fh-contact-grid reveal">
             <div>
-              <div className="fh-eyebrow"><span>05 /</span> GET IN TOUCH</div>
-              <h2>Eager to learn,<br />ready to contribute.</h2>
-              <p>As a fresh electrical engineering graduate, I bring solid hands-on fundamentals in mechatronics and prototyping—along with an eager mindset to learn, adapt, and be mentored by experienced teams. Actively seeking entry-level engineering roles in robotics, manufacturing, or hardware development.</p>
+              <div className="fh-eyebrow"><span>05 /</span> {lang === 'id' ? 'HUBUNGI SAYA' : 'GET IN TOUCH'}</div>
+              <h2>{lang === 'id' ? <>Antusias belajar,<br />siap berkontribusi nyata.</> : <>Eager to learn,<br />ready to contribute.</>}</h2>
+              <p>{t.contactSection.desc}</p>
               <button 
                 className="fh-button" 
                 onClick={() => setActiveDoc({
@@ -1216,7 +1291,7 @@ function FigmaHome() {
                   title: 'Curriculum Vitae · Bayu Aji Trisasongko',
                   subtitle: 'Electrical Engineering Graduate · Telkom University 2026',
                   institution: 'Telkom University & Formulatrix Alum',
-                  period: 'Updated October 2026'
+                  period: lang === 'id' ? 'Diperbarui Oktober 2026' : 'Updated October 2026'
                 })}
               >
                 <span>Curriculum Vitae</span>
@@ -1251,8 +1326,8 @@ function FigmaHome() {
       <footer className="fh-footer">
         <div className="fh-width">
           <span>Bayu Aji Trisasongko</span>
-          <small>PERSONAL ENGINEERING PORTFOLIO / 2026</small>
-          <a href="#top" onClick={event => { event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>BACK TO TOP ↑</a>
+          <small>{t.footer.label}</small>
+          <a href="#top" onClick={event => { event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>{t.footer.backToTop}</a>
         </div>
       </footer>
 
@@ -1313,7 +1388,11 @@ function App() {
   return project ? <Detail project={project} /> : <FigmaHome />;
 }
 
-createRoot(document.getElementById('root')).render(<App />);
+createRoot(document.getElementById('root')).render(
+  <LanguageProvider>
+    <App />
+  </LanguageProvider>
+);
 
 
 
