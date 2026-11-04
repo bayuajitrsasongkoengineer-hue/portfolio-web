@@ -242,12 +242,20 @@
 .fh-card:hover .fh-card-title h3 { color: var(--fx-orange); }
 .fh-card-title svg { width: 17px; height: 17px; margin-top: 10px; flex: 0 0 auto; color: var(--fx-orange); transition: transform 0.2s ease; }
 .fh-card:hover .fh-card-title svg { transform: translate(3px, -3px); }
-.fh-card > p { min-height: 112px; margin: 0 0 14px 0; color: var(--fx-gray-muted); font-size: 13.5px; line-height: 1.55; }
+.fh-card > p { 
+  margin: 0 0 16px 0; 
+  color: #4B5563; 
+  font-size: 13.5px; 
+  line-height: 1.6; 
+  text-align: justify;
+  text-justify: inter-word;
+}
 .fh-tags { 
   display: grid; 
   grid-template-columns: repeat(2, 1fr); 
   gap: 6px; 
-  margin-bottom: 8px; 
+  margin-top: auto;
+  margin-bottom: 6px; 
 }
 .fh-tags span { 
   display: flex;

@@ -329,7 +329,7 @@ export const translations = {
         number: '01',
         label: 'TUGAS AKHIR',
         title: 'Robot Manipulator 5-DOF',
-        summary: 'Prototipe lengan robot manipulator 5-DOF berbasis mikrokontroler STM32F411 dan reduksi Cycloidal Gearbox cetak 3D. Menggunakan sensor magnetik AS5600 closed-loop untuk mereduksi backlash sendi, dengan akurasi posisi mencapai 79,8% pada rentang beban 250–1.000 gram.',
+        summary: 'Prototipe lengan robot manipulator 5-DOF berbasis mikrokontroler STM32F411 dan Cycloidal Gearbox 3D PLA. Menggunakan sensor magnetik AS5600 closed-loop untuk mereduksi backlash sendi, dengan akurasi posisi mencapai 79,8% pada rentang beban 250–1.000 gram.',
         tags: ['STM32F411', 'NEMA 17 Stepper', 'Driver TB6600', 'Sensor AS5600', 'Mux TCA9548A', 'Gearbox 3D PLA'],
         metrics: [
           ['79.8%', 'Peningkatan Akurasi Sendi'],
