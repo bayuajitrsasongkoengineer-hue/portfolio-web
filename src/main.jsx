@@ -840,8 +840,7 @@ function FigmaHome() {
                 <a className="fh-card" key={project.slug} href={`/projects/${project.slug}`} {...tilt(6)}>
                   <img src={`/images/${project.image}`} alt={`${tp.title} illustrative project drawing`} />
                   <div className="fh-card-meta">
-                    <span>{project.number} / {tp.label.split(' · ')[0]}</span>
-                    <span>{tp.label.split(' · ').slice(1).join(' · ')}</span>
+                    <span>{project.number} / {tp.label}</span>
                   </div>
                   <div className="fh-card-title">
                     <h3>{tp.title}</h3>
@@ -851,9 +850,6 @@ function FigmaHome() {
                   <div className="fh-tags">
                     {tp.tags.map(tag => <span key={tag}>{tag}</span>)}
                   </div>
-                  <small className="fh-card-foot">
-                    {tp.foot}
-                  </small>
                 </a>
               );
             })}

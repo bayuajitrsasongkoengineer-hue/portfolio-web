@@ -36,10 +36,10 @@ export const translations = {
       {
         slug: 'manipulator',
         number: '01',
-        label: 'FINAL PROJECT · 5-DOF ROBOTIC MANIPULATOR',
-        title: '5-DOF Robotic Manipulator Arm',
-        summary: '5-DOF robotic arm prototype with 3D-printed cycloidal gearboxes and closed-loop AS5600 magnetic sensing. Achieved 79.8% positional accuracy across 250–1,000 g payloads.',
-        tags: ['Robotics', 'Cycloidal Gearbox', 'Closed-Loop Control', 'STM32', '3D Printing PLA'],
+        label: 'FINAL PROJECT',
+        title: 'Robot Manipulator 5-DOF',
+        summary: '5-DOF articulated robotic arm prototype powered by an STM32F411 microcontroller and 3D-printed cycloidal gearboxes. Integrates AS5600 magnetic encoders in a closed loop to reduce backlash, achieving 79.8% accuracy across 250–1,000 g loads.',
+        tags: ['STM32F411 MCU', 'NEMA 17 Stepper', 'TB6600 Driver', 'AS5600 Sensor', 'TCA9548A Mux', 'Cycloidal Gearbox'],
         metrics: [
           ['79.8%', 'Joint Accuracy Improvement'],
           ['250–1,000 g', 'Validated Payload Range'],
@@ -50,10 +50,10 @@ export const translations = {
       {
         slug: 'solar-cooling',
         number: '02',
-        label: 'CAPSTONE DESIGN · PV THERMAL REGULATION',
-        title: 'Automatic Solar Panel Cooling System',
-        summary: 'Automated water spray cooling prototype for solar panels using temperature sensing and relay control. Triggers pump at >30°C and shuts off below <25°C.',
-        tags: ['Thermal Regulation', 'Embedded Electronics', 'Sensor Interfacing', 'Relay Control'],
+        label: 'CAPSTONE DESIGN',
+        title: 'Pendingin Panel Surya Otomatis',
+        summary: 'Automated water spray cooling system to lower solar panel surface temperature driven by Arduino Uno. Uses temperature sensing and relay control to trigger a submersible pump above >30°C and shut down below <25°C to restore efficiency.',
+        tags: ['Arduino Uno R3', 'RTD Temp Sensor', '5V Relay Module', '12V Submersible Pump', '16x2 I2C LCD', '12V Battery'],
         metrics: [
           ['>30°C / <25°C', 'Pump Trigger Threshold'],
           ['±0.6°C', 'Sensor Measurement Accuracy'],
@@ -64,10 +64,10 @@ export const translations = {
       {
         slug: 'krai-2025',
         number: '03',
-        label: 'NATIONAL COMPETITION · KRAI 2025',
-        title: 'Robot Basketball Mechanisms',
-        summary: 'Designed basketball dribbling and pneumatic shooting mechanisms with Telkom University ROOBICS team, advancing to the KRAI 2025 National Stage at ITB Jatinangor.',
-        tags: ['Mechanism Design', 'Pneumatics', 'Robotics Competition', 'CAD Modeling'],
+        label: 'KONTES ROBOT ABU INDONESIA (KRAI)',
+        title: 'Kompetisi Robot Basket',
+        summary: 'Mobile basketball robot built for Kontes Robot ABU Indonesia (KRAI 2025). Contributed to the ROOBICS mechanical team designing the dual-action pneumatic shooting mechanisms and RS775 DC motor drivetrain up to the National Selection stage at ITB.',
+        tags: ['Pneumatic Cylinder', '24V Solenoid Valve', 'RS775 DC Motor', 'Omni / Mecanum Wheels', 'Limit Switch & IR', 'Pressure Regulator'],
         metrics: [
           ['Pneumatic', 'Shooting Mechanism'],
           ['National Stage', 'ITB Jatinangor Selection'],
@@ -78,10 +78,10 @@ export const translations = {
       {
         slug: 'line-follower',
         number: '04',
-        label: 'INDEPENDENT BUILD · EMBEDDED CONTROL',
-        title: 'Autonomous Line Follower Robot',
-        summary: 'Autonomous line-tracking mobile robot featuring an 8-photodiode sensor array, discrete op-amp comparator circuits, differential drive steering logic, and potentiometer sensitivity tuning for steady track following.',
-        tags: ['Photodiode Array', 'Differential Drive', 'Comparator Circuit', 'Hardware Tuning'],
+        label: 'PROYEK MANDIRI',
+        title: 'Robot Line Follower',
+        summary: 'Autonomous line-tracking robot with differential drive steering and analog speed stability. Integrates an 8-channel photodiode sensor array, Arduino Nano microcontroller, high-efficiency TB6612FNG motor driver, and dual micro N20 metal gear motors.',
+        tags: ['8-Photodiode Array', 'Arduino Nano', 'TB6612FNG Driver', 'N20 Metal Gear Motor', '0.96" I2C OLED', '2S Li-ion Battery'],
         metrics: [
           ['8-Channel', 'Photodiode Sensor Bar'],
           ['Comparator', 'Line Detection Logic'],
@@ -92,10 +92,10 @@ export const translations = {
       {
         slug: 'sumo-robot',
         number: '05',
-        label: 'INDEPENDENT BUILD · COMPETITIVE ROBOTICS',
-        title: 'Bluetooth Sumo Robot',
-        summary: '1 kg competition-class sumo robot (20 × 20 cm) built on a rigid acrylic chassis with 4 high-torque geared DC motors delivering 4 kg push force, steered wirelessly via smartphone Bluetooth serial communication.',
-        tags: ['Acrylic Chassis', '4WD Geared Motors', 'Bluetooth Serial', 'Mobile Control'],
+        label: 'PROYEK MANDIRI',
+        title: 'Robot Sumo',
+        summary: '1 kg competition-class sumo robot (20 × 20 cm) built on a rigid acrylic wedge chassis delivering 4 kg push force. Driven by 4 independent PG24 planetary gear motors and steered wirelessly via smartphone Bluetooth serial communication.',
+        tags: ['Arduino Uno', '4× PG24 Motors', 'Dual L298N Driver', 'HC-05 Bluetooth', '3S LiPo Battery', '20×20 cm Chassis'],
         metrics: [
           ['1 kg / 20×20 cm', 'Competition Class Limit'],
           ['4WD', 'Independent Geared Motors'],
@@ -317,7 +317,7 @@ export const translations = {
     },
     projectsSection: {
       eyebrow: '01 / PROYEK',
-      title: 'Karya rekayasa & praktik langsung.',
+      title: 'Engineering work, in practice.',
       subtitle: 'Koleksi 5 proyek yang saya rancang dan rakit langsung selama masa kuliah dan belajar mandiri.',
       footnote: '',
       exploreMore: 'Lihat proyek lainnya',
@@ -327,10 +327,10 @@ export const translations = {
       {
         slug: 'manipulator',
         number: '01',
-        label: 'TUGAS AKHIR SARJANA · ROBOT MANIPULATOR 5-DOF',
+        label: 'TUGAS AKHIR',
         title: 'Robot Manipulator 5-DOF',
-        summary: 'Prototipe lengan robot 5-DOF dengan cycloidal gearbox cetak 3D dan kendali closed-loop sensor AS5600. Mencapai akurasi posisi 79,8% pada rentang beban 250–1.000 gram.',
-        tags: ['Robotika', 'Cycloidal Gearbox', 'Closed-Loop Control', 'STM32', '3D Printing PLA'],
+        summary: 'Prototipe lengan robot manipulator 5-DOF berbasis mikrokontroler STM32F411 dan reduksi Cycloidal Gearbox cetak 3D. Menggunakan sensor magnetik AS5600 closed-loop untuk mereduksi backlash sendi, dengan akurasi posisi mencapai 79,8% pada rentang beban 250–1.000 gram.',
+        tags: ['STM32F411', 'NEMA 17 Stepper', 'Driver TB6600', 'Sensor AS5600', 'Mux TCA9548A', 'Gearbox 3D PLA'],
         metrics: [
           ['79.8%', 'Peningkatan Akurasi Sendi'],
           ['250–1.000 g', 'Rentang Beban Uji'],
@@ -341,10 +341,10 @@ export const translations = {
       {
         slug: 'solar-cooling',
         number: '02',
-        label: 'CAPSTONE DESIGN · TIM 6 IDP',
-        title: 'Sistem Pendingin Otomatis Panel Surya',
-        summary: 'Prototipe semprotan air otomatis pendingin panel surya dengan sensor suhu dan kontrol relay. Pompa aktif saat suhu >30°C dan otomatis mati saat kembali <25°C.',
-        tags: ['Kendali Termal', 'Elektronika Tertanam', 'Sensor Suhu', 'Kontrol Relay'],
+        label: 'CAPSTONE DESIGN',
+        title: 'Pendingin Panel Surya Otomatis',
+        summary: 'Sistem penyemprot air otomatis untuk menurunkan suhu permukaan panel surya berbasis Arduino Uno. Menggunakan sensor suhu dan kontrol relay yang menyalakan pompa celup saat suhu panel mencapai >30°C dan mati saat kembali ke <25°C.',
+        tags: ['Arduino Uno R3', 'Sensor Suhu RTD', 'Modul Relay 5V', 'Pompa Celup 12V', 'LCD 16x2 I2C', 'Aki / Baterai 12V'],
         metrics: [
           ['>30°C / <25°C', 'Batas Kerja Pompa'],
           ['±0.6°C', 'Akurasi Pembacaan Sensor'],
@@ -355,10 +355,10 @@ export const translations = {
       {
         slug: 'krai-2025',
         number: '03',
-        label: 'KOMPETISI ROBOTIKA NASIONAL · TIM ROOBICS',
-        title: 'Mekanisme Robot Basket KRAI 2025',
-        summary: 'Merancang mekanisme penggiring bola (dribble) dan pelontar pneumatik (shooter) tim ROOBICS Universitas Telkom hingga Babak Nasional KRAI 2025 di ITB Jatinangor.',
-        tags: ['Desain Mekanisme', 'Pneumatik', 'Kompetisi Robotika', 'CAD Modeling'],
+        label: 'KONTES ROBOT ABU INDONESIA (KRAI)',
+        title: 'Kompetisi Robot Basket',
+        summary: 'Robot beroda pemindah bola basket untuk Kontes Robot ABU Indonesia (KRAI 2025). Berperan sebagai anggota tim mekanik ROOBICS Universitas Telkom merancang mekanisme pelontar pneumatik dan penggerak motor DC RS775 hingga Babak Seleksi Nasional ITB.',
+        tags: ['Silinder Pneumatik', 'Solenoid Valve 24V', 'Motor DC RS775', 'Roda Omni / Mecanum', 'Limit Switch & IR', 'Regulator Tekanan'],
         metrics: [
           ['Pneumatik', 'Sistem Pelontar Bola'],
           ['Babak Nasional', 'ITB Jatinangor'],
@@ -369,10 +369,10 @@ export const translations = {
       {
         slug: 'line-follower',
         number: '04',
-        label: 'PROYEK MANDIRI · ELEKTRONIKA & KONTROL',
+        label: 'PROYEK MANDIRI',
         title: 'Robot Line Follower',
-        summary: 'Robot pelacak garis otomatis berbasis 8 sensor fotodioda dan rangkaian komparator analog. Dilengkapi sistem penggerak differential drive serta potensiometer pengatur sensitivitas untuk pembacaan jalur presisi.',
-        tags: ['Sensor Fotodioda', 'Differential Drive', 'Rangkaian Komparator', 'Tuning Hardware'],
+        summary: 'Robot pelacak garis otomatis dengan kemudi differential drive berkecepatan stabil. Menggunakan modul array 8 sensor fotodioda pembaca lintasan, mikrokontroler Arduino Nano, IC driver TB6612FNG, dan motor DC mikro N20 metal gear.',
+        tags: ['Array 8 Fotodioda', 'Arduino Nano', 'Driver TB6612FNG', 'Motor DC N20 Metal', 'OLED 0.96" I2C', 'Baterai 2S Li-ion'],
         metrics: [
           ['8 Sensor', 'Array Fotodioda'],
           ['Komparator', 'Pembaca Jalur Garis'],
@@ -383,10 +383,10 @@ export const translations = {
       {
         slug: 'sumo-robot',
         number: '05',
-        label: 'PROYEK MANDIRI · ROBOTIKA KOMPETISI',
-        title: 'Robot Sumo Bluetooth',
-        summary: 'Robot sumo kelas 1 kg (dimensi 20×20 cm) dengan rangka akrilik kokoh dan 4 motor DC penggerak berdaya dorong 4 kg. Dikendalikan secara nirkabel melalui aplikasi ponsel pintar via modul komunikasi Bluetooth serial.',
-        tags: ['Rangka Akrilik', '4WD Geared Motor', 'Bluetooth Serial', 'Kendali Smartphone'],
+        label: 'PROYEK MANDIRI',
+        title: 'Robot Sumo',
+        summary: 'Robot sumo kelas 1 kg (dimensi 20×20 cm) dengan sasis baji akrilik kokoh berdaya dorong 4 kg. Digerakkan 4 motor DC planetary PG24 dan dikendalikan secara nirkabel melalui aplikasi ponsel pintar via modul Bluetooth HC-05.',
+        tags: ['Arduino Uno', '4× Motor PG24', 'Driver Dual L298N', 'Bluetooth HC-05', 'Baterai 3S LiPo', 'Sasis Akrilik 20×20'],
         metrics: [
           ['1 kg / 20×20 cm', 'Ukuran Kelas Kompetisi'],
           ['4WD', 'Motor DC Penggerak Roda'],
