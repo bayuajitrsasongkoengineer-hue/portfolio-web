@@ -79,7 +79,7 @@
 
 /* HERO / INTRO */
 .fh-intro { min-height: auto; background: #fff; padding-bottom: 24px; }
-.fh-hero { max-width: 1440px; min-height: auto; margin: auto; padding: 48px 72px 32px; display: grid; grid-template-columns: minmax(0, 770px) 1fr; gap: 44px; position: relative; }
+.fh-hero { max-width: 1440px; min-height: auto; margin: auto; padding: 48px 72px 32px; display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 44px; position: relative; }
 .fh-copy h1 { margin: 0 0 16px; font-size: 76px; line-height: 1; letter-spacing: 0; font-weight: 700; color: #111827; }
 
 /* BIO LINK TO EDUCATION */
@@ -101,7 +101,7 @@
 }
 .fh-bio-link h2 { margin: 10px 0 8px; color: var(--fx-orange); font-size: 36px; line-height: 1.05; letter-spacing: 0; font-weight: 600; }
 .fh-bio-link:hover h2 { color: var(--fx-orange); }
-.fh-subtitle { color: var(--fx-gray-muted); font: 500 16px 'DM Mono', monospace; }
+.fh-subtitle { color: var(--fx-gray-muted); font: 500 13.5px/1.4 'DM Mono', monospace; letter-spacing: -0.01em; white-space: nowrap; }
 .fh-bio-link p { max-width: 755px; margin: 16px 0 14px; color: #4B5563; font-size: 16px; line-height: 1.65; }
 .fh-bio-badge {
   display: inline-flex;
@@ -799,6 +799,7 @@
   .fh-hero { padding-inline: 40px; grid-template-columns: minmax(0, 1fr) 270px; gap: 20px; }
   .fh-copy h1 { font-size: 64px; }
   .fh-bio-link h2 { font-size: 29px; }
+  .fh-subtitle { font-size: 11.5px; white-space: nowrap; }
   .fh-bio-link p { font-size: 14px; }
   .fh-profile { width: 240px; height: 240px; }
   .fh-disciplines { padding-inline: 40px; gap: 16px; }
@@ -837,7 +838,7 @@
   .fh-hero { padding: 25px 12px 15px; display: flex; flex-direction: column; gap: 14px; }
   .fh-copy h1 { margin: 0 0 10px; font-size: 32px; line-height: 1.1; }
   .fh-bio-link h2 { margin: 0 0 6px; font-size: 18px; }
-  .fh-subtitle { font-size: 11px; }
+  .fh-subtitle { font-size: 11px; white-space: normal; line-height: 1.45; }
   .fh-bio-link p { margin: 10px 0 0; font-size: 12px; line-height: 1.55; }
   .fh-profile { order: -1; width: 130px; height: 130px; margin: 0 auto 12px; border-radius: 50%; object-fit: cover; border: 2px solid #E5E7EB; }
   .fh-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
