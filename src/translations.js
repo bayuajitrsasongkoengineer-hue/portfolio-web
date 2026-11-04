@@ -222,7 +222,7 @@ export const translations = {
     skillsSection: {
       eyebrow: '03 / SKILLS',
       title: 'Technical skills & engineering tools.',
-      subtitle: 'Software and tools with direct hands-on experience across undergraduate research, Formulatrix internships, and robotics projects.',
+      subtitle: 'Software and tools with direct hands-on experience in academic research, industrial internships, and robotics engineering.',
       disciplines: [
         {
           id: 'mechanical',
@@ -513,7 +513,7 @@ export const translations = {
     skillsSection: {
       eyebrow: '03 / KEAHLIAN',
       title: 'Keahlian teknis & perangkat kerja.',
-      subtitle: 'Software dan peralatan yang pernah saya gunakan langsung selama tugas akhir, magang di Formulatrix, dan proyek robotika.',
+      subtitle: 'Software dan peralatan yang pernah saya gunakan langsung dalam riset akademik, magang industri, dan rancang bangun robotika.',
       disciplines: [
         {
           id: 'mechanical',
