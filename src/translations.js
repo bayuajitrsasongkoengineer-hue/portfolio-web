@@ -338,7 +338,7 @@ export const translations = {
         number: '02',
         label: 'CAPSTONE DESIGN · TIM 6 IDP',
         title: 'Sistem Pendingin Otomatis Panel Surya',
-        summary: 'Prototipe semprotan air otomatis pendingin panel surya dengan sensor suhu dan kontrol relai. Pompa aktif saat suhu >30°C dan otomatis mati saat kembali <25°C.',
+        summary: 'Prototipe semprotan air otomatis pendingin panel surya dengan sensor suhu dan kontrol relay. Pompa aktif saat suhu >30°C dan otomatis mati saat kembali <25°C.',
         tags: ['Kendali Termal', 'Elektronika Tertanam', 'Sensor Suhu', 'Kontrol Relay'],
         metrics: [
           ['>30°C / <25°C', 'Batas Kerja Pompa'],
