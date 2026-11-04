@@ -39,8 +39,8 @@ export const translations = {
         tags: ['Onshape CAD', 'STM32F411', 'Cycloidal Gearbox', 'Closed-Loop Control', '3D Printing PLA', 'Inverse Kinematics'],
         metrics: [
           ['79.8%', 'Accuracy Improvement'],
-          ['250-1000g', 'Rated Payload'],
-          ['5-DOF', 'Freedom Axes'],
+          ['250–1,000 g', 'Payload Capacity'],
+          ['5-DOF', 'Degrees of Freedom (DOF)'],
         ],
         foot: 'Telkom University · Jan - Aug 2026',
       },
@@ -66,7 +66,7 @@ export const translations = {
         summary: 'Engineered pneumatic shooting and precision dribble mechanisms for Team ROOBICS representing Telkom University, successfully advancing to the National Stage at ITB Jatinangor.',
         tags: ['Pneumatic Actuation', 'CAD Mechanism Design', 'Tournament Prototyping', 'EIRRG Telkom', 'Rapid Fabrication'],
         metrics: [
-          ['100%', 'Pneumatics Actuation'],
+          ['100%', 'Pneumatic Actuation'],
           ['National Stage', 'ITB Jatinangor'],
           ['EIRRG', 'Research Lab'],
         ],
@@ -81,8 +81,8 @@ export const translations = {
         tags: ['Photodiode Array', 'Differential Drive', 'PID Control Logic', 'Hardware Tuning', 'Embedded Systems'],
         metrics: [
           ['8-Channel', 'Photodiode Array'],
-          ['PID', 'Control Loop'],
-          ['Dual DC', 'High-Speed Motors'],
+          ['PID Control', 'Steering Loop'],
+          ['Dual High-Speed', 'DC Drive Motors'],
         ],
         foot: 'Independent Project · 2024',
       },
@@ -94,9 +94,9 @@ export const translations = {
         summary: 'Constructed a 1 kg competitive sumo robot with a custom acrylic wedge chassis and 4 high-torque geared DC motors controlled wirelessly via smartphone.',
         tags: ['Acrylic Wedge Chassis', '4WD Geared Motors', 'Bluetooth Serial', 'Power Delivery', 'Mobile Control'],
         metrics: [
-          ['1 kg / 20cm', 'RC Class Limit'],
+          ['1 kg / 20×20 cm', 'Competition Class Limit'],
           ['4WD', 'Planetary Geared'],
-          ['Bluetooth', 'Wireless Control'],
+          ['Bluetooth', 'Wireless Telemetry'],
         ],
         foot: 'Independent Project · 2023',
       },
@@ -332,7 +332,7 @@ export const translations = {
         summary: 'Merancang robot sumo kompetisi kelas 1 kg dengan chassis wedge akrilik dan 4 motor DC planetary high-torque yang dikendalikan secara nirkabel via smartphone.',
         tags: ['Acrylic Wedge Chassis', '4WD Geared Motors', 'Bluetooth Serial', 'Power Delivery', 'Mobile Control'],
         metrics: [
-          ['1 kg / 20cm', 'Batas Regulasi Kelas'],
+          ['1 kg / 20×20 cm', 'Batas Regulasi Kelas'],
           ['4WD', 'Planetary Geared Motor'],
           ['Bluetooth', 'Wireless Telemetry'],
         ],
@@ -354,7 +354,7 @@ export const translations = {
           bullets: [
             'Mendukung operasional lini SMT (Surface Mount Technology): solder paste stencil printing, mesin pick-and-place, reflow soldering, dan Automated Optical Inspection (AOI).',
             'Menyusun dan memperbarui Work Instructions (WI) serta Standard Operating Procedure (SOP) untuk perakitan mekanikal dan wiring.',
-            'Mendesain panel stensil PCB menggunakan Easy-PC dan mengekspor file Gerber untuk fabrikasi vendor.',
+            'Mendesain panel stencil PCB menggunakan Easy-PC dan mengekspor file Gerber untuk fabrikasi vendor.',
             'Mendesain fixture dan bracket produksi di Onshape serta memfabrikasi prototipe menggunakan 3D printing.',
           ],
           cta: 'Lihat Surat Keterangan Kerja',
