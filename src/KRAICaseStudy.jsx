@@ -348,13 +348,13 @@ export default function KRAICaseStudy() {
           <div 
             className="cs-card-container cs-preview-media" 
             style={{ height: 'auto', minHeight: '340px', flexDirection: 'column', padding: 0 }}
-            onClick={() => openZoom('/images/krai_cert_finalis_nasional.png', 'Official KRAI 2025 National Finalist Certificate', 'Official certificate of National Finalist: Bayu Aji Trisasongko - Team ROOBICS, Universitas Telkom (No: 5468HK/IT1.B04.4/KM/2025)')}
+            onClick={() => openZoom('/images/krai-cert-real.png', 'Official KRAI 2025 National Participant Certificate', 'Official certificate of participation: Bayu Aji Trisasongko — Team ROOBICS, Universitas Telkom')}
             title="Click to zoom in"
           >
             <div style={{ flex: 1, width: '100%', padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#FFFFFF' }}>
-              <img src="/images/krai_cert_finalis_nasional.png" alt="Official KRAI 2025 Certificate" style={{ maxHeight: '280px', objectFit: 'contain' }} />
+              <img src="/images/krai-cert-real.png" alt="Official KRAI 2025 Certificate" style={{ maxHeight: '280px', objectFit: 'contain' }} />
             </div>
-            <div className="cs-media-label" style={{ width: '100%' }}>Official National Finalist Certificate (Belmawa & ITB Jatinangor)</div>
+            <div className="cs-media-label" style={{ width: '100%' }}>Official National Certificate of Participation (ITB Jatinangor)</div>
           </div>
         </div>
 
