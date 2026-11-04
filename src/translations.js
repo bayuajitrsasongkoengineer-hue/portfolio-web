@@ -227,7 +227,7 @@ export const translations = {
         {
           id: 'mechanical',
           label: '01 / MECHANICAL',
-          title: 'Mechanical Design & Fabrication',
+          title: 'CAD Modeling & Fabrication',
           skills: [
             '3D parametric CAD modeling (parts, assemblies, GD&T tolerancing & technical drawings)',
             'Custom Cycloidal Gearbox design (reduction ratio 1:50 & 1:25) for high-torque joints',
@@ -239,7 +239,7 @@ export const translations = {
         {
           id: 'electronics',
           label: '02 / ELECTRONICS',
-          title: 'Electronics & PCB Design',
+          title: 'PCB Design & Wiring',
           skills: [
             'Schematic capture & 2-layer PCB layout (EasyEDA & Autodesk EAGLE)',
             'Circuit simulation, SPICE analysis & virtual instrument testing (Proteus)',
@@ -251,8 +251,8 @@ export const translations = {
         },
         {
           id: 'embedded',
-          label: '03 / EMBEDDED',
-          title: 'Embedded Systems & Control',
+          label: '03 / EMBEDDED SYSTEMS',
+          title: 'Firmware & Control',
           skills: [
             'ARM Cortex-M microcontroller firmware (STM32F411, HAL library & register configuration)',
             'Real-time closed-loop control using AS5600 12-bit magnetic encoders (0.088° resolution)',
@@ -264,8 +264,8 @@ export const translations = {
         },
         {
           id: 'productivity',
-          label: '04 / PRODUCTIVITY & DOCUMENTATION',
-          title: 'Engineering Productivity & Collaboration',
+          label: '04 / ENGINEERING PRODUCTIVITY',
+          title: 'Collaboration & Documentation',
           skills: [
             'Technical documentation, test report authoring & academic thesis publishing',
             'Engineering data analysis, calculation sheets & sensor test data logging',
@@ -518,7 +518,7 @@ export const translations = {
         {
           id: 'mechanical',
           label: '01 / MEKANIKAL',
-          title: 'Desain Mekanik & Fabrikasi',
+          title: 'Pemodelan & Fabrikasi',
           skills: [
             'Pemodelan CAD parametrik 3D (part, perakitan/assembly, toleransi & gambar teknik)',
             'Perancangan kustom Cycloidal Gearbox (rasio reduksi 1:50 & 1:25) untuk sendi torsi tinggi',
@@ -530,7 +530,7 @@ export const translations = {
         {
           id: 'electronics',
           label: '02 / ELEKTRONIKA',
-          title: 'Elektronika & Desain PCB',
+          title: 'Perancangan PCB & Wiring',
           skills: [
             'Pembuatan skematik & perancangan layout PCB 2-layer (EasyEDA & Autodesk EAGLE)',
             'Simulasi rangkaian elektronik & pengujian instrumen virtual (Proteus)',
@@ -543,7 +543,7 @@ export const translations = {
         {
           id: 'embedded',
           label: '03 / SISTEM TERTANAM',
-          title: 'Sistem Tertanam & Kendali',
+          title: 'Firmware & Kontrol',
           skills: [
             'Pemrograman mikrokontroler ARM Cortex-M (STM32F411, HAL library & register)',
             'Sistem kendali closed-loop real-time menggunakan sensor magnetik AS5600 12-bit (resolusi 0,088°)',
@@ -555,8 +555,8 @@ export const translations = {
         },
         {
           id: 'productivity',
-          label: '04 / PRODUKTIVITAS & DOKUMENTASI',
-          title: 'Dokumentasi Rekayasa & Kolaborasi',
+          label: '04 / PRODUKTIVITAS TEKNIK',
+          title: 'Kolaborasi & Dokumentasi',
           skills: [
             'Penyusunan dokumentasi teknis, laporan pengujian data, dan naskah buku Tugas Akhir',
             'Analisis data rekayasa, lembar kalkulasi perhitungan, dan pencatatan log data sensor',

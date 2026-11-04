@@ -248,7 +248,7 @@ const engineeringDisciplines = [
   {
     id: 'mechanical',
     label: '01 / MECHANICAL',
-    title: 'Mechanical Design & Fabrication',
+    title: 'CAD Modeling & Fabrication',
     color: '#F05A22',
     skills: [
       '3D parametric CAD modeling (parts, assemblies, GD&T tolerancing & technical drawings)',
@@ -270,7 +270,7 @@ const engineeringDisciplines = [
   {
     id: 'electronics',
     label: '02 / ELECTRONICS',
-    title: 'Electronics & PCB Design',
+    title: 'PCB Design & Wiring',
     color: '#F05A22',
     skills: [
       'Schematic capture & 2-layer PCB layout (EasyEDA & Autodesk EAGLE)',
@@ -289,8 +289,8 @@ const engineeringDisciplines = [
   },
   {
     id: 'embedded',
-    label: '03 / EMBEDDED',
-    title: 'Embedded Systems & Control',
+    label: '03 / EMBEDDED SYSTEMS',
+    title: 'Firmware & Control',
     color: '#F05A22',
     skills: [
       'ARM Cortex-M microcontroller firmware (STM32F411, HAL library & register configuration)',
@@ -310,8 +310,8 @@ const engineeringDisciplines = [
   },
   {
     id: 'productivity',
-    label: '04 / PRODUCTIVITY & DOCUMENTATION',
-    title: 'Engineering Productivity & Collaboration',
+    label: '04 / ENGINEERING PRODUCTIVITY',
+    title: 'Collaboration & Documentation',
     color: '#F05A22',
     skills: [
       'Technical documentation, test report authoring & academic thesis publishing',
