@@ -594,16 +594,18 @@
   height: 64px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 8px;
+  justify-content: center;
+  margin: 10px auto 16px;
+  width: 100%;
 }
 .fh-org-logo {
   max-height: 58px;
-  max-width: 84px;
+  max-width: 90px;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
+  margin: 0 auto;
   transition: transform 0.25s ease;
 }
 .fh-stack-card:hover .fh-org-logo {
