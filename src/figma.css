@@ -101,7 +101,7 @@
 }
 .fh-bio-link h2 { margin: 10px 0 8px; color: var(--fx-orange); font-size: 36px; line-height: 1.05; letter-spacing: 0; font-weight: 600; }
 .fh-bio-link:hover h2 { color: var(--fx-orange); }
-.fh-subtitle { color: var(--fx-gray-muted); font: 500 13.5px/1.4 'DM Mono', monospace; letter-spacing: -0.01em; white-space: nowrap; }
+.fh-subtitle { color: #4B5563; font: 500 15px/1.4 'DM Mono', monospace; letter-spacing: -0.015em; white-space: nowrap; }
 .fh-bio-link p { max-width: 755px; margin: 16px 0 14px; color: #4B5563; font-size: 16px; line-height: 1.65; }
 .fh-bio-badge {
   display: inline-flex;
