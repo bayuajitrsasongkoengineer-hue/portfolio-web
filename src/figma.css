@@ -235,10 +235,10 @@
   transition: transform 0.25s ease; 
 }
 .fh-card:hover > img { transform: scale(1.02); }
-.fh-card-meta { min-height: 40px; padding-top: 18px; display: flex; flex-wrap: wrap; gap: 0 8px; color: #5b6470; font: 9px/1.55 'DM Mono', monospace; font-weight: 600; letter-spacing: 0.04em; transition: color 0.2s ease; }
+.fh-card-meta { min-height: 46px; padding-top: 18px; display: flex; flex-wrap: wrap; gap: 0 8px; color: #5b6470; font: 9px/1.55 'DM Mono', monospace; font-weight: 600; letter-spacing: 0.04em; transition: color 0.2s ease; }
 .fh-card:hover .fh-card-meta { color: var(--fx-orange); }
 .fh-card-title { display: flex; align-items: flex-start; gap: 5px; }
-.fh-card-title h3 { min-height: 56px; flex: 1; margin: 6px 0 8px; font-size: 21px; line-height: 1.25; letter-spacing: -0.01em; font-weight: 700; color: #111827; transition: color 0.2s ease; }
+.fh-card-title h3 { min-height: 82px; flex: 1; margin: 6px 0 8px; font-size: 21px; line-height: 1.25; letter-spacing: -0.01em; font-weight: 700; color: #111827; transition: color 0.2s ease; }
 .fh-card:hover .fh-card-title h3 { color: var(--fx-orange); }
 .fh-card-title svg { width: 17px; height: 17px; margin-top: 10px; flex: 0 0 auto; color: var(--fx-orange); transition: transform 0.2s ease; }
 .fh-card:hover .fh-card-title svg { transform: translate(3px, -3px); }
