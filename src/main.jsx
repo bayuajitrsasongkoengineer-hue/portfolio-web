@@ -1025,20 +1025,21 @@ function FigmaHome() {
                 style={{ padding: '24px 22px', borderRadius: '6px', cursor: 'pointer' }}
                 title={lang === 'id' ? 'Klik untuk melihat Sertifikat TÜV Rheinland & FESTO' : 'Click to view TÜV Rheinland & FESTO Certificate'}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                  <div>
-                    <span className="fh-stack-label" style={{ color: '#0284C7' }}>{t.certsSection.cert1.label}</span>
-                    <h3 style={{ margin: '4px 0 0', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert1.title}</h3>
-                  </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span className="fh-stack-label" style={{ color: '#0284C7', marginBottom: 0 }}>{t.certsSection.cert1.label}</span>
                   <span className="fh-role-date">{t.certsSection.cert1.period.split(' · ')[0]}</span>
                 </div>
+                <div className="fh-cert-thumb-box">
+                  <img src="/images/cert_festo.png" alt="Sertifikat FESTO & TÜV Rheinland" className="fh-cert-thumb-img" loading="lazy" />
+                </div>
+                <h3 style={{ margin: '0 0 6px', fontSize: '18px', fontWeight: 700, color: '#111827', minHeight: '48px', display: 'flex', alignItems: 'center' }}>{t.certsSection.cert1.title}</h3>
                 <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '10px' }}>
                   Credential ID: 62372/21/1185 · {lang === 'id' ? 'Masa Berlaku Tanpa Batas' : 'Unlimited Validity'}
                 </div>
                 <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
                   {t.certsSection.cert1.desc}
                 </p>
-                <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#0284C7' }}>
+                <div style={{ marginTop: 'auto', paddingTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#0284C7' }}>
                   <Eye size={13} /> {t.certsSection.cert1.cta}
                 </div>
               </article>
@@ -1058,20 +1059,21 @@ function FigmaHome() {
                 style={{ padding: '24px 22px', borderRadius: '6px', cursor: 'pointer' }}
                 title={lang === 'id' ? 'Klik untuk melihat Sertifikat Finalis KRAI 2025' : 'Click to view KRAI 2025 Finalist Certificate'}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                  <div>
-                    <span className="fh-stack-label" style={{ color: '#F05A22' }}>{t.certsSection.cert2.label}</span>
-                    <h3 style={{ margin: '4px 0 0', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert2.title}</h3>
-                  </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span className="fh-stack-label" style={{ color: '#F05A22', marginBottom: 0 }}>{t.certsSection.cert2.label}</span>
                   <span className="fh-role-date">{t.certsSection.cert2.period}</span>
                 </div>
+                <div className="fh-cert-thumb-box">
+                  <img src="/images/krai_cert_finalis_nasional.png" alt="Sertifikat Finalis KRAI 2025" className="fh-cert-thumb-img" loading="lazy" />
+                </div>
+                <h3 style={{ margin: '0 0 6px', fontSize: '18px', fontWeight: 700, color: '#111827', minHeight: '48px', display: 'flex', alignItems: 'center' }}>{t.certsSection.cert2.title}</h3>
                 <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '10px' }}>
                   Belmawa Kemdiktisaintek &amp; ITB · Team ROOBICS
                 </div>
                 <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
                   {t.certsSection.cert2.desc}
                 </p>
-                <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#F05A22' }}>
+                <div style={{ marginTop: 'auto', paddingTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#F05A22' }}>
                   <Eye size={13} /> {t.certsSection.cert2.cta}
                 </div>
               </article>
@@ -1091,20 +1093,21 @@ function FigmaHome() {
                 style={{ padding: '24px 22px', borderRadius: '6px', cursor: 'pointer' }}
                 title={lang === 'id' ? 'Klik untuk melihat Sertifikat EPrT' : 'Click to view EPrT Certificate'}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                  <div>
-                    <span className="fh-stack-label" style={{ color: '#10B981' }}>{t.certsSection.cert3.label}</span>
-                    <h3 style={{ margin: '4px 0 0', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert3.title}</h3>
-                  </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span className="fh-stack-label" style={{ color: '#10B981', marginBottom: 0 }}>{t.certsSection.cert3.label}</span>
                   <span className="fh-role-date">{t.certsSection.cert3.period}</span>
                 </div>
+                <div className="fh-cert-thumb-box">
+                  <img src="/images/eprt-cert.png" alt="Sertifikat EPrT Telkom University" className="fh-cert-thumb-img" loading="lazy" />
+                </div>
+                <h3 style={{ margin: '0 0 6px', fontSize: '18px', fontWeight: 700, color: '#111827', minHeight: '48px', display: 'flex', alignItems: 'center' }}>{t.certsSection.cert3.title}</h3>
                 <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '10px' }}>
                   {lang === 'id' ? 'Skor Total: 450 (Listening: 47, Grammar: 41, Reading: 47)' : 'Total Score: 450 (Listening: 47, Grammar: 41, Reading: 47)'}
                 </div>
                 <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
                   {t.certsSection.cert3.desc}
                 </p>
-                <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#10B981' }}>
+                <div style={{ marginTop: 'auto', paddingTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#10B981' }}>
                   <Eye size={13} /> {t.certsSection.cert3.cta}
                 </div>
               </article>
@@ -1124,20 +1127,21 @@ function FigmaHome() {
                 style={{ padding: '24px 22px', borderRadius: '6px', cursor: 'pointer' }}
                 title={lang === 'id' ? 'Klik untuk melihat Sertifikat Career Coach Telkom University' : 'Click to view Career Coach Telkom University Certificate'}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                  <div>
-                    <span className="fh-stack-label" style={{ color: '#8B5CF6' }}>{t.certsSection.cert4.label}</span>
-                    <h3 style={{ margin: '4px 0 0', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert4.title}</h3>
-                  </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span className="fh-stack-label" style={{ color: '#8B5CF6', marginBottom: 0 }}>{t.certsSection.cert4.label}</span>
                   <span className="fh-role-date">2025</span>
                 </div>
+                <div className="fh-cert-thumb-box">
+                  <img src="/images/cert_career_coach.png" alt="Sertifikat Career Coach Telkom University" className="fh-cert-thumb-img" loading="lazy" />
+                </div>
+                <h3 style={{ margin: '0 0 6px', fontSize: '18px', fontWeight: 700, color: '#111827', minHeight: '48px', display: 'flex', alignItems: 'center' }}>{t.certsSection.cert4.title}</h3>
                 <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '10px' }}>
                   {t.certsSection.cert4.issuer}
                 </div>
                 <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
                   {t.certsSection.cert4.desc}
                 </p>
-                <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#8B5CF6' }}>
+                <div style={{ marginTop: 'auto', paddingTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#8B5CF6' }}>
                   <Eye size={13} /> {t.certsSection.cert4.cta}
                 </div>
               </article>
