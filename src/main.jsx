@@ -971,26 +971,24 @@ function FigmaHome() {
                       <h3 className="fh-stack-title">{disc.title}</h3>
                     </div>
 
-                    <div className="fh-stack-body">
-                      <ul className="fh-stack-skills">
-                        {disc.skills.map((s, i) => (
-                          <li key={i}>{s}</li>
-                        ))}
-                      </ul>
+                    <ul className="fh-stack-skills">
+                      {disc.skills.map((s, i) => (
+                        <li key={i}>{s}</li>
+                      ))}
+                    </ul>
 
-                      <div className="fh-stack-tools">
-                        <span className="fh-stack-tools-label">{lang === 'id' ? 'SOFTWARE & ALAT KERJA' : 'SOFTWARE & TOOLS'}</span>
-                        <div className="fh-stack-tool-chips">
-                          {tools.map(tool => (
-                            <span key={tool.name} className="fh-stack-chip">
-                              {tool.logo
-                                ? <img src={tool.logo} alt={tool.name} className="fh-stack-chip-logo" />
-                                : <span className="fh-stack-chip-wordmark">{tool.name.split('/')[0].trim().slice(0, 3).toUpperCase()}</span>
-                              }
-                              <span className="fh-stack-chip-name">{tool.name}</span>
-                            </span>
-                          ))}
-                        </div>
+                    <div className="fh-stack-tools">
+                      <span className="fh-stack-tools-label">{lang === 'id' ? 'SOFTWARE & ALAT KERJA' : 'SOFTWARE & TOOLS'}</span>
+                      <div className="fh-stack-tool-chips">
+                        {tools.map(tool => (
+                          <span key={tool.name} className="fh-stack-chip">
+                            {tool.logo
+                              ? <img src={tool.logo} alt={tool.name} className="fh-stack-chip-logo" />
+                              : <span className="fh-stack-chip-wordmark">{tool.name.split('/')[0].trim().slice(0, 3).toUpperCase()}</span>
+                            }
+                            <span className="fh-stack-chip-name">{tool.name}</span>
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </article>
