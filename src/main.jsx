@@ -1108,6 +1108,39 @@ function FigmaHome() {
                   <Eye size={13} /> {t.certsSection.cert3.cta}
                 </div>
               </article>
+
+              {/* CERT 4: TEL-U CAREER COACH (STAR) - INTRAPRENEURSHIP */}
+              <article 
+                className="fh-stack-card fh-clickable-card" {...tilt(4)}
+                onClick={() => setActiveDoc({
+                  title: 'Tel-U Career Coach (STAR) - Intrapreneurship',
+                  subtitle: lang === 'id' ? 'Direktorat Kemahasiswaan, Karier, dan Alumni · Universitas Telkom' : 'Directorate of Student Affairs, Career & Alumni · Telkom University',
+                  image: '/images/cert_career_coach.png',
+                  institution: 'Universitas Telkom',
+                  period: t.certsSection.cert4.period,
+                  downloadUrl: '/SERTIFIKAT_TEL-U_CAREER_COACH_-_INTRAPRENEUR.pdf',
+                  downloadName: 'SERTIFIKAT_TEL-U_CAREER_COACH_-_INTRAPRENEUR.pdf'
+                })}
+                style={{ padding: '24px 22px', borderRadius: '6px', cursor: 'pointer' }}
+                title={lang === 'id' ? 'Klik untuk melihat Sertifikat Career Coach Telkom University' : 'Click to view Career Coach Telkom University Certificate'}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                  <div>
+                    <span className="fh-stack-label" style={{ color: '#8B5CF6' }}>{t.certsSection.cert4.label}</span>
+                    <h3 style={{ margin: '4px 0 0', fontSize: '18px', fontWeight: 700, color: '#111827' }}>{t.certsSection.cert4.title}</h3>
+                  </div>
+                  <span className="fh-role-date">2025</span>
+                </div>
+                <div style={{ fontSize: '13px', fontWeight: 600, color: '#4B5563', marginBottom: '10px' }}>
+                  {t.certsSection.cert4.issuer}
+                </div>
+                <p style={{ margin: 0, fontSize: '13.5px', color: '#4B5563', lineHeight: 1.6 }}>
+                  {t.certsSection.cert4.desc}
+                </p>
+                <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: '#8B5CF6' }}>
+                  <Eye size={13} /> {t.certsSection.cert4.cta}
+                </div>
+              </article>
             </div>
           </div>
         </section>

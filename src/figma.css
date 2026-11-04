@@ -630,8 +630,8 @@
 }
 .fh-cert-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
 }
 
 /* SECTION 06: ORGANIZATIONS */
@@ -912,6 +912,7 @@
   .fh-experience-grid { grid-template-columns: 260px 1fr; gap: 35px; }
   .fh-skill-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .fh-stack-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .fh-cert-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .fh-edu-grid { grid-template-columns: 1fr; gap: 24px; }
   .fh-org-grid { grid-template-columns: 1fr; gap: 24px; }
   .fh-org-title, .fh-org-role { min-height: auto; }
