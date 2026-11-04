@@ -319,7 +319,16 @@
   align-items: center;
   text-align: center;
   align-self: center;
-  padding: 0;
+  padding: 28px 24px;
+  background: #ffffff;
+  border: 1px solid var(--fx-gray-border);
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+.fh-company:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
 }
 .fh-company-brand {
   margin-bottom: 18px;
