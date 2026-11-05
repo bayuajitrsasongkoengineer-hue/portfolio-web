@@ -128,7 +128,7 @@ export const caseStudiesTranslations = {
       },
 
       bottomNav: {
-        next: 'Next: Solar Panel Cooling System',
+        next: 'Next: Solar Panel Cooling Method',
       },
     },
 
@@ -137,7 +137,7 @@ export const caseStudiesTranslations = {
     // ─────────────────────────────────────────────────────────────
     solarCooling: {
       statusBadge: 'INTEGRATED DESIGN PROJECT (IDP) · TELKOM UNIVERSITY (2025–2026)',
-      title: 'Automated Solar Panel Cooling System for High-Temperature Efficiency',
+      title: 'Solar Panel Cooling Method to Increase Efficiency at High Temperatures',
       authorName: 'Bayu Aji Trisasongko',
       authorRole: 'Hardware & Electrical Implementation Lead',
       teamName: 'IDP Team 6 (4 Members)',
@@ -467,15 +467,15 @@ export const caseStudiesTranslations = {
     // 01. MANIPULATOR CASE STUDY (ID)
     // ─────────────────────────────────────────────────────────────
     manipulator: {
-      statusBadge: 'TUGAS AKHIR SARJANA · UNIVERSITAS TELKOM (2026)',
-      title: 'Perancangan Lengan Manipulator untuk Robot Pelayan Pasien di Rumah Sakit',
+      statusBadge: 'BUKU TUGAS AKHIR · S1 TEKNIK ELEKTRO UNIVERSITAS TELKOM (2026)',
+      title: 'Perancangan Manipulator Arm untuk Robot Pelayanan Pasien di Rumah Sakit',
       authorName: 'Bayu Aji Trisasongko',
       authorRole: 'Penulis / Pengembang',
       degree: 'S1 Teknik Elektro',
       institution: 'Universitas Telkom',
       timeline: 'Januari – Agustus 2026',
       timelineLabel: 'Periode Proyek',
-      heroDesc: 'Perancangan mekanik, fabrikasi fisik, dan pemrograman kontrol tertutup (closed-loop) pada prototipe lengan robot artikulasi 5-DOF berbasis mikrokontroler STM32F411CEU6, transmisi Cycloidal Gearbox 3D PLA, koreksi posisi magnetik AS5600, serta perhitungan analitis Inverse Kinematics secara real-time.',
+      heroDesc: 'Perancangan dan implementasi manipulator arm 5-DOF berbasis mikrokontroler STM32F411CEU6 sebagai komponen pendukung robot pelayanan pasien di rumah sakit. Dilengkapi transmisi Cycloidal Gearbox cetak 3D berbahan PLA, sistem kendali Closed Loop berbasis umpan balik sensor magnetic encoder AS5600 melalui multiplekser I2C TCA9548A, serta eksekusi perhitungan Inverse Kinematics analitis secara langsung di dalam mikrokontroler.',
 
       metrics: [
         { num: '79,8%', desc: 'Peningkatan akurasi sudut sendi melalui koreksi closed-loop (0,51° ke 0,10°)' },
@@ -487,23 +487,23 @@ export const caseStudiesTranslations = {
       section01: {
         num: '01 / LATAR BELAKANG & SPESIFIKASI',
         title: 'Latar Belakang Proyek & Target Spesifikasi',
-        col1Title: 'Latar Belakang Logistik Rumah Sakit',
-        col1Text: 'Studi menunjukkan tenaga medis rumah sakit menghabiskan 20–25% jam kerja mereka untuk mengurus distribusi inventaris logistik rutin, dengan perawat berjalan kaki rata-rata hingga 2,96 km per giliran kerja (shift). Sebagian besar robot layanan rumah sakit saat ini hanya berfungsi sebagai pengantar otonom beroda tanpa kemampuan fisik untuk memuat atau mengambil barang secara mandiri karena tidak memiliki lengan robot manipulator.',
-        col1Text2: 'Penelitian Tugas Akhir ini mengatasi hambatan logistik tersebut dengan merancang prototipe lengan robot manipulator 5-DOF yang modular dan terjangkau, dirancang khusus untuk memegang benda rutin pasien rumah sakit (botol obat, baki makanan, cairan pembersih) berbobot 250 g hingga 1.000 g.',
+        col1Title: 'Efisiensi Pelayanan Logistik Rumah Sakit',
+        col1Text: 'Efisiensi pelayanan logistik di rumah sakit merupakan faktor penting dalam mengurangi beban kerja tenaga kesehatan. Studi menunjukkan tenaga medis rumah sakit menghabiskan 20–25% jam kerja mereka untuk mengurus distribusi inventaris logistik rutin, dengan perawat berjalan kaki rata-rata hingga 2,96 km per giliran kerja (shift). Sebagian besar robot pelayanan yang beroperasi saat ini hanya berfungsi sebagai pengantar barang tanpa kemampuan manipulasi objek secara mandiri, sehingga masih memerlukan intervensi manusia untuk memuat dan mengambil barang.',
+        col1Text2: 'Penelitian Tugas Akhir ini merancang dan mengimplementasikan manipulator arm 5-DOF sebagai komponen pendukung robot pelayanan pasien di rumah sakit, dengan target kapasitas beban 600 gram pada jangkauan kerja 400 mm untuk memegang benda rutin pasien (botol obat, baki makanan, dan cairan pembersih) berbobot 250 g hingga 1.000 g.',
         col2Title: 'Target Spesifikasi Teknis',
         specs: [
-          'Derajat Kebebasan: 5-DOF (Waist Yaw, Shoulder Pitch, Elbow Pitch, Wrist Pitch, Wrist Roll) + penjepit parallel jaw gripper.',
-          'Kapasitas Beban (Payload): 250 g nominal, tervalidasi stabil hingga 1.000 g puncak dengan kompensasi closed-loop.',
-          'Aktuasi & Transmisi: Motor stepper NEMA 17 dipadukan dengan custom Cycloidal Gearbox 3D PLA (bebas backlash roda gigi biasa).',
-          'Sensing & Umpan Balik: Sensor rotary magnetik 12-bit (AS5600) via I2C multiplexer TCA9548A untuk pemantauan sudut absolut poros output.',
-          'Kontroler: STM32F411CEU6 ARM Cortex-M4 (100 MHz, Hardware FPU) menjalankan solver Inverse Kinematics geometris secara real-time.',
+          'Target Jangkauan Kerja: Jangkauan radius horizontal 400 mm (Link a2 = 150 mm, Link a3 = 150 mm, Link d5 = 100 mm, Base d1 = 189 mm).',
+          'Target Kapasitas Beban: Kapasitas nominal 600 gram pada jangkauan kerja 400 mm, tervalidasi stabil hingga 1.000 gram di bawah kendali closed-loop.',
+          'Reduksi Transmisi: Transmisi Cycloidal Gearbox cetak 3D berbahan PLA dengan rasio 1:50 pada Joint 2 dan 1:25 pada Joint 1, 3, dan 4 untuk meminimalkan backlash.',
+          'Sensing & Umpan Balik: Sensor magnetic encoder AS5600 12-bit via multiplekser I2C TCA9548A untuk membaca posisi aktual sendi secara real-time.',
+          'Mikrokontroler & Kinematika: STM32F411CEU6 ARM Cortex-M4 mengeksekusi perhitungan Inverse Kinematics geometris secara analitis langsung di firmware.',
         ],
       },
 
       section02: {
         num: '02 / TRANSMISI MEKANIK & PERANCANGAN GEARBOX',
         title: 'Reduksi Roda Gigi Sikloidal (Cycloidal Gearbox) 3D PLA',
-        intro: 'Untuk mengatasi backlash yang besar (biasanya 1,5°–3,0°) dan biaya mahal pada gearbox planetary pasaran, transmisi cycloidal reduksi dirancang parametrik di Onshape dan dicetak 3D menggunakan filamen PLA dengan infill 100% pada komponen penahan beban:',
+        intro: 'Sistem mekanik dirancang menggunakan transmisi Cycloidal Gearbox cetak 3D berbahan PLA pada setiap sendi dengan rasio reduksi 1:50 untuk Joint 2 dan 1:25 untuk Joint 1, 3, dan 4, guna menghasilkan torsi keluaran yang memadai sekaligus meminimalkan backlash:',
         cadCaptions: [
           'Pose CAD 1: Posisi Home / Siaga Vertikal',
           'Pose CAD 2: Jangkauan Depan pada Ekstensi Nominal',
@@ -520,7 +520,7 @@ export const caseStudiesTranslations = {
       section03: {
         num: '03 / ARSITEKTUR EMBEDDED & KONTROL CLOSED-LOOP',
         title: 'Mikrokontroler STM32F411 & Multi-Sensing Magnetik',
-        intro: 'Sistem motor stepper open-loop rentan kehilangan langkah (step loss) dan defleksi mekanis saat mengangkat beban yang bervariasi. Untuk menjamin akurasi posisi absolut, arsitektur kendali loop tertutup (closed-loop) dua lapis diterapkan:',
+        intro: 'Untuk memastikan posisi sendi selalu sesuai target, diterapkan sistem kendali Closed Loop berbasis umpan balik sensor magnetic encoder AS5600 yang membaca posisi aktual sendi melalui multiplekser I2C TCA9548A:',
         archTitle: 'Arsitektur Sistem Kontrol Embedded',
         archText: 'STM32F411CEU6 "Black Pill" bertindak sebagai kontroler gerakan real-time utama, mengendalikan driver microstepping TB6600 melalui sinyal timer pulsa PWM frekuensi tinggi. Sudut sendi dibaca pada laju 50 Hz melalui I2C multiplexer (TCA9548A), mengatasi alamat bus bersama (0x36) dari empat sensor magnetik AS5600 yang dipasang langsung pada poros output.',
         card1Title: 'Algoritma Koreksi Loop Tertutup (Closed-Loop)',
@@ -532,7 +532,7 @@ export const caseStudiesTranslations = {
       section04: {
         num: '04 / KINEMATIKA & ANALISIS RUANG KERJA (WORKSPACE)',
         title: 'Inverse Kinematics Geometris Analitis',
-        intro: 'Untuk memetakan koordinat target kartesian (X, Y, Z, Pitch) di lingkungan rumah sakit ke sudut-sudut sendi aktuator (θ1, θ2, θ3, θ4, θ5), solver analitis Inverse Kinematics (IK) geometris diformulasikan dan diimplementasikan ke dalam firmware C:',
+        intro: 'Perhitungan Inverse Kinematics geometris analitis dieksekusi langsung di dalam mikrokontroler STM32F411CEU6, memungkinkan sistem menerima perintah koordinat target (X, Y, Z, Pitch) dan menggerakkan lengan secara otomatis:',
         tableHeader: ['SENDI (JOINT)', 'SUMBU GERAK', 'AKTUATOR & RASIO GEAR', 'RENTANG SUDUT', 'TIPE TRANSMISI'],
         tableRows: [
           ['Sendi 1 (Base / Waist)', 'Yaw (Rotasi sumbu Z)', 'NEMA 17 + Cycloidal 1:25', '-90° hingga +90° (total 180°)', 'Reduksi Sikloidal 3D PLA'],
@@ -546,7 +546,7 @@ export const caseStudiesTranslations = {
       section05: {
         num: '05 / VALIDASI EKSPERIMENTAL & METRIK KINERJA',
         title: 'Pengujian Kuantitatif & Hasil Closed-Loop',
-        intro: 'Validasi fisik dilakukan di laboratorium Teknik Elektro menggunakan berbagai konfigurasi beban (0 g, 250 g, 500 g, 750 g, 1.000 g) dan lintasan koordinat ruang 3D:',
+        intro: 'Pengujian kapasitas beban dan akurasi sudut membuktikan sistem kendali Closed Loop mampu menekan rata-rata error posisi sendi dari 0,51° menjadi 0,10° (peningkatan akurasi 79,8%) serta beroperasi stabil pada rentang beban 250 gram hingga 1.000 gram:',
         testHeader: ['PARAMETER PENGUJIAN', 'SISTEM OPEN-LOOP (BASELINE)', 'SISTEM CLOSED-LOOP (AS5600)', 'PENINGKATAN / STATUS'],
         testRows: [
           ['Error Sudut Sendi (Tanpa Beban)', 'Rata-rata error 0,51°', 'Rata-rata error 0,10°', 'Penurunan error sendi sebesar 79,8%'],
@@ -567,7 +567,7 @@ export const caseStudiesTranslations = {
       },
 
       bottomNav: {
-        next: 'Selanjutnya: Pendingin Panel Surya Otomatis',
+        next: 'Selanjutnya: Metode Pendinginan Panel Surya',
       },
     },
 
@@ -575,15 +575,15 @@ export const caseStudiesTranslations = {
     // 02. SOLAR COOLING CASE STUDY (ID)
     // ─────────────────────────────────────────────────────────────
     solarCooling: {
-      statusBadge: 'PROYEK DESAIN TERPADU (IDP) · UNIVERSITAS TELKOM (2025–2026)',
-      title: 'Sistem Pendingin Panel Surya Otomatis untuk Efisiensi Suhu Tinggi',
+      statusBadge: 'DOKUMEN PROYEK PERANCANGAN TERINTEGRASI (PPT / IDP) · UNIVERSITAS TELKOM',
+      title: 'Metode Pendinginan Panel Surya untuk Meningkatkan Efisiensi di Suhu Tinggi',
       authorName: 'Bayu Aji Trisasongko',
       authorRole: 'Koordinator Implementasi Hardware & Elektrikal',
       teamName: 'Tim Capstone IDP 6 (4 Anggota)',
       teamRole: 'S1 Teknik Elektro · Universitas Telkom',
       sdgName: 'Penyelarasan SDG 7',
       sdgRole: 'Energi Bersih & Terjangkau (Affordable & Clean Energy)',
-      heroDesc: 'Pengembangan dan pengujian luar ruangan sistem pendingin semprot air loop tertutup otomatis untuk panel fotovoltaik surya. Bekerja berdasarkan pemantauan suhu permukaan real-time dengan ambang batas otomatis (>30°C NYALA / <25°C MATI), kemandirian baterai off-grid, dan proteksi enclosure ABS tahan cuaca IPX4.',
+      heroDesc: 'Perancangan dan pengujian sistem pendinginan aktif panel surya menggunakan metode semprot air otomatis untuk mengatasi penurunan efisiensi akibat suhu tinggi. Beroperasi mandiri menggunakan sumber energi yang disimpan pada baterai (off-grid) dengan kontrol otomatis berbasis ambang suhu (>30°C aktif / <25°C mati), pompa celup 12V DC, serta enclosure tahan percikan air IPX4.',
 
       metrics: [
         { num: '>30°C / <25°C', desc: 'Ambang batas aktivasi otomatis pendinginan loop tertutup' },
@@ -593,18 +593,18 @@ export const caseStudiesTranslations = {
       ],
 
       section01: {
-        num: '01 / LATAR BELAKANG & MOTIVASI',
-        title: 'Penurunan Efisiensi Termal pada Pembangkit Listrik Fotovoltaik',
-        col1Title: 'Masalah Efisiensi Panel Surya Akibat Panas',
-        col1Text: 'Modul fotovoltaik silikon komersial memiliki koefisien suhu negatif (daya keluaran listrik berkurang sekitar -0,4% hingga -0,5% per kenaikan suhu 1°C di atas kondisi uji standar 25°C). Di iklim tropis seperti Indonesia, suhu permukaan panel surya tanpa pendingin sering melampaui 55°C–65°C saat terik siang hari, menyebabkan penurunan daya listrik lebih dari 15% serta mempercepat penuaan sel surya.',
-        col1Text2: 'Tim rekayasa capstone kami yang beranggotakan 4 orang (Tim 6) merancang subsistem pendingin permukaan otomatis yang mampu mendinginkan panel secara merata dan bekerja mandiri tanpa listrik PLN (off-grid).',
-        col2Title: 'Target Spesifikasi Utama',
+        num: '01 / LATAR BELAKANG & ANALISIS KEBUTUHAN',
+        title: 'Latar Belakang & Analisis Kebutuhan Sistem',
+        col1Title: 'Penurunan Efisiensi Panel Surya Akibat Suhu Tinggi',
+        col1Text: 'Energi surya merupakan sumber energi terbarukan yang bersih dan ramah lingkungan. Namun, tingkat efisiensi panel surya dalam menghasilkan listrik dapat menurun karena adanya peningkatan suhu. Ketika panel terpapar intensitas cahaya matahari yang terik di iklim tropis, suhu permukaan panel dapat meningkat melampaui 55°C–65°C. Peningkatan suhu ini menyebabkan penurunan tegangan karena meningkatnya nilai resistansi internal pada panel surya, dengan koefisien suhu daya sekitar -0,3%/°C hingga -0,5%/°C.',
+        col1Text2: 'Berdasarkan analisis kebutuhan dokumen IDP, sistem dirancang untuk mendinginkan panel surya secara otomatis menggunakan sumber energi yang disimpan pada baterai (off-grid), memiliki enclosure yang tahan terhadap air, serta bersifat universal agar dapat diaplikasikan ke berbagai jenis panel surya yang ada di pasaran.',
+        col2Title: 'Kebutuhan & Spesifikasi Desain',
         specs: [
-          'Ambang Batas Kerja: Pompa otomatis NYALA saat suhu >30°C; pompa otomatis MATI saat suhu kembali ke <25°C.',
-          'Akurasi Sensor Suhu: Sensor probe waterproof presisi terkalibrasi dengan deviasi hanya ±0,6°C terhadap termometer referensi.',
-          'Penyaluran Fluida: Pompa celup DC 12V menyalurkan kabut semprotan merata 4,02 liter/menit di atas permukaan modul.',
-          'Kemandirian Daya: Baterai aki 12V 8,5Ah sanggup mengoperasikan pompa lebih dari 4 jam terus-menerus tanpa jaringan PLN.',
-          'Ketahanan Lingkungan: Enclosure ABS tahan cuaca bersertifikasi IPX4 dengan konektor standar industri MC4.',
+          'Metode Pendinginan Aktif: Sistem semprot air fluida otomatis menggunakan pompa celup 12V DC berkapasitas semprot 4,02 L/menit.',
+          'Kontrol Ambang Suhu: Sistem menyala otomatis saat suhu permukaan >30°C dan mati saat suhu turun ke <25°C.',
+          'Sensor Suhu Terkalibrasi: Probe suhu tahan air dengan deviasi pengukuran ±0,6°C terhadap termometer referensi bersertifikat.',
+          'Kemandirian Energi (Off-Grid): Beroperasi menggunakan baterai mandiri 12V dengan daya tahan kontinu 4 jam 09 menit (102 Wh) tanpa pasokan listrik luar.',
+          'Proteksi Lingkungan: Enclosure pelindung elektrikal ABS tahan percikan air (IPX4) dengan terminal konektor surya MC4.',
         ],
       },
 
@@ -642,7 +642,7 @@ export const caseStudiesTranslations = {
       },
 
       bottomNav: {
-        prev: 'Sebelumnya: Lengan Manipulator 5-DOF',
+        prev: 'Sebelumnya: Manipulator Arm 5-DOF',
         next: 'Selanjutnya: Robot Basket (KRAI 2025)',
       },
     },

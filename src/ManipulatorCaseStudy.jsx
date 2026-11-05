@@ -70,8 +70,8 @@ export default function ManipulatorCaseStudy() {
           </div>
 
           {/* Right Column: Physical Testing Video Without Black Bars */}
-          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', maxWidth: '360px', display: 'flex', justifyContent: 'center' }}>
-            <div style={{ borderRadius: '8px', overflow: 'hidden', background: 'transparent', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', width: 'auto', maxWidth: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', maxWidth: '380px', display: 'flex', justifyContent: 'center' }}>
+            <div style={{ borderRadius: '8px', overflow: 'hidden', background: 'transparent', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', width: '100%', maxWidth: '380px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <video 
                 src="/videos/manipulator_arm_test.mp4" 
                 controls 
@@ -80,7 +80,7 @@ export default function ManipulatorCaseStudy() {
                 loop
                 playsInline
                 preload="metadata"
-                style={{ width: 'auto', height: 'auto', maxWidth: '100%', maxHeight: '420px', display: 'block', borderRadius: '8px', backgroundColor: 'transparent' }}
+                style={{ width: '100%', height: 'auto', aspectRatio: '1 / 1', objectFit: 'cover', display: 'block', borderRadius: '8px', backgroundColor: 'transparent' }}
               >
                 Your browser does not support HTML5 video.
               </video>

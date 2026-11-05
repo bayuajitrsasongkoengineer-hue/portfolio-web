@@ -38,8 +38,8 @@ export const translations = {
         slug: 'manipulator',
         number: '01',
         label: 'FINAL PROJECT',
-        title: 'Robot Manipulator 5-DOF',
-        summary: '5-DOF articulated robotic arm prototype powered by an STM32F411 microcontroller and 3D-printed cycloidal gearboxes. Integrates AS5600 magnetic encoders in a closed loop to reduce backlash, achieving 79.8% accuracy across 250–1,000 g loads.',
+        title: '5-DOF Manipulator Arm',
+        summary: 'Design of a Manipulator Arm for a Patient Service Robot in a Hospital powered by an STM32F411 microcontroller and 3D-printed cycloidal gearboxes. Integrates AS5600 magnetic encoders in a closed loop to reduce backlash, achieving 79.8% accuracy across 250–1,000 g loads.',
         tags: ['STM32F411 MCU', 'NEMA 17 Stepper', 'TB6600 Driver', 'AS5600 Sensor', 'TCA9548A Mux', 'Cycloidal Gearbox'],
         metrics: [
           ['79.8%', 'Joint Accuracy Improvement'],
@@ -52,8 +52,8 @@ export const translations = {
         slug: 'solar-cooling',
         number: '02',
         label: 'CAPSTONE DESIGN',
-        title: 'Pendingin Panel Surya Otomatis',
-        summary: 'Automated water spray cooling system to lower solar panel surface temperature driven by Arduino Uno. Uses temperature sensing and relay control to trigger a submersible pump above >30°C and shut down below <25°C to restore efficiency.',
+        title: 'Solar Panel Cooling Method',
+        summary: 'Automated solar panel cooling method to restore high-temperature efficiency in photovoltaic modules. Operates fully off-grid with an Arduino Uno, calibrated temperature sensing, and automated relay pump control triggered at >30°C and deactivated at <25°C.',
         tags: ['Arduino Uno R3', 'RTD Temp Sensor', '5V Relay Module', '12V Water Pump', '16x2 I2C LCD', '12V Battery Pack'],
         metrics: [
           ['>30°C / <25°C', 'Pump Trigger Threshold'],
@@ -334,8 +334,8 @@ export const translations = {
         slug: 'manipulator',
         number: '01',
         label: 'TUGAS AKHIR',
-        title: 'Robot Manipulator 5-DOF',
-        summary: 'Prototipe lengan robot manipulator 5-DOF berbasis mikrokontroler STM32F411 dan Cycloidal Gearbox 3D PLA. Menggunakan sensor magnetik AS5600 closed-loop untuk mereduksi backlash sendi, dengan akurasi posisi mencapai 79,8% pada rentang beban 250–1.000 gram.',
+        title: 'Robot Manipulator Arm 5-DOF',
+        summary: 'Perancangan Manipulator Arm untuk Robot Pelayanan Pasien di Rumah Sakit berbasis mikrokontroler STM32F411 dan Cycloidal Gearbox 3D PLA. Menerapkan kendali Closed Loop dengan sensor magnetic encoder AS5600 untuk menekan error sendi hingga 79,8% pada rentang beban 250–1.000 gram.',
         tags: ['STM32F411', 'NEMA 17 Stepper', 'Driver TB6600', 'Sensor AS5600', 'Mux TCA9548A', 'Gearbox 3D PLA'],
         metrics: [
           ['79.8%', 'Peningkatan Akurasi Sendi'],
@@ -348,8 +348,8 @@ export const translations = {
         slug: 'solar-cooling',
         number: '02',
         label: 'CAPSTONE DESIGN',
-        title: 'Pendingin Panel Surya Otomatis',
-        summary: 'Sistem penyemprot air otomatis untuk menurunkan suhu permukaan panel surya berbasis Arduino Uno. Menggunakan sensor suhu dan kontrol relay yang menyalakan pompa celup saat suhu panel mencapai >30°C dan mati saat kembali ke <25°C.',
+        title: 'Metode Pendinginan Panel Surya',
+        summary: 'Metode Pendinginan Panel Surya untuk Meningkatkan Efisiensi di Suhu Tinggi berbasis Arduino Uno. Menggunakan sistem semprot air otomatis off-grid yang menyalakan pompa celup saat suhu permukaan >30°C dan mati saat kembali ke <25°C.',
         tags: ['Arduino Uno R3', 'Sensor Suhu RTD', 'Modul Relay 5V', 'Pompa Celup 12V', 'LCD 16x2 I2C', 'Baterai Aki 12V'],
         metrics: [
           ['>30°C / <25°C', 'Batas Kerja Pompa'],
