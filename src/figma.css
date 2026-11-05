@@ -25,7 +25,7 @@
 /* HEADER */
 .fh-header { height: 70px; padding: 0 max(72px, calc((100vw - 1296px) / 2)); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--fx-gray-border); background: #fff; position: sticky; top: 0; z-index: 50; }
 .fh-brand { display: flex; align-items: center; gap: 12px; }
-.fh-mark { width: 40px; height: 40px; display: grid; place-items: center; background: var(--fx-orange); color: #fff; font-size: 15px; font-weight: 800; transition: transform 0.2s ease; border-radius: 2px; }
+.fh-mark { width: 40px; height: 40px; display: block; object-fit: cover; object-position: center; border-radius: 4px; border: 1px solid rgba(0, 0, 0, 0.08); transition: transform 0.2s ease; }
 .fh-mark:hover { transform: scale(1.04); }
 .fh-identity strong, .fh-identity small { display: block; }
 .fh-identity strong { font-size: 14px; font-weight: 700; color: #111827; }

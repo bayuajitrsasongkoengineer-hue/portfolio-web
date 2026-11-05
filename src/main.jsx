@@ -669,10 +669,14 @@ function FigmaHeader({ activeSection = '' }) {
   return (
     <header className="fh-header">
       <a href="/" className="fh-brand">
-        <span className="fh-mark">BA.</span>
+        <img 
+          src="/images/profile.png" 
+          alt="Bayu Aji Trisasongko" 
+          className="fh-mark fh-brand-avatar" 
+        />
         <span className="fh-identity">
           <strong>Bayu Aji Trisasongko</strong>
-          <small>SEMARANG, CENTRAL JAVA</small>
+          <small>{t.nav.location || (lang === 'id' ? 'SEMARANG, JAWA TENGAH' : 'SEMARANG, CENTRAL JAVA')}</small>
         </span>
       </a>
 

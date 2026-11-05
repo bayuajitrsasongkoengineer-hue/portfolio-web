@@ -18,6 +18,7 @@ export const translations = {
         ['organizations', 'Organizations'],
         ['contact', 'Contact'],
       ],
+      location: 'SEMARANG, CENTRAL JAVA',
       available: 'OPEN TO WORK',
     },
     hero: {
@@ -314,6 +315,7 @@ export const translations = {
         ['organizations', 'Organisasi'],
         ['contact', 'Kontak'],
       ],
+      location: 'SEMARANG, JAWA TENGAH',
       available: 'OPEN TO WORK',
     },
     hero: {
