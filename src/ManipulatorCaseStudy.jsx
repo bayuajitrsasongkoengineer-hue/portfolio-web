@@ -288,9 +288,9 @@ export default function ManipulatorCaseStudy() {
               <span><strong>{isId ? 'Rasio Sendi 2:' : 'Joint 2 Ratio:'}</strong> {isId ? 'Reduksi Sikloidal 1:50' : '1:50 Cycloidal Reduction'}</span>
               <span><strong>{isId ? 'Rasio Sendi 1, 3, 4:' : 'Joint 1, 3, 4 Ratio:'}</strong> {isId ? 'Reduksi Sikloidal 1:25' : '1:25 Cycloidal Reduction'}</span>
               <span><strong>{isId ? 'Material:' : 'Material:'}</strong> {isId ? '3D-Printed PLA Infill 100%' : '3D-Printed PLA'}</span>
-              <span><strong>{isId ? 'Torsi Output Teoritis:' : 'Theoretical Output Torque:'}</strong> 10.0 Nm ({isId ? 'Sendi 2' : 'Joint 2'})</span>
-              <span><strong>{isId ? 'Kapasitas Angkat Maksimal:' : 'Theoretical Max Payload:'}</strong> 1.50 kg ({isId ? 'jangkauan 400 mm' : 'at 400 mm reach'})</span>
-              <span><strong>{isId ? 'Efisiensi Transmisi Nyata:' : 'Actual Transmission Efficiency:'}</strong> 40.1% ({isId ? 'dari uji empiris beban' : 'empirically derived from load trials'})</span>
+              <span><strong>{isId ? 'Torsi Output Teoretis:' : 'Theoretical Output Torque:'}</strong> {isId ? '10,0 Nm' : '10.0 Nm'} ({isId ? 'Sendi 2' : 'Joint 2'})</span>
+              <span><strong>{isId ? 'Kapasitas Beban Teoretis:' : 'Theoretical Max Payload:'}</strong> {isId ? '1,50 kg' : '1.50 kg'} ({isId ? 'jangkauan 400 mm' : 'at 400 mm reach'})</span>
+              <span><strong>{isId ? 'Efisiensi Transmisi Aktual:' : 'Actual Transmission Efficiency:'}</strong> {isId ? '40,1%' : '40.1%'} ({isId ? 'dari uji empiris beban' : 'empirically derived from load trials'})</span>
             </div>
           </div>
 
