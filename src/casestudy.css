@@ -1180,6 +1180,9 @@
   .cs-hardware-legend-grid {
     grid-template-columns: 1fr;
   }
+  .cs-hardware-legend-item {
+    grid-column: span 1 !important;
+  }
 }
 
 /* ── 2x2 Metrics Grid ─────────────────────────────────────────────────────── */

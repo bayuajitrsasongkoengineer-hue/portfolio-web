@@ -146,7 +146,7 @@ export default function SolarCoolingCaseStudy() {
             onClick={() => openZoom(
               '/images/solar_cooling_architecture.jpeg', 
               isId ? 'Tata Letak Fisik Sistem Pendingin Panel Surya' : 'Solar Panel Cooling Physical Layout', 
-              isId ? 'Diagram skematik: (1) Panel surya, (2) Probe sensor suhu, (3) Kotak mikrokontroler & relay, (4) Pompa air celup, (5) Tangki penampung, (6) Pipa manifold semprot, (7) Layar LCD' : 'Schematic diagram illustrating (1) Solar panel, (2) Temperature sensor probe, (3) Microcontroller & relay box, (4) Submersible water pump, (5) Reservoir tank, (6) Perforated spray manifold, (7) LCD display'
+              isId ? 'Diagram skematik: (1) Panel surya, (2) Probe sensor suhu RTD PT1000, (3) Kotak mikrokontroler & relay, (4) Pompa air DC 12V MOLLAR, (5) Tangki penampung, (6) Pipa manifold semprot, (7) Layar LCD' : 'Schematic diagram illustrating (1) Solar panel, (2) PT1000 RTD temperature probe, (3) Microcontroller & relay box, (4) 12V DC MOLLAR water pump, (5) Reservoir tank, (6) Perforated spray manifold, (7) LCD display'
             )}
             title={c.clickToZoom}
           >
@@ -354,7 +354,7 @@ export default function SolarCoolingCaseStudy() {
                 <tr>
                   <td><strong>{isId ? 'Ketahanan Operasi Baterai' : 'Battery Operational Endurance'}</strong></td>
                   <td><strong>4 {isId ? 'jam' : 'hours'} 09 {isId ? 'menit' : 'minutes'}</strong></td>
-                  <td>{isId ? 'Baterai 12V 10Ah menyuplai beban pompa celup, mikrokontroler, dan sensor (>25W)' : '12V 10Ah battery powering pump, MCU, and sensors (>25W load)'}</td>
+                  <td>{isId ? 'Baterai 12V 10Ah menyuplai beban pompa air DC 12V MOLLAR, mikrokontroler, dan sensor (>25W)' : '12V 10Ah battery powering 12V DC MOLLAR pump, MCU, and sensors (>25W load)'}</td>
                 </tr>
                 <tr>
                   <td><strong>{isId ? 'Cakupan Jam Terik Matahari' : 'Peak Solar Window Coverage'}</strong></td>

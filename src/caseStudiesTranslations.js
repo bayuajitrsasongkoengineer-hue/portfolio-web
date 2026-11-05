@@ -163,7 +163,7 @@ export const caseStudiesTranslations = {
         specs: [
           'Actuation Thresholds: Automatic pump ON at >30°C; automatic pump OFF at <25°C.',
           'Temperature Sensing Accuracy: High-precision waterproof probe calibrated within ±0.6°C against reference thermometer.',
-          'Fluid Delivery: 12V DC submersible pump delivering 4.02 L/min uniform mist across PV surface.',
+          'Fluid Delivery: 12V DC MOLLAR water pump delivering 4.02 L/min uniform spray across PV surface.',
           'Autonomy & Power: Dedicated 12V 8.5Ah battery providing >4 hours continuous pump runtime without grid connection.',
           'Environmental Enclosure: Weatherproof ABS enclosure rated IPX4 with external MC4 quick-connect terminals.',
         ],
@@ -583,7 +583,7 @@ export const caseStudiesTranslations = {
       teamRole: 'S1 Teknik Elektro · Universitas Telkom',
       sdgName: 'Penyelarasan SDG 7',
       sdgRole: 'Energi Bersih & Terjangkau (Affordable & Clean Energy)',
-      heroDesc: 'Perancangan dan pengujian sistem pendinginan aktif panel surya menggunakan metode semprot air otomatis untuk mengatasi penurunan efisiensi akibat suhu tinggi. Beroperasi mandiri menggunakan sumber energi yang disimpan pada baterai (off-grid) dengan kontrol otomatis berbasis ambang suhu (>30°C aktif / <25°C mati), pompa celup 12V DC, serta enclosure tahan percikan air IPX4.',
+      heroDesc: 'Perancangan dan pengujian sistem pendinginan aktif panel surya menggunakan metode semprot air otomatis untuk mengatasi penurunan efisiensi akibat suhu tinggi. Beroperasi mandiri menggunakan sumber energi yang disimpan pada baterai (off-grid) dengan kontrol otomatis berbasis ambang suhu (>30°C aktif / <25°C mati), pompa air DC 12V MOLLAR, serta enclosure tahan percikan air IPX4.',
 
       metrics: [
         { num: '>30°C / <25°C', desc: 'Ambang batas aktivasi otomatis pendinginan loop tertutup' },
@@ -600,7 +600,7 @@ export const caseStudiesTranslations = {
         col1Text2: 'Berdasarkan analisis kebutuhan dokumen IDP, sistem dirancang untuk mendinginkan panel surya secara otomatis menggunakan sumber energi yang disimpan pada baterai (off-grid), memiliki enclosure yang tahan terhadap air, serta bersifat universal agar dapat diaplikasikan ke berbagai jenis panel surya yang ada di pasaran.',
         col2Title: 'Kebutuhan & Spesifikasi Desain',
         specs: [
-          'Metode Pendinginan Aktif: Sistem semprot air fluida otomatis menggunakan pompa celup 12V DC berkapasitas semprot 4,02 L/menit.',
+          'Metode Pendinginan Aktif: Sistem semprot air fluida otomatis menggunakan pompa air DC 12V MOLLAR berkapasitas semprot 4,02 L/menit.',
           'Kontrol Ambang Suhu: Sistem menyala otomatis saat suhu permukaan >30°C dan mati saat suhu turun ke <25°C.',
           'Sensor Suhu Terkalibrasi: Probe suhu tahan air dengan deviasi pengukuran ±0,6°C terhadap termometer referensi bersertifikat.',
           'Kemandirian Energi (Off-Grid): Beroperasi menggunakan baterai mandiri 12V dengan daya tahan kontinu 4 jam 09 menit (102 Wh) tanpa pasokan listrik luar.',

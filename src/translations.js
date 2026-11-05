@@ -351,8 +351,8 @@ export const translations = {
         number: '02',
         label: 'CAPSTONE DESIGN',
         title: 'Metode Pendinginan Panel Surya',
-        summary: 'Metode Pendinginan Panel Surya untuk Meningkatkan Efisiensi di Suhu Tinggi berbasis Arduino Uno. Menggunakan sistem semprot air otomatis off-grid yang menyalakan pompa celup saat suhu permukaan >30°C dan mati saat kembali ke <25°C.',
-        tags: ['Arduino Uno R3', 'Sensor Suhu RTD', 'Modul Relay 5V', 'Pompa Celup 12V', 'LCD 16x2 I2C', 'Baterai Aki 12V'],
+        summary: 'Metode Pendinginan Panel Surya untuk Meningkatkan Efisiensi di Suhu Tinggi berbasis Arduino Uno. Menggunakan sistem semprot air otomatis off-grid yang menyalakan pompa air DC saat suhu permukaan >30°C dan mati saat kembali ke <25°C.',
+        tags: ['Arduino Uno R3', 'Sensor RTD PT1000', 'Modul Relay 5V', 'Pompa Air DC 12V', 'LCD 16x2 I2C', 'Baterai 12V'],
         metrics: [
           ['>30°C / <25°C', 'Batas Kerja Pompa'],
           ['±0.6°C', 'Akurasi Pembacaan Sensor'],
