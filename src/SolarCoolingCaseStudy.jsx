@@ -67,7 +67,8 @@ export default function SolarCoolingCaseStudy() {
             </div>
           </div>
 
-          <div className="cs-hero-split-right" style={{ alignSelf: 'center' }}>
+          {/* Right Column: Clean Hardware Photo Aligned Right */}
+          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
             <img 
               src="/images/solar_cooling_hardware_real.jpeg" 
               alt="Assembled Solar Panel Automated Cooling Test Rig"
@@ -75,7 +76,7 @@ export default function SolarCoolingCaseStudy() {
               onClick={() => openZoom(
                 '/images/solar_cooling_hardware_real.jpeg', 
                 isId ? 'Rig Pengujian Alat Pendingin Panel Surya Otomatis' : 'Assembled Solar Panel Cooling Apparatus', 
-                isId ? 'Peralatan pengujian lengkap: (a) Kotak kontrol Arduino & relay, (b) Pipa penyalur keluar, (c) Pompa celup DC 12V, (d) Probe sensor suhu, (e) Selang hisap inlet' : 'Full test apparatus: (a) Control center with Arduino & relay, (b) Water outlet tube, (c) 12V DC water pump, (d) Temperature probe, (e) Water inlet suction hose'
+                isId ? 'Peralatan pengujian lengkap: (a) Kotak kontrol Arduino & relay, (b) Pipa penyalur keluar, (c) Pompa air DC 12V, (d) Sensor suhu PT1000, (e) Selang hisap inlet' : 'Full test apparatus: (a) Control center with Arduino & relay, (b) Water outlet tube, (c) 12V DC water pump, (d) PT1000 temperature probe, (e) Water inlet suction hose'
               )}
               title={c.clickToZoom}
             />
