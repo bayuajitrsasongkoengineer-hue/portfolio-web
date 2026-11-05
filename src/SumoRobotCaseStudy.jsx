@@ -71,10 +71,10 @@ export default function SumoRobotCaseStudy() {
             </div>
           </div>
 
-          <div className="cs-hero-split-right">
+          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
             <div 
               className="cs-media-card" 
-              style={{ height: 'auto', minHeight: '340px', flexDirection: 'column', padding: 0 }}
+              style={{ width: '100%', maxWidth: '440px', marginLeft: 'auto', height: 'auto', minHeight: '340px', flexDirection: 'column', padding: 0 }}
               onClick={() => openZoom(
                 '/images/sumo_iso.png', 
                 isId ? 'Desain CAD Isometrik Robot Sumo' : 'Sumo Robot CAD Isometric View', 

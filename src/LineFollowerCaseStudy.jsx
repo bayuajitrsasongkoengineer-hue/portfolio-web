@@ -67,7 +67,7 @@ export default function LineFollowerCaseStudy() {
             </div>
           </div>
 
-          <div className="cs-hero-split-right" style={{ alignSelf: 'center' }}>
+          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
             <img 
               src="/images/line_follower_real.png" 
               alt="Autonomous Line Follower Robot Hand-Built Prototype"

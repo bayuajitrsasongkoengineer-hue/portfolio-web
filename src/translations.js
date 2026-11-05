@@ -67,7 +67,7 @@ export const translations = {
         slug: 'krai-2025',
         number: '03',
         label: 'KONTES ROBOT ABU INDONESIA (KRAI)',
-        title: 'Kompetisi Robot Basket',
+        title: 'Basketball Competition Robot',
         summary: 'Mobile basketball robot for Kontes Robot ABU Indonesia (KRAI). Served as a core mechanical team member designing the shooter, dribbler, and drive wheel configuration, advancing to the National Stage at ITB Jatinangor.',
         tags: ['6-Bar Pneumatics', '24V Solenoid', 'RS775 DC Motor', 'Omniwheel Drive', 'Limit Switch & IR', 'Air Regulator'],
         metrics: [
@@ -80,8 +80,8 @@ export const translations = {
       {
         slug: 'line-follower',
         number: '04',
-        label: 'PROYEK MANDIRI',
-        title: 'Robot Line Follower',
+        label: 'INDEPENDENT BUILD',
+        title: 'Autonomous Line Follower Robot',
         summary: 'Autonomous line-tracking robot featuring differential drive steering. Equipped with an 8-sensor bar built from LED and photodiode pairs, an Arduino Nano microcontroller, a TB6612FNG driver, and micro N20 metal gear motors.',
         tags: ['Photodiode Array', 'Arduino Nano', 'TB6612 Driver', 'N20 Gear Motor', '0.96" I2C OLED', '2S Li-ion Battery'],
         metrics: [
@@ -94,9 +94,9 @@ export const translations = {
       {
         slug: 'sumo-robot',
         number: '05',
-        label: 'PROYEK MANDIRI',
-        title: 'Robot Sumo',
-        summary: '1 kg competition-class sumo robot (20 × 20 cm) built on an acrylic chassis with a front aluminum scoop. Delivers 4 kg push force via 4 PG24 planetary gear motors, steered wirelessly from a smartphone via Bluetooth connection.',
+        label: 'INDEPENDENT BUILD',
+        title: '1 kg Combat Sumo Robot',
+        summary: '1 kg competition-class sumo robot (20 × 20 cm) built on an acrylic chassis with a front aluminum scoop. Powered by 4 PG24 planetary gear motors, steered wirelessly from a smartphone via Bluetooth connection.',
         tags: ['Arduino Uno', '4× PG24 Motors', 'L298N Driver', 'HC-05 Bluetooth', '3S LiPo Battery', 'Acrylic Chassis'],
         metrics: [
           ['1 kg / 20×20 cm', 'Competition Class Limit'],

@@ -66,7 +66,7 @@ export default function KRAICaseStudy() {
             </div>
           </div>
 
-          <div className="cs-hero-split-right" style={{ alignSelf: 'center' }}>
+          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
             <img 
               src="/images/krai_robot_hero.png" 
               alt="Team ROOBICS Competition Basketball Robot Full Assembly"
