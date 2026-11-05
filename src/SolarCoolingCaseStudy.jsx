@@ -82,10 +82,6 @@ export default function SolarCoolingCaseStudy() {
                 title={c.clickToZoom}
               />
               <div className="cs-hardware-legend">
-                <div className="cs-hardware-legend-title">
-                  <span>{isId ? 'Keterangan Gambar 5.1 (Perangkat Keras):' : 'Hardware Legend — Figure 5.1 (CD Report):'}</span>
-                  <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: 500 }}>CD Hal. 44</span>
-                </div>
                 <div className="cs-hardware-legend-grid">
                   <div className="cs-hardware-legend-item">
                     <strong>(a)</strong> {isId ? 'Pusat kendali (Arduino Uno & Relay)' : 'Control center (Arduino & Relay)'}
