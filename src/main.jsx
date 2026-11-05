@@ -591,7 +591,7 @@ function Eyebrow({ index, children }) { return <div className="eyebrow"><span>{i
 function Header() {
   const [open, setOpen] = useState(false);
   const links = [['Projects', '#projects'], ['Experience', '#experience'], ['Skills', '#skills'], ['Education', '#education'], ['Contact', '#contact']];
-  return <header className="site-header"><a href="/" className="brand"><span className="brand-mark">BA<span>.</span></span><span className="brand-name">Bayu Aji Trisasongko<small>Electrical engineering · Robotics</small></span></a><button className="menu-toggle" aria-label={open ? 'Close navigation' : 'Open navigation'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button><nav className={open ? 'navigation is-open' : 'navigation'}>{links.map(([label, href]) => <a key={label} href={href} onClick={() => setOpen(false)}>{label}</a>)}<span className="location">SEMARANG, ID</span></nav></header>;
+  return <header className="site-header"><a href="/" className="brand"><img src="/favicon.png" alt="Manipulator Arm Logo" style={{ width: "32px", height: "32px", borderRadius: "6px", objectFit: "contain" }} /><span className="brand-name">Bayu Aji Trisasongko<small>Electrical engineering · Robotics</small></span></a><button className="menu-toggle" aria-label={open ? 'Close navigation' : 'Open navigation'} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button><nav className={open ? 'navigation is-open' : 'navigation'}>{links.map(([label, href]) => <a key={label} href={href} onClick={() => setOpen(false)}>{label}</a>)}<span className="location">SEMARANG, ID</span></nav></header>;
 }
 
 function ProjectCard({ project }) {
