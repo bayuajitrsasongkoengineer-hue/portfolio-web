@@ -1285,3 +1285,17 @@
     height: 180px;
   }
 }
+
+/* ── Hero Video Right-Aligned Wrapper ── */
+.cs-hero-video-wrap {
+  width: 100%;
+  max-width: 390px;
+  margin-left: auto;
+}
+
+@media (max-width: 900px) {
+  .cs-hero-video-wrap {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

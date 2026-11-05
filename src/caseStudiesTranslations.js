@@ -72,10 +72,10 @@ export const caseStudiesTranslations = {
         ],
         card1Title: 'Cycloidal Gearbox Architecture & Kinematics',
         card1Text: 'Cycloidal drives transmit torque via rolling contact between cycloidal disc lobes and stationary ring pins, distributing mechanical load across multiple simultaneous contact points. This virtually eliminates catastrophic tooth shearing and drastically minimizes mechanical backlash compared to spur gears.',
-        card1Text2: 'For Joint 2 (Shoulder Pitch), which experiences the maximum static cantilever bending moment (1.96 Nm with 500 g load at 400 mm), a high-ratio 1:50 reduction was engineered using dual opposing cycloidal discs offset by 180° for dynamic counterbalancing. Joints 1, 3, and 4 utilize compact 1:25 reduction units.',
-        card2Title: 'Fabrication Parameters & Bearing Preload',
-        card2Text: 'Printed on tuned FDM 3D printers using PLA filament at 0.16 mm layer height with 100% concentric infill for discs and pin rings. Steel dowel pins (3 mm diameter) and deep-groove 6800/608 bearings were pressed into tolerance-calibrated sockets to achieve smooth rolling action without binding.',
-        card2Text3: 'Assembly tolerance: Discs printed with -0.08 mm radial offset compensation to ensure smooth meshing without slop.',
+        card1Text2: 'Joint 2 (Shoulder Pitch) experiences the highest gravity moment when the arm is extended horizontally. With a 1:50 reduction ratio on the NEMA 17 stepper (0.40 Nm) and 50% baseline efficiency, theoretical output torque reaches 10.00 Nm. Subtracting arm gravity moment (4.102 Nm at 246 mm CoG) leaves 5.898 Nm of payload torque, achieving a theoretical payload capacity of 1.50 kg at 400 mm reach. Joints 1, 3, and 4 utilize 1:25 reduction units.',
+        card2Title: '3D-Printed Transmission Fabrication & Mechanical Clearance',
+        card2Text: 'The cycloidal drives were fabricated via FDM 3D printing using PLA filament with 100% dense infill for both cycloidal discs and pin rings. The rolling contact design distributes mechanical loads across multiple contact points simultaneously to prevent tooth shearing.',
+        card2Text3: 'Assembly tolerance: Mechanical clearance between the lobed discs and ring pins was calibrated precisely to guarantee smooth rotation without binding while minimizing backlash.',
       },
 
       section03: {
@@ -87,7 +87,7 @@ export const caseStudiesTranslations = {
         card1Title: 'Closed-Loop Correction Algorithm',
         card1Text: 'The controller continuously compares the commanded joint angle against the true shaft angle reported by the AS5600 encoder (12-bit resolution = 0.0878° per LSB). When structural deflection or gear compliance causes an angular error exceeding the threshold, proportional correction micro-steps are injected dynamically until the joint settles within ±0.10° of the setpoint.',
         card2Title: 'TCA9548A Bus Multiplexing',
-        card2Text: 'Because the AS5600 magnetic encoder has a fixed hardware I2C address (0x36), direct multi-sensor connection on a single bus is impossible. A TCA9548A 8-channel I2C switch was integrated, allowing the STM32 to cyclically poll each joint sensor sequentially within a 20 ms control loop window.',
+        card2Text: 'Because the AS5600 magnetic encoder has a fixed hardware I2C address (0x36), direct multi-sensor connection on a single bus is impossible. A TCA9548A I2C multiplexer was integrated, enabling the STM32 to switch channels and read true joint angles sequentially across all four sensors over the shared I2C bus (PB8 SCL, PB9 SDA).',
       },
 
       section04: {
@@ -511,10 +511,10 @@ export const caseStudiesTranslations = {
         ],
         card1Title: 'Arsitektur & Kinematika Cycloidal Gearbox',
         card1Text: 'Transmisi sikloidal mentransmisikan torsi melalui kontak gulir (rolling contact) antara tonjolan piringan sikloidal dan pin cincin stasioner, mendistribusikan beban mekanis ke banyak titik kontak secara bersamaan. Hal ini meniadakan risiko patahnya gigi transmisi dan meminimalkan backlash secara signifikan dibandingkan roda gigi spur.',
-        card1Text2: 'Untuk Sendi 2 (Shoulder Pitch) yang menahan momen lentur kantilever terbesar (1,96 Nm pada beban 500 g di jarak 400 mm), dirancang reduksi rasio tinggi 1:50 menggunakan piringan sikloidal ganda berlawanan fase 180° untuk keseimbangan dinamis. Sendi 1, 3, dan 4 menggunakan modul reduksi kompak 1:25.',
-        card2Title: 'Parameter Fabrikasi & Preload Bantalan (Bearing)',
-        card2Text: 'Dicetak pada printer 3D FDM terkalibrasi dengan filamen PLA, tinggi layer 0,16 mm, dan infill konsentris 100% pada piringan dan cincin pin. Pin baja (diameter 3 mm) dan bantalan presisi 6800/608 dipasang press-fit ke soket terkalibrasi agar putaran lancar tanpa slip maupun macet.',
-        card2Text3: 'Toleransi perakitan: Piringan dicetak dengan kompensasi offset radial -0,08 mm untuk memastikan gerakan meshing yang presisi.',
+        card1Text2: 'Sendi 2 (Shoulder Pitch) menanggung momen gravitasi terbesar saat lengan terentang horizontal. Dengan rasio reduksi 1:50 pada motor NEMA 17 (0,40 Nm) dan asumsi efisiensi awal 50%, torsi keluaran teoretis mencapai 10,00 Nm. Setelah dikurangi momen gravitasi struktur lengan (4,102 Nm pada titik berat 246 mm), tersedia sisa torsi 5,898 Nm yang menghasilkan kapasitas angkat teoretis hingga 1,50 kg pada jangkauan 400 mm. Sendi 1, 3, dan 4 menggunakan modul reduksi 1:25.',
+        card2Title: 'Fabrikasi Transmisi Cetak 3D & Penyesuaian Celah Mekanik',
+        card2Text: 'Transmisi Cycloidal Gearbox difabrikasi menggunakan metode 3D printing FDM berbahan filamen PLA dengan infill padat 100% pada cakram sikloidal dan cincin pin. Desain kontak menggelinding mendistribusikan beban ke banyak titik kontak secara simultan untuk mencegah kerusakan gigi transmisi.',
+        card2Text3: 'Toleransi perakitan: Celah mekanik (clearance) antara cakram berlobus dan cincin pin disesuaikan secara presisi agar transmisi dapat berputar mulus tanpa macet sekaligus meminimalkan celah bebas (backlash).',
       },
 
       section03: {
@@ -526,7 +526,7 @@ export const caseStudiesTranslations = {
         card1Title: 'Algoritma Koreksi Loop Tertutup (Closed-Loop)',
         card1Text: 'Kontroler secara kontinu membandingkan sudut sendi target dengan sudut nyata yang dibaca oleh sensor magnetik AS5600 (resolusi 12-bit = 0,0878° per LSB). Saat defleksi struktural atau kelonggaran mekanik menyebabkan error sudut melebihi ambang batas, mikro-langkah koreksi disuntikkan secara dinamis hingga posisi sendi stabil dalam toleransi ±0,10° dari target.',
         card2Title: 'Multipleksing Bus I2C dengan TCA9548A',
-        card2Text: 'Karena sensor magnetik AS5600 memiliki alamat hardware I2C tetap (0x36), menghubungkan banyak sensor secara langsung pada satu bus tidak dimungkinkan. Chip switch TCA9548A 8-channel diintegrasikan, memungkinkan STM32 melakukan polling berurutan ke setiap sensor sendi dalam siklus kendali 20 ms.',
+        card2Text: 'Karena sensor magnetik AS5600 memiliki alamat hardware I2C tetap (0x36), menghubungkan banyak sensor secara langsung pada satu bus tidak dimungkinkan. Chip multiplekser TCA9548A diintegrasikan, memungkinkan STM32 beralih antar-kanal dan membaca data sudut aktual dari keempat sensor sendi secara berurutan pada bus I2C (PB8 SCL, PB9 SDA).',
       },
 
       section04: {

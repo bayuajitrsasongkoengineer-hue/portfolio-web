@@ -69,9 +69,9 @@ export default function ManipulatorCaseStudy() {
             </div>
           </div>
 
-          {/* Right Column: Physical Testing Video Without Black Bars */}
-          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', maxWidth: '380px', display: 'flex', justifyContent: 'center' }}>
-            <div style={{ borderRadius: '8px', overflow: 'hidden', background: 'transparent', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', width: '100%', maxWidth: '380px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          {/* Right Column: Physical Testing Video - Right Aligned for Balanced Proportions */}
+          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+            <div className="cs-hero-video-wrap" style={{ borderRadius: '8px', overflow: 'hidden', background: 'transparent', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', width: '100%', maxWidth: '390px', marginLeft: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <video 
                 src="/videos/manipulator_arm_test.mp4" 
                 controls 
