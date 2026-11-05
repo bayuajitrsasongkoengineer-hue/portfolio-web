@@ -1112,7 +1112,7 @@
 .cs-hero-clean-photo {
   width: 100%;
   max-width: 480px;
-  height: 300px;
+  height: 280px;
   object-fit: contain;
   display: block;
   margin-left: auto;
@@ -1129,6 +1129,66 @@
   .cs-hero-clean-photo {
     margin-left: auto;
     margin-right: auto;
+    height: 240px;
+  }
+}
+
+/* ── Hardware Figure Legend (CD.pdf Gambar 5.1 Callouts) ──────────────────── */
+.cs-hardware-legend {
+  margin-top: 10px;
+  margin-left: auto;
+  padding: 10px 14px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #334155;
+  width: 100%;
+  max-width: 480px;
+  box-sizing: border-box;
+}
+
+.cs-hardware-legend-title {
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 6px;
+  font-size: 11.5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cs-hardware-legend-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+}
+
+.cs-hardware-legend-item {
+  font-size: 11.5px;
+  color: #475569;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.cs-hardware-legend-item strong {
+  color: #EA580C;
+  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+}
+
+@media (max-width: 900px) {
+  .cs-hardware-legend {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .cs-hardware-legend-grid {
+    grid-template-columns: 1fr;
   }
 }
 

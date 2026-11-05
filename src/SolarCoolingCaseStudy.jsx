@@ -67,19 +67,44 @@ export default function SolarCoolingCaseStudy() {
             </div>
           </div>
 
-          {/* Right Column: Clean Hardware Photo Aligned Right */}
-          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-            <img 
-              src="/images/solar_cooling_hardware_real.jpeg" 
-              alt="Assembled Solar Panel Automated Cooling Test Rig"
-              className="cs-hero-clean-photo"
-              onClick={() => openZoom(
-                '/images/solar_cooling_hardware_real.jpeg', 
-                isId ? 'Rig Pengujian Alat Pendingin Panel Surya Otomatis' : 'Assembled Solar Panel Cooling Apparatus', 
-                isId ? 'Peralatan pengujian lengkap: (a) Kotak kontrol Arduino & relay, (b) Pipa penyalur keluar, (c) Pompa air DC 12V, (d) Sensor suhu PT1000, (e) Selang hisap inlet' : 'Full test apparatus: (a) Control center with Arduino & relay, (b) Water outlet tube, (c) 12V DC water pump, (d) PT1000 temperature probe, (e) Water inlet suction hose'
-              )}
-              title={c.clickToZoom}
-            />
+          {/* Right Column: Clean Hardware Photo & CD.pdf Legend Aligned Right */}
+          <div className="cs-hero-split-right" style={{ alignSelf: 'center', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+            <div style={{ maxWidth: '480px', width: '100%' }}>
+              <img 
+                src="/images/solar_cooling_hardware_real.jpeg" 
+                alt="Assembled Solar Panel Automated Cooling Test Rig"
+                className="cs-hero-clean-photo"
+                onClick={() => openZoom(
+                  '/images/solar_cooling_hardware_real.jpeg', 
+                  isId ? 'Gambar 5.1 Perangkat Keras Sistem Pendinginan Panel Surya' : 'Figure 5.1 Solar Panel Automated Cooling Hardware Rig', 
+                  isId ? 'Dokumentasi otentik pengujian fisik: (a) pusat kendali, (b) selang output air, (c) pompa air, (d) sensor suhu, dan (e) selang input air' : 'Authentic physical test apparatus: (a) control center, (b) water output hose, (c) water pump, (d) temperature sensor, and (e) water inlet hose'
+                )}
+                title={c.clickToZoom}
+              />
+              <div className="cs-hardware-legend">
+                <div className="cs-hardware-legend-title">
+                  <span>{isId ? 'Keterangan Gambar 5.1 (Perangkat Keras):' : 'Hardware Legend — Figure 5.1 (CD Report):'}</span>
+                  <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: 500 }}>CD Hal. 44</span>
+                </div>
+                <div className="cs-hardware-legend-grid">
+                  <div className="cs-hardware-legend-item">
+                    <strong>(a)</strong> {isId ? 'Pusat kendali (Arduino Uno & Relay)' : 'Control center (Arduino & Relay)'}
+                  </div>
+                  <div className="cs-hardware-legend-item">
+                    <strong>(b)</strong> {isId ? 'Selang output air (ke nozzle panel)' : 'Water output hose (to panel spray)'}
+                  </div>
+                  <div className="cs-hardware-legend-item">
+                    <strong>(c)</strong> {isId ? 'Pompa air DC 12V MOLLAR (14,4W)' : '12V DC MOLLAR water pump (14.4W)'}
+                  </div>
+                  <div className="cs-hardware-legend-item">
+                    <strong>(d)</strong> {isId ? 'Sensor suhu RTD PT1000' : 'PT1000 RTD temperature probe'}
+                  </div>
+                  <div className="cs-hardware-legend-item" style={{ gridColumn: 'span 2' }}>
+                    <strong>(e)</strong> {isId ? 'Selang input air (dari tandon penampung 20 Liter)' : 'Water inlet suction hose (from 20L reservoir)'}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </header>
