@@ -68,7 +68,7 @@ export const translations = {
         number: '03',
         label: 'KONTES ROBOT ABU INDONESIA (KRAI)',
         title: 'Basketball Competition Robot',
-        summary: 'Mobile basketball robot for Kontes Robot ABU Indonesia (KRAI). Served as a core mechanical team member designing the shooter, dribbler, and drive wheel configuration, advancing to the National Stage at ITB Jatinangor.',
+        summary: 'Mobile basketball robot for Kontes Robot ABU Indonesia (KRAI). Served as a mechanical team member designing the shooter, dribbler, and drive wheel configuration, advancing to the National Stage at ITB Jatinangor.',
         tags: ['6-Bar Pneumatics', '24V Solenoid', 'RS775 DC Motor', 'Omniwheel Drive', 'Limit Switch & IR', 'Air Regulator'],
         metrics: [
           ['Pneumatic', 'Shooting Mechanism'],
@@ -365,7 +365,7 @@ export const translations = {
         number: '03',
         label: 'KONTES ROBOT ABU INDONESIA (KRAI)',
         title: 'Kompetisi Robot Basket',
-        summary: 'Robot basket beroda untuk Kontes Robot ABU Indonesia (KRAI). Berperan sebagai anggota tim inti mekanik dalam merancang mekanisme shooter, dribbler, dan konfigurasi roda penggerak hingga lolos ke tingkat nasional di ITB Jatinangor.',
+        summary: 'Robot basket beroda untuk Kontes Robot ABU Indonesia (KRAI). Berperan sebagai anggota tim mekanik dalam merancang mekanisme shooter, dribbler, dan konfigurasi roda penggerak hingga lolos ke tingkat nasional di ITB Jatinangor.',
         tags: ['Pneumatik 6-Bar', 'Solenoid 24V', 'Motor DC RS775', 'Roda Omniwheel', 'Limit Switch & IR', 'Regulator Udara'],
         metrics: [
           ['Pneumatik', 'Sistem Pelontar Bola'],

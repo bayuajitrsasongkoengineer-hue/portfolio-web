@@ -178,7 +178,7 @@ const projects = [
     slug: 'krai-2025',
     category: 'KRAI COMPETITION · 2025',
     title: 'Robot Basketball Mechanisms',
-    summary: "Designed the precision dribble and pneumatic shooting mechanisms for Team ROOBICS (EIRRG Telkom University), qualifying and advancing to the National KRAI Stage at ITB Jatinangor.",
+    summary: "Designed the dribble and pneumatic shooting mechanisms for Team ROOBICS (EIRRG Telkom University), qualifying and advancing to the National KRAI Stage at ITB Jatinangor.",
     tags: ['Mechanism Design', 'Pneumatics', 'Robotics Competition'],
     image: 'krai_robot_hero.png',
     detailBanner: 'krai_robot_hero.png',

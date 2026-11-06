@@ -74,7 +74,7 @@ export default function KRAICaseStudy() {
               onClick={() => openZoom(
                 '/images/krai_robot_hero.png', 
                 lang === 'id' ? 'Robot Basket Kompetisi Tim ROOBICS' : 'Team ROOBICS Competition Basketball Robot', 
-                lang === 'id' ? 'Robot kompetisi fisik saat memegang bola basket FIBA, menampilkan rakitan dribbler, silinder pneumatik, tabung udara, dan chassis sirkuler 3-omni' : 'Physical competition robot with regulation FIBA basketball in possession, displaying dribbler assembly, pneumatic cylinders, air reservoirs, and circular 3-omni chassis'
+                lang === 'id' ? 'Robot kompetisi fisik saat memegang bola basket regulasi, menampilkan rakitan dribbler, silinder pneumatik, tabung udara, dan sasis 3 roda omni' : 'Physical competition robot with regulation basketball in possession, displaying dribbler assembly, pneumatic cylinders, air reservoirs, and 3-wheel omni chassis'
               )}
               title={c.clickToZoom}
             />
@@ -149,7 +149,7 @@ export default function KRAICaseStudy() {
             onClick={() => openZoom(
               '/images/krai_cad_mechanism_3.jpg', 
               t.section02.cadCaptions[2], 
-              lang === 'id' ? 'Pod roda omni traksi tinggi 120 derajat simetris, dudukan motor planetary, dan pelat struktural titik berat rendah' : '120-degree symmetrically spaced high-traction omni-wheel pods, planetary gear motor mountings, and low-center-of-gravity structural plate'
+              lang === 'id' ? 'Pod roda omni 120 derajat simetris, dudukan motor planetary gear, dan pelat dasar struktural' : '120-degree symmetrically spaced omni-wheel pods, planetary gear motor mountings, and base structural plate'
             )}
             title={c.clickToZoom}
           />
@@ -192,7 +192,7 @@ export default function KRAICaseStudy() {
               onClick={() => openZoom(
                 '/images/krai_base_omni_drive.jpeg', 
                 lang === 'id' ? 'Drivetrain Fisik Roda Omni 3-Wheel Holonomic' : 'Fabricated 3-Wheel Holonomic Omni Drivetrain', 
-                lang === 'id' ? 'Sasis fisik menampilkan pelat aluminium CNC, roda omni 120 derajat traksi tinggi, motor gear DC planetary torsi tinggi, dan kompartemen baterai rendah' : 'Physical chassis base displaying CNC aluminum plates, 120-degree high-traction omni-wheels, high-torque planetary DC gearmotors, and low-slung battery bay'
+                lang === 'id' ? 'Sasis fisik menampilkan pelat aluminium CNC, roda omni 120 derajat simetris, motor gear DC planetary, dan dudukan baterai' : 'Physical chassis base displaying CNC aluminum plates, 120-degree symmetrical omni-wheels, planetary DC gearmotors, and battery bay'
               )}
               title={c.clickToZoom}
             />
