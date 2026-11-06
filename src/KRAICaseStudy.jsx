@@ -127,29 +127,29 @@ export default function KRAICaseStudy() {
             onClick={() => openZoom(
               '/images/krai_cad_mechanism_1.jpg', 
               t.section02.cadCaptions[0], 
-              lang === 'id' ? 'Desain parametrik ruang akselerasi bola, dudukan motor, dan transmisi reduksi pulley custom' : 'Parametric CAD design of the ball acceleration chamber, motor bracket mounts, and custom pulley reduction transmission'
+              lang === 'id' ? 'Model 3D menara pelontar bola, dudukan 3 motor RS775, dan transmisi timing belt pulley' : '3D model of the ball shooter tower, 3x RS775 motor mounts, and timing belt pulley transmission'
             )}
             title={c.clickToZoom}
           />
           <img 
             src="/images/krai_cad_mechanism_2.jpg" 
-            alt="Dribbler & Feeder Mechanism CAD" 
+            alt="Dribbler Mechanism CAD" 
             style={{ height: '200px' }}
             onClick={() => openZoom(
               '/images/krai_cad_mechanism_2.jpg', 
               t.section02.cadCaptions[1], 
-              lang === 'id' ? 'Pemasangan silinder pneumatik dengan poros linier pemandu, housing sensor IR, dan geometri penahan bola' : 'Pneumatic cylinder attachment with guide linear shafts, IR sensor housing, and ball containment geometry'
+              lang === 'id' ? 'Model 3D mekanisme dribble dengan 1 silinder pendorong vertikal dan 2 silinder penggerak gripper' : '3D model of the dribble mechanism with 1 vertical pusher cylinder and 2 gripper cylinders'
             )}
             title={c.clickToZoom}
           />
           <img 
             src="/images/krai_cad_mechanism_3.jpg" 
-            alt="Holonomic 3-Omni Base Chassis CAD" 
+            alt="3-Omni Base Chassis CAD" 
             style={{ height: '200px' }}
             onClick={() => openZoom(
               '/images/krai_cad_mechanism_3.jpg', 
               t.section02.cadCaptions[2], 
-              lang === 'id' ? 'Pod roda omni 120 derajat simetris, dudukan motor planetary gear, dan pelat dasar struktural' : '120-degree symmetrically spaced omni-wheel pods, planetary gear motor mountings, and base structural plate'
+              lang === 'id' ? 'Model 3D sasis penggerak 3 roda omni dengan penataan simetris 120 derajat' : '3D model of the 3-wheel omni base chassis with 120-degree symmetrical spacing'
             )}
             title={c.clickToZoom}
           />
@@ -191,7 +191,7 @@ export default function KRAICaseStudy() {
               style={{ maxHeight: '320px', objectFit: 'contain' }}
               onClick={() => openZoom(
                 '/images/krai_base_omni_drive.jpeg', 
-                lang === 'id' ? 'Drivetrain Fisik Roda Omni 3-Wheel Holonomic' : 'Fabricated 3-Wheel Holonomic Omni Drivetrain', 
+                lang === 'id' ? 'Sasis Fisik Penggerak 3 Roda Omni' : 'Fabricated 3-Wheel Omni Drivetrain Chassis', 
                 lang === 'id' ? 'Sasis fisik menampilkan pelat aluminium CNC, roda omni 120 derajat simetris, motor gear DC planetary, dan dudukan baterai' : 'Physical chassis base displaying CNC aluminum plates, 120-degree symmetrical omni-wheels, planetary DC gearmotors, and battery bay'
               )}
               title={c.clickToZoom}
