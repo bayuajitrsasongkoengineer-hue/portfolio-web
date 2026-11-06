@@ -85,19 +85,97 @@ function tilt(strength = 6) {
 function useScrollSpy(ids) {
   const [active, setActive] = React.useState(ids[0]);
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < 120) {
+        setActive(ids[0]);
+        return;
+      }
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
+        setActive(ids[ids.length - 1]);
+        return;
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     const io = new IntersectionObserver(
       entries => {
-        entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+        entries.forEach(e => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
       },
-      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+      { rootMargin: '-25% 0px -50% 0px', threshold: 0 }
     );
     ids.forEach(id => {
       const el = document.getElementById(id);
       if (el) io.observe(el);
     });
-    return () => io.disconnect();
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      io.disconnect();
+    };
+  }, [ids.join(',')]);
   return active;
+}
+
+const SECTION_IDS = ['hero', 'projects', 'experience', 'skills', 'certifications', 'education', 'organizations', 'contact'];
+
+const SIDE_NAV_ITEMS = [
+  { id: 'hero', en: 'Home', idText: 'Beranda' },
+  { id: 'projects', en: 'Projects', idText: 'Proyek' },
+  { id: 'experience', en: 'Experience', idText: 'Pengalaman' },
+  { id: 'skills', en: 'Skills', idText: 'Keahlian' },
+  { id: 'certifications', en: 'Certifications', idText: 'Sertifikasi' },
+  { id: 'education', en: 'Education', idText: 'Pendidikan' },
+  { id: 'organizations', en: 'Organizations', idText: 'Organisasi' },
+  { id: 'contact', en: 'Contact', idText: 'Kontak' },
+];
+
+function SideDotNav({ activeSection }) {
+  const { lang } = useLang();
+  const [hoveredId, setHoveredId] = useState(null);
+
+  const handleClick = (e, id) => {
+    e.preventDefault();
+    if (id === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  return (
+    <nav className="fh-side-dots" aria-label="Section Navigation">
+      {SIDE_NAV_ITEMS.map((item) => {
+        const isActive = activeSection === item.id;
+        const isHovered = hoveredId === item.id;
+        const showLabel = isHovered || (!hoveredId && isActive);
+        const label = lang === 'id' ? item.idText : item.en;
+
+        return (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={`fh-side-dot-item ${isActive ? 'is-active' : ''}`}
+            onMouseEnter={() => setHoveredId(item.id)}
+            onMouseLeave={() => setHoveredId(null)}
+            onClick={(e) => handleClick(e, item.id)}
+            aria-label={label}
+            aria-current={isActive ? 'true' : undefined}
+          >
+            <span className={`fh-side-dot-label ${showLabel ? 'is-visible' : ''}`}>
+              {label}
+            </span>
+            <span className="fh-side-dot-bullet">
+              <span className="fh-side-dot-circle" />
+            </span>
+          </a>
+        );
+      })}
+    </nav>
+  );
 }
 
 /** Animated counter — counts from 0 to `target` when ref enters viewport */
@@ -742,7 +820,7 @@ function FigmaHome() {
   const { lang, t } = useLang();
   useScrollReveal();
   const profileRef = useParallax(16);
-  const activeSection = useScrollSpy(['projects', 'experience', 'skills', 'certifications', 'education', 'organizations', 'contact']);
+  const activeSection = useScrollSpy(SECTION_IDS);
 
   const disciplines = [
     [Boxes, 'Mechanical', '3D CAD modeling, mechanism design, and fabrication.'],
@@ -754,9 +832,10 @@ function FigmaHome() {
   return (
     <>
       <FigmaHeader activeSection={activeSection} />
+      <SideDotNav activeSection={activeSection} />
       <main className="fh-main">
         {/* SECTION: INTRODUCTION / HERO */}
-        <section className="fh-intro">
+        <section className="fh-intro" id="hero">
           <div className="fh-hero">
             <div className="fh-copy">
               <h1>{t.hero?.portfolioTitle || (lang === 'id' ? 'PORTOFOLIO' : 'PORTFOLIO')}</h1>
