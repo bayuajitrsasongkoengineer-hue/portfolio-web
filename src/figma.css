@@ -1492,9 +1492,10 @@ section[id] {
   box-shadow: 0 2px 10px rgba(240, 90, 34, 0.12);
 }
 
-.fh-side-dot-label.is-visible {
-  opacity: 1;
-  transform: translateX(0);
+.fh-side-dot-label.is-visible,
+.fh-side-dot-item:hover .fh-side-dot-label {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
 }
 
 .fh-side-dot-bullet {

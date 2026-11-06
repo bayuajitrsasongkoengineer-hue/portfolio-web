@@ -151,7 +151,7 @@ function SideDotNav({ activeSection }) {
       {SIDE_NAV_ITEMS.map((item) => {
         const isActive = activeSection === item.id;
         const isHovered = hoveredId === item.id;
-        const showLabel = isHovered || (!hoveredId && isActive);
+        const showLabel = isHovered;
         const label = lang === 'id' ? item.idText : item.en;
 
         return (
